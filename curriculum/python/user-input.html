@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - User Input</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+            <<h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>User Input</h2>
+                <p>User input allows your Python programs to interact with users by accepting data during runtime. Python provides built-in functions to read input from the keyboard, making programs more dynamic and interactive.</p>
+
+                <h3>The input() Function</h3>
+                <p>The primary function for reading user input:</p>
+                <pre><code># Basic input
+name = input("Enter your name: ")
+print(f"Hello, {name}!")
+
+# Input without prompt
+age = input()
+print(f"You entered: {age}")
+
+# Input with multi-line prompt
+user_input = input("""Enter something:
+> """)
+print(f"You typed: {user_input}")</code></pre>
+
+                <h3>Input Data Types</h3>
+                <p>input() always returns a string. Convert to other types as needed:</p>
+                <pre><code># String input (default)
+name = input("Enter your name: ")
+print(type(name))  # <class 'str'>
+
+# Integer input
+age = int(input("Enter your age: "))
+print(f"Next year you will be {age + 1}")
+
+# Float input
+height = float(input("Enter your height in meters: "))
+print(f"Your height is {height:.2f} meters")
+
+# Boolean input
+is_student = input("Are you a student? (yes/no): ").lower() == "yes"
+print(f"Student status: {is_student}")</code></pre>
+
+                <h3>Input Validation</h3>
+                <p>Handle invalid input gracefully:</p>
+                <pre><code># Basic validation with try-except
+def get_valid_age():
+    while True:
+        try:
+            age = int(input("Enter your age: "))
+            if age < 0:
+                print("Age cannot be negative. Try again.")
+                continue
+            if age > 150:
+                print("Age seems too high. Try again.")
+                continue
+            return age
+        except ValueError:
+            print("Please enter a valid number.")
+
+age = get_valid_age()
+print(f"Your age is: {age}")
+
+# Validation with conditional checks
+def get_yes_no(prompt):
+    while True:
+        response = input(prompt).lower().strip()
+        if response in ['yes', 'y', 'true', '1']:
+            return True
+        elif response in ['no', 'n', 'false', '0']:
+            return False
+        else:
+            print("Please enter yes or no.")
+
+likes_python = get_yes_no("Do you like Python? ")
+print(f"Likes Python: {likes_python}")</code></pre>
+
+                <h3>Multiple Input Values</h3>
+                <pre><code># Single line multiple inputs
+print("Enter three numbers separated by spaces:")
+a, b, c = map(int, input().split())
+print(f"Sum: {a + b + c}")
+
+# Multiple inputs with different types
+print("Enter name, age, and GPA:")
+name = input("Name: ")
+age = int(input("Age: "))
+gpa = float(input("GPA: "))
+
+print(f"Student: {name}, Age: {age}, GPA: {gpa}")
+
+# Input with custom separator
+data = input("Enter values separated by commas: ")
+values = [x.strip() for x in data.split(',')]
+print(f"Parsed values: {values}")</code></pre>
+
+                <h3>Advanced Input Techniques</h3>
+                <pre><code>import sys
+
+# Reading from stdin (useful for competitive programming)
+# data = sys.stdin.read()
+# lines = sys.stdin.readlines()
+
+# Password input (hides input - requires getpass module)
+from getpass import getpass
+
+# password = getpass("Enter password: ")  # Input hidden
+
+# Input with timeout (requires signal module)
+import signal
+
+def timeout_handler(signum, frame):
+    raise TimeoutError("Input timeout")
+
+def input_with_timeout(prompt, timeout=5):
+    signal.signal(signal.SIGALRM, timeout_handler)
+    signal.alarm(timeout)
+    try:
+        result = input(prompt)
+        signal.alarm(0)  # Cancel alarm
+        return result
+    except TimeoutError:
+        print("\nInput timeout!")
+        return None
+
+# result = input_with_timeout("Enter something: ", 3)</code></pre>
+
+                <h3>Input Buffering and Issues</h3>
+                <pre><code># Issue: newline character left in buffer
+print("Enter your name:")
+name = input()
+print("Enter your age:")
+age = input()  # This will work fine
+
+# Better approach: use single input calls
+name = input("Enter your name: ")
+age = input("Enter your age: ")
+
+# Handling empty input
+user_input = input("Enter something (or press Enter for default): ").strip()
+if not user_input:
+    user_input = "default value"
+print(f"Input: '{user_input}'")
+
+# Input with default values
+def get_input_with_default(prompt, default=""):
+    user_input = input(f"{prompt} (default: {default}): ").strip()
+    return user_input if user_input else default
+
+name = get_input_with_default("Enter your name", "Anonymous")
+print(f"Hello, {name}!")</code></pre>
+
+                <h3>Command Line Arguments</h3>
+                <p>Access arguments passed to the script:</p>
+                <pre><code>import sys
+
+# Script name and arguments
+print(f"Script name: {sys.argv[0]}")
+print(f"Number of arguments: {len(sys.argv) - 1}")
+
+if len(sys.argv) > 1:
+    print("Arguments:")
+    for i, arg in enumerate(sys.argv[1:], 1):
+        print(f"  {i}: {arg}")
+else:
+    print("No arguments provided")
+
+# Example usage: python script.py arg1 arg2 arg3</code></pre>
+
+                <h3>Input from Files</h3>
+                <pre><code># Reading from file instead of keyboard
+# Redirect stdin from file when running: python script.py < input.txt
+
+# Or read file directly
+def read_from_file(filename):
+    try:
+        with open(filename, 'r') as file:
+            content = file.read()
+            return content
+    except FileNotFoundError:
+        print(f"File {filename} not found")
+        return None
+
+# content = read_from_file("input.txt")
+# print(content)</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create an interactive quiz program:</p>
+                <ul>
+                    <li>Create a list of questions with multiple choice answers</li>
+                    <li>Prompt user for answers and validate input</li>
+                    <li>Keep track of score and provide feedback</li>
+                    <li>Handle invalid inputs gracefully</li>
+                    <li>Display final results with percentage</li>
+                    <li>Bonus: Add timer functionality and save results to file</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>def get_valid_choice(options):
+    """Get a valid choice from user."""
+    while True:
+        try:
+            choice = int(input("Your choice (1-4): "))
+            if 1 <= choice <= len(options):
+                return choice - 1  # Convert to 0-based index
+            else:
+                print(f"Please enter a number between 1 and {len(options)}")
+        except ValueError:
+            print("Please enter a valid number")
+
+def run_quiz():
+    """Run the interactive quiz."""
+    questions = [
+        {
+            "question": "What is the capital of France?",
+            "options": ["London", "Berlin", "Paris", "Madrid"],
+            "correct": 2
+        },
+        {
+            "question": "Which planet is known as the Red Planet?",
+            "options": ["Venus", "Mars", "Jupiter", "Saturn"],
+            "correct": 1
+        },
+        {
+            "question": "What is 2 + 2?",
+            "options": ["3", "4", "5", "6"],
+            "correct": 1
+        }
+    ]
+    
+    score = 0
+    
+    print("Welcome to the Quiz!")
+    print("=" * 30)
+    
+    for i, q in enumerate(questions, 1):
+        print(f"\nQuestion {i}: {q['question']}")
+        for j, option in enumerate(q['options'], 1):
+            print(f"{j}. {option}")
+        
+        user_choice = get_valid_choice(q['options'])
+        
+        if user_choice == q['correct']:
+            print("Correct!")
+            score += 1
+        else:
+            correct_answer = q['options'][q['correct']]
+            print(f"Incorrect. The correct answer is: {correct_answer}")
+    
+    print(f"\nQuiz completed!")
+    print(f"Your score: {score}/{len(questions)}")
+    percentage = (score / len(questions)) * 100
+    print(f"Percentage: {percentage:.1f}%")
+    
+    if percentage >= 80:
+        print("Excellent work!")
+    elif percentage >= 60:
+        print("Good job!")
+    else:
+        print("Keep practicing!")
+
+# Run the quiz
+run_quiz()</code></pre>
+
+                <h3>Quiz</h3>
+                <p>1. What does the input() function return by default?</p>
+                <ul>
+                    <li>An integer</li>
+                    <li>A float</li>
+                    <li>A string</li>
+                    <li>A boolean</li>
+                </ul>
+
+                <p>2. How do you convert input to an integer?</p>
+                <ul>
+                    <li>int(input())</li>
+                    <li>float(input())</li>
+                    <li>str(input())</li>
+                    <li>bool(input())</li>
+                </ul>
+
+                <p>3. What exception is raised when int() cannot convert a string?</p>
+                <ul>
+                    <li>TypeError</li>
+                    <li>ValueError</li>
+                    <li>IndexError</li>
+                    <li>KeyError</li>
+                </ul>
+
+                <p>4. How do you read command line arguments in Python?</p>
+                <ul>
+                    <li>input()</li>
+                    <li>sys.argv</li>
+                    <li>os.args</li>
+                    <li>argparse</li>
+                </ul>
+
+                <p>5. What method can be used to handle input timeouts?</p>
+                <ul>
+                    <li>signal.alarm()</li>
+                    <li>time.sleep()</li>
+                    <li>threading.Timer()</li>
+                    <li>All of the above</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

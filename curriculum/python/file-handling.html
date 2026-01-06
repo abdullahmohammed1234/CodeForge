@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - File Handling</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+          <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>File Handling</h2>
+                <p>File handling in Python allows your programs to read from and write to files on your computer's storage system. This is essential for data persistence, configuration management, logging, and processing large amounts of data. Python provides built-in functions and methods that make file operations straightforward and safe.</p>
+
+                <h3>Why File Handling Matters</h3>
+                <p>File operations are crucial for:</p>
+                <ul>
+                    <li><strong>Data Persistence:</strong> Save program data between runs</li>
+                    <li><strong>Configuration:</strong> Load settings and preferences</li>
+                    <li><strong>Logging:</strong> Record program activity and errors</li>
+                    <li><strong>Data Processing:</strong> Read and analyze large datasets</li>
+                    <li><strong>User Data:</strong> Import/export user-generated content</li>
+                    <li><strong>Backup and Recovery:</strong> Save and restore application state</li>
+                </ul>
+
+                <h3>Opening Files</h3>
+                <p>The open() function is the primary way to access files:</p>
+                <pre><code># Basic syntax
+file = open(filename, mode)
+
+# Common modes:
+# 'r' - read (default)
+# 'w' - write (creates new file or truncates existing)
+# 'a' - append (adds to end of file)
+# 'x' - exclusive creation (fails if file exists)
+# 'b' - binary mode
+# 't' - text mode (default)
+
+# Examples
+read_file = open('example.txt', 'r')      # Read text file
+write_file = open('output.txt', 'w')      # Write text file
+append_file = open('log.txt', 'a')        # Append to text file
+binary_file = open('image.jpg', 'rb')     # Read binary file</code></pre>
+
+                <h3>Reading Files</h3>
+                <p>Several methods to read file content:</p>
+                <pre><code># Method 1: read() - Read entire file as string
+with open('example.txt', 'r') as file:
+    content = file.read()
+    print(content)
+
+# Method 2: readline() - Read one line at a time
+with open('example.txt', 'r') as file:
+    line = file.readline()
+    while line:
+        print(line.strip())  # strip() removes newline
+        line = file.readline()
+
+# Method 3: readlines() - Read all lines into a list
+with open('example.txt', 'r') as file:
+    lines = file.readlines()
+    for line in lines:
+        print(line.strip())
+
+# Method 4: Iterate directly over file object
+with open('example.txt', 'r') as file:
+    for line in file:
+        print(line.strip())</code></pre>
+
+                <h3>Writing Files</h3>
+                <p>Writing text to files:</p>
+                <pre><code># Write mode ('w') - Creates new file or overwrites existing
+with open('output.txt', 'w') as file:
+    file.write("Hello, World!\n")
+    file.write("This is a new line.\n")
+
+# Append mode ('a') - Adds to end of existing file
+with open('log.txt', 'a') as file:
+    file.write("Program started at " + str(datetime.now()) + "\n")
+
+# Writing multiple lines
+lines = ["Line 1", "Line 2", "Line 3"]
+with open('multiple_lines.txt', 'w') as file:
+    for line in lines:
+        file.write(line + "\n")
+
+# Using writelines() - Note: doesn't add newlines automatically
+with open('writelines_example.txt', 'w') as file:
+    file.writelines([line + "\n" for line in lines])</code></pre>
+
+                <h3>Context Managers (with Statement)</h3>
+                <p>The with statement ensures files are properly closed:</p>
+                <pre><code># Recommended way - automatic cleanup
+with open('example.txt', 'r') as file:
+    content = file.read()
+    # File is automatically closed here
+
+# Without with statement - manual cleanup required
+file = open('example.txt', 'r')
+try:
+    content = file.read()
+finally:
+    file.close()  # Must remember to close!
+
+# Multiple files
+with open('input.txt', 'r') as input_file, open('output.txt', 'w') as output_file:
+    for line in input_file:
+        output_file.write(line.upper())</code></pre>
+
+                <h3>File Modes and Operations</h3>
+                <table>
+                    <tr>
+                        <th>Mode</th>
+                        <th>Description</th>
+                        <th>Creates File?</th>
+                        <th>Overwrites?</th>
+                    </tr>
+                    <tr>
+                        <td>'r'</td>
+                        <td>Read only</td>
+                        <td>No</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>'w'</td>
+                        <td>Write only</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>'a'</td>
+                        <td>Append</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>'x'</td>
+                        <td>Exclusive creation</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>'r+'</td>
+                        <td>Read and write</td>
+                        <td>No</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>'w+'</td>
+                        <td>Read and write</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                </table>
+
+                <h3>Working with File Paths</h3>
+                <p>Handling file paths properly:</p>
+                <pre><code>import os
+
+# Get current working directory
+current_dir = os.getcwd()
+print(f"Current directory: {current_dir}")
+
+# Join paths (cross-platform)
+file_path = os.path.join('data', 'input.txt')
+print(f"Full path: {file_path}")
+
+# Check if file exists
+if os.path.exists('example.txt'):
+    print("File exists")
+else:
+    print("File does not exist")
+
+# Get file information
+if os.path.exists('example.txt'):
+    size = os.path.getsize('example.txt')
+    modified = os.path.getmtime('example.txt')
+    print(f"Size: {size} bytes")
+    print(f"Last modified: {modified}")
+
+# List files in directory
+files = os.listdir('.')
+print("Files in current directory:")
+for file in files:
+    if os.path.isfile(file):
+        print(f"  {file}")</code></pre>
+
+                <h3>Binary File Operations</h3>
+                <p>Reading and writing binary data:</p>
+                <pre><code># Reading binary file
+with open('image.jpg', 'rb') as binary_file:
+    data = binary_file.read()
+    print(f"Read {len(data)} bytes")
+
+# Writing binary data
+with open('copy.jpg', 'wb') as output_file:
+    output_file.write(data)
+
+# Copying files in chunks (memory efficient)
+def copy_file(source, destination, chunk_size=4096):
+    with open(source, 'rb') as src, open(destination, 'wb') as dst:
+        while True:
+            chunk = src.read(chunk_size)
+            if not chunk:
+                break
+            dst.write(chunk)
+
+copy_file('large_file.dat', 'large_file_copy.dat')</code></pre>
+
+                <h3>Error Handling</h3>
+                <p>Handling file operation errors:</p>
+                <pre><code>def safe_read_file(filename):
+    try:
+        with open(filename, 'r') as file:
+            return file.read()
+    except FileNotFoundError:
+        print(f"Error: File '{filename}' not found")
+        return None
+    except PermissionError:
+        print(f"Error: No permission to read '{filename}'")
+        return None
+    except Exception as e:
+        print(f"Error reading file: {e}")
+        return None
+
+# Using the safe function
+content = safe_read_file('example.txt')
+if content is not None:
+    print(content)
+
+# Handling write errors
+try:
+    with open('/restricted/path/file.txt', 'w') as file:
+        file.write("Hello")
+except PermissionError:
+    print("Cannot write to this location")
+except OSError as e:
+    print(f"OS error: {e}")</code></pre>
+
+                <h3>Working with CSV Files</h3>
+                <p>Python's csv module for structured data:</p>
+                <pre><code>import csv
+
+# Writing CSV
+data = [
+    ['Name', 'Age', 'City'],
+    ['Alice', 25, 'New York'],
+    ['Bob', 30, 'Los Angeles'],
+    ['Charlie', 35, 'Chicago']
+]
+
+with open('people.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerows(data)
+
+# Reading CSV
+with open('people.csv', 'r') as csvfile:
+    reader = csv.reader(csvfile)
+    for row in reader:
+        print(', '.join(row))
+
+# Using DictReader for named columns
+with open('people.csv', 'r') as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        print(f"{row['Name']} is {row['Age']} years old and lives in {row['City']}")</code></pre>
+
+                <h3>JSON File Operations</h3>
+                <p>Working with JSON data:</p>
+                <pre><code>import json
+
+# Writing JSON
+data = {
+    "name": "Alice",
+    "age": 25,
+    "city": "New York",
+    "hobbies": ["reading", "coding", "gaming"]
+}
+
+with open('person.json', 'w') as jsonfile:
+    json.dump(data, jsonfile, indent=2)
+
+# Reading JSON
+with open('person.json', 'r') as jsonfile:
+    loaded_data = json.load(jsonfile)
+    print(loaded_data)
+    print(f"Name: {loaded_data['name']}")
+    print(f"First hobby: {loaded_data['hobbies'][0]}")
+
+# Pretty printing JSON
+print(json.dumps(data, indent=2))</code></pre>
+
+                <h3>File and Directory Operations</h3>
+                <p>Advanced file system operations:</p>
+                <pre><code>import os
+import shutil
+
+# Create directory
+os.makedirs('data/backup', exist_ok=True)
+
+# Copy file
+shutil.copy('source.txt', 'destination.txt')
+
+# Move/rename file
+shutil.move('old_name.txt', 'new_name.txt')
+
+# Remove file
+if os.path.exists('temp.txt'):
+    os.remove('temp.txt')
+
+# Remove directory (must be empty)
+if os.path.exists('empty_dir'):
+    os.rmdir('empty_dir')
+
+# Remove directory tree
+if os.path.exists('data_dir'):
+    shutil.rmtree('data_dir')
+
+# Get file extension
+filename = 'document.pdf'
+name, extension = os.path.splitext(filename)
+print(f"Name: {name}, Extension: {extension}")
+
+# Find files with specific extension
+def find_files(directory, extension):
+    matches = []
+    for root, dirs, files in os.walk(directory):
+        for file in files:
+            if file.endswith(extension):
+                matches.append(os.path.join(root, file))
+    return matches
+
+python_files = find_files('.', '.py')
+print(f"Found {len(python_files)} Python files")</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a personal expense tracker with file persistence:</p>
+                <ul>
+                    <li>Create functions to add, view, and categorize expenses</li>
+                    <li>Save expense data to a file (CSV or JSON)</li>
+                    <li>Load expenses from file on program start</li>
+                    <li>Generate reports (total spending, category breakdown)</li>
+                    <li>Implement data validation and error handling</li>
+                    <li>Add search and filter functionality</li>
+                    <li>Bonus: Export reports to different formats</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>import json
+import os
+from datetime import datetime
+from collections import defaultdict
+
+class ExpenseTracker:
+    def __init__(self, filename="expenses.json"):
+        self.filename = filename
+        self.expenses = []
+        self.load_expenses()
+
+    def load_expenses(self):
+        """Load expenses from file"""
+        if os.path.exists(self.filename):
+            try:
+                with open(self.filename, 'r') as file:
+                    self.expenses = json.load(file)
+                    # Convert date strings back to datetime objects
+                    for expense in self.expenses:
+                        expense['date'] = datetime.fromisoformat(expense['date'])
+            except (json.JSONDecodeError, ValueError) as e:
+                print(f"Error loading expenses: {e}")
+                self.expenses = []
+
+    def save_expenses(self):
+        """Save expenses to file"""
+        try:
+            # Convert datetime objects to strings for JSON serialization
+            expenses_to_save = []
+            for expense in self.expenses:
+                expense_copy = expense.copy()
+                expense_copy['date'] = expense['date'].isoformat()
+                expenses_to_save.append(expense_copy)
+
+            with open(self.filename, 'w') as file:
+                json.dump(expenses_to_save, file, indent=2)
+        except Exception as e:
+            print(f"Error saving expenses: {e}")
+
+    def add_expense(self, amount, description, category):
+        """Add a new expense"""
+        if amount <= 0:
+            raise ValueError("Amount must be positive")
+
+        expense = {
+            'id': len(self.expenses) + 1,
+            'amount': amount,
+            'description': description,
+            'category': category,
+            'date': datetime.now()
+        }
+
+        self.expenses.append(expense)
+        self.save_expenses()
+        print(f"Added expense: ${amount:.2f} for {description}")
+
+    def view_expenses(self, limit=None):
+        """View all expenses"""
+        if not self.expenses:
+            print("No expenses recorded yet.")
+            return
+
+        expenses_to_show = self.expenses[-limit:] if limit else self.expenses
+
+        print(f"\n{'ID':<3} {'Date':<12} {'Category':<12} {'Amount':<8} {'Description'}")
+        print("-" * 60)
+
+        for expense in expenses_to_show:
+            date_str = expense['date'].strftime('%Y-%m-%d')
+            print(f"{expense['id']:<3} {date_str:<12} {expense['category']:<12} ${expense['amount']:<7.2f} {expense['description']}")
+
+    def get_total_spending(self):
+        """Calculate total spending"""
+        return sum(expense['amount'] for expense in self.expenses)
+
+    def get_category_breakdown(self):
+        """Get spending breakdown by category"""
+        categories = defaultdict(float)
+        for expense in self.expenses:
+            categories[expense['category']] += expense['amount']
+        return dict(categories)
+
+    def search_expenses(self, query):
+        """Search expenses by description"""
+        query = query.lower()
+        results = [exp for exp in self.expenses
+                  if query in exp['description'].lower() or
+                     query in exp['category'].lower()]
+        return results
+
+    def generate_report(self):
+        """Generate a spending report"""
+        if not self.expenses:
+            print("No expenses to report.")
+            return
+
+        total = self.get_total_spending()
+        categories = self.get_category_breakdown()
+
+        print("\n" + "="*40)
+        print("      EXPENSE REPORT")
+        print("="*40)
+        print(f"Total Expenses: ${total:.2f}")
+        print(f"Number of Transactions: {len(self.expenses)}")
+
+        if self.expenses:
+            avg_expense = total / len(self.expenses)
+            print(f"Average Expense: ${avg_expense:.2f}")
+
+        print("\nSpending by Category:")
+        for category, amount in sorted(categories.items(), key=lambda x: x[1], reverse=True):
+            percentage = (amount / total) * 100
+            print(f"  {category}: ${amount:.2f} ({percentage:.1f}%)")
+
+        # Recent expenses
+        print(f"\nRecent Expenses (last 5):")
+        self.view_expenses(limit=5)
+
+def main():
+    tracker = ExpenseTracker()
+
+    while True:
+        print("\n" + "="*35)
+        print("    EXPENSE TRACKER")
+        print("="*35)
+        print("1. Add Expense")
+        print("2. View All Expenses")
+        print("3. View Recent Expenses")
+        print("4. Generate Report")
+        print("5. Search Expenses")
+        print("6. Exit")
+        print("="*35)
+
+        choice = input("Enter your choice (1-6): ").strip()
+
+        try:
+            if choice == "1":
+                amount = float(input("Enter amount: $"))
+                description = input("Enter description: ").strip()
+                category = input("Enter category (Food, Transport, Entertainment, etc.): ").strip()
+                tracker.add_expense(amount, description, category)
+
+            elif choice == "2":
+                tracker.view_expenses()
+
+            elif choice == "3":
+                limit = int(input("How many recent expenses to show? "))
+                tracker.view_expenses(limit=limit)
+
+            elif choice == "4":
+                tracker.generate_report()
+
+            elif choice == "5":
+                query = input("Enter search term: ").strip()
+                results = tracker.search_expenses(query)
+                if results:
+                    print(f"\nFound {len(results)} matching expenses:")
+                    for expense in results:
+                        date_str = expense['date'].strftime('%Y-%m-%d')
+                        print(f"  {date_str} - {expense['category']} - ${expense['amount']:.2f} - {expense['description']}")
+                else:
+                    print("No expenses found matching your search.")
+
+            elif choice == "6":
+                print("Thank you for using Expense Tracker!")
+                break
+
+            else:
+                print("Invalid choice. Please select 1-6.")
+
+        except ValueError as e:
+            print(f"Invalid input: {e}")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+        input("\nPress Enter to continue...")
+
+if __name__ == "__main__":
+    main()</code></pre>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Always use the <code>with</code> statement for file operations</li>
+                    <li>Handle exceptions properly</li>
+                    <li>Check file permissions before operations</li>
+                    <li>Use appropriate file modes</li>
+                    <li>Validate file paths</li>
+                    <li>Consider encoding for text files</li>
+                    <li>Backup important files before modification</li>
+                    <li>Use relative paths when possible</li>
+                </ul>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Forgetting to close files (use <code>with</code> statement)</li>
+                    <li>Not handling file not found errors</li>
+                    <li>Using wrong file modes</li>
+                    <li>Assuming file encoding (specify explicitly)</li>
+                    <li>Not checking if file exists before operations</li>
+                    <li>Mixing text and binary modes</li>
+                    <li>Hardcoding file paths</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. Which statement ensures a file is properly closed?</p>
+                <ul>
+                    <li>file.close()</li>
+                    <li>with open() as file:</li>
+                    <li>file = open()</li>
+                    <li>file.read()</li>
+                </ul>
+
+                <p>2. What does the 'w' mode do?</p>
+                <ul>
+                    <li>Reads from file</li>
+                    <li>Writes to file, overwriting existing content</li>
+                    <li>Appends to file</li>
+                    <li>Creates exclusive file</li>
+                </ul>
+
+                <p>3. Which method reads all lines into a list?</p>
+                <ul>
+                    <li>read()</li>
+                    <li>readline()</li>
+                    <li>readlines()</li>
+                    <li>readall()</li>
+                </ul>
+
+                <p>4. What exception is raised when a file doesn't exist?</p>
+                <ul>
+                    <li>IOError</li>
+                    <li>FileNotFoundError</li>
+                    <li>PermissionError</li>
+                    <li>ValueError</li>
+                </ul>
+
+                <p>5. What does 'rb' mode mean?</p>
+                <ul>
+                    <li>Read binary</li>
+                    <li>Read and write binary</li>
+                    <li>Read text</li>
+                    <li>Read and append</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Casting</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+        <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Casting</h2>
+                <p>Casting in C++ is the process of converting a value from one data type to another. C++ provides several casting mechanisms, each designed for different scenarios and safety levels. Understanding casting is crucial for working with different data types and ensuring type safety.</p>
+
+                <h3>Why Casting is Needed</h3>
+                <ul>
+                    <li>Converting between compatible types</li>
+                    <li>Working with inheritance hierarchies</li>
+                    <li>Interfacing with C functions</li>
+                    <li>Performing arithmetic operations on mixed types</li>
+                    <li>Storing different types in the same memory location</li>
+                </ul>
+
+                <h3>C-Style Casting</h3>
+                <p>The traditional C-style cast uses parentheses:</p>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    double pi = 3.14159;
+    int integer_pi = (int)pi;  // C-style cast
+    
+    std::cout << "Double: " << pi << std::endl;
+    std::cout << "Integer: " << integer_pi << std::endl;  // 3
+    
+    char letter = 'A';
+    int ascii_value = (int)letter;
+    std::cout << "ASCII value of 'A': " << ascii_value << std::endl;  // 65
+    
+    return 0;
+}</code></pre>
+                <p><strong>Warning:</strong> C-style casts are unsafe and can lead to undefined behavior.</p>
+
+                <h3>static_cast</h3>
+                <p>The safest and most commonly used cast for well-defined conversions:</p>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    // Numeric conversions
+    double d = 3.14159;
+    int i = static_cast&lt;int&gt;(d);
+    std::cout << "static_cast double to int: " << i << std::endl;
+    
+    // Pointer conversions within inheritance hierarchy
+    class Base {
+    public:
+        virtual void print() { std::cout << "Base" << std::endl; }
+    };
+    
+    class Derived : public Base {
+    public:
+        void print() override { std::cout << "Derived" << std::endl; }
+    };
+    
+    Derived d_obj;
+    Base* b_ptr = static_cast&lt;Base*&gt;(&d_obj);  // Upcasting - safe
+    b_ptr->print();  // Calls Derived::print() due to virtual function
+    
+    return 0;
+}</code></pre>
+
+                <h3>dynamic_cast</h3>
+                <p>Used for safe downcasting in inheritance hierarchies with runtime type checking:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;typeinfo&gt;
+
+class Base {
+public:
+    virtual ~Base() {}  // Virtual destructor for polymorphic class
+    virtual void print() { std::cout << "Base" << std::endl; }
+};
+
+class Derived : public Base {
+public:
+    void print() override { std::cout << "Derived" << std::endl; }
+    void derived_only() { std::cout << "Derived only method" << std::endl; }
+};
+
+class Other : public Base {
+public:
+    void print() override { std::cout << "Other" << std::endl; }
+};
+
+int main() {
+    Base* b1 = new Derived();
+    Base* b2 = new Other();
+    
+    // Safe downcasting
+    Derived* d1 = dynamic_cast&lt;Derived*&gt;(b1);
+    if (d1) {
+        std::cout << "Successfully cast to Derived: ";
+        d1->derived_only();
+    } else {
+        std::cout << "Cast failed" << std::endl;
+    }
+
+    Derived* d2 = dynamic_cast&lt;Derived*&gt;(b2);
+    if (d2) {
+        std::cout << "Successfully cast to Derived" << std::endl;
+    } else {
+        std::cout << "Cast failed - b2 is not a Derived object" << std::endl;
+    }
+    
+    delete b1;
+    delete b2;
+    
+    return 0;
+}</code></pre>
+
+                <h3>const_cast</h3>
+                <p>Used to add or remove const qualification:</p>
+                <pre><code>#include &lt;iostream&gt;
+
+void modify_value(int* ptr) {
+    *ptr = 42;
+}
+
+int main() {
+    const int value = 10;
+    // modify_value(&value);  // Error: cannot convert const int* to int*
+    
+    // Remove const qualification
+    int* modifiable = const_cast&lt;int*&gt;(&value);
+    modify_value(modifiable);  // Dangerous! Modifying const value
+    
+    std::cout << "Value: " << value << std::endl;  // Undefined behavior
+    
+    return 0;
+}</code></pre>
+                <p><strong>Warning:</strong> const_cast can lead to undefined behavior when modifying truly const values.</p>
+
+                <h3>reinterpret_cast</h3>
+                <p>The most dangerous cast - converts between unrelated types:</p>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int value = 42;
+    int* int_ptr = &amp;value;
+    
+    // Convert int pointer to char pointer
+    char* char_ptr = reinterpret_cast&lt;char*&gt;(int_ptr);
+    
+    // Access individual bytes
+    std::cout << "Bytes of int 42: ";
+    for (int i = 0; i < sizeof(int); i++) {
+        std::cout << static_cast&lt;int&gt;(char_ptr[i]) << " ";
+    }
+    std::cout << std::endl;
+    
+    // Convert back
+    int* back_to_int = reinterpret_cast&lt;int*&gt;(char_ptr);
+    std::cout << "Back to int: " << *back_to_int << std::endl;
+    
+    return 0;
+}</code></pre>
+                <p><strong>Warning:</strong> reinterpret_cast should be used sparingly and with great caution.</p>
+
+                <h3>Type Conversion Operators</h3>
+                <p>C++11 introduced explicit type conversion operators:</p>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    double d = 3.14159;
+    
+    // Functional cast syntax
+    int i1 = int(d);
+    int i2 = static_cast&lt;int&gt;(d);
+    
+    std::cout << "Functional cast: " << i1 << std::endl;
+    std::cout << "static_cast: " << i2 << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Implicit Conversions</h3>
+                <p>C++ automatically performs some conversions:</p>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int i = 42;
+    double d = i;  // int to double - safe
+    
+    std::cout << "int to double: " << d << std::endl;
+    
+    double pi = 3.14159;
+    int truncated = pi;  // double to int - potential data loss
+    
+    std::cout << "double to int: " << truncated << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>User-Defined Conversion</h3>
+                <p>Classes can define conversion operators:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+class Temperature {
+private:
+    double celsius;
+public:
+    Temperature(double c) : celsius(c) {}
+    
+    // Conversion to double
+    operator double() const {
+        return celsius;
+    }
+    
+    // Conversion to string
+    operator std::string() const {
+        return std::to_string(celsius) + "°C";
+    }
+};
+
+int main() {
+    Temperature temp(25.0);
+    
+    // Implicit conversion to double
+    double celsius = temp;
+    std::cout << "Celsius: " << celsius << std::endl;
+    
+    // Implicit conversion to string
+    std::string str = temp;
+    std::cout << "String: " << str << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Casting Best Practices</h3>
+                <ul>
+                    <li>Use static_cast for most conversions</li>
+                    <li>Use dynamic_cast for polymorphic types</li>
+                    <li>Avoid const_cast unless absolutely necessary</li>
+                    <li>Use reinterpret_cast only when you know exactly what you're doing</li>
+                    <li>Prefer explicit conversions over implicit ones</li>
+                    <li>Consider using modern C++ features instead of C-style casts</li>
+                </ul>
+
+                <h3>Mini Project</h3>
+                <p>Create a type-safe calculator that demonstrates various casting techniques:</p>
+                <ul>
+                    <li>Implement safe numeric conversions with range checking</li>
+                    <li>Create a class hierarchy with virtual functions and demonstrate dynamic_cast</li>
+                    <li>Implement string-to-number conversion with error handling</li>
+                    <li>Use static_cast for safe conversions within the hierarchy</li>
+                    <li>Bonus: Add support for custom unit conversions (temperature, distance, etc.)</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;limits&gt;
+#include &lt;stdexcept&gt;
+
+class ConversionError : public std::runtime_error {
+public:
+    ConversionError(const std::string& msg) : std::runtime_error(msg) {}
+};
+
+// Safe numeric conversion with range checking
+template&lt;typename To, typename From&gt;
+To safe_cast(From value) {
+    if (value > std::numeric_limits&lt;To&gt;::max() ||
+        value < std::numeric_limits&lt;To&gt;::min()) {
+        throw ConversionError("Value out of range for target type");
+    }
+    return static_cast&lt;To&gt;(value);
+}
+
+// String to number conversion
+double string_to_double(const std::string& str) {
+    try {
+        return std::stod(str);
+    } catch (const std::invalid_argument&) {
+        throw ConversionError("Invalid number format");
+    } catch (const std::out_of_range&) {
+        throw ConversionError("Number out of range");
+    }
+}
+
+class Shape {
+public:
+    virtual ~Shape() {}
+    virtual double area() const = 0;
+    virtual void print() const { std::cout << "Shape" << std::endl; }
+};
+
+class Circle : public Shape {
+private:
+    double radius;
+public:
+    Circle(double r) : radius(r) {}
+    double area() const override { return 3.14159 * radius * radius; }
+    void print() const override { std::cout << "Circle" << std::endl; }
+    double get_radius() const { return radius; }
+};
+
+class Rectangle : public Shape {
+private:
+    double width, height;
+public:
+    Rectangle(double w, double h) : width(w), height(h) {}
+    double area() const override { return width * height; }
+    void print() const override { std::cout << "Rectangle" << std::endl; }
+};
+
+int main() {
+    try {
+        // Safe numeric conversion
+        double d = 3.14159;
+        int i = safe_cast&lt;int&gt;(d);
+        std::cout << "Converted " << d << " to " << i << std::endl;
+        
+        // String to number
+        std::string num_str = "42.5";
+        double num = string_to_double(num_str);
+        std::cout << "Converted '" << num_str << "' to " << num << std::endl;
+        
+        // Polymorphic casting
+        Shape* shapes[2];
+        shapes[0] = new Circle(5.0);
+        shapes[1] = new Rectangle(4.0, 6.0);
+        
+        for (Shape* shape : shapes) {
+            shape->print();
+            std::cout << "Area: " << shape->area() << std::endl;
+            
+            // Safe downcasting
+            if (Circle* circle = dynamic_cast&lt;Circle*&gt;(shape)) {
+                std::cout << "Radius: " << circle->get_radius() << std::endl;
+            }
+        }
+        
+        delete shapes[0];
+        delete shapes[1];
+        
+    } catch (const ConversionError& e) {
+        std::cerr << "Conversion error: " << e.what() << std::endl;
+    }
+    
+    return 0;
+}</code></pre>
+
+                <h3>Quiz</h3>
+                <p>1. Which cast is generally considered the safest for well-defined conversions?</p>
+                <ul>
+                    <li>static_cast</li>
+                    <li>dynamic_cast</li>
+                    <li>const_cast</li>
+                    <li>reinterpret_cast</li>
+                </ul>
+
+                <p>2. What does dynamic_cast do?</p>
+                <ul>
+                    <li>Converts any type to any other type</li>
+                    <li>Safely converts pointers in inheritance hierarchies</li>
+                    <li>Removes const qualification</li>
+                    <li>Converts between unrelated pointer types</li>
+                </ul>
+
+                <p>3. When should you use const_cast?</p>
+                <ul>
+                    <li>To convert between numeric types</li>
+                    <li>To add or remove const qualification</li>
+                    <li>To convert between class pointers</li>
+                    <li>To convert pointers to different types</li>
+                </ul>
+
+                <p>4. What is the most dangerous type of cast?</p>
+                <ul>
+                    <li>static_cast</li>
+                    <li>dynamic_cast</li>
+                    <li>const_cast</li>
+                    <li>reinterpret_cast</li>
+                </ul>
+
+                <p>5. What happens with implicit conversions in C++?</p>
+                <ul>
+                    <li>They always require explicit syntax</li>
+                    <li>They are performed automatically by the compiler</li>
+                    <li>They can only convert between numeric types</li>
+                    <li>They require runtime type checking</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

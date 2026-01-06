@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - C++ Pointers</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+      <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+      <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers" class="active">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>C++ Pointers</h2>
+                <p>Pointers are one of the most powerful and challenging features of C++. They store memory addresses and allow direct memory manipulation. Understanding pointers is essential for efficient programming, dynamic memory management, and working with complex data structures.</p>
+
+                <h3>What is a Pointer?</h3>
+                <p>A pointer is a variable that stores the memory address of another variable. Instead of holding a data value directly, it holds the location where that data is stored in memory.</p>
+
+                <h4>Why Use Pointers?</h4>
+                <ul>
+                    <li><strong>Dynamic Memory:</strong> Allocate memory at runtime</li>
+                    <li><strong>Efficiency:</strong> Pass large objects by reference</li>
+                    <li><strong>Data Structures:</strong> Create linked lists, trees, graphs</li>
+                    <li><strong>System Programming:</strong> Direct hardware access</li>
+                    <li><strong>Function Pointers:</strong> Call functions dynamically</li>
+                </ul>
+
+                <h3>Pointer Declaration and Initialization</h3>
+                <pre><code>// Basic pointer declaration
+int* ptr;        // Pointer to int
+double* dPtr;    // Pointer to double
+char* cPtr;      // Pointer to char
+
+// Declaration with initialization
+int x = 42;
+int* ptr = &amp;x;   // ptr now holds address of x
+
+// Null pointer (C++11)
+int* nullPtr = nullptr;
+
+// Multiple pointers
+int* p1, *p2, normalVar;  // p1 and p2 are pointers, normalVar is int</code></pre>
+
+                <h3>Address-of Operator (&)</h3>
+                <p>The address-of operator (&) gets the memory address of a variable:</p>
+                <pre><code>int x = 42;
+int* ptr = &amp;x;  // ptr stores the address of x
+
+std::cout << "Value of x: " << x << std::endl;
+std::cout << "Address of x: " << &x << std::endl;
+std::cout << "Value of ptr: " << ptr << std::endl;  // Same as &x</code></pre>
+
+                <h3>Dereference Operator (*)</h3>
+                <p>The dereference operator (*) accesses the value at the address stored in a pointer:</p>
+                <pre><code>int x = 42;
+int* ptr = &amp;x;
+
+std::cout << "x = " << x << std::endl;
+std::cout << "*ptr = " << *ptr << std::endl;  // Same value as x
+
+// Modify value through pointer
+*ptr = 100;
+std::cout << "After modification: x = " << x << std::endl;  // x is now 100</code></pre>
+
+                <h3>Null Pointers and nullptr</h3>
+                <pre><code>// Traditional null pointer
+int* ptr1 = NULL;    // From &lt;cstdlib&gt;
+int* ptr2 = 0;
+
+// Modern null pointer (C++11)
+int* ptr3 = nullptr;
+
+// Check for null pointer
+if (ptr3 == nullptr) {
+    std::cout << "Pointer is null" << std::endl;
+}
+
+// Always initialize pointers
+int* safePtr = nullptr;  // Good practice</code></pre>
+
+                <h3>Pointer Arithmetic</h3>
+                <p>Pointers can be incremented/decremented to point to next/previous memory locations:</p>
+                <pre><code>int arr[] = {10, 20, 30, 40, 50};
+int* ptr = arr;  // Points to arr[0]
+
+std::cout << "First element: " << *ptr << std::endl;     // 10
+
+ptr++;  // Move to next int (4 bytes ahead)
+std::cout << "Second element: " << *ptr << std::endl;    // 20
+
+ptr += 2;  // Skip two elements
+std::cout << "Fourth element: " << *ptr << std::endl;    // 40
+
+// Pointer subtraction
+int* ptr2 = &arr[4];
+int distance = ptr2 - ptr;  // Distance between pointers
+std::cout << "Distance: " << distance << std::endl;</code></pre>
+
+                <h3>Pointers and Arrays</h3>
+                <p>Arrays and pointers are closely related in C++:</p>
+                <pre><code>int arr[] = {1, 2, 3, 4, 5};
+int* ptr = arr;  // ptr points to first element
+
+// These are equivalent:
+std::cout << arr[0] << std::endl;    // Using array notation
+std::cout << *ptr << std::endl;      // Using pointer notation
+std::cout << *(arr + 0) << std::endl; // Using pointer arithmetic
+
+// Array name is a constant pointer
+std::cout << "Array address: " << arr << std::endl;
+std::cout << "Pointer value: " << ptr << std::endl;
+
+// Iterate through array using pointer
+for (int i = 0; i < 5; i++) {
+    std::cout << *(ptr + i) << " ";
+}
+std::cout << std::endl;</code></pre>
+
+                <h3>Pointers to Structures</h3>
+                <pre><code>struct Person {
+    std::string name;
+    int age;
+};
+
+Person person = {"John", 30};
+Person* ptr = &amp;person;
+
+// Access members using arrow operator (->)
+std::cout << "Name: " << ptr->name << std::endl;
+std::cout << "Age: " << ptr->age << std::endl;
+
+// Equivalent to dereference then dot
+std::cout << "Name: " << (*ptr).name << std::endl;</code></pre>
+
+                <h3>Pointers and Functions</h3>
+                <p>Pointers allow functions to modify their arguments:</p>
+                <pre><code>// Pass by value (doesn't modify original)
+void incrementValue(int x) {
+    x++;
+}
+
+// Pass by pointer (modifies original)
+void incrementPointer(int* ptr) {
+    (*ptr)++;
+}
+
+// Pass by reference (also modifies original)
+void incrementReference(int& ref) {
+    ref++;
+}
+
+int main() {
+    int value = 5;
+    
+    incrementValue(value);
+    std::cout << "After pass by value: " << value << std::endl;  // 5
+    
+    incrementPointer(&value);
+    std::cout << "After pass by pointer: " << value << std::endl;  // 6
+    
+    incrementReference(value);
+    std::cout << "After pass by reference: " << value << std::endl;  // 7
+    
+    return 0;
+}</code></pre>
+
+                <h3>Dynamic Memory Allocation</h3>
+                <p>Pointers are essential for dynamic memory management:</p>
+                <pre><code>// Allocate single variable
+int* singlePtr = new int;
+*singlePtr = 42;
+
+// Allocate array
+int* arrayPtr = new int[10];
+for (int i = 0; i < 10; i++) {
+    arrayPtr[i] = i * 2;
+}
+
+// Always free memory
+delete singlePtr;
+delete[] arrayPtr;
+
+// Set to nullptr after deletion
+singlePtr = nullptr;
+arrayPtr = nullptr;</code></pre>
+
+                <h3>Function Pointers</h3>
+                <pre><code>// Function pointer declaration
+int (*funcPtr)(int, int);
+
+// Assign function address
+funcPtr = &amp;add;  // or just funcPtr = add;
+
+// Call function through pointer
+int result = funcPtr(5, 3);
+
+// Function that takes function pointer
+void process(int a, int b, int (*operation)(int, int)) {
+    int result = operation(a, b);
+    std::cout << "Result: " << result << std::endl;
+}</code></pre>
+
+                <h3>Common Pointer Mistakes</h3>
+                <ul>
+                    <li><strong>Uninitialized pointers:</strong> Point to random memory</li>
+                    <li><strong>Dangling pointers:</strong> Point to deleted memory</li>
+                    <li><strong>Memory leaks:</strong> Forgetting to delete allocated memory</li>
+                    <li><strong>Wrong dereference:</strong> Accessing invalid memory</li>
+                    <li><strong>Pointer arithmetic on non-arrays:</strong> Undefined behavior</li>
+                </ul>
+
+                <h3>Smart Pointers (C++11)</h3>
+                <p>Modern C++ provides smart pointers for automatic memory management:</p>
+                <pre><code>#include &lt;memory&gt;
+
+// Unique pointer (exclusive ownership)
+std::unique_ptr&lt;int&gt; uniquePtr = std::make_unique<int>(42);
+
+// Shared pointer (shared ownership)
+std::shared_ptr&lt;int&gt; sharedPtr1 = std::make_shared&lt;int&gt;(42);
+std::shared_ptr&lt;int&gt; sharedPtr2 = sharedPtr1;  // Reference count increases
+
+// Weak pointer (doesn't increase reference count)
+std::weak_ptr&lt;int&gt; weakPtr = sharedPtr1;
+// Automatic cleanup when out of scope</code></pre>
+
+                <h3>Example Program</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+struct Student {
+    std::string name;
+    int id;
+    double gpa;
+};
+
+void displayStudent(const Student* student) {
+    std::cout << "Name: " << student->name << std::endl;
+    std::cout << "ID: " << student->id << std::endl;
+    std::cout << "GPA: " << student->gpa << std::endl;
+}
+
+void updateGPA(Student* student, double newGPA) {
+    student->gpa = newGPA;
+}
+
+int main() {
+    // Create student on heap
+    Student* studentPtr = new Student{"John Doe", 12345, 3.5};
+    
+    std::cout << "Original student:" << std::endl;
+    displayStudent(studentPtr);
+    
+    // Update GPA
+    updateGPA(studentPtr, 3.8);
+    
+    std::cout << "\nUpdated student:" << std::endl;
+    displayStudent(studentPtr);
+    
+    // Array of pointers
+    Student* classPtr[3];
+    classPtr[0] = new Student{"Alice", 11111, 4.0};
+    classPtr[1] = new Student{"Bob", 22222, 3.2};
+    classPtr[2] = new Student{"Charlie", 33333, 3.7};
+    
+    std::cout << "\nClass roster:" << std::endl;
+    for (int i = 0; i < 3; i++) {
+        displayStudent(classPtr[i]);
+        std::cout << "---" << std::endl;
+    }
+    
+    // Clean up memory
+    delete studentPtr;
+    for (int i = 0; i < 3; i++) {
+        delete classPtr[i];
+    }
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a dynamic array management system:</p>
+                <ul>
+                    <li>Implement functions to create, resize, and destroy dynamic arrays</li>
+                    <li>Add functions for inserting, deleting, and searching elements</li>
+                    <li>Use pointers for array manipulation</li>
+                    <li>Implement bounds checking to prevent errors</li>
+                    <li>Create a simple linked list using pointers</li>
+                    <li>Bonus: Implement sorting algorithms using pointer arithmetic</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Always initialize pointers (preferably to nullptr)</li>
+                    <li>Check for null before dereferencing</li>
+                    <li>Use smart pointers when possible</li>
+                    <li>Delete dynamically allocated memory</li>
+                    <li>Set pointers to nullptr after deletion</li>
+                    <li>Avoid complex pointer arithmetic</li>
+                    <li>Use references when possible instead of pointers</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. What operator is used to get the address of a variable?</p>
+                <ul>
+                    <li>*</li>
+                    <li>&</li>
+                    <li>-></li>
+                    <li>::</li>
+                </ul>
+
+                <p>2. What does the dereference operator (*) do?</p>
+                <ul>
+                    <li>Gets the address of a variable</li>
+                    <li>Accesses the value at a pointer address</li>
+                    <li>Declares a pointer variable</li>
+                    <li>Multiplies two values</li>
+                </ul>
+
+                <p>3. What is a null pointer?</p>
+                <ul>
+                    <li>A pointer pointing to memory location 0</li>
+                    <li>A pointer that hasn't been initialized</li>
+                    <li>A pointer to a deleted object</li>
+                    <li>A pointer to an array</li>
+                </ul>
+
+                <p>4. Which operator is used to access structure members through a pointer?</p>
+                <ul>
+                    <li>.</li>
+                    <li>-></li>
+                    <li>::</li>
+                    <li>&</li>
+                </ul>
+
+                <p>5. What should you do after deleting dynamically allocated memory?</p>
+                <ul>
+                    <li>Set the pointer to nullptr</li>
+                    <li>Call delete again</li>
+                    <li>Reallocate the memory</li>
+                    <li>Nothing, it's automatic</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Dates and Times</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+           <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Dates and Times</h2>
+                <p>Working with dates and times is essential for many applications, from logging events to scheduling tasks. Python's datetime module provides comprehensive tools for handling dates, times, and time intervals. Understanding these concepts allows you to create time-aware applications, perform date calculations, and format temporal data appropriately.</p>
+
+                <h3>Why Dates and Times Matter</h3>
+                <p>Date and time handling is crucial for:</p>
+                <ul>
+                    <li><strong>Logging:</strong> Recording when events occur</li>
+                    <li><strong>Scheduling:</strong> Planning future tasks and reminders</li>
+                    <li><strong>Data Analysis:</strong> Analyzing trends over time</li>
+                    <li><strong>User Interfaces:</strong> Displaying dates in user-friendly formats</li>
+                    <li><strong>Business Logic:</strong> Calculating deadlines and time-based rules</li>
+                    <li><strong>Internationalization:</strong> Handling different time zones and locales</li>
+                </ul>
+
+                <h3>The datetime Module</h3>
+                <p>Import the datetime module to work with dates and times:</p>
+                <pre><code>import datetime
+
+# Get current date and time
+now = datetime.datetime.now()
+print(now)  # 2024-01-05 14:30:45.123456
+
+# Get current date only
+today = datetime.date.today()
+print(today)  # 2024-01-05
+
+# Get current time only
+current_time = datetime.datetime.now().time()
+print(current_time)  # 14:30:45.123456</code></pre>
+
+                <h3>Creating Date and Time Objects</h3>
+                <pre><code>import datetime
+
+# Create specific date
+birthday = datetime.date(1990, 5, 15)
+print(birthday)  # 1990-05-15
+
+# Create specific time
+meeting_time = datetime.time(14, 30, 0)
+print(meeting_time)  # 14:30:00
+
+# Create specific datetime
+appointment = datetime.datetime(2024, 3, 15, 10, 30, 0)
+print(appointment)  # 2024-03-15 10:30:00
+
+# Create from timestamp (seconds since epoch)
+timestamp = 1704067200  # January 1, 2024
+date_from_timestamp = datetime.datetime.fromtimestamp(timestamp)
+print(date_from_timestamp)  # 2024-01-01 00:00:00</code></pre>
+
+                <h3>Formatting Dates and Times</h3>
+                <p>Use strftime() to format datetime objects as strings:</p>
+                <pre><code>import datetime
+
+now = datetime.datetime.now()
+
+# Common format codes
+print(now.strftime("%Y-%m-%d"))          # 2024-01-05
+print(now.strftime("%H:%M:%S"))          # 14:30:45
+print(now.strftime("%A, %B %d, %Y"))     # Friday, January 05, 2024
+print(now.strftime("%I:%M %p"))          # 02:30 PM
+
+# Custom formats
+print(now.strftime("%Y/%m/%d %H:%M"))    # 2024/01/05 14:30
+print(now.strftime("%d-%b-%Y"))          # 05-Jan-2024
+
+# Format codes reference:
+# %Y - Year with century (2024)
+# %y - Year without century (24)
+# %m - Month as zero-padded decimal (01-12)
+# %B - Full month name (January)
+# %b - Abbreviated month name (Jan)
+# %d - Day of month as zero-padded decimal (01-31)
+# %A - Full weekday name (Friday)
+# %a - Abbreviated weekday name (Fri)
+# %H - Hour (24-hour clock) as zero-padded decimal (00-23)
+# %I - Hour (12-hour clock) as zero-padded decimal (01-12)
+# %M - Minute as zero-padded decimal (00-59)
+# %S - Second as zero-padded decimal (00-59)
+# %p - AM or PM</code></pre>
+
+                <h3>Parsing Dates from Strings</h3>
+                <p>Use strptime() to parse strings into datetime objects:</p>
+                <pre><code>import datetime
+
+# Parse common formats
+date_str1 = "2024-01-05"
+parsed_date1 = datetime.datetime.strptime(date_str1, "%Y-%m-%d")
+print(parsed_date1)  # 2024-01-05 00:00:00
+
+date_str2 = "January 5, 2024"
+parsed_date2 = datetime.datetime.strptime(date_str2, "%B %d, %Y")
+print(parsed_date2)  # 2024-01-05 00:00:00
+
+# Parse with time
+datetime_str = "2024-01-05 14:30:45"
+parsed_datetime = datetime.datetime.strptime(datetime_str, "%Y-%m-%d %H:%M:%S")
+print(parsed_datetime)  # 2024-01-05 14:30:45
+
+# Handle different formats
+def parse_date_flexible(date_string):
+    """Try different common date formats"""
+    formats = [
+        "%Y-%m-%d",
+        "%m/%d/%Y",
+        "%d/%m/%Y",
+        "%B %d, %Y",
+        "%b %d, %Y",
+        "%Y/%m/%d"
+    ]
+    
+    for fmt in formats:
+        try:
+            return datetime.datetime.strptime(date_string, fmt)
+        except ValueError:
+            continue
+    raise ValueError(f"Unable to parse date: {date_string}")
+
+# Test the flexible parser
+print(parse_date_flexible("2024-01-05"))    # Works
+print(parse_date_flexible("01/05/2024"))    # Works
+print(parse_date_flexible("January 5, 2024"))  # Works</code></pre>
+
+                <h3>Date Arithmetic</h3>
+                <p>Perform calculations with dates using timedelta:</p>
+                <pre><code>import datetime
+
+# Create timedelta objects
+one_day = datetime.timedelta(days=1)
+one_week = datetime.timedelta(weeks=1)
+three_hours = datetime.timedelta(hours=3)
+
+now = datetime.datetime.now()
+print("Current time:", now)
+
+# Add time
+tomorrow = now + one_day
+print("Tomorrow:", tomorrow)
+
+next_week = now + one_week
+print("Next week:", next_week)
+
+later_today = now + three_hours
+print("3 hours later:", later_today)
+
+# Subtract time
+yesterday = now - one_day
+print("Yesterday:", yesterday)
+
+# Calculate differences
+future_date = datetime.datetime(2024, 12, 25)
+time_until_christmas = future_date - now
+print(f"Days until Christmas: {time_until_christmas.days}")
+
+# Work with just dates
+today = datetime.date.today()
+next_birthday = datetime.date(today.year + 1, 5, 15)
+days_until_birthday = (next_birthday - today).days
+print(f"Days until birthday: {days_until_birthday}")
+
+# Calculate age
+birth_date = datetime.date(1990, 5, 15)
+age = (today - birth_date).days // 365
+print(f"Age: {age} years")</code></pre>
+
+                <h3>Working with Time Zones</h3>
+                <p>Handle time zones using timezone objects:</p>
+                <pre><code>import datetime
+
+# Create timezone-aware datetime
+utc_tz = datetime.timezone.utc
+eastern_tz = datetime.timezone(datetime.timedelta(hours=-5))  # EST
+pacific_tz = datetime.timezone(datetime.timedelta(hours=-8))   # PST
+
+# Current time in UTC
+utc_now = datetime.datetime.now(utc_tz)
+print("UTC time:", utc_now)
+
+# Convert to different time zones
+eastern_time = utc_now.astimezone(eastern_tz)
+pacific_time = utc_now.astimezone(pacific_tz)
+
+print("Eastern Time:", eastern_time)
+print("Pacific Time:", pacific_time)
+
+# Create timezone-aware datetime from naive datetime
+naive_time = datetime.datetime(2024, 1, 5, 12, 0, 0)
+utc_aware = naive_time.replace(tzinfo=utc_tz)
+print("UTC aware:", utc_aware)
+
+# List of common timezones (you might want to use pytz library for more)
+common_timezones = {
+    "UTC": datetime.timezone.utc,
+    "EST": datetime.timezone(datetime.timedelta(hours=-5)),
+    "PST": datetime.timezone(datetime.timedelta(hours=-8)),
+    "GMT": datetime.timezone(datetime.timedelta(hours=0)),
+    "CET": datetime.timezone(datetime.timedelta(hours=1)),
+    "JST": datetime.timezone(datetime.timedelta(hours=9))
+}
+
+print("\nTime in different zones:")
+for name, tz in common_timezones.items():
+    time_in_zone = utc_now.astimezone(tz)
+    print(f"{name}: {time_in_zone.strftime('%H:%M:%S')}")</code></pre>
+
+                <h3>Calendar Operations</h3>
+                <p>Use the calendar module for calendar-related operations:</p>
+                <pre><code>import calendar
+import datetime
+
+# Check if year is leap year
+print("2024 is leap year:", calendar.isleap(2024))
+print("2023 is leap year:", calendar.isleap(2023))
+
+# Get number of days in month
+print("Days in January 2024:", calendar.monthrange(2024, 1)[1])
+print("Days in February 2024:", calendar.monthrange(2024, 2)[1])
+
+# Print calendar for a month
+print("\nCalendar for January 2024:")
+print(calendar.month(2024, 1))
+
+# Get day of week (0=Monday, 6=Sunday)
+date = datetime.date(2024, 1, 5)  # Friday
+print(f"January 5, 2024 is a {calendar.day_name[date.weekday()]}")
+
+# Find first Monday of month
+def first_weekday_of_month(year, month, weekday):
+    """Find the first occurrence of a weekday in a month"""
+    # weekday: 0=Monday, 6=Sunday
+    for day in range(1, 8):
+        date = datetime.date(year, month, day)
+        if date.weekday() == weekday:
+            return date
+    return None
+
+first_monday = first_weekday_of_month(2024, 1, 0)  # Monday
+print(f"First Monday of January 2024: {first_monday}")
+
+# Calculate weeks in month
+def weeks_in_month(year, month):
+    """Calculate number of weeks in a month"""
+    first_day = datetime.date(year, month, 1)
+    last_day = datetime.date(year, month, calendar.monthrange(year, month)[1])
+    
+    # Calculate total days
+    total_days = (last_day - first_day).days + 1
+    
+    # Calculate weeks (ceiling division)
+    weeks = (total_days + first_day.weekday()) // 7
+    if (total_days + first_day.weekday()) % 7 > 0:
+        weeks += 1
+    
+    return weeks
+
+print(f"Weeks in January 2024: {weeks_in_month(2024, 1)}")
+print(f"Weeks in February 2024: {weeks_in_month(2024, 2)}")</code></pre>
+
+                <h3>Practical Examples</h3>
+                <pre><code>import datetime
+
+def calculate_age(birth_date):
+    """Calculate age from birth date"""
+    today = datetime.date.today()
+    age = today.year - birth_date.year
+    
+    # Adjust if birthday hasn't occurred this year
+    if (today.month, today.day) < (birth_date.month, birth_date.day):
+        age -= 1
+    
+    return age
+
+def days_until_event(event_date):
+    """Calculate days until an event"""
+    today = datetime.date.today()
+    if event_date < today:
+        return "Event has passed"
+    
+    days = (event_date - today).days
+    if days == 0:
+        return "Today!"
+    elif days == 1:
+        return "Tomorrow"
+    else:
+        return f"{days} days"
+
+def format_duration(seconds):
+    """Format seconds into human-readable duration"""
+    days, remainder = divmod(seconds, 86400)
+    hours, remainder = divmod(remainder, 3600)
+    minutes, seconds = divmod(remainder, 60)
+    
+    parts = []
+    if days > 0:
+        parts.append(f"{days} day{'s' if days != 1 else ''}")
+    if hours > 0:
+        parts.append(f"{hours} hour{'s' if hours != 1 else ''}")
+    if minutes > 0:
+        parts.append(f"{minutes} minute{'s' if minutes != 1 else ''}")
+    if seconds > 0 or not parts:
+        parts.append(f"{seconds} second{'s' if seconds != 1 else ''}")
+    
+    return ", ".join(parts)
+
+# Test the functions
+birth_date = datetime.date(1990, 5, 15)
+print(f"Age: {calculate_age(birth_date)}")
+
+christmas = datetime.date(2024, 12, 25)
+print(f"Days until Christmas: {days_until_event(christmas)}")
+
+duration_seconds = 3661  # 1 hour, 1 minute, 1 second
+print(f"Duration: {format_duration(duration_seconds)}")
+
+# Work schedule calculator
+def calculate_work_hours(start_time, end_time, break_minutes=0):
+    """Calculate work hours between start and end time"""
+    duration = end_time - start_time
+    total_minutes = duration.total_seconds() / 60
+    work_minutes = total_minutes - break_minutes
+    work_hours = work_minutes / 60
+    
+    return work_hours
+
+start = datetime.datetime(2024, 1, 5, 9, 0, 0)  # 9:00 AM
+end = datetime.datetime(2024, 1, 5, 17, 30, 0)  # 5:30 PM
+work_hours = calculate_work_hours(start, end, break_minutes=30)
+print(f"Work hours: {work_hours:.2f}")</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a comprehensive date and time utility program:</p>
+                <ul>
+                    <li>Display current date and time in multiple formats</li>
+                    <li>Parse dates from various string formats</li>
+                    <li>Calculate time differences and durations</li>
+                    <li>Work with different time zones</li>
+                    <li>Create calendar views and date calculations</li>
+                    <li>Build a simple event scheduler</li>
+                    <li>Handle date validation and error checking</li>
+                    <li>Bonus: Add recurring event support and reminders</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>import datetime
+import calendar
+from collections import defaultdict
+
+class DateTimeUtility:
+    def __init__(self):
+        self.events = []
+        
+    def get_current_info(self):
+        """Get comprehensive current date/time information"""
+        now = datetime.datetime.now()
+        today = datetime.date.today()
+        
+        info = {
+            "datetime": now,
+            "date": today,
+            "time": now.time(),
+            "timestamp": now.timestamp(),
+            "weekday": calendar.day_name[today.weekday()],
+            "month": calendar.month_name[today.month],
+            "day_of_year": today.timetuple().tm_yday,
+            "week_of_year": today.isocalendar()[1],
+            "is_leap_year": calendar.isleap(today.year),
+            "days_in_month": calendar.monthrange(today.year, today.month)[1]
+        }
+        
+        return info
+    
+    def format_datetime(self, dt, format_type="full"):
+        """Format datetime in various styles"""
+        formats = {
+            "full": "%A, %B %d, %Y at %I:%M:%S %p",
+            "date": "%Y-%m-%d",
+            "time": "%H:%M:%S",
+            "iso": "%Y-%m-%dT%H:%M:%S",
+            "us": "%m/%d/%Y",
+            "european": "%d/%m/%Y",
+            "long": "%A, %B %d, %Y",
+            "short": "%b %d, %Y"
+        }
+        
+        return dt.strftime(formats.get(format_type, formats["full"]))
+    
+    def parse_date_string(self, date_string):
+        """Parse various date string formats"""
+        formats = [
+            "%Y-%m-%d",
+            "%m/%d/%Y",
+            "%d/%m/%Y",
+            "%B %d, %Y",
+            "%b %d, %Y",
+            "%Y/%m/%d",
+            "%d-%b-%Y",
+            "%Y%m%d"
+        ]
+        
+        for fmt in formats:
+            try:
+                if " " in date_string and ":" in date_string:
+                    # Try datetime parsing
+                    return datetime.datetime.strptime(date_string, fmt + " %H:%M:%S")
+                else:
+                    # Try date parsing
+                    return datetime.datetime.strptime(date_string, fmt).date()
+            except ValueError:
+                continue
+        
+        raise ValueError(f"Unable to parse date: {date_string}")
+    
+    def calculate_age(self, birth_date):
+        """Calculate age from birth date"""
+        today = datetime.date.today()
+        
+        if isinstance(birth_date, str):
+            birth_date = self.parse_date_string(birth_date)
+        
+        if isinstance(birth_date, datetime.datetime):
+            birth_date = birth_date.date()
+        
+        age = today.year - birth_date.year
+        
+        # Adjust if birthday hasn't occurred this year
+        if (today.month, today.day) < (birth_date.month, birth_date.day):
+            age -= 1
+        
+        return age
+    
+    def time_difference(self, start_date, end_date=None):
+        """Calculate time difference between dates"""
+        if end_date is None:
+            end_date = datetime.datetime.now()
+        
+        if isinstance(start_date, str):
+            start_date = self.parse_date_string(start_date)
+        if isinstance(end_date, str):
+            end_date = self.parse_date_string(end_date)
+        
+        # Ensure both are datetime objects
+        if isinstance(start_date, datetime.date) and not isinstance(start_date, datetime.datetime):
+            start_date = datetime.datetime.combine(start_date, datetime.time.min)
+        if isinstance(end_date, datetime.date) and not isinstance(end_date, datetime.datetime):
+            end_date = datetime.datetime.combine(end_date, datetime.time.min)
+        
+        diff = end_date - start_date
+        
+        return {
+            "total_seconds": diff.total_seconds(),
+            "days": diff.days,
+            "hours": diff.seconds // 3600,
+            "minutes": (diff.seconds % 3600) // 60,
+            "seconds": diff.seconds % 60
+        }
+    
+    def add_event(self, name, date, description=""):
+        """Add an event to the scheduler"""
+        if isinstance(date, str):
+            date = self.parse_date_string(date)
+        
+        event = {
+            "name": name,
+            "date": date,
+            "description": description
+        }
+        
+        self.events.append(event)
+        self.events.sort(key=lambda x: x["date"])
+    
+    def get_upcoming_events(self, days_ahead=7):
+        """Get events happening in the next N days"""
+        now = datetime.datetime.now()
+        future_date = now + datetime.timedelta(days=days_ahead)
+        
+        upcoming = []
+        for event in self.events:
+            event_datetime = event["date"]
+            if isinstance(event_datetime, datetime.date) and not isinstance(event_datetime, datetime.datetime):
+                event_datetime = datetime.datetime.combine(event_datetime, datetime.time.min)
+            
+            if now <= event_datetime <= future_date:
+                upcoming.append(event)
+        
+        return upcoming
+    
+    def create_calendar_view(self, year, month):
+        """Create a simple calendar view for a month"""
+        cal = calendar.monthcalendar(year, month)
+        
+        # Get month name
+        month_name = calendar.month_name[month]
+        
+        # Create header
+        header = f"{month_name} {year}"
+        header = header.center(20)
+        
+        # Create calendar lines
+        lines = [header, "Mo Tu We Th Fr Sa Su"]
+        
+        for week in cal:
+            week_str = ""
+            for day in week:
+                if day == 0:
+                    week_str += "   "
+                else:
+                    week_str += f"{day:2d} "
+            lines.append(week_str.rstrip())
+        
+        return "\n".join(lines)
+    
+    def validate_date(self, year, month, day):
+        """Validate if a date is valid"""
+        try:
+            datetime.date(year, month, day)
+            return True
+        except ValueError:
+            return False
+
+def main():
+    utility = DateTimeUtility()
+    
+    while True:
+        print("\n" + "="*45)
+        print("       DATE & TIME UTILITY")
+        print("="*45)
+        print("1. Current Date/Time Information")
+        print("2. Format Date/Time")
+        print("3. Parse Date String")
+        print("4. Calculate Age")
+        print("5. Time Difference Calculator")
+        print("6. Add Event")
+        print("7. View Upcoming Events")
+        print("8. Calendar View")
+        print("9. Validate Date")
+        print("10. Exit")
+        print("="*45)
+        
+        choice = input("Enter your choice (1-10): ").strip()
+        
+        try:
+            if choice == "1":
+                info = utility.get_current_info()
+                print("\nCurrent Date/Time Information:")
+                print(f"  DateTime: {info['datetime']}")
+                print(f"  Date: {info['date']}")
+                print(f"  Time: {info['time']}")
+                print(f"  Timestamp: {info['timestamp']}")
+                print(f"  Weekday: {info['weekday']}")
+                print(f"  Month: {info['month']}")
+                print(f"  Day of Year: {info['day_of_year']}")
+                print(f"  Week of Year: {info['week_of_year']}")
+                print(f"  Leap Year: {info['is_leap_year']}")
+                print(f"  Days in Month: {info['days_in_month']}")
+                
+            elif choice == "2":
+                dt = datetime.datetime.now()
+                formats = ["full", "date", "time", "iso", "us", "european", "long", "short"]
+                
+                print("\nDate/Time Formatting:")
+                for fmt in formats:
+                    formatted = utility.format_datetime(dt, fmt)
+                    print(f"  {fmt.capitalize()}: {formatted}")
+                    
+            elif choice == "3":
+                date_string = input("Enter date string to parse: ").strip()
+                try:
+                    parsed = utility.parse_date_string(date_string)
+                    print(f"Parsed: {parsed} ({type(parsed).__name__})")
+                except ValueError as e:
+                    print(f"Error: {e}")
+                    
+            elif choice == "4":
+                birth_date = input("Enter birth date (YYYY-MM-DD): ").strip()
+                try:
+                    age = utility.calculate_age(birth_date)
+                    print(f"Age: {age} years old")
+                except ValueError as e:
+                    print(f"Error: {e}")
+                    
+            elif choice == "5":
+                start_date = input("Enter start date (YYYY-MM-DD): ").strip()
+                end_date = input("Enter end date (YYYY-MM-DD, or leave empty for today): ").strip()
+                
+                if not end_date:
+                    end_date = None
+                
+                try:
+                    diff = utility.time_difference(start_date, end_date)
+                    print("
+Time Difference:")
+                    print(f"  Total Days: {diff['days']}")
+                    print(f"  Hours: {diff['hours']}")
+                    print(f"  Minutes: {diff['minutes']}")
+                    print(f"  Seconds: {diff['seconds']}")
+                    print(f"  Total Seconds: {diff['total_seconds']}")
+                except ValueError as e:
+                    print(f"Error: {e}")
+                    
+            elif choice == "6":
+                name = input("Event name: ").strip()
+                date_str = input("Event date (YYYY-MM-DD): ").strip()
+                description = input("Description (optional): ").strip()
+                
+                try:
+                    utility.add_event(name, date_str, description)
+                    print("Event added successfully!")
+                except ValueError as e:
+                    print(f"Error: {e}")
+                    
+            elif choice == "7":
+                days = input("Days ahead to check (default 7): ").strip()
+                days = int(days) if days else 7
+                
+                upcoming = utility.get_upcoming_events(days)
+                if upcoming:
+                    print(f"\nUpcoming events (next {days} days):")
+                    for event in upcoming:
+                        date_str = event['date']
+                        if isinstance(date_str, datetime.date) and not isinstance(date_str, datetime.datetime):
+                            date_str = date_str.strftime('%Y-%m-%d')
+                        print(f"  {date_str}: {event['name']}")
+                        if event['description']:
+                            print(f"    {event['description']}")
+                else:
+                    print(f"No upcoming events in the next {days} days.")
+                    
+            elif choice == "8":
+                year = int(input("Enter year: "))
+                month = int(input("Enter month (1-12): "))
+                
+                try:
+                    calendar_view = utility.create_calendar_view(year, month)
+                    print(f"\n{calendar_view}")
+                except Exception as e:
+                    print(f"Error: {e}")
+                    
+            elif choice == "9":
+                year = int(input("Enter year: "))
+                month = int(input("Enter month: "))
+                day = int(input("Enter day: "))
+                
+                is_valid = utility.validate_date(year, month, day)
+                if is_valid:
+                    print(f"{year}-{month:02d}-{day:02d} is a valid date.")
+                else:
+                    print(f"{year}-{month:02d}-{day:02d} is not a valid date.")
+                    
+            elif choice == "10":
+                print("Thank you for using the Date & Time Utility!")
+                break
+                
+            else:
+                print("Invalid choice. Please select 1-10.")
+                
+        except ValueError as e:
+            print(f"Invalid input: {e}")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+        
+        input("\nPress Enter to continue...")
+
+if __name__ == "__main__":
+    main()</code></pre>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Confusing naive and aware datetime objects</li>
+                    <li>Not handling time zone conversions properly</li>
+                    <li>Using wrong format codes in strftime/strptime</li>
+                    <li>Forgetting that months are 1-based but days are 1-based</li>
+                    <li>Mixing date and datetime objects inappropriately</li>
+                    <li>Not accounting for leap years in calculations</li>
+                    <li>Using timestamps without considering time zones</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use timezone-aware datetime objects when possible</li>
+                    <li>Store dates as UTC internally and convert for display</li>
+                    <li>Validate date inputs before processing</li>
+                    <li>Use consistent date formats throughout your application</li>
+                    <li>Consider using dateutil or arrow libraries for complex operations</li>
+                    <li>Handle daylight saving time changes carefully</li>
+                    <li>Document expected date formats in your code</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. Which module provides date and time functionality in Python?</p>
+                <ul>
+                    <li>time</li>
+                    <li>datetime</li>
+                    <li>calendar</li>
+                    <li>dateutil</li>
+                </ul>
+
+                <p>2. What does strftime() do?</p>
+                <ul>
+                    <li>Parses a string into a datetime object</li>
+                    <li>Formats a datetime object as a string</li>
+                    <li>Creates a timedelta object</li>
+                    <li>Converts to a different time zone</li>
+                </ul>
+
+                <p>3. What is a timedelta object used for?</p>
+                <ul>
+                    <li>Representing a specific date</li>
+                    <li>Representing a duration or difference between dates</li>
+                    <li>Formatting dates as strings</li>
+                    <li>Parsing strings into dates</li>
+                </ul>
+
+                <p>4. What does datetime.date.today() return?</p>
+                <ul>
+                    <li>Current date and time</li>
+                    <li>Current date only</li>
+                    <li>Current time only</li>
+                    <li>Timestamp</li>
+                </ul>
+
+                <p>5. Which format code represents the full year?</p>
+                <ul>
+                    <li>%y</li>
+                    <li>%Y</li>
+                    <li>%m</li>
+                    <li>%d</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

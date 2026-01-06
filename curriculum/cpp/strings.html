@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - C++ Strings</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+        <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings" class="active">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>C++ Strings</h2>
+                <p>Strings in C++ are sequences of characters used to represent text. C++ provides two main ways to work with strings: C-style strings (character arrays) and the std::string class. Understanding both approaches is important for effective string manipulation in C++.</p>
+
+                <h3>C-Style Strings</h3>
+                <p>C-style strings are arrays of characters terminated by a null character ('\0'):</p>
+                <pre><code>// Declaration and initialization
+char greeting[] = "Hello, World!";
+char name[50] = "John";
+
+// Manual null termination
+char manual[6] = {'H', 'e', 'l', 'l', 'o', '\0'};
+
+// Character access
+std::cout << greeting[0] << std::endl;  // 'H'
+std::cout << greeting[7] << std::endl;  // 'W'</code></pre>
+
+                <h4>C String Functions</h4>
+                <p>The &lt;cstring&gt; header provides functions for C-style strings:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+
+int main() {
+    char str1[20] = "Hello";
+    char str2[20] = "World";
+    char result[40];
+    
+    // Copy string
+    strcpy(result, str1);
+    std::cout << "After strcpy: " << result << std::endl;
+    
+    // Concatenate strings
+    strcat(result, " ");
+    strcat(result, str2);
+    std::cout << "After strcat: " << result << std::endl;
+    
+    // String length
+    std::cout << "Length: " << strlen(result) << std::endl;
+    
+    // String comparison
+    char s1[] = "apple";
+    char s2[] = "banana";
+    int cmp = strcmp(s1, s2);
+    if (cmp < 0) {
+        std::cout << s1 << " comes before " << s2 << std::endl;
+    }
+    
+    return 0;
+}</code></pre>
+
+                <h3>std::string Class</h3>
+                <p>The std::string class provides a more convenient and safer way to work with strings:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    // Declaration and initialization
+    std::string greeting = "Hello, World!";
+    std::string name("John");
+    std::string empty_str;
+    
+    // String operations
+    std::string first = "Hello";
+    std::string second = "World";
+    
+    // Concatenation
+    std::string combined = first + " " + second;
+    std::cout << combined << std::endl;
+    
+    // Length
+    std::cout << "Length: " << combined.length() << std::endl;
+    
+    // Character access
+    std::cout << "First char: " << combined[0] << std::endl;
+    std::cout << "Last char: " << combined.back() << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>String Input/Output</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::string name;
+    
+    // Input with spaces (using getline)
+    std::cout << "Enter your full name: ";
+    std::getline(std::cin, name);
+    std::cout << "Hello, " << name << "!" << std::endl;
+    
+    // Input single word
+    std::string word;
+    std::cout << "Enter a word: ";
+    std::cin >> word;
+    std::cout << "You entered: " << word << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>String Manipulation</h3>
+                <p>std::string provides many useful member functions:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::string text = "Hello, World!";
+    
+    // Substring
+    std::string sub = text.substr(7, 5);  // "World"
+    std::cout << "Substring: " << sub << std::endl;
+    
+    // Find
+    size_t pos = text.find("World");
+    if (pos != std::string::npos) {
+        std::cout << "'World' found at position: " << pos << std::endl;
+    }
+    
+    // Replace
+    std::string replaced = text;
+    replaced.replace(7, 5, "Universe");
+    std::cout << "Replaced: " << replaced << std::endl;
+    
+    // Insert
+    std::string inserted = text;
+    inserted.insert(5, " beautiful");
+    std::cout << "Inserted: " << inserted << std::endl;
+    
+    // Erase
+    std::string erased = text;
+    erased.erase(5, 7);  // Remove ", World"
+    std::cout << "Erased: " << erased << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>String Comparison</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::string str1 = "apple";
+    std::string str2 = "banana";
+    std::string str3 = "Apple";
+    
+    // Comparison operators
+    if (str1 < str2) {
+        std::cout << str1 << " comes before " << str2 << std::endl;
+    }
+    
+    if (str1 != str3) {
+        std::cout << str1 << " != " << str3 << " (case sensitive)" << std::endl;
+    }
+    
+    // Case-insensitive comparison
+    // (would need custom function or library)
+    
+    return 0;
+}</code></pre>
+
+                <h3>String Conversion</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    // Number to string
+    int num = 42;
+    std::string str_num = std::to_string(num);
+    std::cout << "Number as string: " << str_num << std::endl;
+    
+    double pi = 3.14159;
+    std::string str_pi = std::to_string(pi);
+    std::cout << "Pi as string: " << str_pi << std::endl;
+    
+    // String to number
+    std::string num_str = "123";
+    int converted = std::stoi(num_str);
+    std::cout << "String to int: " << converted << std::endl;
+    
+    std::string float_str = "3.14";
+    double converted_float = std::stod(float_str);
+    std::cout << "String to double: " << converted_float << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>String Streams</h3>
+                <p>String streams allow treating strings like I/O streams:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;sstream&gt;
+
+int main() {
+    // Output string stream
+    std::ostringstream oss;
+    oss << "The answer is " << 42 << " and PI is " << 3.14;
+    std::string result = oss.str();
+    std::cout << result << std::endl;
+    
+    // Input string stream
+    std::string data = "42 3.14 Hello";
+    std::istringstream iss(data);
+    int num;
+    double pi;
+    std::string word;
+    iss >> num >> pi >> word;
+    std::cout << "Parsed: " << num << ", " << pi << ", " << word << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Example Program</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt;
+
+int main() {
+    std::string text;
+    std::cout << "Enter a sentence: ";
+    std::getline(std::cin, text);
+    
+    // Count words
+    std::istringstream iss(text);
+    std::string word;
+    int word_count = 0;
+    while (iss >> word) {
+        word_count++;
+    }
+    std::cout << "Word count: " << word_count << std::endl;
+    
+    // Reverse the string
+    std::string reversed = text;
+    std::reverse(reversed.begin(), reversed.end());
+    std::cout << "Reversed: " << reversed << std::endl;
+    
+    // Check if palindrome
+    std::string clean_text = text;
+    // Remove spaces and punctuation (simplified)
+    clean_text.erase(std::remove_if(clean_text.begin(), clean_text.end(), 
+                   [](char c) { return !isalnum(c); }), clean_text.end());
+    std::transform(clean_text.begin(), clean_text.end(), clean_text.begin(), ::tolower);
+    
+    std::string reversed_clean = clean_text;
+    std::reverse(reversed_clean.begin(), reversed_clean.end());
+    
+    if (clean_text == reversed_clean) {
+        std::cout << "The text is a palindrome!" << std::endl;
+    } else {
+        std::cout << "The text is not a palindrome." << std::endl;
+    }
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a string processing program:</p>
+                <ul>
+                    <li>Read a paragraph of text from user input</li>
+                    <li>Count the number of words, sentences, and characters</li>
+                    <li>Find and replace specific words</li>
+                    <li>Convert the text to uppercase/lowercase</li>
+                    <li>Check if the text contains certain keywords</li>
+                    <li>Bonus: Implement a simple text encryption/decryption</li>
+                </ul>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Forgetting null terminator in C-strings</li>
+                    <li>Buffer overflow with C-string functions</li>
+                    <li>Mixing cin >> and getline() without clearing input buffer</li>
+                    <li>Using == for string comparison instead of proper methods</li>
+                    <li>Not including necessary headers</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use std::string for most string operations</li>
+                    <li>Use getline() for reading lines with spaces</li>
+                    <li>Check string::npos when using find() functions</li>
+                    <li>Use string streams for complex string building</li>
+                    <li>Be aware of string copying performance implications</li>
+                    <li>Use const references for string parameters in functions</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. Which header file is needed for std::string?</p>
+                <ul>
+                    <li>&lt;iostream&gt;</li>
+                    <li>&lt;string&gt;</li>
+                    <li>&lt;cstring&gt;</li>
+                    <li>&lt;sstream&gt;</li>
+                </ul>
+
+                <p>2. What does the null character '\0' indicate in C-strings?</p>
+                <ul>
+                    <li>End of string</li>
+                    <li>Start of string</li>
+                    <li>Space character</li>
+                    <li>Error condition</li>
+                </ul>
+
+                <p>3. Which function is used to find a substring in std::string?</p>
+                <ul>
+                    <li>search()</li>
+                    <li>locate()</li>
+                    <li>find()</li>
+                    <li>index()</li>
+                </ul>
+
+                <p>4. What does std::getline() do?</p>
+                <ul>
+                    <li>Reads a single character</li>
+                    <li>Reads a line including spaces</li>
+                    <li>Reads formatted input</li>
+                    <li>Finds line breaks</li>
+                </ul>
+
+                <p>5. Which is safer for string operations in C++?</p>
+                <ul>
+                    <li>C-style strings</li>
+                    <li>std::string</li>
+                    <li>Character arrays</li>
+                    <li>Raw pointers</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

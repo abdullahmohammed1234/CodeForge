@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - While Loops</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+            <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>While Loops</h2>
+                <p>While loops in Python are used to execute a block of code repeatedly as long as a specified condition is true. Unlike for loops, which iterate over a sequence, while loops continue executing until the condition becomes false. This makes them ideal for situations where you don't know in advance how many times the loop should run.</p>
+                <p>The basic syntax of a while loop is:</p>
+                <pre><code>while condition:
+    # code to execute</code></pre>
+                <p>The condition is evaluated before each iteration. If it's true, the code block runs; if false, the loop ends.</p>
+                <p>While loops can be used for various tasks such as reading user input until a valid response is given, processing data until a certain condition is met, or implementing game loops.</p>
+
+                <h3>Examples</h3>
+                <pre><code># Basic while loop
+count = 0
+while count < 5:
+    print(f"Count: {count}")
+    count += 1
+
+print("Loop finished!")
+
+# While loop with user input
+user_input = ""
+while user_input != "quit":
+    user_input = input("Enter something (type 'quit' to exit): ")
+    print(f"You entered: {user_input}")
+
+# While loop with break
+number = 0
+while True:
+    print(f"Number: {number}")
+    number += 1
+    if number >= 5:
+        break</code></pre>
+                <p>This example shows different ways to use while loops: a basic counter, reading input until a condition is met, and using break to exit the loop.</p>
+
+                <h3>Mini Project</h3>
+                <p>Create a number guessing game using a while loop. The program should generate a random number between 1 and 100, then repeatedly ask the user to guess the number until they get it right. Provide hints like "too high" or "too low" after each guess.</p>
+                <ul>
+                    <li>Use the random module to generate the secret number</li>
+                    <li>Use a while loop to keep asking for guesses</li>
+                    <li>Use if-elif-else statements inside the loop to provide feedback</li>
+                    <li>Keep track of the number of guesses</li>
+                    <li>Bonus: Add a limit on the number of guesses and tell the user if they win or lose</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>import random
+
+secret_number = random.randint(1, 100)
+guess = None
+attempts = 0
+
+while guess != secret_number:
+    # Your code here
+
+print(f"Congratulations! You guessed the number in {attempts} attempts.")</code></pre>
+
+                <h3>Quiz</h3>
+                <p>1. What is the main difference between a while loop and a for loop?</p>
+                <ul>
+                    <li>For loops iterate over sequences, while loops continue until a condition is false</li>
+                    <li>While loops are faster than for loops</li>
+                    <li>For loops can only be used with numbers</li>
+                </ul>
+
+                <p>2. What keyword is used to exit a loop prematurely?</p>
+                <ul>
+                    <li>exit</li>
+                    <li>break</li>
+                    <li>stop</li>
+                </ul>
+
+                <p>3. Which of the following is a potential problem with while loops?</p>
+                <ul>
+                    <li>They can create infinite loops if the condition never becomes false</li>
+                    <li>They are slower than for loops</li>
+                    <li>They can't use variables in the condition</li>
+                </ul>
+
+                <p>4. What happens if the condition in a while loop is initially false?</p>
+                <ul>
+                    <li>The loop runs once anyway</li>
+                    <li>The loop doesn't run at all</li>
+                    <li>An error occurs</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

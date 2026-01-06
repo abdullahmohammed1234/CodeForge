@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Math</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+            <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Math</h2>
+                <p>Python provides extensive mathematical capabilities through built-in operators and the math module. Whether you're performing simple calculations or complex mathematical operations, Python offers powerful tools for numerical computing.</p>
+
+                <h3>Basic Mathematical Operations</h3>
+                <p>Python supports all standard arithmetic operations:</p>
+                <pre><code># Basic operations
+a = 10
+b = 3
+
+print("Addition:", a + b)        # 13
+print("Subtraction:", a - b)     # 7
+print("Multiplication:", a * b)  # 30
+print("Division:", a / b)        # 3.333...
+print("Floor Division:", a // b) # 3
+print("Modulus:", a % b)         # 1
+print("Exponentiation:", a ** b) # 1000</code></pre>
+
+                <h3>The Math Module</h3>
+                <p>The math module provides advanced mathematical functions and constants:</p>
+                <pre><code>import math
+
+# Constants
+print("Pi:", math.pi)        # 3.141592653589793
+print("E:", math.e)          # 2.718281828459045
+print("Tau:", math.tau)      # 6.283185307179586
+
+# Trigonometric functions
+angle = math.pi / 4  # 45 degrees
+print("Sin:", math.sin(angle))
+print("Cos:", math.cos(angle))
+print("Tan:", math.tan(angle))
+
+# Inverse trigonometric functions
+print("Arcsin:", math.asin(0.707))  # Approximately pi/4
+print("Arccos:", math.acos(0.707))
+print("Arctan:", math.atan(1))</code></pre>
+
+                <h3>Mathematical Functions</h3>
+                <ul>
+                    <li><strong>math.sqrt(x):</strong> Square root of x</li>
+                    <li><strong>math.pow(x, y):</strong> x raised to the power y</li>
+                    <li><strong>math.log(x):</strong> Natural logarithm of x</li>
+                    <li><strong>math.log10(x):</strong> Base-10 logarithm of x</li>
+                    <li><strong>math.exp(x):</strong> e raised to the power x</li>
+                    <li><strong>math.ceil(x):</strong> Smallest integer greater than or equal to x</li>
+                    <li><strong>math.floor(x):</strong> Largest integer less than or equal to x</li>
+                    <li><strong>math.fabs(x):</strong> Absolute value of x</li>
+                </ul>
+                <pre><code>import math
+
+print("Square root of 16:", math.sqrt(16))     # 4.0
+print("2^3:", math.pow(2, 3))                  # 8.0
+print("Natural log of e:", math.log(math.e))   # 1.0
+print("Log base 10 of 100:", math.log10(100))  # 2.0
+print("e^2:", math.exp(2))                     # 7.389...
+print("Ceil 3.2:", math.ceil(3.2))             # 4
+print("Floor 3.8:", math.floor(3.8))           # 3
+print("Absolute value -5:", math.fabs(-5))     # 5.0</code></pre>
+
+                <h3>Hyperbolic Functions</h3>
+                <p>The math module also provides hyperbolic functions:</p>
+                <pre><code>import math
+
+x = 1.0
+print("Sinh:", math.sinh(x))    # Hyperbolic sine
+print("Cosh:", math.cosh(x))    # Hyperbolic cosine
+print("Tanh:", math.tanh(x))    # Hyperbolic tangent
+
+print("Arcsinh:", math.asinh(x))  # Inverse hyperbolic sine
+print("Arccosh:", math.acosh(2))  # Inverse hyperbolic cosine
+print("Arctanh:", math.atanh(0.5)) # Inverse hyperbolic tangent</code></pre>
+
+                <h3>Special Functions</h3>
+                <ul>
+                    <li><strong>math.degrees(x):</strong> Convert radians to degrees</li>
+                    <li><strong>math.radians(x):</strong> Convert degrees to radians</li>
+                    <li><strong>math.fmod(x, y):</strong> Floating-point modulus</li>
+                    <li><strong>math.fsum(iterable):</strong> Accurate floating-point sum</li>
+                    <li><strong>math.gcd(x, y):</strong> Greatest common divisor</li>
+                    <li><strong>math.factorial(x):</strong> Factorial of x</li>
+                </ul>
+                <pre><code>import math
+
+print("90 degrees in radians:", math.radians(90))  # 1.5708...
+print("π/2 in degrees:", math.degrees(math.pi/2))  # 90.0
+print("GCD of 48 and 18:", math.gcd(48, 18))       # 6
+print("Factorial of 5:", math.factorial(5))        # 120
+
+# Accurate sum for floating-point numbers
+numbers = [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+print("Sum with +:", sum(numbers))                 # 0.9999999999999999
+print("Sum with fsum:", math.fsum(numbers))        # 1.0</code></pre>
+
+                <h3>Complex Numbers</h3>
+                <p>Python has built-in support for complex numbers:</p>
+                <pre><code>import cmath
+
+# Complex number operations
+z1 = 3 + 4j
+z2 = 1 - 2j
+
+print("Addition:", z1 + z2)        # (4+2j)
+print("Multiplication:", z1 * z2)  # (11-2j)
+print("Magnitude:", abs(z1))       # 5.0
+print("Phase:", cmath.phase(z1))   # 0.927...
+
+# Complex math functions
+print("Square root:", cmath.sqrt(-1))  # 1j
+print("Exponential:", cmath.exp(1j))   # Complex result</code></pre>
+
+                <h3>Random Module</h3>
+                <p>The random module provides functions for generating random numbers:</p>
+                <pre><code>import random
+
+print("Random float [0,1):", random.random())
+print("Random integer [1,10]:", random.randint(1, 10))
+print("Random choice:", random.choice(['apple', 'banana', 'cherry']))
+
+# Random with seed for reproducibility
+random.seed(42)
+print("Seeded random:", random.random())  # Always same result</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a mathematical calculator program:</p>
+                <ul>
+                    <li>Import the math module</li>
+                    <li>Ask the user to select a mathematical operation</li>
+                    <li>Implement functions for trigonometric operations, logarithms, and exponentials</li>
+                    <li>Handle invalid inputs gracefully</li>
+                    <li>Display results with proper formatting</li>
+                    <li>Bonus: Add support for complex numbers</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>import math
+
+def calculator():
+    print("Mathematical Calculator")
+    print("1. Trigonometric functions")
+    print("2. Logarithms")
+    print("3. Exponentials")
+    print("4. Square root")
+    
+    choice = input("Choose operation (1-4): ")
+    
+    if choice == '1':
+        angle = float(input("Enter angle in degrees: "))
+        rad = math.radians(angle)
+        print(f"Sin({angle}°) = {math.sin(rad):.4f}")
+        print(f"Cos({angle}°) = {math.cos(rad):.4f}")
+        print(f"Tan({angle}°) = {math.tan(rad):.4f}")
+    elif choice == '2':
+        num = float(input("Enter number: "))
+        base = input("Enter base (press Enter for natural log): ")
+        if base:
+            result = math.log(num, float(base))
+            print(f"Log base {base} of {num} = {result:.4f}")
+        else:
+            result = math.log(num)
+            print(f"Natural log of {num} = {result:.4f}")
+    elif choice == '3':
+        num = float(input("Enter exponent: "))
+        result = math.exp(num)
+        print(f"e^{num} = {result:.4f}")
+    elif choice == '4':
+        num = float(input("Enter number: "))
+        if num >= 0:
+            result = math.sqrt(num)
+            print(f"Square root of {num} = {result:.4f}")
+        else:
+            print("Cannot take square root of negative number")
+    else:
+        print("Invalid choice")
+
+calculator()</code></pre>
+
+                <h3>Quiz</h3>
+                <p>1. Which module provides mathematical functions in Python?</p>
+                <ul>
+                    <li>math</li>
+                    <li>calculate</li>
+                    <li>numbers</li>
+                    <li>arithmetic</li>
+                </ul>
+
+                <p>2. What is the value of math.pi?</p>
+                <ul>
+                    <li>3.14</li>
+                    <li>3.14159...</li>
+                    <li>3.0</li>
+                    <li>Undefined</li>
+                </ul>
+
+                <p>3. Which function converts degrees to radians?</p>
+                <ul>
+                    <li>math.degrees()</li>
+                    <li>math.radians()</li>
+                    <li>math.convert()</li>
+                    <li>math.transform()</li>
+                </ul>
+
+                <p>4. What does math.ceil(3.2) return?</p>
+                <ul>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>3.2</li>
+                    <li>Error</li>
+                </ul>
+
+                <p>5. Which module is used for complex number operations?</p>
+                <ul>
+                    <li>math</li>
+                    <li>cmath</li>
+                    <li>complex</li>
+                    <li>numbers</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

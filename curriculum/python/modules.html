@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Modules</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+            <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Modules</h2>
+                <p>Modules in Python are files containing Python code that can be imported and used in other Python programs. They allow you to organize code into reusable components, making programs more modular and maintainable.</p>
+
+                <h3>What are Modules?</h3>
+                <ul>
+                    <li>Files with .py extension containing Python code</li>
+                    <li>Can define functions, classes, and variables</li>
+                    <li>Can be imported into other Python programs</li>
+                    <li>Promote code reusability and organization</li>
+                    <li>Help avoid naming conflicts</li>
+                </ul>
+
+                <h3>Creating Modules</h3>
+                <p>Any Python file can be used as a module. Here's an example:</p>
+                <pre><code># mymodule.py
+def greet(name):
+    return f"Hello, {name}!"
+
+def add_numbers(a, b):
+    return a + b
+
+PI = 3.14159
+
+class Calculator:
+    def multiply(self, a, b):
+        return a * b</code></pre>
+
+                <h3>Importing Modules</h3>
+                <p>There are several ways to import modules:</p>
+                <pre><code># Method 1: Import the entire module
+import mymodule
+
+print(mymodule.greet("Alice"))  # Hello, Alice!
+print(mymodule.add_numbers(5, 3))  # 8
+print(mymodule.PI)  # 3.14159
+
+calc = mymodule.Calculator()
+print(calc.multiply(4, 5))  # 20
+
+# Method 2: Import specific items
+from mymodule import greet, add_numbers
+
+print(greet("Bob"))  # Hello, Bob!
+print(add_numbers(10, 7))  # 17
+
+# Method 3: Import with alias
+import mymodule as mm
+
+print(mm.greet("Charlie"))  # Hello, Charlie!
+
+# Method 4: Import all (not recommended)
+from mymodule import *
+
+print(greet("David"))  # Hello, David!</code></pre>
+
+                <h3>The Standard Library</h3>
+                <p>Python comes with a rich standard library of modules:</p>
+                <ul>
+                    <li><strong>math:</strong> Mathematical functions</li>
+                    <li><strong>datetime:</strong> Date and time handling</li>
+                    <li><strong>os:</strong> Operating system interface</li>
+                    <li><strong>sys:</strong> System-specific parameters</li>
+                    <li><strong>random:</strong> Random number generation</li>
+                    <li><strong>json:</strong> JSON encoding/decoding</li>
+                    <li><strong>re:</strong> Regular expressions</li>
+                </ul>
+                <pre><code>import math
+import datetime
+import os
+import random
+
+print("Square root:", math.sqrt(16))
+print("Current date:", datetime.date.today())
+print("Current directory:", os.getcwd())
+print("Random number:", random.randint(1, 10))</code></pre>
+
+                <h3>Module Search Path</h3>
+                <p>Python searches for modules in the following order:</p>
+                <ol>
+                    <li>Current directory</li>
+                    <li>PYTHONPATH environment variable</li>
+                    <li>Python installation directory</li>
+                    <li>Site-packages directory</li>
+                </ol>
+                <pre><code>import sys
+
+print("Module search paths:")
+for path in sys.path:
+    print(path)</code></pre>
+
+                <h3>Creating Packages</h3>
+                <p>Packages are directories containing multiple modules:</p>
+                <pre><code># Directory structure:
+# mypackage/
+#   __init__.py
+#   module1.py
+#   module2.py
+#   submodule/
+#       __init__.py
+#       module3.py
+
+# __init__.py (can be empty or contain initialization code)
+# module1.py
+def function1():
+    return "Function 1"
+
+# Usage
+import mypackage.module1
+print(mypackage.module1.function1())
+
+# Or with __init__.py defining imports
+from mypackage import module1
+print(module1.function1())</code></pre>
+
+                <h3>__name__ and __main__</h3>
+                <p>The __name__ variable helps determine how a module is being used:</p>
+                <pre><code># mymodule.py
+def main():
+    print("This is the main function")
+
+if __name__ == "__main__":
+    main()
+    print("Module run directly")
+else:
+    print("Module imported")
+
+# When run directly: python mymodule.py
+# Output: This is the main function
+#         Module run directly
+
+# When imported: import mymodule
+# Output: Module imported</code></pre>
+
+                <h3>Installing Third-Party Modules</h3>
+                <p>Use pip to install external packages:</p>
+                <pre><code># Install a package
+pip install requests
+
+# Install specific version
+pip install requests==2.25.1
+
+# Install from requirements file
+pip install -r requirements.txt
+
+# List installed packages
+pip list
+
+# Show package information
+pip show requests</code></pre>
+
+                <h3>Virtual Environments</h3>
+                <p>Virtual environments isolate project dependencies:</p>
+                <pre><code># Create virtual environment
+python -m venv myenv
+
+# Activate (Windows)
+myenv\Scripts\activate
+
+# Activate (macOS/Linux)
+source myenv/bin/activate
+
+# Install packages in virtual environment
+pip install requests
+
+# Deactivate
+deactivate</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a custom module for text processing:</p>
+                <ul>
+                    <li>Create a module called text_utils.py</li>
+                    <li>Implement functions for counting words, characters, and sentences</li>
+                    <li>Add functions to convert case and remove punctuation</li>
+                    <li>Create a main function to demonstrate usage</li>
+                    <li>Import and use the module in another script</li>
+                    <li>Bonus: Add support for reading from files</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code># text_utils.py
+import string
+
+def count_words(text):
+    """Count the number of words in text."""
+    words = text.split()
+    return len(words)
+
+def count_characters(text):
+    """Count total characters in text."""
+    return len(text)
+
+def count_sentences(text):
+    """Count the number of sentences in text."""
+    sentences = text.split('.')
+    return len([s for s in sentences if s.strip()])
+
+def to_uppercase(text):
+    """Convert text to uppercase."""
+    return text.upper()
+
+def to_lowercase(text):
+    """Convert text to lowercase."""
+    return text.lower()
+
+def remove_punctuation(text):
+    """Remove punctuation from text."""
+    return text.translate(str.maketrans('', '', string.punctuation))
+
+def main():
+    """Demonstrate the text utilities."""
+    sample_text = "Hello, World! This is a sample text. It has multiple sentences."
+    
+    print("Original text:", sample_text)
+    print("Word count:", count_words(sample_text))
+    print("Character count:", count_characters(sample_text))
+    print("Sentence count:", count_sentences(sample_text))
+    print("Uppercase:", to_uppercase(sample_text))
+    print("No punctuation:", remove_punctuation(sample_text))
+
+if __name__ == "__main__":
+    main()
+
+# Usage in another file:
+# import text_utils
+# text_utils.main()</code></pre>
+
+                <h3>Quiz</h3>
+                <p>1. What is a Python module?</p>
+                <ul>
+                    <li>A built-in function</li>
+                    <li>A file containing Python code</li>
+                    <li>A data type</li>
+                    <li>A loop structure</li>
+                </ul>
+
+                <p>2. Which statement imports an entire module?</p>
+                <ul>
+                    <li>from module import function</li>
+                    <li>import module</li>
+                    <li>include module</li>
+                    <li>using module</li>
+                </ul>
+
+                <p>3. What does __name__ == "__main__" check?</p>
+                <ul>
+                    <li>If the module is imported</li>
+                    <li>If the module is run directly</li>
+                    <li>If the module has a main function</li>
+                    <li>If the module is in the standard library</li>
+                </ul>
+
+                <p>4. What is pip used for?</p>
+                <ul>
+                    <li>Running Python scripts</li>
+                    <li>Installing Python packages</li>
+                    <li>Creating virtual environments</li>
+                    <li>Compiling Python code</li>
+                </ul>
+
+                <p>5. What is a Python package?</p>
+                <ul>
+                    <li>A single Python file</li>
+                    <li>A directory containing modules</li>
+                    <li>A built-in module</li>
+                    <li>A function definition</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

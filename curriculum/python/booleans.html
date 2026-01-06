@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Booleans</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+            <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Booleans</h2>
+                <p>Boolean values in Python represent truth values and are fundamental to decision-making in programs. Python's boolean type (bool) can hold only two values: True and False. Boolean expressions are used extensively in conditional statements, loops, and logical operations.</p>
+
+                <h3>The bool Data Type</h3>
+                <p>In Python, bool is a built-in data type that represents boolean values:</p>
+                <ul>
+                    <li><strong>True:</strong> Represents a logically true condition (equivalent to 1)</li>
+                    <li><strong>False:</strong> Represents a logically false condition (equivalent to 0)</li>
+                    <li>Both True and False are keywords in Python</li>
+                    <li>bool is a subclass of int, so boolean values can be used in arithmetic operations</li>
+                </ul>
+                <pre><code># Boolean literals
+is_active = True
+is_completed = False
+
+print(is_active)     # True
+print(is_completed)  # False
+
+# Type checking
+print(type(True))   # <class 'bool'>
+print(type(False))  # <class 'bool'>
+
+# Boolean arithmetic
+print(True + True)    # 2 (1 + 1)
+print(True * False)   # 0 (1 * 0)
+print(True + 5)       # 6 (1 + 5)</code></pre>
+
+                <h3>Boolean Conversion</h3>
+                <p>Python automatically converts values to boolean in boolean contexts:</p>
+                <pre><code># Truthy values (convert to True)
+print(bool(1))        # True
+print(bool(-1))       # True
+print(bool("hello"))  # True
+print(bool([1, 2, 3])) # True
+
+# Falsy values (convert to False)
+print(bool(0))        # False
+print(bool(""))       # False (empty string)
+print(bool([]))       # False (empty list)
+print(bool(None))     # False
+
+# Explicit conversion
+value = 42
+boolean_value = bool(value)
+print(boolean_value)  # True</code></pre>
+
+                <h3>Comparison Operators</h3>
+                <p>Comparison operators return boolean values:</p>
+                <pre><code>x = 10
+y = 20
+
+print("x == y:", x == y)   # False - equal to
+print("x != y:", x != y)   # True - not equal to
+print("x < y:", x < y)     # True - less than
+print("x > y:", x > y)     # False - greater than
+print("x <= y:", x <= y)   # True - less than or equal to
+print("x >= y:", x >= y)   # False - greater than or equal to
+
+# String comparisons
+name1 = "Alice"
+name2 = "Bob"
+print("Alice < Bob:", name1 < name2)  # True (alphabetical order)</code></pre>
+
+                <h3>Logical Operators</h3>
+                <p>Logical operators combine boolean expressions:</p>
+                <ul>
+                    <li><strong>and:</strong> Returns True if both operands are True</li>
+                    <li><strong>or:</strong> Returns True if at least one operand is True</li>
+                    <li><strong>not:</strong> Negates the operand (True becomes False, False becomes True)</li>
+                </ul>
+                <pre><code>x = True
+y = False
+
+print("x and y:", x and y)   # False
+print("x or y:", x or y)     # True
+print("not x:", not x)       # False
+print("not y:", not y)       # True
+
+# Short-circuit evaluation
+def check_first():
+    print("Checking first condition")
+    return True
+
+def check_second():
+    print("Checking second condition")
+    return False
+
+# 'and' short-circuits if first operand is False
+result1 = False and check_first()  # check_first() is not called
+
+# 'or' short-circuits if first operand is True
+result2 = True or check_second()   # check_second() is not called</code></pre>
+
+                <h3>Identity vs Equality</h3>
+                <pre><code># Equality operator (==) checks if values are equal
+a = [1, 2, 3]
+b = [1, 2, 3]
+print("a == b:", a == b)  # True (values are equal)
+
+# Identity operator (is) checks if objects are the same
+print("a is b:", a is b)  # False (different objects in memory)
+
+# For immutable objects like strings and numbers, Python may reuse objects
+x = 42
+y = 42
+print("x is y:", x is y)  # True (same object in memory)
+
+str1 = "hello"
+str2 = "hello"
+print("str1 is str2:", str1 is str2)  # True (same object)</code></pre>
+
+                <h3>Membership Operators</h3>
+                <pre><code># in operator checks if a value exists in a sequence
+fruits = ["apple", "banana", "cherry"]
+print("apple in fruits:", "apple" in fruits)      # True
+print("grape in fruits:", "grape" in fruits)      # False
+
+# not in operator
+print("grape not in fruits:", "grape" not in fruits)  # True
+
+# Works with strings, lists, tuples, sets, dictionaries
+text = "Hello, World!"
+print("World in text:", "World" in text)  # True
+
+numbers = {1, 2, 3, 4, 5}
+print("3 in numbers:", 3 in numbers)      # True
+
+person = {"name": "Alice", "age": 25}
+print("name in person:", "name" in person)        # True (checks keys)
+print("Alice in person:", "Alice" in person)      # False (values, not keys)</code></pre>
+
+                <h3>Boolean in Conditional Statements</h3>
+                <pre><code># if statements
+age = 18
+if age >= 18:
+    print("You are an adult")
+else:
+    print("You are a minor")
+
+# while loops
+count = 0
+while count < 3:
+    print(f"Count: {count}")
+    count += 1
+
+# for loops with break/continue
+numbers = [1, 2, 3, 4, 5]
+for num in numbers:
+    if num == 3:
+        continue  # Skip 3
+    if num == 5:
+        break     # Stop at 5
+    print(num)</code></pre>
+
+                <h3>Boolean Expressions and Operator Precedence</h3>
+                <pre><code># Operator precedence: not > and > or
+x = True
+y = False
+z = True
+
+# Same as: (x or y) and (not z)
+result1 = x or y and not z
+print("x or y and not z:", result1)
+
+# Use parentheses for clarity
+result2 = (x or y) and (not z)
+print("(x or y) and (not z):", result2)
+
+# Complex boolean expressions
+score = 85
+is_passed = score >= 60
+has_bonus = score >= 90
+is_excellent = is_passed and has_bonus
+
+print(f"Score: {score}")
+print(f"Passed: {is_passed}")
+print(f"Has bonus: {has_bonus}")
+print(f"Excellent: {is_excellent}")</code></pre>
+
+                <h3>Common Boolean Pitfalls</h3>
+                <ul>
+                    <li>Assignment (=) vs comparison (==)</li>
+                    <li>Using 'is' when you mean '==' for value comparison</li>
+                    <li>Forgetting operator precedence</li>
+                    <li>Confusing 'and'/'or' with '&'/'|' (bitwise operators)</li>
+                    <li>Not understanding truthiness of different values</li>
+                </ul>
+                <pre><code># Common mistakes
+x = 5
+
+# Wrong: assignment in condition
+# if x = 10:  # SyntaxError
+
+# Wrong: using 'is' for value comparison
+a = [1, 2, 3]
+b = [1, 2, 3]
+# if a is b:  # This will be False even though values are equal
+
+# Correct: use '==' for value comparison
+if a == b:
+    print("Lists have same values")
+
+# Truthiness confusion
+value = []
+if value:  # Empty list is falsy
+    print("List has items")
+else:
+    print("List is empty")</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a decision-making program using boolean logic:</p>
+                <ul>
+                    <li>Create a program that determines if someone can get a driver's license</li>
+                    <li>Check multiple conditions: age, vision test, written test, driving test</li>
+                    <li>Use boolean variables to track each requirement</li>
+                    <li>Combine conditions with logical operators</li>
+                    <li>Provide detailed feedback about which requirements are met</li>
+                    <li>Bonus: Add different license types (car, motorcycle, commercial) with different requirements</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>def check_license_eligibility():
+    """Check if someone is eligible for a driver's license."""
+    
+    print("Driver's License Eligibility Check")
+    print("=" * 40)
+    
+    # Get user information
+    age = int(input("Enter your age: "))
+    passed_vision = input("Did you pass the vision test? (yes/no): ").lower() == "yes"
+    passed_written = input("Did you pass the written test? (yes/no): ").lower() == "yes"
+    passed_driving = input("Did you pass the driving test? (yes/no): ").lower() == "yes"
+    
+    # Check individual requirements
+    age_ok = age >= 16
+    vision_ok = passed_vision
+    written_ok = passed_written
+    driving_ok = passed_driving
+    
+    # Overall eligibility (all conditions must be true)
+    eligible = age_ok and vision_ok and written_ok and driving_ok
+    
+    # Display results
+    print(f"\nEligibility Results:")
+    print(f"Age requirement (16+): {'✓' if age_ok else '✗'}")
+    print(f"Vision test: {'✓' if vision_ok else '✗'}")
+    print(f"Written test: {'✓' if written_ok else '✗'}")
+    print(f"Driving test: {'✓' if driving_ok else '✗'}")
+    
+    print(f"\nOverall eligibility: {'ELIGIBLE' if eligible else 'NOT ELIGIBLE'}")
+    
+    if eligible:
+        print("Congratulations! You can get your driver's license.")
+    else:
+        print("You need to meet all requirements before getting your license.")
+        
+        # Provide specific feedback
+        missing = []
+        if not age_ok:
+            missing.append(f"be at least 16 years old (you are {age})")
+        if not vision_ok:
+            missing.append("pass the vision test")
+        if not written_ok:
+            missing.append("pass the written test")
+        if not driving_ok:
+            missing.append("pass the driving test")
+        
+        if missing:
+            print("Missing requirements:")
+            for req in missing:
+                print(f"  - {req}")
+
+check_license_eligibility()</code></pre>
+
+                <h3>Quiz</h3>
+                <p>1. What are the two boolean values in Python?</p>
+                <ul>
+                    <li>true and false</li>
+                    <li>True and False</li>
+                    <li>1 and 0</li>
+                    <li>yes and no</li>
+                </ul>
+
+                <p>2. Which of these values is considered falsy?</p>
+                <ul>
+                    <li>0</li>
+                    <li>Empty string ""</li>
+                    <li>Empty list []</li>
+                    <li>All of the above</li>
+                </ul>
+
+                <p>3. What does the 'and' operator return?</p>
+                <ul>
+                    <li>True if both operands are true</li>
+                    <li>True if at least one operand is true</li>
+                    <li>The first operand</li>
+                    <li>The second operand</li>
+                </ul>
+
+                <p>4. What's the difference between '==' and 'is'?</p>
+                <ul>
+                    <li>No difference, they do the same thing</li>
+                    <li>'==' checks values, 'is' checks identity</li>
+                    <li>'is' checks values, '==' checks identity</li>
+                    <li>'==' is for numbers, 'is' is for strings</li>
+                </ul>
+
+                <p>5. What does 'not True' evaluate to?</p>
+                <ul>
+                    <li>True</li>
+                    <li>False</li>
+                    <li>0</li>
+                    <li>1</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

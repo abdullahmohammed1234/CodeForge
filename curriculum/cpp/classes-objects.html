@@ -1,0 +1,518 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Classes and Objects</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+       <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Classes and Objects</h2>
+                <p>Classes and objects are fundamental concepts in object-oriented programming. A class is a blueprint for creating objects, while an object is an instance of a class. C++ provides powerful features for defining classes, creating objects, and implementing object-oriented principles.</p>
+
+                <h3>What are Classes and Objects?</h3>
+                <ul>
+                    <li><strong>Class:</strong> A user-defined data type that encapsulates data and functions</li>
+                    <li><strong>Object:</strong> An instance of a class in memory</li>
+                    <li><strong>Encapsulation:</strong> Bundling data and methods that operate on that data</li>
+                    <li><strong>Abstraction:</strong> Hiding implementation details and showing only essential features</li>
+                    <li><strong>Modularity:</strong> Breaking down complex systems into manageable components</li>
+                </ul>
+
+                <h3>Defining a Class</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+class Person {
+private:
+    // Private data members
+    std::string name;
+    int age;
+    
+public:
+    // Constructor
+    Person(std::string n, int a) : name(n), age(a) {}
+    
+    // Destructor
+    ~Person() {
+        std::cout << "Person " << name << " destroyed" << std::endl;
+    }
+    
+    // Public member functions
+    void set_name(std::string n) {
+        name = n;
+    }
+    
+    std::string get_name() const {
+        return name;
+    }
+    
+    void set_age(int a) {
+        if (a >= 0) {
+            age = a;
+        }
+    }
+    
+    int get_age() const {
+        return age;
+    }
+    
+    void display() const {
+        std::cout << "Name: " << name << ", Age: " << age << std::endl;
+    }
+};
+
+int main() {
+    // Create objects
+    Person person1("Alice", 25);
+    Person person2("Bob", 30);
+    
+    // Use objects
+    person1.display();
+    person2.display();
+    
+    // Modify objects
+    person1.set_age(26);
+    person1.display();
+    
+    return 0;
+}</code></pre>
+
+                <h3>Access Specifiers</h3>
+                <ul>
+                    <li><strong>public:</strong> Members accessible from anywhere</li>
+                    <li><strong>private:</strong> Members accessible only within the class</li>
+                    <li><strong>protected:</strong> Members accessible within the class and derived classes</li>
+                </ul>
+                <pre><code>class Example {
+private:
+    int private_var;     // Only accessible within this class
+    
+protected:
+    int protected_var;   // Accessible in this class and derived classes
+    
+public:
+    int public_var;      // Accessible from anywhere
+    
+    void public_method() {
+        private_var = 10;    // OK - same class
+        protected_var = 20;  // OK - same class
+        public_var = 30;     // OK - same class
+    }
+};
+
+int main() {
+    Example obj;
+    // obj.private_var = 1;    // Error - private
+    // obj.protected_var = 2;  // Error - protected
+    obj.public_var = 3;       // OK - public
+    
+    return 0;
+}</code></pre>
+
+                <h3>Constructors and Destructors</h3>
+                <pre><code>class Rectangle {
+private:
+    double width, height;
+    
+public:
+    // Default constructor
+    Rectangle() : width(0), height(0) {
+        std::cout << "Default constructor called" << std::endl;
+    }
+    
+    // Parameterized constructor
+    Rectangle(double w, double h) : width(w), height(h) {
+        std::cout << "Parameterized constructor called" << std::endl;
+    }
+    
+    // Copy constructor
+    Rectangle(const Rectangle& other) : width(other.width), height(other.height) {
+        std::cout << "Copy constructor called" << std::endl;
+    }
+    
+    // Destructor
+    ~Rectangle() {
+        std::cout << "Destructor called" << std::endl;
+    }
+    
+    double area() const {
+        return width * height;
+    }
+};
+
+int main() {
+    Rectangle rect1;              // Default constructor
+    Rectangle rect2(5.0, 3.0);    // Parameterized constructor
+    Rectangle rect3 = rect2;      // Copy constructor
+    
+    std::cout << "Area: " << rect2.area() << std::endl;
+    
+    return 0;  // Destructors called here
+}</code></pre>
+
+                <h3>Member Functions</h3>
+                <pre><code>class BankAccount {
+private:
+    std::string account_number;
+    double balance;
+    
+public:
+    // Constructor
+    BankAccount(std::string acc_num, double initial_balance = 0.0)
+        : account_number(acc_num), balance(initial_balance) {}
+    
+    // Const member function - doesn't modify object
+    double get_balance() const {
+        return balance;
+    }
+    
+    // Non-const member function
+    void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        }
+    }
+    
+    // Member function with reference parameter
+    bool withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            return true;
+        }
+        return false;
+    }
+    
+    // Static member function
+    static double get_interest_rate() {
+        return 0.05;  // 5% interest
+    }
+    
+    // Friend function declaration
+    friend void display_account(const BankAccount& account);
+};
+
+// Friend function definition
+void display_account(const BankAccount& account) {
+    std::cout << "Account: " << account.account_number
+              << ", Balance: $" << account.balance << std::endl;
+}
+
+int main() {
+    BankAccount account("123456789", 1000.0);
+    
+    account.deposit(500.0);
+    account.withdraw(200.0);
+    
+    display_account(account);
+    
+    std::cout << "Interest rate: " << BankAccount::get_interest_rate() * 100 << "%" << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Static Members</h3>
+                <pre><code>class Counter {
+private:
+    static int count;  // Static data member
+    int id;
+    
+public:
+    Counter() {
+        count++;
+        id = count;
+    }
+    
+    static int get_count() {  // Static member function
+        return count;
+    }
+    
+    int get_id() const {
+        return id;
+    }
+};
+
+// Initialize static member
+int Counter::count = 0;
+
+int main() {
+    Counter c1, c2, c3;
+    
+    std::cout << "Total objects: " << Counter::get_count() << std::endl;
+    std::cout << "Object IDs: " << c1.get_id() << ", "
+              << c2.get_id() << ", " << c3.get_id() << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>The 'this' Pointer</h3>
+                <pre><code>class Point {
+private:
+    double x, y;
+    
+public:
+    Point(double x = 0, double y = 0) : x(x), y(y) {}
+    
+    // Method chaining using 'this'
+    Point& set_x(double new_x) {
+        this->x = new_x;
+        return *this;
+    }
+    
+    Point& set_y(double new_y) {
+        this->y = new_y;
+        return *this;
+    }
+    
+    void display() const {
+        std::cout << "(" << this->x << ", " << this->y << ")" << std::endl;
+    }
+};
+
+int main() {
+    Point p;
+    
+    // Method chaining
+    p.set_x(3.0).set_y(4.0).display();
+    
+    return 0;
+}</code></pre>
+
+                <h3>Object Composition</h3>
+                <pre><code>class Engine {
+private:
+    int horsepower;
+    
+public:
+    Engine(int hp) : horsepower(hp) {}
+    int get_horsepower() const { return horsepower; }
+};
+
+class Car {
+private:
+    std::string model;
+    Engine engine;  // Composition - Car has an Engine
+    
+public:
+    Car(std::string m, int hp) : model(m), engine(hp) {}
+    
+    void display() const {
+        std::cout << "Model: " << model << std::endl;
+        std::cout << "Engine: " << engine.get_horsepower() << " HP" << std::endl;
+    }
+};
+
+int main() {
+    Car my_car("Mustang", 450);
+    my_car.display();
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a library management system using classes and objects:</p>
+                <ul>
+                    <li>Define a Book class with title, author, ISBN, and availability status</li>
+                    <li>Create a Library class that manages a collection of books</li>
+                    <li>Implement methods to add books, search by title/author, and check out/return books</li>
+                    <li>Use proper encapsulation with private data members</li>
+                    <li>Bonus: Add a User class and implement user borrowing limits</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+class Book {
+private:
+    std::string title;
+    std::string author;
+    std::string isbn;
+    bool available;
+    
+public:
+    Book(std::string t, std::string a, std::string i)
+        : title(t), author(a), isbn(i), available(true) {}
+    
+    std::string get_title() const { return title; }
+    std::string get_author() const { return author; }
+    std::string get_isbn() const { return isbn; }
+    bool is_available() const { return available; }
+    
+    void check_out() { available = false; }
+    void return_book() { available = true; }
+    
+    void display() const {
+        std::cout << "Title: " << title << std::endl;
+        std::cout << "Author: " << author << std::endl;
+        std::cout << "ISBN: " << isbn << std::endl;
+        std::cout << "Status: " << (available ? "Available" : "Checked out") << std::endl;
+    }
+};
+
+class Library {
+private:
+    std::vector&lt;Book&gt; books;
+    
+public:
+    void add_book(const Book& book) {
+        books.push_back(book);
+    }
+    
+    void display_books() const {
+        std::cout << "Library Collection:" << std::endl;
+        for (const auto& book : books) {
+            book.display();
+            std::cout << "---" << std::endl;
+        }
+    }
+    
+    Book* find_book_by_title(const std::string& title) {
+        for (auto& book : books) {
+            if (book.get_title() == title) {
+                return &amp;book;
+            }
+        }
+        return nullptr;
+    }
+    
+    void check_out_book(const std::string& title) {
+        Book* book = find_book_by_title(title);
+        if (book && book->is_available()) {
+            book->check_out();
+            std::cout << "Successfully checked out: " << title << std::endl;
+        } else {
+            std::cout << "Book not available or not found: " << title << std::endl;
+        }
+    }
+    
+    void return_book(const std::string& title) {
+        Book* book = find_book_by_title(title);
+        if (book && !book->is_available()) {
+            book->return_book();
+            std::cout << "Successfully returned: " << title << std::endl;
+        } else {
+            std::cout << "Book was not checked out or not found: " << title << std::endl;
+        }
+    }
+};
+
+int main() {
+    Library library;
+    
+    // Add some books
+    library.add_book(Book("The C++ Programming Language", "Bjarne Stroustrup", "978-0321563842"));
+    library.add_book(Book("Clean Code", "Robert C. Martin", "978-0132350884"));
+    library.add_book(Book("Design Patterns", "Gang of Four", "978-0201633610"));
+    
+    // Display all books
+    library.display_books();
+    
+    // Check out a book
+    library.check_out_book("Clean Code");
+    
+    // Try to check out the same book again
+    library.check_out_book("Clean Code");
+    
+    // Return the book
+    library.return_book("Clean Code");
+    
+    return 0;
+}</code></pre>
+
+                <h3>Quiz</h3>
+                <p>1. What is the difference between a class and an object?</p>
+                <ul>
+                    <li>A class is a blueprint, an object is an instance</li>
+                    <li>A class is an instance, an object is a blueprint</li>
+                    <li>They are the same thing</li>
+                    <li>A class contains objects</li>
+                </ul>
+
+                <p>2. Which access specifier makes members accessible only within the class?</p>
+                <ul>
+                    <li>public</li>
+                    <li>private</li>
+                    <li>protected</li>
+                    <li>internal</li>
+                </ul>
+
+                <p>3. What is a constructor used for?</p>
+                <ul>
+                    <li>To destroy objects</li>
+                    <li>To initialize objects</li>
+                    <li>To copy objects</li>
+                    <li>To compare objects</li>
+                </ul>
+
+                <p>4. What does the 'this' pointer refer to?</p>
+                <ul>
+                    <li>The class itself</li>
+                    <li>The current object</li>
+                    <li>The base class</li>
+                    <li>The derived class</li>
+                </ul>
+
+                <p>5. Which member can be accessed without creating an object?</p>
+                <ul>
+                    <li>Instance member</li>
+                    <li>Static member</li>
+                    <li>Const member</li>
+                    <li>Private member</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - For Loops</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+           <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>For Loops</h2>
+                <p>For loops in Python are powerful constructs that allow you to iterate over sequences and perform operations on each item. Unlike while loops that continue until a condition becomes false, for loops iterate over a known sequence of items. Python's for loops are particularly elegant and versatile, working with lists, strings, ranges, and any iterable object.</p>
+
+                <h3>What are For Loops?</h3>
+                <p>For loops allow you to:</p>
+                <ul>
+                    <li>Execute code for each item in a sequence</li>
+                    <li>Process collections of data efficiently</li>
+                    <li>Perform repetitive tasks with varying data</li>
+                    <li>Iterate over files, database records, and API responses</li>
+                    <li>Create concise and readable code</li>
+                </ul>
+
+                <h3>Basic For Loop Syntax</h3>
+                <p>The basic structure of a for loop in Python:</p>
+                <pre><code>for item in sequence:
+    # Code to execute for each item
+    print(item)</code></pre>
+                <p><strong>Key Components:</strong></p>
+                <ul>
+                    <li><code>item</code>: Loop variable that takes each value from the sequence</li>
+                    <li><code>sequence</code>: Any iterable (list, string, range, etc.)</li>
+                    <li>Colon (<code>:</code>) after the sequence</li>
+                    <li>Indented code block that executes for each item</li>
+                </ul>
+
+                <h3>Iterating Over Lists</h3>
+                <p>Lists are commonly used with for loops:</p>
+                <pre><code>fruits = ["apple", "banana", "cherry", "date"]
+
+for fruit in fruits:
+    print(f"I like {fruit}")
+
+# Output:
+# I like apple
+# I like banana
+# I like cherry
+# I like date</code></pre>
+
+                <h3>Using range() Function</h3>
+                <p>The range() function generates sequences of numbers:</p>
+                <pre><code># range(stop) - from 0 to stop-1
+for i in range(5):
+    print(i)  # 0, 1, 2, 3, 4
+
+# range(start, stop) - from start to stop-1
+for i in range(2, 6):
+    print(i)  # 2, 3, 4, 5
+
+# range(start, stop, step) - with step size
+for i in range(0, 10, 2):
+    print(i)  # 0, 2, 4, 6, 8</code></pre>
+
+                <h3>Iterating Over Strings</h3>
+                <p>Strings are sequences of characters:</p>
+                <pre><code>message = "Hello"
+
+for char in message:
+    print(char)
+
+# Output:
+# H
+# e
+# l
+# l
+# o</code></pre>
+
+                <h3>Iterating Over Dictionaries</h3>
+                <p>Dictionaries have special methods for iteration:</p>
+                <pre><code>student = {"name": "Alice", "age": 20, "grade": "A"}
+
+# Iterate over keys
+for key in student:
+    print(f"{key}: {student[key]}")
+
+# Iterate over keys explicitly
+for key in student.keys():
+    print(key)
+
+# Iterate over values
+for value in student.values():
+    print(value)
+
+# Iterate over key-value pairs
+for key, value in student.items():
+    print(f"{key} -> {value}")</code></pre>
+
+                <h3>The enumerate() Function</h3>
+                <p>enumerate() gives both index and value:</p>
+                <pre><code>fruits = ["apple", "banana", "cherry"]
+
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")
+
+# Output:
+# 0: apple
+# 1: banana
+# 2: cherry
+
+# Start enumeration from 1
+for index, fruit in enumerate(fruits, 1):
+    print(f"{index}: {fruit}")
+
+# Output:
+# 1: apple
+# 2: banana
+# 3: cherry</code></pre>
+
+                <h3>Nested For Loops</h3>
+                <p>For loops can be nested inside each other:</p>
+                <pre><code>for i in range(3):
+    for j in range(2):
+        print(f"i={i}, j={j}")
+
+# Output:
+# i=0, j=0
+# i=0, j=1
+# i=1, j=0
+# i=1, j=1
+# i=2, j=0
+# i=2, j=1</code></pre>
+
+                <h3>List Comprehensions</h3>
+                <p>A concise way to create lists using for loops:</p>
+                <pre><code># Traditional approach
+squares = []
+for x in range(5):
+    squares.append(x ** 2)
+print(squares)  # [0, 1, 4, 9, 16]
+
+# List comprehension
+squares = [x ** 2 for x in range(5)]
+print(squares)  # [0, 1, 4, 9, 16]
+
+# With condition
+even_squares = [x ** 2 for x in range(10) if x % 2 == 0]
+print(even_squares)  # [0, 4, 16, 36, 64]</code></pre>
+
+                <h3>The zip() Function</h3>
+                <p>zip() combines multiple iterables:</p>
+                <pre><code>names = ["Alice", "Bob", "Charlie"]
+ages = [25, 30, 35]
+cities = ["NYC", "LA", "Chicago"]
+
+for name, age, city in zip(names, ages, cities):
+    print(f"{name} is {age} years old and lives in {city}")
+
+# Output:
+# Alice is 25 years old and lives in NYC
+# Bob is 30 years old and lives in LA
+# Charlie is 35 years old and lives in Chicago</code></pre>
+
+                <h3>Loop Control Statements</h3>
+                <p>Control the flow within loops:</p>
+                <pre><code>numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+for num in numbers:
+    if num == 5:
+        print("Found 5! Stopping...")
+        break  # Exit the loop
+    elif num % 2 == 0:
+        continue  # Skip even numbers
+    print(f"Odd number: {num}")
+
+# Output:
+# Odd number: 1
+# Odd number: 3
+# Found 5! Stopping...</code></pre>
+
+                <h3>Iterating Over Files</h3>
+                <p>For loops work great with file objects:</p>
+                <pre><code># Reading a file line by line
+with open("example.txt", "r") as file:
+    for line in file:
+        print(line.strip())  # strip() removes newline characters</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a comprehensive student grade analyzer:</p>
+                <ul>
+                    <li>Create a dictionary of students with their grades</li>
+                    <li>Use for loops to calculate averages and statistics</li>
+                    <li>Implement grade distribution analysis</li>
+                    <li>Find highest/lowest performers</li>
+                    <li>Use enumerate for ranking students</li>
+                    <li>Bonus: Create a simple grading report with formatted output</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>def calculate_average(grades):
+    """Calculate the average of a list of grades"""
+    if not grades:
+        return 0
+    return sum(grades) / len(grades)
+
+def get_letter_grade(score):
+    """Convert numerical score to letter grade"""
+    if score >= 90:
+        return "A"
+    elif score >= 80:
+        return "B"
+    elif score >= 70:
+        return "C"
+    elif score >= 60:
+        return "D"
+    else:
+        return "F"
+
+# Sample student data
+students = {
+    "Alice": [85, 92, 88, 95],
+    "Bob": [78, 82, 79, 85],
+    "Charlie": [95, 98, 92, 96],
+    "Diana": [88, 85, 90, 87],
+    "Eve": [72, 75, 78, 80]
+}
+
+print("Student Grade Analysis")
+print("=" * 50)
+
+# Analyze each student
+for name, grades in students.items():
+    average = calculate_average(grades)
+    letter_grade = get_letter_grade(average)
+    
+    print(f"\n{name}:")
+    print(f"  Grades: {grades}")
+    print(f"  Average: {average:.1f}")
+    print(f"  Letter Grade: {letter_grade}")
+
+# Overall class statistics
+all_grades = []
+for grades in students.values():
+    all_grades.extend(grades)
+
+class_average = calculate_average(all_grades)
+print(f"\nClass Statistics:")
+print(f"  Total Grades: {len(all_grades)}")
+print(f"  Class Average: {class_average:.1f}")
+
+# Grade distribution
+grade_counts = {"A": 0, "B": 0, "C": 0, "D": 0, "F": 0}
+for grades in students.values():
+    avg = calculate_average(grades)
+    letter = get_letter_grade(avg)
+    grade_counts[letter] += 1
+
+print(f"  Grade Distribution:")
+for grade, count in grade_counts.items():
+    print(f"    {grade}: {count} students")
+
+# Top performers
+print(f"\nTop Performers:")
+student_averages = [(name, calculate_average(grades)) for name, grades in students.items()]
+student_averages.sort(key=lambda x: x[1], reverse=True)
+
+for i, (name, avg) in enumerate(student_averages[:3], 1):
+    print(f"  {i}. {name}: {avg:.1f}")</code></pre>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Forgetting to indent the loop body</li>
+                    <li>Modifying a list while iterating over it</li>
+                    <li>Using wrong variable names in nested loops</li>
+                    <li>Not understanding that range() is exclusive of the stop value</li>
+                    <li>Confusing break and continue</li>
+                    <li>Trying to iterate over non-iterable objects</li>
+                </ul>
+
+                <h3>Performance Considerations</h3>
+                <ul>
+                    <li>Use list comprehensions for simple transformations</li>
+                    <li>Avoid creating unnecessary lists with range()</li>
+                    <li>Consider generator expressions for large datasets</li>
+                    <li>Use enumerate() when you need both index and value</li>
+                    <li>Be careful with nested loops on large datasets</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. What does the range(5) function produce?</p>
+                <ul>
+                    <li>[1, 2, 3, 4, 5]</li>
+                    <li>[0, 1, 2, 3, 4]</li>
+                    <li>[5, 4, 3, 2, 1]</li>
+                    <li>[0, 1, 2, 3, 4, 5]</li>
+                </ul>
+
+                <p>2. Which method gives both index and value when iterating?</p>
+                <ul>
+                    <li>range()</li>
+                    <li>enumerate()</li>
+                    <li>zip()</li>
+                    <li>len()</li>
+                </ul>
+
+                <p>3. What happens when you use break in a for loop?</p>
+                <ul>
+                    <li>Skips the current iteration</li>
+                    <li>Exits the loop immediately</li>
+                    <li>Restarts the loop</li>
+                    <li>Continues to the next item</li>
+                </ul>
+
+                <p>4. Which of these is NOT iterable in Python?</p>
+                <ul>
+                    <li>List</li>
+                    <li>String</li>
+                    <li>Integer</li>
+                    <li>Dictionary</li>
+                </ul>
+
+                <p>5. What does the continue statement do?</p>
+                <ul>
+                    <li>Exits the loop</li>
+                    <li>Skips the rest of the current iteration</li>
+                    <li>Restarts the loop from the beginning</li>
+                    <li>Ends the program</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

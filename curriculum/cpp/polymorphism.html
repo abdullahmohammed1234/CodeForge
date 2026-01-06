@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - C++ Polymorphism</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+       <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism" class="active">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>C++ Polymorphism</h2>
+                <p>Polymorphism is a core concept in object-oriented programming that allows objects of different classes to be treated as objects of a common base class. The word "polymorphism" means "many forms," and it enables a single interface to represent different underlying forms (data types).</p>
+
+                <h3>What is Polymorphism?</h3>
+                <p>Polymorphism allows:</p>
+                <ul>
+                    <li><strong>Single Interface:</strong> Use one interface for multiple data types</li>
+                    <li><strong>Runtime Flexibility:</strong> Decide which function to call at runtime</li>
+                    <li><strong>Extensibility:</strong> Add new classes without changing existing code</li>
+                    <li><strong>Code Reuse:</strong> Write generic code that works with multiple types</li>
+                </ul>
+
+                <h4>Types of Polymorphism</h4>
+                <ul>
+                    <li><strong>Compile-time (Static):</strong> Function overloading, operator overloading</li>
+                    <li><strong>Runtime (Dynamic):</strong> Virtual functions, inheritance</li>
+                </ul>
+
+                <h3>Function Overloading</h3>
+                <p>Function overloading allows multiple functions with the same name but different parameters:</p>
+                <pre><code>class Calculator {
+public:
+    // Different parameter types
+    int add(int a, int b) {
+        return a + b;
+    }
+    
+    double add(double a, double b) {
+        return a + b;
+    }
+    
+    // Different number of parameters
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+    
+    // Different parameter order (not recommended)
+    std::string add(std::string a, int b) {
+        return a + std::to_string(b);
+    }
+};
+
+int main() {
+    Calculator calc;
+    
+    std::cout << calc.add(2, 3) << std::endl;           // 5 (int version)
+    std::cout << calc.add(2.5, 3.7) << std::endl;       // 6.2 (double version)
+    std::cout << calc.add(1, 2, 3) << std::endl;        // 6 (three parameters)
+    std::cout << calc.add("Count: ", 5) << std::endl;   // "Count: 5"
+    
+    return 0;
+}</code></pre>
+
+                <h3>Operator Overloading</h3>
+                <p>Operator overloading allows custom types to use standard operators:</p>
+                <pre><code>class Complex {
+private:
+    double real, imag;
+    
+public:
+    Complex(double r = 0, double i = 0) : real(r), imag(i) {}
+    
+    // Overload + operator
+    Complex operator+(const Complex& other) {
+        return Complex(real + other.real, imag + other.imag);
+    }
+    
+    // Overload << operator for output
+    friend std::ostream& operator<<(std::ostream& os, const Complex& c) {
+        os << c.real << " + " << c.imag << "i";
+        return os;
+    }
+    
+    // Overload == operator
+    bool operator==(const Complex& other) const {
+        return (real == other.real) && (imag == other.imag);
+    }
+};
+
+int main() {
+    Complex c1(3, 4);    // 3 + 4i
+    Complex c2(1, 2);    // 1 + 2i
+    Complex c3 = c1 + c2; // 4 + 6i
+    
+    std::cout << "c1: " << c1 << std::endl;
+    std::cout << "c2: " << c2 << std::endl;
+    std::cout << "c1 + c2: " << c3 << std::endl;
+    std::cout << "c1 == c2: " << (c1 == c2 ? "true" : "false") << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h4>Rules for Operator Overloading</h4>
+                <ul>
+                    <li>At least one operand must be a user-defined type</li>
+                    <li>Cannot change operator precedence or associativity</li>
+                    <li>Cannot create new operators</li>
+                    <li>Some operators cannot be overloaded (::, ., .*, ?:)</li>
+                    <li>Assignment (=), function call (()), subscript ([]), and arrow (->) operators must be member functions</li>
+                </ul>
+
+                <h3>Virtual Functions and Runtime Polymorphism</h3>
+                <p>Virtual functions enable runtime method selection based on actual object type:</p>
+                <pre><code>class Animal {
+public:
+    virtual void makeSound() {
+        std::cout << "Some animal sound" << std::endl;
+    }
+    
+    virtual ~Animal() {} // Virtual destructor
+};
+
+class Dog : public Animal {
+public:
+    void makeSound() override {
+        std::cout << "Woof!" << std::endl;
+    }
+};
+
+class Cat : public Animal {
+public:
+    void makeSound() override {
+        std::cout << "Meow!" << std::endl;
+    }
+};
+
+int main() {
+    Animal* animals[3];
+    animals[0] = new Dog();
+    animals[1] = new Cat();
+    animals[2] = new Animal();
+    
+    for (int i = 0; i < 3; i++) {
+        animals[i]->makeSound();  // Calls appropriate version
+        delete animals[i];
+    }
+    
+    return 0;
+}</code></pre>
+
+                <h3>Pure Virtual Functions and Abstract Classes</h3>
+                <p>Abstract classes cannot be instantiated and serve as interfaces:</p>
+                <pre><code>class Shape {
+public:
+    virtual double area() = 0;        // Pure virtual function
+    virtual double perimeter() = 0;   // Pure virtual function
+    
+    void display() {  // Concrete function
+        std::cout << "Area: " << area() << std::endl;
+    }
+    
+    virtual ~Shape() {}
+};
+
+class Circle : public Shape {
+private:
+    double radius;
+public:
+    Circle(double r) : radius(r) {}
+    
+    double area() override {
+        return 3.14159 * radius * radius;
+    }
+    
+    double perimeter() override {
+        return 2 * 3.14159 * radius;
+    }
+};
+
+int main() {
+    // Shape shape;  // Error: cannot instantiate abstract class
+    
+    Circle circle(5.0);
+    circle.display();  // Calls concrete function which calls virtual area()
+    
+    Shape* shapePtr = &amp;circle;
+    std::cout << "Area through pointer: " << shapePtr->area() << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Dynamic Casting</h3>
+                <p>dynamic_cast allows safe casting in inheritance hierarchies:</p>
+                <pre><code>class Base {
+public:
+    virtual ~Base() {}
+};
+
+class Derived : public Base {
+public:
+    void derivedMethod() {
+        std::cout << "Derived method called" << std::endl;
+    }
+};
+
+int main() {
+    Base* basePtr = new Derived();
+    
+    // Safe downcasting
+    Derived* derivedPtr = dynamic_cast&lt;Derived*&gt;(basePtr);
+    if (derivedPtr) {
+        derivedPtr->derivedMethod();
+    } else {
+        std::cout << "Cast failed" << std::endl;
+    }
+    
+    delete basePtr;
+    return 0;
+}</code></pre>
+
+                <h3>Function Pointers and Polymorphism</h3>
+                <pre><code>// Function pointer type
+typedef void (*SoundFunction)();
+
+// Animal with function pointer
+class Animal {
+private:
+    SoundFunction soundFunc;
+    
+public:
+    Animal(SoundFunction func) : soundFunc(func) {}
+    
+    void makeSound() {
+        if (soundFunc) {
+            soundFunc();
+        }
+    }
+};
+
+// Sound functions
+void dogSound() { std::cout << "Woof!" << std::endl; }
+void catSound() { std::cout << "Meow!" << std::endl; }
+
+int main() {
+    Animal dog(dogSound);
+    Animal cat(catSound);
+    
+    dog.makeSound();
+    cat.makeSound();
+    
+    return 0;
+}</code></pre>
+
+                <h3>Polymorphism with Templates</h3>
+                <p>Templates provide compile-time polymorphism:</p>
+                <pre><code>template <typename T>
+T maximum(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+template &lt;typename T&gt;
+class Container {
+private:
+    T data;
+public:
+    Container(T d) : data(d) {}
+    T getData() { return data; }
+};
+
+int main() {
+    std::cout << maximum(5, 3) << std::endl;           // int
+    std::cout << maximum(5.5, 3.2) << std::endl;       // double
+    std::cout << maximum('z', 'a') << std::endl;        // char
+    
+    Container&lt;int&gt; intContainer(42);
+    Container&lt;std::string&gt; strContainer("Hello");
+
+    std::cout << intContainer.getData() << std::endl;
+    std::cout << strContainer.getData() << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Example Program</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;memory&gt;
+
+// Abstract base class
+class Vehicle {
+public:
+    virtual void start() = 0;
+    virtual void stop() = 0;
+    virtual std::string getType() = 0;
+    virtual ~Vehicle() {}
+};
+
+// Concrete classes
+class Car : public Vehicle {
+public:
+    void start() override {
+        std::cout << "Car engine started" << std::endl;
+    }
+    
+    void stop() override {
+        std::cout << "Car engine stopped" << std::endl;
+    }
+    
+    std::string getType() override {
+        return "Car";
+    }
+};
+
+class Motorcycle : public Vehicle {
+public:
+    void start() override {
+        std::cout << "Motorcycle engine started" << std::endl;
+    }
+    
+    void stop() override {
+        std::cout << "Motorcycle engine stopped" << std::endl;
+    }
+    
+    std::string getType() override {
+        return "Motorcycle";
+    }
+};
+
+// Function demonstrating polymorphism
+void testVehicle(Vehicle& vehicle) {
+    std::cout << "Testing " << vehicle.getType() << ":" << std::endl;
+    vehicle.start();
+    vehicle.stop();
+    std::cout << std::endl;
+}
+
+int main() {
+    std::vector&lt;std::unique_ptr&lt;Vehicle&gt;&gt; vehicles;
+    
+    vehicles.push_back(std::make_unique&lt;Car&gt;());
+    vehicles.push_back(std::make_unique&lt;Motorcycle&gt;());
+    vehicles.push_back(std::make_unique&lt;Car&gt;());
+    
+    std::cout << "Vehicle Testing Program" << std::endl;
+    std::cout << "====================" << std::endl;
+    
+    for (auto& vehicle : vehicles) {
+        testVehicle(*vehicle);
+    }
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a polymorphic graphics system:</p>
+                <ul>
+                    <li>Design an abstract Shape base class with draw() and area() methods</li>
+                    <li>Implement derived classes for Circle, Rectangle, Triangle</li>
+                    <li>Create a ShapeContainer class that can hold different shapes</li>
+                    <li>Implement operator overloading for shape comparisons</li>
+                    <li>Add functionality to calculate total area of all shapes</li>
+                    <li>Bonus: Implement a drawing canvas that renders shapes polymorphically</li>
+                </ul>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Forgetting virtual destructors in base classes</li>
+                    <li>Not using override keyword for clarity</li>
+                    <li>Slicing objects when passing by value</li>
+                    <li>Misunderstanding function overloading vs overriding</li>
+                    <li>Using dynamic_cast without checking for nullptr</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use virtual functions for runtime polymorphism</li>
+                    <li>Always declare base class destructors as virtual</li>
+                    <li>Use override keyword for overridden functions</li>
+                    <li>Prefer unique_ptr for polymorphic objects</li>
+                    <li>Design interfaces with abstract base classes</li>
+                    <li>Use dynamic_cast sparingly and check results</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. What does polymorphism mean?</p>
+                <ul>
+                    <li>Single form</li>
+                    <li>Many forms</li>
+                    <li>No forms</li>
+                    <li>Fixed form</li>
+                </ul>
+
+                <p>2. Which type of polymorphism occurs at compile time?</p>
+                <ul>
+                    <li>Runtime polymorphism</li>
+                    <li>Compile-time polymorphism</li>
+                    <li>Both</li>
+                    <li>Neither</li>
+                </ul>
+
+                <p>3. What keyword declares a pure virtual function?</p>
+                <ul>
+                    <li>pure</li>
+                    <li>abstract</li>
+                    <li>= 0</li>
+                    <li>virtual pure</li>
+                </ul>
+
+                <p>4. Can you instantiate an abstract class?</p>
+                <ul>
+                    <li>Yes, always</li>
+                    <li>No, never</li>
+                    <li>Only in derived classes</li>
+                    <li>Only with virtual functions</li>
+                </ul>
+
+                <p>5. What does the override keyword do?</p>
+                <ul>
+                    <li>Prevents overriding</li>
+                    <li>Indicates function overriding</li>
+                    <li>Makes function virtual</li>
+                    <li>Declares pure virtual function</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

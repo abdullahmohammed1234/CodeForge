@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - C++ Numbers</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+       <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers" class="active">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>C++ Numbers</h2>
+                <p>Numbers are fundamental to programming. In C++, you work with different types of numbers including integers and floating-point numbers. Understanding how to handle numbers, perform calculations, and manage precision is crucial for writing effective C++ programs.</p>
+
+                <h3>Number Literals</h3>
+                <p>Number literals are constant values written directly in code:</p>
+
+                <h4>Integer Literals</h4>
+                <pre><code>// Decimal (base 10)
+int decimal = 42;
+
+// Octal (base 8) - starts with 0
+int octal = 052;  // 42 in decimal
+
+// Hexadecimal (base 16) - starts with 0x or 0X
+int hex = 0x2A;   // 42 in decimal
+int hex2 = 0X2a;  // Also valid
+
+// Binary (C++14) - starts with 0b or 0B
+int binary = 0b101010;  // 42 in decimal
+
+// Long integers - end with L or l
+long big_num = 123456789L;
+
+// Unsigned - end with U or u
+unsigned int positive = 42U;</code></pre>
+
+                <h4>Floating-Point Literals</h4>
+                <pre><code>// Double precision
+double pi = 3.14159;
+
+// Float - end with F or f
+float gravity = 9.81f;
+
+// Scientific notation
+double avogadro = 6.022e23;  // 6.022 × 10^23
+double small = 1.23e-4;     // 1.23 × 10^-4
+
+// Long double - end with L or l
+long double precise = 3.141592653589793L;</code></pre>
+
+                <h3>Arithmetic Operations</h3>
+                <p>C++ supports standard arithmetic operations:</p>
+
+                <h4>Basic Operations</h4>
+                <pre><code>#include <iostream>
+
+int main() {
+    int a = 10, b = 3;
+    
+    std::cout << "Addition: " << a + b << std::endl;       // 13
+    std::cout << "Subtraction: " << a - b << std::endl;    // 7
+    std::cout << "Multiplication: " << a * b << std::endl; // 30
+    std::cout << "Division: " << a / b << std::endl;       // 3 (integer division)
+    std::cout << "Modulus: " << a % b << std::endl;       // 1
+    
+    return 0;
+}</code></pre>
+
+                <h4>Floating-Point Division</h4>
+                <pre><code>double x = 10.0, y = 3.0;
+std::cout << "Float division: " << x / y << std::endl;  // 3.333...
+
+// Mixed types
+int int_num = 5;
+double float_num = 2.0;
+double result = int_num / float_num;  // 2.5</code></pre>
+
+                <h3>Assignment Operators</h3>
+                <pre><code>int x = 5;
+
+// Compound assignment
+x += 3;  // x = x + 3;  -> 8
+x -= 2;  // x = x - 2;  -> 6
+x *= 4;  // x = x * 4;  -> 24
+x /= 3;  // x = x / 3;  -> 8
+x %= 5;  // x = x % 5;  -> 3</code></pre>
+
+                <h3>Increment and Decrement</h3>
+                <pre><code>int x = 5;
+
+// Post-increment
+int y = x++;  // y = 5, x = 6
+
+// Pre-increment
+int z = ++x;  // z = 7, x = 7
+
+// Post-decrement
+y = x--;      // y = 7, x = 6
+
+// Pre-decrement
+z = --x;      // z = 5, x = 5</code></pre>
+
+                <h3>Mathematical Functions</h3>
+                <p>C++ provides mathematical functions through &lt;cmath&gt; header:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+
+int main() {
+    double x = 4.0, y = -3.14;
+    
+    std::cout << "Square root: " << sqrt(x) << std::endl;     // 2
+    std::cout << "Power: " << pow(x, 2) << std::endl;         // 16
+    std::cout << "Absolute value: " << abs(y) << std::endl;   // 3.14
+    std::cout << "Ceiling: " << ceil(3.1) << std::endl;      // 4
+    std::cout << "Floor: " << floor(3.9) << std::endl;       // 3
+    std::cout << "Round: " << round(3.5) << std::endl;       // 4
+    
+    // Trigonometric functions (radians)
+    std::cout << "Sin(π/2): " << sin(M_PI/2) << std::endl; // 1
+    std::cout << "Cos(0): " << cos(0) << std::endl;         // 1
+    
+    return 0;
+}</code></pre>
+
+                <h3>Number Formatting</h3>
+                <p>Use &lt;iomanip&gt; for formatted output:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+
+int main() {
+    double pi = 3.14159265359;
+    
+    // Fixed decimal places
+    std::cout << std::fixed << std::setprecision(2) << pi << std::endl;  // 3.14
+    std::cout << std::fixed << std::setprecision(4) << pi << std::endl;  // 3.1416
+    
+    // Scientific notation
+    std::cout << std::scientific << pi << std::endl;  // 3.141593e+00
+    
+    // Field width
+    std::cout << std::setw(10) << 42 << std::endl;  // Right-aligned
+    
+    return 0;
+}</code></pre>
+
+                <h3>Random Numbers</h3>
+                <p>C++11 introduced better random number generation:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;random&gt;
+#include &lt;ctime&gt;
+
+int main() {
+    // Seed the random number generator
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    
+    // Generate random integers
+    std::uniform_int_distribution<> int_dist(1, 100);
+    std::cout << "Random int: " << int_dist(gen) << std::endl;
+    
+    // Generate random doubles
+    std::uniform_real_distribution<> real_dist(0.0, 1.0);
+    std::cout << "Random double: " << real_dist(gen) << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Precision and Overflow</h3>
+                <p>Be aware of precision limits and overflow:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;limits&gt;
+
+int main() {
+    // Integer overflow
+    int max_int = std::numeric_limits&lt;int&gt;::max();
+    std::cout << "Max int: " << max_int << std::endl;
+    std::cout << "Max int + 1: " << max_int + 1 << std::endl;  // Overflow!
+    
+    // Floating-point precision
+    float f1 = 0.1f;
+    float f2 = 0.2f;
+    float sum = f1 + f2;
+    std::cout << "0.1f + 0.2f = " << sum << std::endl;  // May not be exactly 0.3
+    
+    // Double has more precision
+    double d1 = 0.1;
+    double d2 = 0.2;
+    double dsum = d1 + d2;
+    std::cout << "0.1 + 0.2 = " << dsum << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Number Conversion</h3>
+                <pre><code>// String to number
+#include &lt;string&gt;
+std::string str = "123";
+int num = std::stoi(str);
+double dnum = std::stod("3.14");
+
+// Number to string
+#include &lt;string&gt;
+int x = 42;
+std::string s = std::to_string(x);</code></pre>
+
+                <h3>Example Program</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+#include &lt;iomanip&gt;
+
+int main() {
+    // Calculator program
+    double num1, num2;
+    char operation;
+    
+    std::cout << "Enter first number: ";
+    std::cin >> num1;
+    
+    std::cout << "Enter operation (+, -, *, /, ^): ";
+    std::cin >> operation;
+    
+    std::cout << "Enter second number: ";
+    std::cin >> num2;
+    
+    double result;
+    switch(operation) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            if (num2 != 0) {
+                result = num1 / num2;
+            } else {
+                std::cout << "Error: Division by zero!" << std::endl;
+                return 1;
+            }
+            break;
+        case '^':
+            result = pow(num1, num2);
+            break;
+        default:
+            std::cout << "Invalid operation!" << std::endl;
+            return 1;
+    }
+    
+    std::cout << std::fixed << std::setprecision(2);
+    std::cout << num1 << " " << operation << " " << num2 << " = " << result << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a comprehensive number handling program:</p>
+                <ul>
+                    <li>Implement a calculator with basic operations</li>
+                    <li>Add scientific functions (sqrt, sin, cos, etc.)</li>
+                    <li>Handle different number formats (decimal, hex, binary)</li>
+                    <li>Implement number conversion between bases</li>
+                    <li>Add input validation and error handling</li>
+                    <li>Bonus: Create a program that generates and analyzes random numbers</li>
+                </ul>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Integer division when float division is needed</li>
+                    <li>Not handling division by zero</li>
+                    <li>Ignoring overflow conditions</li>
+                    <li>Mixing signed and unsigned types</li>
+                    <li>Precision loss with floating-point operations</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use appropriate data types for your range and precision needs</li>
+                    <li>Always check for division by zero</li>
+                    <li>Use double for most floating-point calculations</li>
+                    <li>Be aware of integer overflow</li>
+                    <li>Use meaningful variable names for numbers</li>
+                    <li>Format output appropriately for user readability</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. What is the result of 5 / 2 in integer division?</p>
+                <ul>
+                    <li>2.5</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>Error</li>
+                </ul>
+
+                <p>2. Which header file contains mathematical functions?</p>
+                <ul>
+                    <li>&lt;iostream&gt;</li>
+                    <li>&lt;cmath&gt;</li>
+                    <li>&lt;string&gt;</li>
+                    <li>&lt;vector&gt;</li>
+                </ul>
+
+                <p>3. What does the ++ operator do?</p>
+                <ul>
+                    <li>Adds 2</li>
+                    <li>Increments by 1</li>
+                    <li>Doubles the value</li>
+                    <li>Nothing</li>
+                </ul>
+
+                <p>4. Which function converts string to integer?</p>
+                <ul>
+                    <li>atoi()</li>
+                    <li>stoi()</li>
+                    <li>strtol()</li>
+                    <li>All of the above</li>
+                </ul>
+
+                <p>5. What happens when integer overflow occurs?</p>
+                <ul>
+                    <li>Program crashes</li>
+                    <li>Value wraps around</li>
+                    <li>Compiler error</li>
+                    <li>Value becomes zero</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+

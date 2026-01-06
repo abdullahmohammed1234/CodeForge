@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - C++ Memory Management</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+       <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory" class="active">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>C++ Memory Management</h2>
+                <p>Memory management is a critical aspect of C++ programming. Unlike languages with automatic garbage collection, C++ gives you direct control over memory allocation and deallocation. Understanding memory management is essential for writing efficient, bug-free programs.</p>
+
+                <h3>Memory Areas in C++</h3>
+                <p>C++ programs use several distinct memory areas:</p>
+
+                <h4>Stack Memory</h4>
+                <ul>
+                    <li><strong>Automatic allocation:</strong> Memory allocated automatically when functions are called</li>
+                    <li><strong>LIFO structure:</strong> Last In, First Out</li>
+                    <li><strong>Fast access:</strong> Very fast allocation and deallocation</li>
+                    <li><strong>Limited size:</strong> Usually smaller than heap</li>
+                    <li><strong>Automatic cleanup:</strong> Freed when function returns</li>
+                </ul>
+                <pre><code>void function() {
+    int x = 5;        // Stack allocation
+    int arr[10];      // Stack allocation
+} // Memory automatically freed</code></pre>
+
+                <h4>Heap Memory (Free Store)</h4>
+                <ul>
+                    <li><strong>Manual allocation:</strong> Programmer controls allocation/deallocation</li>
+                    <li><strong>Dynamic size:</strong> Can allocate large amounts of memory</li>
+                    <li><strong>Slower access:</strong> Requires pointer dereferencing</li>
+                    <li><strong>Persistent:</strong> Remains until explicitly freed</li>
+                    <li><strong>Global access:</strong> Can be accessed from anywhere</li>
+                </ul>
+                <pre><code>int* ptr = new int;     // Heap allocation
+delete ptr;             // Manual deallocation</code></pre>
+
+                <h4>Global/Static Memory</h4>
+                <ul>
+                    <li><strong>Program lifetime:</strong> Allocated when program starts, freed when ends</li>
+                    <li><strong>Zero-initialized:</strong> Global variables initialized to zero</li>
+                    <li><strong>Shared access:</strong> Accessible from any function</li>
+                </ul>
+                <pre><code>int global_var;              // Global memory
+static int static_var;       // Static memory</code></pre>
+
+                <h3>Dynamic Memory Allocation</h3>
+                <p>C++ provides operators for dynamic memory management:</p>
+
+                <h4>Single Object Allocation</h4>
+                <pre><code>// Allocate single int
+int* ptr = new int;
+
+// Allocate and initialize
+int* ptr2 = new int(42);
+
+// Allocate single object
+MyClass* obj = new MyClass();
+
+// Deallocate
+delete ptr;
+delete ptr2;
+delete obj;</code></pre>
+
+                <h4>Array Allocation</h4>
+                <pre><code>// Allocate array
+int* arr = new int[10];
+
+// Allocate array with initialization (C++11)
+int* arr2 = new int[5]{1, 2, 3, 4, 5};
+
+// Deallocate array
+delete[] arr;
+delete[] arr2;</code></pre>
+
+                <h3>Memory Leaks</h3>
+                <p>Memory leaks occur when dynamically allocated memory is not properly deallocated:</p>
+                <pre><code>void memoryLeak() {
+    int* ptr = new int(42);
+    // Forgot to delete ptr!
+    // Memory leak: 4 bytes lost
+}
+
+void noLeak() {
+    int* ptr = new int(42);
+    // Use ptr...
+    delete ptr;  // Properly deallocated
+}</code></pre>
+
+                <h4>Detecting Memory Leaks</h4>
+                <ul>
+                    <li><strong>Valgrind:</strong> Memory debugging tool for Linux</li>
+                    <li><strong>Visual Studio Debugger:</strong> Built-in memory leak detection</li>
+                    <li><strong>Address Sanitizer:</strong> Compiler-based detection</li>
+                    <li><strong>Manual tracking:</strong> Keep count of allocations/deallocations</li>
+                </ul>
+
+                <h3>Dangling Pointers</h3>
+                <p>Dangling pointers point to memory that has been deallocated:</p>
+                <pre><code>int* ptr = new int(42);
+delete ptr;        // Memory freed
+
+// ptr is now a dangling pointer
+// Accessing *ptr causes undefined behavior
+std::cout << *ptr << std::endl;  // Dangerous!</code></pre>
+
+                <h4>Avoiding Dangling Pointers</h4>
+                <pre><code>// Set to nullptr after deletion
+int* ptr = new int(42);
+delete ptr;
+ptr = nullptr;
+
+// Check before use
+if (ptr != nullptr) {
+    std::cout << *ptr << std::endl;
+}</code></pre>
+
+                <h3>RAII (Resource Acquisition Is Initialization)</h3>
+                <p>RAII is a programming idiom where resource management is tied to object lifetime:</p>
+                <pre><code>class FileHandler {
+private:
+    FILE* file;
+public:
+    FileHandler(const char* filename) {
+        file = fopen(filename, "r");
+    }
+    
+    ~FileHandler() {
+        if (file) {
+            fclose(file);
+        }
+    }
+    
+    // Usage
+    void readData() {
+        // Use file...
+    }
+};
+
+// Automatic resource management
+void processFile() {
+    FileHandler handler("data.txt");
+    handler.readData();
+    // File automatically closed when handler goes out of scope
+}</code></pre>
+
+                <h3>Smart Pointers (C++11)</h3>
+                <p>Smart pointers automatically manage memory and prevent leaks:</p>
+
+                <h4>unique_ptr</h4>
+                <pre><code>#include &lt;memory&gt;
+
+// Exclusive ownership
+std::unique_ptr&lt;int&gt; ptr1 = std::make_unique&lt;int&gt;(42);
+
+// Cannot copy, only move
+// std::unique_ptr&lt;int&gt; ptr2 = ptr1;  // Error
+std::unique_ptr&lt;int&gt; ptr2 = std::move(ptr1);  // OK
+
+// Automatic deletion when out of scope</code></pre>
+
+                <h4>shared_ptr</h4>
+                <pre><code>// Shared ownership with reference counting
+std::shared_ptr&lt;int&gt; ptr1 = std::make_shared<int>(42);
+std::shared_ptr&lt;int&gt; ptr2 = ptr1;  // Reference count = 2
+
+// Memory freed when last shared_ptr is destroyed</code></pre>
+
+                <h4>weak_ptr</h4>
+                <pre><code>// Non-owning reference to shared_ptr
+std::weak_ptr&lt;int&gt; weak = sharedPtr;
+
+// Check if still valid before use
+if (auto locked = weak.lock()) {
+    // Use locked (which is a shared_ptr)
+    std::cout << *locked << std::endl;
+}</code></pre>
+
+                <h3>Memory Management Best Practices</h3>
+                <ul>
+                    <li><strong>Use stack allocation when possible:</strong> Faster and safer</li>
+                    <li><strong>Use smart pointers:</strong> Automatic memory management</li>
+                    <li><strong>Follow RAII principle:</strong> Resources tied to object lifetime</li>
+                    <li><strong>Set pointers to nullptr after deletion:</strong> Prevent dangling pointers</li>
+                    <li><strong>Use containers instead of raw arrays:</strong> std::vector, std::array</li>
+                    <li><strong>Avoid global variables:</strong> Can cause memory issues</li>
+                    <li><strong>Check allocations:</strong> Handle out-of-memory situations</li>
+                </ul>
+
+                <h3>Common Memory Errors</h3>
+                <table>
+                    <tr>
+                        <th>Error</th>
+                        <th>Cause</th>
+                        <th>Symptom</th>
+                    </tr>
+                    <tr>
+                        <td>Memory Leak</td>
+                        <td>Forgot to delete</td>
+                        <td>Program uses more memory over time</td>
+                    </tr>
+                    <tr>
+                        <td>Double Deletion</td>
+                        <td>delete called twice</td>
+                        <td>Undefined behavior, crashes</td>
+                    </tr>
+                    <tr>
+                        <td>Buffer Overflow</td>
+                        <td>Writing beyond array bounds</td>
+                        <td>Data corruption, security issues</td>
+                    </tr>
+                    <tr>
+                        <td>Use After Free</td>
+                        <td>Accessing deleted memory</td>
+                        <td>Undefined behavior</td>
+                    </tr>
+                </table>
+
+                <h3>Memory Debugging Tools</h3>
+                <ul>
+                    <li><strong>Valgrind:</strong> Comprehensive memory checker</li>
+                    <li><strong>AddressSanitizer:</strong> Fast memory error detector</li>
+                    <li><strong>Visual Studio CRT:</strong> Debug heap functions</li>
+                    <li><strong>Electric Fence:</strong> Buffer overflow detection</li>
+                </ul>
+
+                <h3>Example Program</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;memory&gt;
+#include &lt;vector&gt;
+
+class Resource {
+public:
+    Resource() { std::cout << "Resource acquired\n"; }
+    ~Resource() { std::cout << "Resource released\n"; }
+    void use() { std::cout << "Using resource\n"; }
+};
+
+void demonstrateMemory() {
+    std::cout << "=== Stack Allocation ===\n";
+    {
+        Resource res;  // Stack allocation
+        res.use();
+    } // Automatically destroyed
+    
+    std::cout << "\n=== Smart Pointer ===\n";
+    {
+        std::unique_ptr&lt;Resource&gt; ptr = std::make_unique<Resource>();
+        ptr->use();
+    } // Automatically destroyed
+    
+    std::cout << "\n=== Dynamic Array ===\n";
+    {
+        std::vector&lt;int&gt; vec;  // Uses heap internally, but managed
+        vec.push_back(1);
+        vec.push_back(2);
+        vec.push_back(3);
+        
+        for (int num : vec) {
+            std::cout << num << " ";
+        }
+        std::cout << std::endl;
+    } // Automatically cleaned up
+}
+
+int main() {
+    demonstrateMemory();
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a memory-managed data structure:</p>
+                <ul>
+                    <li>Implement a simple dynamic array class using RAII</li>
+                    <li>Use smart pointers for memory management</li>
+                    <li>Add bounds checking to prevent buffer overflows</li>
+                    <li>Implement copy constructor and assignment operator</li>
+                    <li>Create unit tests to verify memory safety</li>
+                    <li>Bonus: Add move semantics for efficiency</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. Which memory area is automatically managed by the compiler?</p>
+                <ul>
+                    <li>Heap</li>
+                    <li>Stack</li>
+                    <li>Global memory</li>
+                    <li>All of the above</li>
+                </ul>
+
+                <p>2. What operator is used to allocate memory on the heap?</p>
+                <ul>
+                    <li>malloc</li>
+                    <li>new</li>
+                    <li>alloc</li>
+                    <li>create</li>
+                </ul>
+
+                <p>3. What is a memory leak?</p>
+                <ul>
+                    <li>Memory that is freed too early</li>
+                    <li>Memory that is never freed</li>
+                    <li>Memory that is corrupted</li>
+                    <li>Memory that is read-only</li>
+                </ul>
+
+                <p>4. Which smart pointer allows shared ownership?</p>
+                <ul>
+                    <li>unique_ptr</li>
+                    <li>shared_ptr</li>
+                    <li>weak_ptr</li>
+                    <li>auto_ptr</li>
+                </ul>
+
+                <p>5. What principle ties resource management to object lifetime?</p>
+                <ul>
+                    <li>Garbage Collection</li>
+                    <li>RAII</li>
+                    <li>Memory Pooling</li>
+                    <li>Reference Counting</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

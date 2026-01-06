@@ -1,0 +1,222 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Introduction to C++</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+        <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Introduction to C++</h2>
+                <p>C++ is a powerful, high-performance programming language that builds upon the C programming language. Created by Bjarne Stroustrup in 1985, C++ combines the efficiency of C with object-oriented programming features, making it suitable for a wide range of applications.</p>
+
+                <h3>Why Learn C++?</h3>
+                <ul>
+                    <li><strong>High Performance:</strong> C++ offers direct hardware access and efficient memory management</li>
+                    <li><strong>Versatile:</strong> Used in system programming, game development, embedded systems, and high-performance applications</li>
+                    <li><strong>Object-Oriented:</strong> Supports both procedural and object-oriented programming paradigms</li>
+                    <li><strong>Industry Standard:</strong> Widely used in software development, especially in performance-critical applications</li>
+                    <li><strong>Foundation Knowledge:</strong> Understanding C++ helps in learning other languages and low-level concepts</li>
+                </ul>
+
+                <h3>Key Features of C++</h3>
+                <ul>
+                    <li><strong>Compiled Language:</strong> Code is compiled to machine language for optimal performance</li>
+                    <li><strong>Static Typing:</strong> Variables must be declared with types before use</li>
+                    <li><strong>Memory Management:</strong> Manual memory management with pointers and dynamic allocation</li>
+                    <li><strong>Standard Template Library (STL):</strong> Rich collection of reusable components</li>
+                    <li><strong>Multi-Paradigm:</strong> Supports procedural, object-oriented, and generic programming</li>
+                </ul>
+
+                <h3>C++ vs Other Languages</h3>
+                <p>Compared to higher-level languages like Python or Java:</p>
+                <ul>
+                    <li>Higher performance but more complex syntax</li>
+                    <li>Manual memory management vs automatic garbage collection</li>
+                    <li>Steeper learning curve but greater control</li>
+                    <li>Compiled vs interpreted execution</li>
+                </ul>
+                <p>C++ strikes a balance between high-level abstraction and low-level control.</p>
+
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li><strong>Game Development:</strong> Engines like Unreal Engine and Unity (C# but with C++ components)</li>
+                    <li><strong>System Software:</strong> Operating systems, device drivers, and embedded systems</li>
+                    <li><strong>High-Performance Computing:</strong> Scientific simulations and financial modeling</li>
+                    <li><strong>Graphics and Multimedia:</strong> Image processing, video editing software</li>
+                    <li><strong>Database Systems:</strong> High-performance database engines</li>
+                    <li><strong>Web Browsers:</strong> Core components of browsers like Chrome</li>
+                </ul>
+
+                <h3>Getting Started with C++</h3>
+                <p>To begin your C++ journey:</p>
+                <ol>
+                    <li>Install a C++ compiler (GCC, Clang, or Visual Studio)</li>
+                    <li>Choose an Integrated Development Environment (IDE) like Visual Studio Code or CLion</li>
+                    <li>Learn basic syntax and concepts</li>
+                    <li>Understand compilation and linking process</li>
+                    <li>Practice with small programs and gradually build complexity</li>
+                </ol>
+
+                <h3>Basic Program Structure</h3>
+                <p>A typical C++ program includes:</p>
+                <ul>
+                    <li>Header files for libraries and declarations</li>
+                    <li>The main() function as the entry point</li>
+                    <li>Statements and expressions</li>
+                    <li>Return statement to end the program</li>
+                </ul>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+}</code></pre>
+
+                <h3>Compilation Process</h3>
+                <p>C++ programs go through several stages:</p>
+                <ol>
+                    <li><strong>Preprocessing:</strong> Header files are included, macros expanded</li>
+                    <li><strong>Compilation:</strong> Source code is translated to assembly language</li>
+                    <li><strong>Assembly:</strong> Assembly code is converted to machine code (object files)</li>
+                    <li><strong>Linking:</strong> Object files and libraries are linked to create executable</li>
+                </ol>
+
+                <h3>Example Program</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    // Variable declarations
+    std::string name;
+    int age;
+    
+    // Input
+    std::cout << "Enter your name: ";
+    std::getline(std::cin, name);
+    
+    std::cout << "Enter your age: ";
+    std::cin >> age;
+    
+    // Output
+    std::cout << "Hello, " << name << "! You are " << age << " years old." << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a simple C++ program that demonstrates basic input/output:</p>
+                <ul>
+                    <li>Include necessary headers</li>
+                    <li>Use the main() function</li>
+                    <li>Declare variables for user input</li>
+                    <li>Read input from the console</li>
+                    <li>Display personalized output</li>
+                    <li>Bonus: Add basic calculations or string manipulation</li>
+                </ul>
+
+                <h3>Common Beginner Mistakes</h3>
+                <ul>
+                    <li>Forgetting semicolons at the end of statements</li>
+                    <li>Missing return 0; in main()</li>
+                    <li>Not including necessary headers</li>
+                    <li>Mixing up << and >> operators for I/O</li>
+                    <li>Forgetting the std:: prefix or using namespace std</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. What type of programming language is C++?</p>
+                <ul>
+                    <li>Interpreted language</li>
+                    <li>Compiled language</li>
+                    <li>Assembly language</li>
+                    <li>Scripting language</li>
+                </ul>
+
+                <p>2. Which function serves as the entry point for C++ programs?</p>
+                <ul>
+                    <li>start()</li>
+                    <li>main()</li>
+                    <li>begin()</li>
+                    <li>run()</li>
+                </ul>
+
+                <p>3. What does #include do in C++?</p>
+                <ul>
+                    <li>Defines a function</li>
+                    <li>Includes header files</li>
+                    <li>Creates a variable</li>
+                    <li>Starts a comment</li>
+                </ul>
+
+                <p>4. Which operator is used for output in C++?</p>
+                <ul>
+                    <li>>></li>
+                    <li><<</li>
+                    <li>==</li>
+                    <li>=</li>
+                </ul>
+
+                <p>5. What is the purpose of return 0; in main()?</p>
+                <ul>
+                    <li>Prints 0 to the console</li>
+                    <li>Indicates successful program execution</li>
+                    <li>Creates a variable</li>
+                    <li>Starts a loop</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - C++ Inheritance</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+        <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance" class="active">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>C++ Inheritance</h2>
+                <p>Inheritance is a fundamental concept in object-oriented programming that allows one class to inherit properties and behaviors from another class. It promotes code reusability and establishes relationships between classes, enabling hierarchical classifications.</p>
+
+                <h3>What is Inheritance?</h3>
+                <p>Inheritance allows a class (derived class) to acquire the properties and methods of another class (base class). The derived class can:</p>
+                <ul>
+                    <li><strong>Inherit:</strong> All public and protected members of the base class</li>
+                    <li><strong>Extend:</strong> Add new members and methods</li>
+                    <li><strong>Override:</strong> Redefine inherited methods</li>
+                    <li><strong>Specialize:</strong> Provide specific implementations</li>
+                </ul>
+
+                <h4>Benefits of Inheritance</h4>
+                <ul>
+                    <li><strong>Code Reusability:</strong> Avoid duplicating code</li>
+                    <li><strong>Hierarchical Organization:</strong> Natural classification</li>
+                    <li><strong>Polymorphism:</strong> Runtime method selection</li>
+                    <li><strong>Maintainability:</strong> Changes in base class affect derived classes</li>
+                    <li><strong>Extensibility:</strong> Easy to add new derived classes</li>
+                </ul>
+
+                <h3>Basic Inheritance Syntax</h3>
+                <pre><code>// Base class
+class Animal {
+public:
+    void eat() {
+        std::cout << "Eating..." << std::endl;
+    }
+    
+    void sleep() {
+        std::cout << "Sleeping..." << std::endl;
+    }
+};
+
+// Derived class
+class Dog : public Animal {
+public:
+    void bark() {
+        std::cout << "Woof!" << std::endl;
+    }
+};
+
+int main() {
+    Dog myDog;
+    myDog.eat();    // Inherited from Animal
+    myDog.sleep();  // Inherited from Animal
+    myDog.bark();   // Own method
+    
+    return 0;
+}</code></pre>
+
+                <h3>Access Specifiers in Inheritance</h3>
+                <p>The access specifier used in inheritance determines how base class members are accessible:</p>
+
+                <h4>Public Inheritance</h4>
+                <pre><code>class Base {
+public:
+    int publicVar;
+protected:
+    int protectedVar;
+private:
+    int privateVar;
+};
+
+class Derived : public Base {
+    // publicVar remains public
+    // protectedVar remains protected
+    // privateVar is not accessible
+};</code></pre>
+
+                <h4>Protected Inheritance</h4>
+                <pre><code>class Derived : protected Base {
+    // publicVar becomes protected
+    // protectedVar remains protected
+    // privateVar is not accessible
+};</code></pre>
+
+                <h4>Private Inheritance</h4>
+                <pre><code>class Derived : private Base {
+    // publicVar becomes private
+    // protectedVar becomes private
+    // privateVar is not accessible
+};</code></pre>
+
+                <h3>Types of Inheritance</h3>
+
+                <h4>Single Inheritance</h4>
+                <pre><code>class A { /* ... */ };
+class B : public A { /* ... */ };  // B inherits from A</code></pre>
+
+                <h4>Multiple Inheritance</h4>
+                <pre><code>class A { /* ... */ };
+class B { /* ... */ };
+class C : public A, public B { /* ... */ };  // C inherits from both A and B</code></pre>
+
+                <h4>Multilevel Inheritance</h4>
+                <pre><code>class A { /* ... */ };
+class B : public A { /* ... */ };
+class C : public B { /* ... */ };  // C inherits from B, which inherits from A</code></pre>
+
+                <h4>Hierarchical Inheritance</h4>
+                <pre><code>class A { /* ... */ };
+class B : public A { /* ... */ };
+class C : public A { /* ... */ };  // Both B and C inherit from A</code></pre>
+
+                <h3>Virtual Functions</h3>
+                <p>Virtual functions enable runtime polymorphism:</p>
+                <pre><code>class Animal {
+public:
+    virtual void makeSound() {
+        std::cout << "Some animal sound" << std::endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void makeSound() override {
+        std::cout << "Woof!" << std::endl;
+    }
+};
+
+class Cat : public Animal {
+public:
+    void makeSound() override {
+        std::cout << "Meow!" << std::endl;
+    }
+};
+
+int main() {
+    Animal* animal1 = new Dog();
+    Animal* animal2 = new Cat();
+    
+    animal1->makeSound();  // Woof!
+    animal2->makeSound();  // Meow!
+    
+    delete animal1;
+    delete animal2;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Abstract Classes and Pure Virtual Functions</h3>
+                <p>Abstract classes cannot be instantiated and serve as base classes:</p>
+                <pre><code>class Shape {
+public:
+    virtual double area() = 0;  // Pure virtual function
+    virtual double perimeter() = 0;
+    
+    void display() {
+        std::cout << "Area: " << area() << std::endl;
+        std::cout << "Perimeter: " << perimeter() << std::endl;
+    }
+};
+
+class Circle : public Shape {
+private:
+    double radius;
+public:
+    Circle(double r) : radius(r) {}
+    
+    double area() override {
+        return 3.14159 * radius * radius;
+    }
+    
+    double perimeter() override {
+        return 2 * 3.14159 * radius;
+    }
+};
+
+int main() {
+    // Shape shape;  // Error: cannot instantiate abstract class
+    
+    Circle circle(5.0);
+    circle.display();
+    
+    return 0;
+}</code></pre>
+
+                <h3>Constructors and Destructors in Inheritance</h3>
+                <pre><code>class Base {
+public:
+    Base() {
+        std::cout << "Base constructor" << std::endl;
+    }
+    
+    virtual ~Base() {
+        std::cout << "Base destructor" << std::endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    Derived() {
+        std::cout << "Derived constructor" << std::endl;
+    }
+    
+    ~Derived() {
+        std::cout << "Derived destructor" << std::endl;
+    }
+};
+
+int main() {
+    Derived obj;
+    // Output:
+    // Base constructor
+    // Derived constructor
+    // Derived destructor
+    // Base destructor
+    
+    return 0;
+}</code></pre>
+
+                <h3>The Diamond Problem</h3>
+                <p>The diamond problem occurs in multiple inheritance when two classes inherit from the same base class:</p>
+                <pre><code>class A {
+public:
+    void show() { std::cout << "A" << std::endl; }
+};
+
+class B : public A {};
+class C : public A {};
+
+class D : public B, public C {
+    // D has two copies of A!
+    // Which show() should be called?
+};
+
+int main() {
+    D obj;
+    // obj.show();  // Ambiguous!
+    return 0;
+}</code></pre>
+
+                <h3>Virtual Inheritance</h3>
+                <p>Virtual inheritance solves the diamond problem:</p>
+                <pre><code>class A {
+public:
+    void show() { std::cout << "A" << std::endl; }
+};
+
+class B : virtual public A {};
+class C : virtual public A {};
+
+class D : public B, public C {
+    // Only one copy of A
+};
+
+int main() {
+    D obj;
+    obj.show();  // No ambiguity!
+    return 0;
+}</code></pre>
+
+                <h3>Base Class Member Access</h3>
+                <p>Access base class members when they are overridden:</p>
+                <pre><code>class Base {
+public:
+    void show() { std::cout << "Base" << std::endl; }
+};
+
+class Derived : public Base {
+public:
+    void show() { 
+        std::cout << "Derived" << std::endl;
+        Base::show();  // Call base class method
+    }
+};</code></pre>
+
+                <h3>Final Classes and Methods (C++11)</h3>
+                <pre><code>// Final class cannot be inherited
+class Base final {
+    // ...
+};
+
+// Final method cannot be overridden
+class Base {
+public:
+    virtual void show() final {
+        // ...
+    }
+};</code></pre>
+
+                <h3>Example Program</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+// Base class
+class Employee {
+protected:
+    std::string name;
+    int id;
+    double salary;
+    
+public:
+    Employee(std::string n, int i, double s) 
+        : name(n), id(i), salary(s) {}
+    
+    virtual double calculateBonus() = 0;  // Pure virtual
+    
+    virtual void displayInfo() {
+        std::cout << "Name: " << name << std::endl;
+        std::cout << "ID: " << id << std::endl;
+        std::cout << "Salary: $" << salary << std::endl;
+    }
+    
+    virtual ~Employee() {}
+};
+
+// Derived classes
+class Manager : public Employee {
+private:
+    int teamSize;
+    
+public:
+    Manager(std::string n, int i, double s, int ts)
+        : Employee(n, i, s), teamSize(ts) {}
+    
+    double calculateBonus() override {
+        return salary * 0.15;  // 15% bonus
+    }
+    
+    void displayInfo() override {
+        Employee::displayInfo();
+        std::cout << "Team Size: " << teamSize << std::endl;
+        std::cout << "Bonus: $" << calculateBonus() << std::endl;
+    }
+};
+
+class Developer : public Employee {
+private:
+    std::string programmingLanguage;
+    
+public:
+    Developer(std::string n, int i, double s, std::string lang)
+        : Employee(n, i, s), programmingLanguage(lang) {}
+    
+    double calculateBonus() override {
+        return salary * 0.10;  // 10% bonus
+    }
+    
+    void displayInfo() override {
+        Employee::displayInfo();
+        std::cout << "Programming Language: " << programmingLanguage << std::endl;
+        std::cout << "Bonus: $" << calculateBonus() << std::endl;
+    }
+};
+
+int main() {
+    std::vector&lt;Employee*&gt; employees;
+    
+    employees.push_back(new Manager("Alice Johnson", 1001, 80000, 8));
+    employees.push_back(new Developer("Bob Smith", 1002, 70000, "C++"));
+    employees.push_back(new Developer("Charlie Brown", 1003, 65000, "Python"));
+    
+    std::cout << "Employee Information:" << std::endl;
+    std::cout << "====================" << std::endl;
+    
+    for (auto emp : employees) {
+        emp->displayInfo();
+        std::cout << std::endl;
+    }
+    
+    // Clean up
+    for (auto emp : employees) {
+        delete emp;
+    }
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a shape hierarchy using inheritance:</p>
+                <ul>
+                    <li>Design an abstract Shape base class with area() and perimeter() methods</li>
+                    <li>Create derived classes for Circle, Rectangle, Triangle</li>
+                    <li>Implement polymorphism with virtual functions</li>
+                    <li>Add a ShapeContainer class to manage different shapes</li>
+                    <li>Calculate total area and perimeter of all shapes</li>
+                    <li>Bonus: Add 3D shapes with volume calculations</li>
+                </ul>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Forgetting virtual destructors in base classes</li>
+                    <li>Not using override keyword for clarity</li>
+                    <li>Misunderstanding access specifiers in inheritance</li>
+                    <li>Creating diamond inheritance without virtual inheritance</li>
+                    <li>Slicing objects when passing by value</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use virtual destructors in base classes</li>
+                    <li>Prefer composition over inheritance when possible</li>
+                    <li>Use the override keyword for virtual functions</li>
+                    <li>Design inheritance hierarchies carefully</li>
+                    <li>Document the inheritance relationships</li>
+                    <li>Use protected access for base class members that derived classes need</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. What is inheritance in C++?</p>
+                <ul>
+                    <li>Copying code from one file to another</li>
+                    <li>A class acquiring properties of another class</li>
+                    <li>Creating multiple instances of a class</li>
+                    <li>Converting data types</li>
+                </ul>
+
+                <p>2. Which keyword is used to declare a virtual function?</p>
+                <ul>
+                    <li>virtual</li>
+                    <li>abstract</li>
+                    <li>override</li>
+                    <li>final</li>
+                </ul>
+
+                <p>3. What is a pure virtual function?</p>
+                <ul>
+                    <li>A function with no parameters</li>
+                    <li>A function declared with = 0</li>
+                    <li>A function that returns void</li>
+                    <li>A function with default parameters</li>
+                </ul>
+
+                <p>4. What problem does virtual inheritance solve?</p>
+                <ul>
+                    <li>Memory leaks</li>
+                    <li>The diamond problem</li>
+                    <li>Function overloading</li>
+                    <li>Template instantiation</li>
+                </ul>
+
+                <p>5. Can a derived class have multiple base classes?</p>
+                <ul>
+                    <li>No, only single inheritance is allowed</li>
+                    <li>Yes, through multiple inheritance</li>
+                    <li>Only in C++11 and later</li>
+                    <li>Only with virtual inheritance</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

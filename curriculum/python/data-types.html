@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Data Types</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+           <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Data Types</h2>
+                <p>Data types in Python define the kind of data that can be stored and manipulated in variables. Python has several built-in data types that are automatically determined when you assign a value to a variable. Understanding data types is fundamental to writing effective Python programs, as different types support different operations and have different characteristics.</p>
+
+                <h3>What are Data Types?</h3>
+                <p>Data types specify:</p>
+                <ul>
+                    <li>The type of data a variable can hold</li>
+                    <li>The operations that can be performed on the data</li>
+                    <li>How the data is stored in memory</li>
+                    <li>The range and precision of values</li>
+                    <li>How Python interprets the data</li>
+                </ul>
+
+                <h3>Basic Data Types</h3>
+                <table>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                        <th>Mutable?</th>
+                    </tr>
+                    <tr>
+                        <td><code>int</code></td>
+                        <td>Integer numbers</td>
+                        <td><code>42</code>, <code>-10</code></td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><code>float</code></td>
+                        <td>Floating-point numbers</td>
+                        <td><code>3.14</code>, <code>-2.5</code></td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><code>str</code></td>
+                        <td>String (text)</td>
+                        <td><code>"Hello"</code>, <code>'Python'</code></td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><code>bool</code></td>
+                        <td>Boolean (True/False)</td>
+                        <td><code>True</code>, <code>False</code></td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><code>list</code></td>
+                        <td>Ordered collection</td>
+                        <td><code>[1, 2, 3]</code></td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td><code>tuple</code></td>
+                        <td>Immutable ordered collection</td>
+                        <td><code>(1, 2, 3)</code></td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><code>dict</code></td>
+                        <td>Key-value pairs</td>
+                        <td><code>{"key": "value"}</code></td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td><code>set</code></td>
+                        <td>Unordered unique collection</td>
+                        <td><code>{1, 2, 3}</code></td>
+                        <td>Yes</td>
+                    </tr>
+                </table>
+
+                <h3>Checking Data Types</h3>
+                <p>Use the <code>type()</code> function to check a variable's data type:</p>
+                <pre><code># Checking data types
+x = 42
+print(type(x))        # <class 'int'>
+
+y = 3.14
+print(type(y))        # <class 'float'>
+
+name = "Alice"
+print(type(name))     # <class 'str'>
+
+is_active = True
+print(type(is_active)) # <class 'bool'>
+
+numbers = [1, 2, 3]
+print(type(numbers))  # <class 'list'>
+
+# Using isinstance() for type checking
+if isinstance(x, int):
+    print("x is an integer")
+
+if isinstance(numbers, (list, tuple)):
+    print("numbers is a sequence")</code></pre>
+
+                <h3>Type Conversion</h3>
+                <p>Convert between data types using built-in functions:</p>
+                <pre><code># String to integer
+age_str = "25"
+age_int = int(age_str)
+print(age_int, type(age_int))  # 25 <class 'int'>
+
+# Integer to string
+count = 42
+count_str = str(count)
+print(count_str, type(count_str))  # "42" <class 'str'>
+
+# String to float
+price_str = "19.99"
+price_float = float(price_str)
+print(price_float, type(price_float))  # 19.99 <class 'float'>
+
+# Float to integer (truncates)
+pi = 3.14159
+pi_int = int(pi)
+print(pi_int)  # 3
+
+# Integer to boolean
+zero = 0
+non_zero = 5
+print(bool(zero))     # False
+print(bool(non_zero)) # True
+
+# List to tuple
+my_list = [1, 2, 3]
+my_tuple = tuple(my_list)
+print(my_tuple, type(my_tuple))  # (1, 2, 3) <class 'tuple'>
+
+# String to list
+text = "hello"
+char_list = list(text)
+print(char_list)  # ['h', 'e', 'l', 'l', 'o']</code></pre>
+
+                <h3>Mutable vs Immutable Types</h3>
+                <p>Understanding mutability is crucial in Python:</p>
+                <pre><code># Immutable types (cannot be changed after creation)
+x = 42
+y = x
+x = 43
+print(y)  # Still 42 - integers are immutable
+
+s1 = "hello"
+s2 = s1
+s1 = s1 + " world"
+print(s2)  # Still "hello" - strings are immutable
+
+# Mutable types (can be modified)
+list1 = [1, 2, 3]
+list2 = list1
+list1.append(4)
+print(list2)  # [1, 2, 3, 4] - both variables reference the same list
+
+# To create a copy of mutable objects
+list3 = [1, 2, 3]
+list4 = list3.copy()  # or list3[:]
+list3.append(4)
+print(list4)  # [1, 2, 3] - list4 is a separate copy</code></pre>
+
+                <h3>Numbers (int and float)</h3>
+                <pre><code># Integer operations
+a = 10
+b = 3
+print(a + b)   # 13
+print(a - b)   # 7
+print(a * b)   # 30
+print(a // b)  # 3 (floor division)
+print(a % b)   # 1 (modulo)
+print(a ** b)  # 1000 (exponentiation)
+
+# Float operations
+x = 3.14
+y = 2.71
+print(x + y)  # 5.85
+print(x * y)  # 8.5094
+
+# Mixed operations
+result = a + x  # int + float = float
+print(result, type(result))  # 13.14 <class 'float'>
+
+# Large numbers
+big_num = 123456789012345678901234567890
+print(big_num)  # Python handles arbitrary precision integers
+
+# Complex numbers
+complex_num = 3 + 4j
+print(complex_num.real)  # 3.0
+print(complex_num.imag)  # 4.0</code></pre>
+
+                <h3>Strings</h3>
+                <pre><code># String creation
+single_quote = 'Hello'
+double_quote = "World"
+multi_line = """This is a
+multi-line string"""
+
+# String operations
+greeting = "Hello" + " " + "World"  # Concatenation
+print(greeting)  # "Hello World"
+
+repeated = "Hi! " * 3  # Repetition
+print(repeated)  # "Hi! Hi! Hi! "
+
+# String indexing and slicing
+text = "Python"
+print(text[0])    # 'P'
+print(text[-1])   # 'n'
+print(text[1:4])  # 'yth'
+print(text[::-1]) # 'nohtyP' (reversed)
+
+# String methods
+name = "alice"
+print(name.upper())      # 'ALICE'
+print(name.capitalize()) # 'Alice'
+print(name.title())      # 'Alice'
+
+sentence = "  hello world  "
+print(sentence.strip())  # 'hello world'
+print(sentence.split())  # ['hello', 'world']
+
+# String formatting
+age = 25
+message = f"I am {age} years old"
+print(message)  # "I am 25 years old"</code></pre>
+
+                <h3>Booleans</h3>
+                <pre><code># Boolean values
+is_true = True
+is_false = False
+
+# Boolean operations
+print(True and False)  # False
+print(True or False)   # True
+print(not True)        # False
+
+# Truthy and falsy values
+print(bool(0))      # False
+print(bool(1))      # True
+print(bool(""))     # False
+print(bool("hi"))   # True
+print(bool([]))     # False
+print(bool([1,2]))  # True
+
+# Comparison operations return booleans
+x = 5
+y = 10
+print(x < y)   # True
+print(x == y)  # False
+print(x != y)  # True</code></pre>
+
+                <h3>Lists</h3>
+                <pre><code># Creating lists
+empty_list = []
+numbers = [1, 2, 3, 4, 5]
+mixed = [1, "hello", 3.14, True]
+
+# List operations
+numbers.append(6)      # Add to end
+numbers.insert(0, 0)   # Insert at position
+numbers.remove(3)      # Remove value
+popped = numbers.pop() # Remove and return last item
+
+# List indexing and slicing
+print(numbers[0])      # First element
+print(numbers[-1])     # Last element
+print(numbers[1:4])    # Slice
+print(numbers[::2])    # Every other element
+
+# List methods
+numbers.sort()
+print(numbers)         # [0, 1, 2, 4, 5]
+
+numbers.reverse()
+print(numbers)         # [5, 4, 2, 1, 0]
+
+# List comprehensions
+squares = [x**2 for x in range(5)]
+print(squares)         # [0, 1, 4, 9, 16]</code></pre>
+
+                <h3>Tuples</h3>
+                <pre><code># Creating tuples
+empty_tuple = ()
+single_item = (42,)  # Note the comma
+coordinates = (10, 20)
+mixed_tuple = (1, "hello", 3.14)
+
+# Tuple operations (similar to lists but immutable)
+print(coordinates[0])    # 10
+print(len(coordinates))  # 2
+
+# Tuple unpacking
+x, y = coordinates
+print(f"x={x}, y={y}")  # x=10, y=20
+
+# Multiple assignment
+a, b, c = 1, 2, 3
+print(a, b, c)  # 1 2 3
+
+# Swapping values
+a, b = b, a
+print(a, b)  # 2 1</code></pre>
+
+                <h3>Dictionaries</h3>
+                <pre><code># Creating dictionaries
+empty_dict = {}
+person = {
+    "name": "Alice",
+    "age": 25,
+    "city": "New York"
+}
+
+# Dictionary operations
+person["email"] = "alice@example.com"  # Add key-value pair
+age = person["age"]                    # Access value
+person["age"] = 26                     # Modify value
+
+# Safe access
+email = person.get("email", "Not provided")
+phone = person.get("phone", "Not provided")
+
+# Dictionary methods
+print(person.keys())    # dict_keys(['name', 'age', 'city', 'email'])
+print(person.values())  # dict_values(['Alice', 26, 'New York', 'alice@example.com'])
+print(person.items())   # dict_items([('name', 'Alice'), ('age', 26), ...])
+
+# Iterating over dictionaries
+for key in person:
+    print(f"{key}: {person[key]}")
+
+for key, value in person.items():
+    print(f"{key} -> {value}")</code></pre>
+
+                <h3>Sets</h3>
+                <pre><code># Creating sets
+empty_set = set()  # Note: {} creates a dict
+numbers = {1, 2, 3, 4, 5}
+mixed_set = {1, "hello", 3.14}
+
+# Set operations
+numbers.add(6)      # Add element
+numbers.remove(3)   # Remove element
+numbers.discard(10) # Remove if exists (no error if not)
+
+# Set operations
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+
+print(set1 | set2)  # Union: {1, 2, 3, 4, 5, 6}
+print(set1 & set2)  # Intersection: {3, 4}
+print(set1 - set2)  # Difference: {1, 2}
+print(set1 ^ set2)  # Symmetric difference: {1, 2, 5, 6}
+
+# Set methods
+print(3 in set1)    # True
+print(len(set1))    # 4</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a data type analyzer and converter program:</p>
+                <ul>
+                    <li>Accept user input of different types</li>
+                    <li>Analyze and display the data type of each input</li>
+                    <li>Convert between different data types safely</li>
+                    <li>Handle conversion errors gracefully</li>
+                    <li>Create collections (lists, tuples, sets, dicts) from user input</li>
+                    <li>Display information about each data type</li>
+                    <li>Bonus: Implement a simple calculator that works with different numeric types</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>def analyze_data_type(value):
+    """Analyze and return information about a data type"""
+    data_type = type(value).__name__
+    
+    info = {
+        "type": data_type,
+        "value": repr(value),
+        "length": None,
+        "is_mutable": False,
+        "category": "primitive"
+    }
+    
+    # Check length for sequences and mappings
+    if hasattr(value, '__len__'):
+        info["length"] = len(value)
+    
+    # Check mutability
+    try:
+        if isinstance(value, (list, dict, set)):
+            info["is_mutable"] = True
+            info["category"] = "collection"
+        elif isinstance(value, tuple):
+            info["category"] = "collection"
+        elif isinstance(value, str):
+            info["category"] = "text"
+        elif isinstance(value, (int, float, complex)):
+            info["category"] = "numeric"
+        elif isinstance(value, bool):
+            info["category"] = "boolean"
+    except:
+        pass
+    
+    return info
+
+def safe_convert(value, target_type):
+    """Safely convert value to target type"""
+    try:
+        if target_type == "int":
+            return int(float(value)) if isinstance(value, str) else int(value)
+        elif target_type == "float":
+            return float(value)
+        elif target_type == "str":
+            return str(value)
+        elif target_type == "bool":
+            return bool(value)
+        elif target_type == "list":
+            return list(value) if hasattr(value, '__iter__') else [value]
+        elif target_type == "tuple":
+            return tuple(value) if hasattr(value, '__iter__') else (value,)
+        elif target_type == "set":
+            return set(value) if hasattr(value, '__iter__') else {value}
+        else:
+            return value
+    except (ValueError, TypeError) as e:
+        return f"Conversion error: {e}"
+
+def create_collection_from_input(inputs, collection_type):
+    """Create a collection from multiple inputs"""
+    try:
+        if collection_type == "list":
+            return list(inputs)
+        elif collection_type == "tuple":
+            return tuple(inputs)
+        elif collection_type == "set":
+            return set(inputs)
+        elif collection_type == "dict":
+            # Try to create key-value pairs
+            result = {}
+            for item in inputs:
+                if isinstance(item, str) and ":" in item:
+                    key, value = item.split(":", 1)
+                    result[key.strip()] = value.strip()
+                else:
+                    result[str(item)] = item
+            return result
+        else:
+            return inputs
+    except Exception as e:
+        return f"Error creating collection: {e}"
+
+def display_type_info(info):
+    """Display formatted type information"""
+    print(f"\nData Type Analysis:")
+    print(f"  Type: {info['type']}")
+    print(f"  Category: {info['category']}")
+    print(f"  Value: {info['value']}")
+    if info['length'] is not None:
+        print(f"  Length: {info['length']}")
+    print(f"  Mutable: {'Yes' if info['is_mutable'] else 'No'}")
+
+def main():
+    print("Welcome to the Data Type Analyzer!")
+    
+    # Store user inputs for collection creation
+    user_inputs = []
+    
+    while True:
+        print("\n" + "="*40)
+        print("    DATA TYPE ANALYZER")
+        print("="*40)
+        print("1. Analyze data type")
+        print("2. Convert data type")
+        print("3. Create collection")
+        print("4. View all inputs")
+        print("5. Exit")
+        print("="*40)
+        
+        choice = input("Enter your choice (1-5): ").strip()
+        
+        try:
+            if choice == "1":
+                user_input = input("Enter a value to analyze: ")
+                
+                # Try to evaluate as Python literal
+                try:
+                    value = eval(user_input)
+                except:
+                    value = user_input
+                
+                info = analyze_data_type(value)
+                display_type_info(info)
+                user_inputs.append(value)
+                
+            elif choice == "2":
+                if not user_inputs:
+                    print("No inputs available. Please analyze some data first.")
+                    continue
+                    
+                print("Available inputs:")
+                for i, inp in enumerate(user_inputs, 1):
+                    print(f"  {i}. {repr(inp)} ({type(inp).__name__})")
+                
+                try:
+                    index = int(input("Select input number: ")) - 1
+                    value = user_inputs[index]
+                except (ValueError, IndexError):
+                    print("Invalid selection.")
+                    continue
+                
+                print(f"Selected: {repr(value)} ({type(value).__name__})")
+                
+                target_types = ["int", "float", "str", "bool", "list", "tuple", "set"]
+                print("Available target types:")
+                for i, t in enumerate(target_types, 1):
+                    print(f"  {i}. {t}")
+                
+                try:
+                    type_index = int(input("Select target type number: ")) - 1
+                    target_type = target_types[type_index]
+                except (ValueError, IndexError):
+                    print("Invalid selection.")
+                    continue
+                
+                converted = safe_convert(value, target_type)
+                print(f"Converted to {target_type}: {repr(converted)} ({type(converted).__name__})")
+                
+            elif choice == "3":
+                if len(user_inputs) < 2:
+                    print("Need at least 2 inputs to create a collection.")
+                    continue
+                
+                collection_types = ["list", "tuple", "set", "dict"]
+                print("Available collection types:")
+                for i, t in enumerate(collection_types, 1):
+                    print(f"  {i}. {t}")
+                
+                try:
+                    type_index = int(input("Select collection type number: ")) - 1
+                    collection_type = collection_types[type_index]
+                except (ValueError, IndexError):
+                    print("Invalid selection.")
+                    continue
+                
+                collection = create_collection_from_input(user_inputs, collection_type)
+                print(f"Created {collection_type}: {repr(collection)}")
+                
+                # Analyze the collection
+                info = analyze_data_type(collection)
+                display_type_info(info)
+                
+            elif choice == "4":
+                if not user_inputs:
+                    print("No inputs recorded yet.")
+                else:
+                    print("All recorded inputs:")
+                    for i, inp in enumerate(user_inputs, 1):
+                        info = analyze_data_type(inp)
+                        print(f"  {i}. {info['value']} ({info['type']})")
+                        
+            elif choice == "5":
+                print("Thank you for using the Data Type Analyzer!")
+                break
+                
+            else:
+                print("Invalid choice. Please select 1-5.")
+                
+        except Exception as e:
+            print(f"An error occurred: {e}")
+        
+        input("\nPress Enter to continue...")
+
+if __name__ == "__main__":
+    main()</code></pre>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Confusing mutable and immutable types</li>
+                    <li>Not understanding automatic type conversion</li>
+                    <li>Using wrong type conversion functions</li>
+                    <li>Attempting to modify immutable objects</li>
+                    <li>Mixing data types inappropriately</li>
+                    <li>Not checking types before operations</li>
+                    <li>Forgetting that sets and dicts are unordered</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use descriptive variable names that indicate type</li>
+                    <li>Check types when necessary with isinstance()</li>
+                    <li>Use appropriate data structures for your needs</li>
+                    <li>Consider memory usage for large collections</li>
+                    <li>Document expected types in functions</li>
+                    <li>Use type hints (Python 3.5+) for better code clarity</li>
+                    <li>Handle type conversion errors gracefully</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. Which of these data types is immutable in Python?</p>
+                <ul>
+                    <li>list</li>
+                    <li>str</li>
+                    <li>dict</li>
+                    <li>set</li>
+                </ul>
+
+                <p>2. What does the type() function return?</p>
+                <ul>
+                    <li>The value of a variable</li>
+                    <li>The data type of a variable</li>
+                    <li>The memory address of a variable</li>
+                    <li>The size of a variable</li>
+                </ul>
+
+                <p>3. Which function converts a string to an integer?</p>
+                <ul>
+                    <li>str()</li>
+                    <li>int()</li>
+                    <li>float()</li>
+                    <li>bool()</li>
+                </ul>
+
+                <p>4. What is the difference between a list and a tuple?</p>
+                <ul>
+                    <li>Lists are ordered, tuples are unordered</li>
+                    <li>Lists are mutable, tuples are immutable</li>
+                    <li>Lists can contain duplicates, tuples cannot</li>
+                    <li>Lists use square brackets, tuples use parentheses</li>
+                </ul>
+
+                <p>5. Which data type uses key-value pairs?</p>
+                <ul>
+                    <li>list</li>
+                    <li>tuple</li>
+                    <li>dict</li>
+                    <li>set</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

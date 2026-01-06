@@ -1,0 +1,197 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Lists</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+            <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Lists</h2>
+                <p>Lists are one of the most versatile data structures in Python. They are mutable sequences that can hold items of different types, including other lists. Lists are created using square brackets [] and are ordered, meaning the order of elements is preserved.</p>
+                <p>Key characteristics of lists:</p>
+                <ul>
+                    <li>Mutable: Can be modified after creation</li>
+                    <li>Ordered: Elements maintain their position</li>
+                    <li>Heterogeneous: Can contain different data types</li>
+                    <li>Dynamic: Can grow or shrink in size</li>
+                </ul>
+                <p>Lists support various operations like indexing, slicing, appending, inserting, removing, and sorting. They are widely used for storing collections of data that may need to be modified.</p>
+
+                <h3>Examples</h3>
+                <pre><code># Creating lists
+empty_list = []
+numbers = [1, 2, 3, 4, 5]
+mixed_list = [1, "hello", 3.14, True]
+nested_list = [[1, 2], [3, 4], [5, 6]]
+
+# Accessing elements
+print(numbers[0])  # 1
+print(numbers[-1])  # 5 (last element)
+
+# Slicing
+print(numbers[1:4])  # [2, 3, 4]
+print(numbers[::2])  # [1, 3, 5] (every other element)
+
+# Modifying lists
+numbers.append(6)  # Add to end
+numbers.insert(0, 0)  # Insert at beginning
+numbers[2] = 10  # Change element
+numbers.remove(3)  # Remove first occurrence
+popped = numbers.pop()  # Remove and return last element
+
+# List operations
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+combined = list1 + list2  # [1, 2, 3, 4, 5, 6]
+repeated = list1 * 3  # [1, 2, 3, 1, 2, 3, 1, 2, 3]
+
+# List methods
+numbers.sort()  # Sort in place
+numbers.reverse()  # Reverse in place
+length = len(numbers)  # Get length
+index = numbers.index(5)  # Find index of element</code></pre>
+                <p>This example demonstrates creating lists, accessing and modifying elements, and using various list methods and operations.</p>
+
+                <h3>Mini Project</h3>
+                <p>Create a simple task manager program using lists. The program should allow users to add tasks, remove completed tasks, and display all tasks. Use a while loop to provide a menu for the user to interact with.</p>
+                <ul>
+                    <li>Create an empty list to store tasks</li>
+                    <li>Use a while loop to display a menu with options: add task, remove task, show tasks, quit</li>
+                    <li>Implement each option using appropriate list methods</li>
+                    <li>Use input() to get user choices and task descriptions</li>
+                    <li>Handle invalid inputs gracefully</li>
+                    <li>Bonus: Add functionality to mark tasks as completed without removing them</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>tasks = []
+
+while True:
+    print("\nTask Manager")
+    print("1. Add task")
+    print("2. Remove task")
+    print("3. Show tasks")
+    print("4. Quit")
+    
+    choice = input("Choose an option: ")
+    
+    if choice == "1":
+        # Add task
+        pass
+    elif choice == "2":
+        # Remove task
+        pass
+    elif choice == "3":
+        # Show tasks
+        pass
+    elif choice == "4":
+        break
+    else:
+        print("Invalid choice. Try again.")
+
+print("Goodbye!")</code></pre>
+
+                <h3>Quiz</h3>
+                <p>1. How do you create an empty list in Python?</p>
+                <ul>
+                    <li>empty_list = ()</li>
+                    <li>empty_list = []</li>
+                    <li>empty_list = {}</li>
+                </ul>
+
+                <p>2. Which method adds an element to the end of a list?</p>
+                <ul>
+                    <li>insert()</li>
+                    <li>append()</li>
+                    <li>add()</li>
+                </ul>
+
+                <p>3. What does the len() function return for a list?</p>
+                <ul>
+                    <li>The last element</li>
+                    <li>The number of elements</li>
+                    <li>The first element</li>
+                </ul>
+
+                <p>4. How do you access the last element of a list?</p>
+                <ul>
+                    <li>list[0]</li>
+                    <li>list[-1]</li>
+                    <li>list[len(list)]</li>
+                </ul>
+
+                <p>5. Which of the following is true about lists?</p>
+                <ul>
+                    <li>Lists are immutable</li>
+                    <li>Lists can only contain one data type</li>
+                    <li>Lists are mutable and can contain mixed data types</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - C++ Comments</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+        <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments" class="active">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>C++ Comments</h2>
+                <p>Comments in C++ are used to add explanatory notes or disable parts of code without affecting the program's execution. They help make code more readable and maintainable for developers.</p>
+
+                <h3>Why Use Comments?</h3>
+                <ul>
+                    <li><strong>Documentation:</strong> Explain what the code does</li>
+                    <li><strong>Readability:</strong> Make complex logic easier to understand</li>
+                    <li><strong>Debugging:</strong> Temporarily disable code sections</li>
+                    <li><strong>Collaboration:</strong> Help other developers understand your code</li>
+                    <li><strong>Maintenance:</strong> Remind yourself of code purpose later</li>
+                </ul>
+
+                <h3>Types of Comments in C++</h3>
+                <p>C++ supports two types of comments:</p>
+                <ul>
+                    <li><strong>Single-line comments:</strong> Start with // and continue to the end of the line</li>
+                    <li><strong>Multi-line comments:</strong> Start with /* and end with */, can span multiple lines</li>
+                </ul>
+
+                <h3>Single-Line Comments</h3>
+                <p>Single-line comments begin with two forward slashes (//) and extend to the end of the current line. They are commonly used for brief explanations or to comment out single lines of code.</p>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    // This is a single-line comment
+    std::cout << "Hello, World!" << std::endl; // Comment after code
+    
+    // You can also use comments to explain variables
+    int age = 25; // Age in years
+    
+    return 0;
+}</code></pre>
+
+                <h3>Multi-Line Comments</h3>
+                <p>Multi-line comments start with /* and end with */. They can span multiple lines and are useful for longer explanations or commenting out blocks of code.</p>
+                <pre><code>#include &lt;iostream&gt;
+
+/*
+ * This is a multi-line comment
+ * that spans several lines.
+ * It's useful for detailed explanations.
+ */
+
+int main() {
+    /* 
+     * Calculate the area of a rectangle
+     * Formula: area = length * width
+     */
+    int length = 10;
+    int width = 5;
+    int area = length * width;
+    
+    std::cout << "Area: " << area << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Best Practices for Comments</h3>
+                <ul>
+                    <li><strong>Be Clear and Concise:</strong> Write comments that add value</li>
+                    <li><strong>Keep Updated:</strong> Update comments when code changes</li>
+                    <li><strong>Avoid Obvious Comments:</strong> Don't comment self-explanatory code</li>
+                    <li><strong>Use Consistent Style:</strong> Follow a consistent commenting style</li>
+                    <li><strong>Comment Complex Logic:</strong> Explain non-obvious algorithms or business rules</li>
+                </ul>
+
+                <h3>Commenting Out Code</h3>
+                <p>Comments can be used to temporarily disable code during debugging or development:</p>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout << "This will print" << std::endl;
+    
+    // std::cout << "This is commented out" << std::endl;
+    
+    /*
+    std::cout << "This entire block" << std::endl;
+    std::cout << "is commented out" << std::endl;
+    */
+    
+    std::cout << "Program continues" << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a C++ program that demonstrates different types of comments:</p>
+                <ul>
+                    <li>Include single-line comments explaining variables</li>
+                    <li>Use multi-line comments for function descriptions</li>
+                    <li>Add comments explaining complex calculations</li>
+                    <li>Include a commented-out section of code</li>
+                    <li>Bonus: Create a program that calculates and displays the area of different shapes</li>
+                </ul>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Nesting multi-line comments (not allowed in C++)</li>
+                    <li>Forgetting to close multi-line comments</li>
+                    <li>Using incorrect comment syntax</li>
+                    <li>Writing comments that contradict the code</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. Which symbol starts a single-line comment in C++?</p>
+                <ul>
+                    <li>/*</li>
+                    <li>//</li>
+                    <li>*/</li>
+                    <li>#</li>
+                </ul>
+
+                <p>2. What is the correct way to end a multi-line comment?</p>
+                <ul>
+                    <li>//</li>
+                    <li>*/</li>
+                    <li>/*</li>
+                    <li>#endif</li>
+                </ul>
+
+                <p>3. Can multi-line comments be nested in C++?</p>
+                <ul>
+                    <li>Yes, they can be nested</li>
+                    <li>No, nesting is not allowed</li>
+                    <li>Only single-line comments can be nested</li>
+                    <li>Nesting depends on the compiler</li>
+                </ul>
+
+                <p>4. Which of the following is a good use for comments?</p>
+                <ul>
+                    <li>Explaining complex algorithms</li>
+                    <li>Stating the obvious (like "i = i + 1; // add 1 to i")</li>
+                    <li>Writing the entire program logic in comments</li>
+                    <li>Replacing variable names with comments</li>
+                </ul>
+
+                <p>5. What happens if you forget to close a multi-line comment?</p>
+                <ul>
+                    <li>The compiler ignores it</li>
+                    <li>The entire rest of the file becomes a comment</li>
+                    <li>You get a syntax error</li>
+                    <li>Nothing, comments are optional</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

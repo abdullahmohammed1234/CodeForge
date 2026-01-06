@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Sets</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+            <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Sets</h2>
+                <p>Sets in Python are unordered collections of unique elements. They are useful for storing items where order doesn't matter and duplicates are not allowed. Sets support mathematical set operations like union, intersection, and difference.</p>
+
+                <h3>What are Sets?</h3>
+                <ul>
+                    <li>Unordered collections of unique elements</li>
+                    <li>Mutable (can be modified after creation)</li>
+                    <li>Do not allow duplicate values</li>
+                    <li>Elements must be hashable (immutable)</li>
+                    <li>No indexing or slicing</li>
+                    <li>Support mathematical set operations</li>
+                </ul>
+
+                <h3>Creating Sets</h3>
+                <pre><code># Empty set
+empty_set = set()
+
+# Set with elements
+fruits = {"apple", "banana", "cherry"}
+numbers = {1, 2, 3, 4, 5}
+
+# Set from list (removes duplicates)
+list_with_duplicates = [1, 2, 2, 3, 3, 3]
+unique_numbers = set(list_with_duplicates)  # {1, 2, 3}
+
+# Set from string
+letters = set("hello")  # {'h', 'e', 'l', 'o'}
+
+print(fruits)      # {'cherry', 'banana', 'apple'} (order may vary)
+print(numbers)     # {1, 2, 3, 4, 5}
+print(unique_numbers)  # {1, 2, 3}
+print(letters)     # {'h', 'e', 'l', 'o'}</code></pre>
+
+                <h3>Set Operations</h3>
+                <h4>Adding Elements</h4>
+                <pre><code>fruits = {"apple", "banana"}
+
+# Add single element
+fruits.add("cherry")
+print(fruits)  # {'cherry', 'banana', 'apple'}
+
+# Add multiple elements
+fruits.update(["orange", "grape"])
+print(fruits)  # {'cherry', 'banana', 'apple', 'orange', 'grape'}</code></pre>
+
+                <h4>Removing Elements</h4>
+                <pre><code>fruits = {"apple", "banana", "cherry", "orange"}
+
+# Remove specific element (raises KeyError if not found)
+fruits.remove("banana")
+print(fruits)  # {'cherry', 'apple', 'orange'}
+
+# Remove element if it exists (no error if not found)
+fruits.discard("grape")  # No error
+fruits.discard("apple")
+print(fruits)  # {'cherry', 'orange'}
+
+# Remove and return arbitrary element
+removed = fruits.pop()
+print(f"Removed: {removed}")  # Random element
+print(fruits)
+
+# Clear all elements
+fruits.clear()
+print(fruits)  # set()</code></pre>
+
+                <h3>Set Membership</h3>
+                <pre><code>fruits = {"apple", "banana", "cherry"}
+
+print("apple" in fruits)     # True
+print("grape" in fruits)     # False
+print("apple" not in fruits) # False</code></pre>
+
+                <h3>Mathematical Set Operations</h3>
+                <pre><code>set_a = {1, 2, 3, 4}
+set_b = {3, 4, 5, 6}
+
+# Union: elements in either set
+print("Union:", set_a | set_b)           # {1, 2, 3, 4, 5, 6}
+print("Union:", set_a.union(set_b))      # {1, 2, 3, 4, 5, 6}
+
+# Intersection: elements in both sets
+print("Intersection:", set_a & set_b)    # {3, 4}
+print("Intersection:", set_a.intersection(set_b))  # {3, 4}
+
+# Difference: elements in set_a but not in set_b
+print("Difference:", set_a - set_b)      # {1, 2}
+print("Difference:", set_a.difference(set_b))  # {1, 2}
+
+# Symmetric difference: elements in either set but not both
+print("Symmetric diff:", set_a ^ set_b)  # {1, 2, 5, 6}
+print("Symmetric diff:", set_a.symmetric_difference(set_b))  # {1, 2, 5, 6}</code></pre>
+
+                <h3>Set Comparisons</h3>
+                <pre><code>set_a = {1, 2, 3}
+set_b = {1, 2, 3, 4}
+set_c = {2, 3}
+
+# Subset: all elements of set_a are in set_b
+print(set_a <= set_b)  # True (set_a is subset of set_b)
+print(set_a.issubset(set_b))  # True
+
+# Proper subset: subset and not equal
+print(set_a < set_b)   # True
+
+# Superset: set_b contains all elements of set_a
+print(set_b >= set_a)  # True
+print(set_b.issuperset(set_a))  # True
+
+# Proper superset
+print(set_b > set_a)   # True
+
+# Disjoint: no common elements
+print(set_a.isdisjoint({4, 5, 6}))  # True</code></pre>
+
+                <h3>Frozen Sets</h3>
+                <p>Frozen sets are immutable versions of sets:</p>
+                <pre><code># Create frozen set
+frozen = frozenset([1, 2, 3, 4])
+
+print(frozen)  # frozenset({1, 2, 3, 4})
+
+# Can be used in set operations
+regular_set = {3, 4, 5}
+print(frozen & regular_set)  # frozenset({3, 4})
+
+# Cannot be modified
+# frozen.add(5)  # AttributeError</code></pre>
+
+                <h3>Set Comprehensions</h3>
+                <p>Set comprehensions create sets using concise syntax:</p>
+                <pre><code># Create set of squares
+squares = {x**2 for x in range(1, 6)}
+print(squares)  # {1, 4, 9, 16, 25}
+
+# Set comprehension with condition
+even_squares = {x**2 for x in range(1, 11) if x % 2 == 0}
+print(even_squares)  # {4, 16, 36, 64, 100}
+
+# Set from string (unique characters)
+unique_chars = {char for char in "hello world" if char != " "}
+print(unique_chars)  # {'h', 'e', 'l', 'o', 'w', 'r', 'd'}</code></pre>
+
+                <h3>Common Use Cases</h3>
+                <ul>
+                    <li>Removing duplicates from a list</li>
+                    <li>Membership testing (faster than lists)</li>
+                    <li>Finding unique elements</li>
+                    <li>Mathematical set operations</li>
+                    <li>Removing common elements between collections</li>
+                </ul>
+
+                <h3>Mini Project</h3>
+                <p>Create a program that analyzes text using sets:</p>
+                <ul>
+                    <li>Ask the user to input a sentence</li>
+                    <li>Convert the sentence to a set of unique words</li>
+                    <li>Find common words between two sentences</li>
+                    <li>Find words unique to each sentence</li>
+                    <li>Display statistics about word usage</li>
+                    <li>Bonus: Implement case-insensitive comparison</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>def analyze_text():
+    # Get user input
+    sentence1 = input("Enter first sentence: ").lower()
+    sentence2 = input("Enter second sentence: ").lower()
+    
+    # Convert to sets of words
+    words1 = set(sentence1.split())
+    words2 = set(sentence2.split())
+    
+    print(f"Unique words in sentence 1: {words1}")
+    print(f"Unique words in sentence 2: {words2}")
+    
+    # Set operations
+    common_words = words1 & words2
+    unique_to_first = words1 - words2
+    unique_to_second = words2 - words1
+    all_words = words1 | words2
+    
+    print(f"Common words: {common_words}")
+    print(f"Unique to first: {unique_to_first}")
+    print(f"Unique to second: {unique_to_second}")
+    print(f"All unique words: {all_words}")
+    print(f"Total unique words: {len(all_words)}")
+
+analyze_text()</code></pre>
+
+                <h3>Quiz</h3>
+                <p>1. What is a set in Python?</p>
+                <ul>
+                    <li>An ordered collection of elements</li>
+                    <li>An unordered collection of unique elements</li>
+                    <li>A sequence of characters</li>
+                    <li>A mapping of keys to values</li>
+                </ul>
+
+                <p>2. Which method adds a single element to a set?</p>
+                <ul>
+                    <li>add()</li>
+                    <li>append()</li>
+                    <li>insert()</li>
+                    <li>extend()</li>
+                </ul>
+
+                <p>3. What does the | operator do with sets?</p>
+                <ul>
+                    <li>Intersection</li>
+                    <li>Union</li>
+                    <li>Difference</li>
+                    <li>Symmetric difference</li>
+                </ul>
+
+                <p>4. Which of the following can be elements of a set?</p>
+                <ul>
+                    <li>Lists</li>
+                    <li>Strings</li>
+                    <li>Sets</li>
+                    <li>All of the above</li>
+                </ul>
+
+                <p>5. What is a frozen set?</p>
+                <ul>
+                    <li>A set that cannot be modified</li>
+                    <li>A set with frozen elements</li>
+                    <li>A set that contains only numbers</li>
+                    <li>A set with a fixed size</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

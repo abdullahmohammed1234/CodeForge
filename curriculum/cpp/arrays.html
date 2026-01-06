@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Arrays</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+       <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Arrays</h2>
+                <p>Arrays in C++ are fixed-size containers that hold multiple values of the same type. They provide efficient storage and access to elements using indices. Arrays are fundamental data structures that form the basis for more complex containers.</p>
+
+                <h3>What are Arrays?</h3>
+                <ul>
+                    <li>Fixed-size containers for elements of the same type</li>
+                    <li>Stored in contiguous memory locations</li>
+                    <li>Zero-based indexing (first element at index 0)</li>
+                    <li>Size must be known at compile time</li>
+                    <li>No bounds checking by default</li>
+                    <li>Efficient random access to elements</li>
+                </ul>
+
+                <h3>Declaring Arrays</h3>
+                <pre><code>// Array declaration syntax:
+// type arrayName[size];
+
+// Integer array with 5 elements
+int numbers[5];
+
+// Character array (string)
+char name[20];
+
+// Float array
+float prices[10];
+
+// Array of pointers
+int* ptrArray[5];
+
+// Multi-dimensional array
+int matrix[3][4];</code></pre>
+
+                <h3>Initializing Arrays</h3>
+                <pre><code>// Method 1: Initialize with values
+int numbers[5] = {1, 2, 3, 4, 5};
+
+// Method 2: Partial initialization (remaining elements set to 0)
+int partial[5] = {1, 2};  // {1, 2, 0, 0, 0}
+
+// Method 3: Initialize all elements to 0
+int zeros[5] = {0};
+
+// Method 4: Size determined by initializer
+int autoSize[] = {1, 2, 3, 4, 5};  // Size is 5
+
+// Character array initialization
+char greeting[] = "Hello";  // Includes null terminator
+char greeting2[6] = "Hello";
+
+// Multi-dimensional array initialization
+int matrix[2][3] = {
+    {1, 2, 3},
+    {4, 5, 6}
+};</code></pre>
+
+                <h3>Accessing Array Elements</h3>
+                <pre><code>int numbers[5] = {10, 20, 30, 40, 50};
+
+// Accessing elements (zero-based indexing)
+std::cout << numbers[0] << std::endl;  // 10 (first element)
+std::cout << numbers[2] << std::endl;  // 30 (third element)
+std::cout << numbers[4] << std::endl;  // 50 (last element)
+
+// Modifying elements
+numbers[1] = 25;
+numbers[3] = 45;
+
+std::cout << "Modified array: ";
+for(int i = 0; i < 5; i++) {
+    std::cout << numbers[i] << " ";
+}
+std::cout << std::endl;</code></pre>
+
+                <h3>Array Size and Bounds</h3>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int numbers[5] = {1, 2, 3, 4, 5};
+    
+    // Get array size
+    int size = sizeof(numbers) / sizeof(numbers[0]);
+    std::cout << "Array size: " << size << std::endl;
+    
+    // Bounds checking (manual)
+    int index = 3;
+    if(index >= 0 && index < size) {
+        std::cout << "Element at index " << index << ": " << numbers[index] << std::endl;
+    } else {
+        std::cout << "Index out of bounds!" << std::endl;
+    }
+    
+    return 0;
+}</code></pre>
+
+                <h3>Arrays and Functions</h3>
+                <pre><code>#include &lt;iostream&gt;
+
+// Function that takes array as parameter
+void printArray(int arr[], int size) {
+    for(int i = 0; i < size; i++) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
+// Function that modifies array
+void doubleArray(int arr[], int size) {
+    for(int i = 0; i < size; i++) {
+        arr[i] *= 2;
+    }
+}
+
+int main() {
+    int numbers[5] = {1, 2, 3, 4, 5};
+    
+    std::cout << "Original: ";
+    printArray(numbers, 5);
+    
+    doubleArray(numbers, 5);
+    
+    std::cout << "Doubled: ";
+    printArray(numbers, 5);
+    
+    return 0;
+}</code></pre>
+
+                <h3>Multi-dimensional Arrays</h3>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    // 2D array: 3 rows, 4 columns
+    int matrix[3][4] = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 11, 12}
+    };
+    
+    // Accessing 2D array elements
+    std::cout << "Element [1][2]: " << matrix[1][2] << std::endl;  // 7
+    
+    // Iterating through 2D array
+    std::cout << "Matrix:" << std::endl;
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 4; j++) {
+            std::cout << matrix[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+    
+    return 0;
+}</code></pre>
+
+                <h3>Array Limitations</h3>
+                <ul>
+                    <li>Fixed size (cannot be resized)</li>
+                    <li>No bounds checking</li>
+                    <li>Cannot be returned from functions directly</li>
+                    <li>No built-in size information</li>
+                    <li>Memory management is manual</li>
+                </ul>
+
+                <h3>Common Array Operations</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;  // For std::sort, std::reverse
+
+int main() {
+    int numbers[5] = {3, 1, 4, 1, 5};
+    int size = 5;
+    
+    // Find maximum
+    int max = numbers[0];
+    for(int i = 1; i < size; i++) {
+        if(numbers[i] > max) max = numbers[i];
+    }
+    std::cout << "Maximum: " << max << std::endl;
+    
+    // Calculate sum
+    int sum = 0;
+    for(int i = 0; i < size; i++) {
+        sum += numbers[i];
+    }
+    std::cout << "Sum: " << sum << std::endl;
+    
+    // Linear search
+    int target = 4;
+    int foundIndex = -1;
+    for(int i = 0; i < size; i++) {
+        if(numbers[i] == target) {
+            foundIndex = i;
+            break;
+        }
+    }
+    if(foundIndex != -1) {
+        std::cout << "Found " << target << " at index " << foundIndex << std::endl;
+    }
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a program that manages student grades using arrays:</p>
+                <ul>
+                    <li>Define an array to store student grades</li>
+                    <li>Implement functions to calculate average, find highest/lowest grades</li>
+                    <li>Add functionality to search for specific grades</li>
+                    <li>Display grades in ascending/descending order</li>
+                    <li>Handle invalid inputs gracefully</li>
+                    <li>Bonus: Implement grade distribution (A, B, C, etc.)</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+
+const int MAX_STUDENTS = 10;
+
+void displayGrades(int grades[], int count) {
+    std::cout << "Grades: ";
+    for(int i = 0; i < count; i++) {
+        std::cout << grades[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
+double calculateAverage(int grades[], int count) {
+    int sum = 0;
+    for(int i = 0; i < count; i++) {
+        sum += grades[i];
+    }
+    return static_cast&lt;double&gt;(sum) / count;
+}
+
+int findHighest(int grades[], int count) {
+    int highest = grades[0];
+    for(int i = 1; i < count; i++) {
+        if(grades[i] > highest) highest = grades[i];
+    }
+    return highest;
+}
+
+int findLowest(int grades[], int count) {
+    int lowest = grades[0];
+    for(int i = 1; i < count; i++) {
+        if(grades[i] < lowest) lowest = grades[i];
+    }
+    return lowest;
+}
+
+int main() {
+    int grades[MAX_STUDENTS];
+    int count = 0;
+    
+    // Sample data
+    grades[0] = 85; grades[1] = 92; grades[2] = 78;
+    grades[3] = 96; grades[4] = 88; count = 5;
+    
+    displayGrades(grades, count);
+    std::cout << "Average: " << calculateAverage(grades, count) << std::endl;
+    std::cout << "Highest: " << findHighest(grades, count) << std::endl;
+    std::cout << "Lowest: " << findLowest(grades, count) << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Quiz</h3>
+                <p>1. How are array elements accessed in C++?</p>
+                <ul>
+                    <li>Using dot notation</li>
+                    <li>Using square brackets with zero-based indexing</li>
+                    <li>Using parentheses</li>
+                    <li>Using arrow operator</li>
+                </ul>
+
+                <p>2. What happens if you access an array element outside its bounds?</p>
+                <ul>
+                    <li>Compiler error</li>
+                    <li>Runtime error</li>
+                    <li>Undefined behavior</li>
+                    <li>Automatic resizing</li>
+                </ul>
+
+                <p>3. How do you find the size of an array in C++?</p>
+                <ul>
+                    <li>array.size()</li>
+                    <li>sizeof(array) / sizeof(array[0])</li>
+                    <li>array.length()</li>
+                    <li>array.capacity()</li>
+                </ul>
+
+                <p>4. Which of the following is true about arrays in C++?</p>
+                <ul>
+                    <li>Arrays can be resized dynamically</li>
+                    <li>Arrays perform automatic bounds checking</li>
+                    <li>Arrays store elements in contiguous memory</li>
+                    <li>Arrays can store elements of different types</li>
+                </ul>
+
+                <p>5. What is the first index of an array in C++?</p>
+                <ul>
+                    <li>1</li>
+                    <li>0</li>
+                    <li>-1</li>
+                    <li>Depends on the array type</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

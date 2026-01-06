@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - C++ Syntax</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+       <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax" class="active">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>C++ Syntax</h2>
+                <p>C++ syntax refers to the rules that govern how C++ programs are written. Understanding these rules is essential for writing correct and readable C++ code. C++ has a structured syntax that combines elements from C with object-oriented features.</p>
+
+                <h3>Basic Structure of a C++ Program</h3>
+                <p>A C++ program consists of several key elements:</p>
+                <ul>
+                    <li><strong>Preprocessor directives:</strong> Lines starting with #</li>
+                    <li><strong>Function definitions:</strong> Blocks of code that perform tasks</li>
+                    <li><strong>Statements:</strong> Individual instructions</li>
+                    <li><strong>Expressions:</strong> Combinations of operators and operands</li>
+                </ul>
+
+                <h3>Statements and Semicolons</h3>
+                <p>In C++, statements are the basic units of execution. Every statement must end with a semicolon (;).</p>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout << "Hello";        // Statement 1
+    std::cout << " World!";     // Statement 2
+    return 0;                     // Statement 3
+}</code></pre>
+
+                <h3>Case Sensitivity</h3>
+                <p>C++ is case-sensitive, meaning uppercase and lowercase letters are treated as different characters.</p>
+                <pre><code>// These are all different identifiers:
+int age;
+int Age;
+int AGE;
+
+// Keywords must be lowercase:
+int main()    // Correct
+Int main()    // Error: Int is not a keyword</code></pre>
+
+                <h3>Whitespace and Indentation</h3>
+                <p>Whitespace (spaces, tabs, newlines) is generally ignored by the compiler, but proper indentation improves readability.</p>
+                <pre><code>// Both are valid, but the second is more readable:
+int main(){std::cout<<"Hello";return 0;}
+
+int main() {
+    std::cout << "Hello";
+    return 0;
+}</code></pre>
+
+                <h3>Code Blocks</h3>
+                <p>Code blocks are enclosed in curly braces {}. They define scope and group statements together.</p>
+                <pre><code>int main() {
+    // This is a code block
+    {
+        int x = 5;  // x is only accessible within this block
+        std::cout << x << std::endl;
+    }
+    // x is not accessible here
+    return 0;
+}</code></pre>
+
+                <h3>Identifiers</h3>
+                <p>Identifiers are names given to variables, functions, classes, etc. Rules for identifiers:</p>
+                <ul>
+                    <li>Can contain letters, digits, and underscores</li>
+                    <li>Must start with a letter or underscore</li>
+                    <li>Cannot be a C++ keyword</li>
+                    <li>Are case-sensitive</li>
+                    <li>Should be meaningful and descriptive</li>
+                </ul>
+                <pre><code>// Valid identifiers:
+int user_age;
+double _temperature;
+std::string firstName;
+char grade_A;
+
+// Invalid identifiers:
+// int 123abc;     // Starts with digit
+// int my-age;     // Contains hyphen
+// int int;        // Reserved keyword</code></pre>
+
+                <h3>Keywords</h3>
+                <p>Keywords are reserved words that have special meaning in C++. They cannot be used as identifiers.</p>
+                <p>Common C++ keywords:</p>
+                <ul>
+                    <li><strong>Data types:</strong> int, double, char, bool, void</li>
+                    <li><strong>Control flow:</strong> if, else, for, while, switch, case</li>
+                    <li><strong>Functions:</strong> return, main</li>
+                    <li><strong>Classes:</strong> class, public, private, protected</li>
+                    <li><strong>Memory:</strong> new, delete</li>
+                    <li><strong>Others:</strong> const, static, namespace, using</li>
+                </ul>
+
+                <h3>Literals</h3>
+                <p>Literals are constant values written directly in the code:</p>
+                <ul>
+                    <li><strong>Integer literals:</strong> 42, 0x2A (hex), 052 (octal)</li>
+                    <li><strong>Floating-point literals:</strong> 3.14, 2.5e-3</li>
+                    <li><strong>Character literals:</strong> 'A', '\n', '\t'</li>
+                    <li><strong>String literals:</strong> "Hello, World!"</li>
+                    <li><strong>Boolean literals:</strong> true, false</li>
+                </ul>
+
+                <h3>Expressions</h3>
+                <p>Expressions are combinations of operators, operands, and function calls that evaluate to a value.</p>
+                <pre><code>// Arithmetic expressions:
+int result = 5 + 3 * 2;  // Evaluates to 11
+
+// Logical expressions:
+bool is_adult = age >= 18;
+
+// Function call expressions:
+std::cout << "Value: " << calculate_sum(5, 3);</code></pre>
+
+                <h3>Operators</h3>
+                <p>C++ has various operators for different operations:</p>
+                <ul>
+                    <li><strong>Arithmetic:</strong> +, -, *, /, %</li>
+                    <li><strong>Assignment:</strong> =, +=, -=, *=, /=</li>
+                    <li><strong>Comparison:</strong> ==, !=, <, >, <=, >=</li>
+                    <li><strong>Logical:</strong> &&, ||, !</li>
+                    <li><strong>Increment/Decrement:</strong> ++, --</li>
+                </ul>
+
+                <h3>Preprocessor Directives</h3>
+                <p>Lines starting with # are processed before compilation:</p>
+                <pre><code>#include &lt;iostream&gt;    // Include header file
+#define PI 3.14159     // Define constant
+#ifdef DEBUG          // Conditional compilation
+    // Debug code
+#endif</code></pre>
+
+                <h3>Namespaces</h3>
+                <p>Namespaces help organize code and prevent name conflicts:</p>
+                <pre><code>// Without using namespace:
+std::cout << "Hello" << std::endl;
+
+// With using namespace:
+using namespace std;
+cout << "Hello" << endl;
+
+// Using specific items:
+using std::cout;
+using std::endl;
+cout << "Hello" << endl;</code></pre>
+
+                <h3>Example Program</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+    // Variable declarations
+    int age = 25;
+    double height = 5.9;
+    string name = "Alice";
+    
+    // Expressions and statements
+    int next_year = age + 1;
+    bool is_tall = height > 6.0;
+    
+    // Output statements
+    cout << "Name: " << name << endl;
+    cout << "Age: " << age << endl;
+    cout << "Next year: " << next_year << endl;
+    cout << "Is tall: " << (is_tall ? "Yes" : "No") << endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a C++ program that demonstrates proper syntax:</p>
+                <ul>
+                    <li>Use proper indentation and code blocks</li>
+                    <li>Include preprocessor directives</li>
+                    <li>Declare and use variables with meaningful names</li>
+                    <li>Use different types of literals</li>
+                    <li>Write clear, readable statements</li>
+                    <li>Bonus: Use namespaces appropriately</li>
+                </ul>
+
+                <h3>Common Syntax Errors</h3>
+                <ul>
+                    <li><strong>Missing semicolons:</strong> Every statement needs ;</li>
+                    <li><strong>Mismatched braces:</strong> { must match }</li>
+                    <li><strong>Wrong case:</strong> main() not Main()</li>
+                    <li><strong>Missing includes:</strong> Need headers for used functions</li>
+                    <li><strong>Invalid identifiers:</strong> Cannot start with digit or use keywords</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use consistent indentation (4 spaces or 1 tab)</li>
+                    <li>Write one statement per line</li>
+                    <li>Use meaningful variable names</li>
+                    <li>Add comments for complex logic</li>
+                    <li>Keep functions reasonably sized</li>
+                    <li>Use proper naming conventions (camelCase for variables)</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. Which of the following is a valid C++ statement?</p>
+                <ul>
+                    <li>cout << "Hello World"</li>
+                    <li>cout << "Hello World";</li>
+                    <li>cout << "Hello World"; ;</li>
+                    <li>cout << "Hello World" ;</li>
+                </ul>
+
+                <p>2. Is C++ case-sensitive?</p>
+                <ul>
+                    <li>Yes, completely case-sensitive</li>
+                    <li>No, case doesn't matter</li>
+                    <li>Only for keywords</li>
+                    <li>Only for variable names</li>
+                </ul>
+
+                <p>3. Which of these is a valid identifier?</p>
+                <ul>
+                    <li>123variable</li>
+                    <li>my-variable</li>
+                    <li>_private_var</li>
+                    <li>for</li>
+                </ul>
+
+                <p>4. What do curly braces {} define in C++?</p>
+                <ul>
+                    <li>Function parameters</li>
+                    <li>Code blocks</li>
+                    <li>Array elements</li>
+                    <li>String literals</li>
+                </ul>
+
+                <p>5. Which is the correct way to include the iostream header?</p>
+                <ul>
+                    <li>#include "iostream"</li>
+                    <li>#include &lt;iostream&gt;</li>
+                    <li>include &lt;iostream&gt;</li>
+                    <li>using iostream;</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

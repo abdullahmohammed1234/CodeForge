@@ -1,0 +1,194 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Advanced Topics</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+        <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Advanced Topics</h2>
+                <p>Advanced C++ topics include templates, exception handling, smart pointers, and the Standard Template Library (STL). These features allow for more flexible, safe, and efficient code.</p>
+
+                <h3>Templates</h3>
+                <p>Templates enable generic programming, allowing functions and classes to work with different data types.</p>
+                <pre><code>// Function template
+template &lt;typename T&gt;
+T max(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+// Class template
+template &lt;typename T&gt;
+class Stack {
+private:
+    std::vector&lt;T&gt; elements;
+public:
+    void push(T const& elem) { elements.push_back(elem); }
+    T pop() { T elem = elements.back(); elements.pop_back(); return elem; }
+};
+
+int main() {
+    std::cout << max(5, 10) << std::endl;  // 10
+    std::cout << max(3.14, 2.71) << std::endl;  // 3.14
+
+    Stack&lt;int&gt; intStack;
+    intStack.push(1);
+    intStack.push(2);
+    std::cout << intStack.pop() << std::endl;  // 2
+}</code></pre>
+
+                <h3>Exception Handling</h3>
+                <p>Exception handling allows programs to handle runtime errors gracefully.</p>
+                <pre><code>try {
+    int divisor = 0;
+    if (divisor == 0) {
+        throw std::runtime_error("Division by zero!");
+    }
+    int result = 10 / divisor;
+} catch (const std::runtime_error& e) {
+    std::cout << "Error: " << e.what() << std::endl;
+} catch (...) {
+    std::cout << "Unknown error occurred" << std::endl;
+}</code></pre>
+
+                <h3>Smart Pointers</h3>
+                <p>Smart pointers automatically manage memory, preventing leaks and dangling pointers.</p>
+                <pre><code>#include &lt;memory&gt;
+
+// unique_ptr: exclusive ownership
+std::unique_ptr&lt;int&gt; ptr1 = std::make_unique<int>(42);
+std::cout << *ptr1 << std::endl;
+
+// shared_ptr: shared ownership
+std::shared_ptr&lt;int&gt; ptr2 = std::make_shared&lt;int&gt;(100);
+std::shared_ptr&lt;int&gt; ptr3 = ptr2;  // Reference count increases
+std::cout << *ptr2 << " " << *ptr3 << std::endl;
+
+// weak_ptr: non-owning reference
+std::weak_ptr&lt;int&gt; weakPtr = ptr2;
+if (auto shared = weakPtr.lock()) {
+    std::cout << "Value: " << *shared << std::endl;
+}</code></pre>
+
+                <h3>Standard Template Library (STL)</h3>
+                <p>The STL provides containers, algorithms, and iterators for efficient data manipulation.</p>
+                <pre><code>#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+
+std::vector&lt;int&gt; numbers = {3, 1, 4, 1, 5, 9, 2, 6};
+std::sort(numbers.begin(), numbers.end());
+for (int num : numbers) {
+    std::cout << num << " ";
+}
+std::cout << std::endl;
+
+// Using algorithms
+auto it = std::find(numbers.begin(), numbers.end(), 5);
+if (it != numbers.end()) {
+    std::cout << "Found 5 at position: " << (it - numbers.begin()) << std::endl;
+}</code></pre>
+
+                <h3>Lambda Expressions</h3>
+                <p>Lambdas allow defining anonymous functions inline.</p>
+                <pre><code>auto add = [](int a, int b) { return a + b; };
+std::cout << add(3, 4) << std::endl;  // 7
+
+std::vector&lt;int&gt; nums = {1, 2, 3, 4, 5};
+nums.erase(std::remove_if(nums.begin(), nums.end(),
+                          [](int x) { return x % 2 == 0; }),
+           nums.end());  // Remove even numbers</code></pre>
+
+                <h3>Move Semantics and Rvalue References</h3>
+                <p>Move semantics allow efficient transfer of resources.</p>
+                <pre><code>class MyClass {
+public:
+    MyClass() = default;
+    MyClass(MyClass&& other) noexcept {  // Move constructor
+        // Transfer resources from other
+    }
+    MyClass& operator=(MyClass&& other) noexcept {  // Move assignment
+        // Transfer resources
+        return *this;
+    }
+};
+
+MyClass obj1;
+MyClass obj2 = std::move(obj1);  // Move construction</code></pre>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use smart pointers instead of raw pointers</li>
+                    <li>Prefer STL containers and algorithms</li>
+                    <li>Use exceptions for error handling, not for control flow</li>
+                    <li>Leverage templates for generic code</li>
+                    <li>Understand move semantics for performance</li>
+                </ul>
+
+                <h3>Common Issues</h3>
+                <ul>
+                    <li>Template instantiation errors</li>
+                    <li>Exception safety violations</li>
+                    <li>Memory leaks with raw pointers</li>
+                    <li>Inefficient use of STL</li>
+                </ul>
+
+                <h3>Exercise</h3>
+                <p>Implement a generic Stack class using templates, add exception handling for empty stack operations, and use smart pointers for memory management. Experiment with STL algorithms and lambda expressions.</p>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

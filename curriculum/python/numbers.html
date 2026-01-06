@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Numbers</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+            <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Numbers</h2>
+                <p>In Python, numbers are fundamental data types used for mathematical operations. Python supports several numeric types, with integers and floating-point numbers being the most common.</p>
+
+                <h3>Numeric Types in Python</h3>
+                <ul>
+                    <li><strong>int:</strong> Integer numbers (positive, negative, or zero)</li>
+                    <li><strong>float:</strong> Floating-point numbers (decimal numbers)</li>
+                    <li><strong>complex:</strong> Complex numbers (with real and imaginary parts)</li>
+                </ul>
+
+                <h3>Integers (int)</h3>
+                <p>Integers are whole numbers without decimal points:</p>
+                <ul>
+                    <li>Can be positive, negative, or zero</li>
+                    <li>No size limit in Python 3 (limited only by available memory)</li>
+                    <li>Can be written in different bases (decimal, binary, octal, hexadecimal)</li>
+                </ul>
+                <pre><code># Integer examples
+positive_int = 42
+negative_int = -17
+zero = 0
+
+# Different bases
+decimal = 255
+binary = 0b11111111  # 255 in binary
+octal = 0o377        # 255 in octal
+hexadecimal = 0xff   # 255 in hexadecimal
+
+print(decimal, binary, octal, hexadecimal)  # All output 255</code></pre>
+
+                <h3>Floating-Point Numbers (float)</h3>
+                <p>Floats represent decimal numbers:</p>
+                <ul>
+                    <li>Based on IEEE 754 double-precision standard</li>
+                    <li>Can represent very large and very small numbers</li>
+                    <li>May have precision issues due to binary representation</li>
+                    <li>Can be written in scientific notation</li>
+                </ul>
+                <pre><code># Float examples
+pi = 3.14159
+negative_float = -2.5
+scientific = 1.23e4  # 12300.0
+small_number = 1.23e-4  # 0.000123
+
+print(pi, negative_float, scientific, small_number)</code></pre>
+
+                <h3>Complex Numbers (complex)</h3>
+                <p>Complex numbers have real and imaginary parts:</p>
+                <pre><code># Complex number examples
+complex_num = 3 + 4j
+real_part = complex_num.real  # 3.0
+imag_part = complex_num.imag  # 4.0
+
+print(complex_num)  # (3+4j)
+print(real_part, imag_part)</code></pre>
+
+                <h3>Type Conversion</h3>
+                <p>You can convert between numeric types:</p>
+                <pre><code># Type conversion
+int_to_float = float(42)    # 42.0
+float_to_int = int(3.14)    # 3 (truncates decimal part)
+int_to_complex = complex(5) # (5+0j)
+
+# String to number
+str_to_int = int("123")
+str_to_float = float("3.14")
+
+print(int_to_float, float_to_int, int_to_complex)</code></pre>
+
+                <h3>Arithmetic Operations</h3>
+                <p>Basic arithmetic operations work with all numeric types:</p>
+                <pre><code>a = 10
+b = 3
+
+print("Addition:", a + b)        # 13
+print("Subtraction:", a - b)     # 7
+print("Multiplication:", a * b)  # 30
+print("Division:", a / b)        # 3.333...
+print("Floor Division:", a // b) # 3
+print("Modulus:", a % b)         # 1
+print("Exponentiation:", a ** b) # 1000</code></pre>
+
+                <h3>Built-in Functions</h3>
+                <p>Python provides useful built-in functions for numbers:</p>
+                <pre><code>numbers = [3.14, -2.5, 10, 7.8]
+
+print("Absolute value:", abs(-5))     # 5
+print("Round:", round(3.14159, 2))    # 3.14
+print("Power:", pow(2, 3))            # 8
+print("Maximum:", max(numbers))       # 10
+print("Minimum:", min(numbers))       # -2.5
+print("Sum:", sum(numbers))           # 18.44</code></pre>
+
+                <h3>Math Module</h3>
+                <p>The math module provides advanced mathematical functions:</p>
+                <pre><code>import math
+
+print("Square root:", math.sqrt(16))     # 4.0
+print("Sine:", math.sin(math.pi/2))      # 1.0
+print("Cosine:", math.cos(0))            # 1.0
+print("Logarithm:", math.log(100, 10))   # 2.0
+print("Factorial:", math.factorial(5))   # 120
+print("Ceiling:", math.ceil(3.2))        # 4
+print("Floor:", math.floor(3.8))         # 3</code></pre>
+
+                <h3>Precision and Limitations</h3>
+                <ul>
+                    <li>Floats have limited precision (about 15 decimal digits)</li>
+                    <li>Some decimal numbers can't be represented exactly in binary</li>
+                    <li>Use decimal module for financial calculations requiring exact decimal representation</li>
+                </ul>
+                <pre><code># Precision example
+print(0.1 + 0.2)  # 0.30000000000000004 (not exactly 0.3)
+
+# Using decimal for precision
+from decimal import Decimal
+a = Decimal('0.1')
+b = Decimal('0.2')
+print(a + b)  # 0.3 (exact)</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a number analyzer program:</p>
+                <ul>
+                    <li>Ask the user to input a number</li>
+                    <li>Determine if it's positive, negative, or zero</li>
+                    <li>Check if it's an integer or float</li>
+                    <li>Calculate square, square root, and cube</li>
+                    <li>Display the number in binary, octal, and hexadecimal</li>
+                    <li>Bonus: Handle complex numbers</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>import math
+
+# Get user input
+num_str = input("Enter a number: ")
+
+try:
+    num = float(num_str)
+    
+    # Check type and sign
+    if num > 0:
+        sign = "positive"
+    elif num < 0:
+        sign = "negative"
+    else:
+        sign = "zero"
+    
+    print(f"The number {num} is {sign}")
+    
+    # Calculations
+    if num >= 0:
+        print(f"Square root: {math.sqrt(num)}")
+    
+    print(f"Square: {num ** 2}")
+    print(f"Cube: {num ** 3}")
+    
+    # Different bases (for integers)
+    if num == int(num):
+        int_num = int(num)
+        print(f"Binary: {bin(int_num)}")
+        print(f"Octal: {oct(int_num)}")
+        print(f"Hexadecimal: {hex(int_num)}")
+
+except ValueError:
+    print("Invalid number entered")</code></pre>
+
+                <h3>Quiz</h3>
+                <p>1. Which of the following is NOT a numeric type in Python?</p>
+                <ul>
+                    <li>int</li>
+                    <li>float</li>
+                    <li>double</li>
+                    <li>complex</li>
+                </ul>
+
+                <p>2. What is the result of 10 // 3 in Python?</p>
+                <ul>
+                    <li>3.333...</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>Error</li>
+                </ul>
+
+                <p>3. Which function converts a float to an integer?</p>
+                <ul>
+                    <li>float()</li>
+                    <li>int()</li>
+                    <li>str()</li>
+                    <li>bool()</li>
+                </ul>
+
+                <p>4. What does the ** operator do?</p>
+                <ul>
+                    <li>Multiplication</li>
+                    <li>Exponentiation</li>
+                    <li>Modulus</li>
+                    <li>Floor division</li>
+                </ul>
+
+                <p>5. Which module provides mathematical functions like sqrt()?</p>
+                <ul>
+                    <li>os</li>
+                    <li>sys</li>
+                    <li>math</li>
+                    <li>random</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

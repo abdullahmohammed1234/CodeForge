@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Variables</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+            <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Variables</h2>
+                <p>Variables are containers for storing data values in Python. They allow you to store information that can be referenced and manipulated throughout your program. In Python, variables are created when you assign a value to them.</p>
+
+                <h3>What are Variables?</h3>
+                <ul>
+                    <li>Named storage locations in memory</li>
+                    <li>Used to hold data that can change during program execution</li>
+                    <li>Make code more readable and maintainable</li>
+                    <li>Can store different types of data (numbers, strings, etc.)</li>
+                    <li>Values can be reassigned during program execution</li>
+                </ul>
+
+                <h3>Variable Naming Rules</h3>
+                <p>Python has specific rules for naming variables:</p>
+                <ul>
+                    <li>Variable names must start with a letter or underscore (_)</li>
+                    <li>The rest of the name can contain letters, numbers, and underscores</li>
+                    <li>Variable names are case-sensitive (age, Age, and AGE are different)</li>
+                    <li>Cannot use Python keywords as variable names</li>
+                    <li>No spaces allowed in variable names</li>
+                </ul>
+
+                <h3>Good Variable Naming Practices</h3>
+                <ul>
+                    <li>Use descriptive names that indicate the variable's purpose</li>
+                    <li>Use lowercase letters with underscores for multi-word names (snake_case)</li>
+                    <li>Avoid single-letter names except for simple counters (i, j, k)</li>
+                    <li>Keep names concise but meaningful</li>
+                    <li>Be consistent throughout your code</li>
+                </ul>
+
+                <h3>Examples</h3>
+                <pre><code># Valid variable names
+name = "Alice"
+age = 25
+is_student = True
+user_name = "bob123"
+_total_score = 95
+
+# Invalid variable names (would cause errors)
+# 123name = "invalid"  # Starts with number
+# class = "Python"     # Reserved keyword
+# user-name = "bob"    # Contains hyphen
+
+# Variable assignment and reassignment
+x = 10
+print(x)  # Output: 10
+
+x = 20  # Reassigning the value
+print(x)  # Output: 20
+
+# Multiple assignment
+a = b = c = 100
+print(a, b, c)  # Output: 100 100 100
+
+# Assigning multiple values
+name, age, city = "Alice", 25, "New York"
+print(name)  # Output: Alice
+print(age)   # Output: 25
+print(city)  # Output: New York</code></pre>
+
+                <h3>Dynamic Typing</h3>
+                <p>Python uses dynamic typing, which means:</p>
+                <ul>
+                    <li>You don't need to declare the data type when creating a variable</li>
+                    <li>The data type is determined automatically based on the assigned value</li>
+                    <li>Variables can change type during execution</li>
+                    <li>This makes Python flexible but requires careful type management</li>
+                </ul>
+                <pre><code># Dynamic typing example
+x = 5        # x is an integer
+print(type(x))  # Output: <class 'int'>
+
+x = "Hello"  # Now x is a string
+print(type(x))  # Output: <class 'str'>
+
+x = 3.14     # Now x is a float
+print(type(x))  # Output: <class 'float'></code></pre>
+
+                <h3>Variable Scope</h3>
+                <p>Variables can have different scopes:</p>
+                <ul>
+                    <li><strong>Local variables:</strong> Defined inside a function, only accessible within that function</li>
+                    <li><strong>Global variables:</strong> Defined outside functions, accessible throughout the program</li>
+                    <li><strong>Instance variables:</strong> Defined within a class, unique to each object instance</li>
+                </ul>
+
+                <h3>Constants</h3>
+                <p>Although Python doesn't have built-in constant types, you can indicate constants by:</p>
+                <ul>
+                    <li>Using all uppercase letters for the variable name</li>
+                    <li>Placing them at the top of the file</li>
+                    <li>Not modifying them throughout the program</li>
+                </ul>
+                <pre><code>PI = 3.14159
+MAX_USERS = 100
+CONFIG_FILE = "settings.ini"</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a simple calculator program that demonstrates variable usage:</p>
+                <ul>
+                    <li>Define variables for two numbers</li>
+                    <li>Perform basic arithmetic operations (addition, subtraction, multiplication, division)</li>
+                    <li>Store results in separate variables</li>
+                    <li>Print the results with descriptive messages</li>
+                    <li>Bonus: Ask the user for input values</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code># Define variables
+num1 = 10
+num2 = 5
+
+# Perform calculations
+addition = num1 + num2
+subtraction = num1 - num2
+multiplication = num1 * num2
+division = num1 / num2
+
+# Print results
+print(f"Addition: {num1} + {num2} = {addition}")
+print(f"Subtraction: {num1} - {num2} = {subtraction}")
+print(f"Multiplication: {num1} * {num2} = {multiplication}")
+print(f"Division: {num1} / {num2} = {division}")</code></pre>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Forgetting to initialize variables before use</li>
+                    <li>Using undefined variables</li>
+                    <li>Misspelling variable names (case-sensitive)</li>
+                    <li>Using reserved keywords as variable names</li>
+                    <li>Not following naming conventions</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. Which of the following is a valid variable name in Python?</p>
+                <ul>
+                    <li>123variable</li>
+                    <li>variable-name</li>
+                    <li>variable_name</li>
+                    <li>class</li>
+                </ul>
+
+                <p>2. What happens when you reassign a variable in Python?</p>
+                <ul>
+                    <li>The old value is lost</li>
+                    <li>An error occurs</li>
+                    <li>The variable becomes undefined</li>
+                    <li>Both values are stored</li>
+                </ul>
+
+                <p>3. Which statement about Python variables is true?</p>
+                <ul>
+                    <li>Variables must be declared with a type</li>
+                    <li>Variable names are case-insensitive</li>
+                    <li>Variables can change type during execution</li>
+                    <li>Spaces are allowed in variable names</li>
+                </ul>
+
+                <p>4. What is the recommended naming convention for multi-word variable names?</p>
+                <ul>
+                    <li>camelCase</li>
+                    <li>PascalCase</li>
+                    <li>snake_case</li>
+                    <li>kebab-case</li>
+                </ul>
+
+                <p>5. Where can local variables be accessed?</p>
+                <ul>
+                    <li>Only within the function where they are defined</li>
+                    <li>Throughout the entire program</li>
+                    <li>Only in the main function</li>
+                    <li>In all classes</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Control Flow</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+            <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Control Flow</h2>
+                <p>Control flow in Python refers to the order in which statements are executed in a program. Python provides several control structures that allow you to alter the normal sequential execution of code, making programs more dynamic and responsive to different conditions and scenarios. Understanding control flow is essential for writing programs that can make decisions, handle errors, and repeat operations as needed.</p>
+
+                <h3>What is Control Flow?</h3>
+                <p>Control flow determines:</p>
+                <ul>
+                    <li><strong>Execution Order:</strong> Which statements run and when</li>
+                    <li><strong>Decision Making:</strong> Choosing different paths based on conditions</li>
+                    <li><strong>Error Handling:</strong> Responding to unexpected situations</li>
+                    <li><strong>Repetition:</strong> Executing code multiple times</li>
+                    <li><strong>Program Structure:</strong> Organizing code into logical blocks</li>
+                </ul>
+
+                <h3>Conditional Statements</h3>
+                <p>Conditional statements allow code execution based on boolean conditions:</p>
+                <pre><code># Simple if statement
+age = 18
+if age >= 18:
+    print("You are eligible to vote")
+
+# if-else statement
+temperature = 25
+if temperature > 30:
+    print("It's hot outside")
+else:
+    print("The weather is pleasant")
+
+# if-elif-else chain
+score = 85
+if score >= 90:
+    grade = "A"
+elif score >= 80:
+    grade = "B"
+elif score >= 70:
+    grade = "C"
+else:
+    grade = "F"
+print(f"Your grade is: {grade}")</code></pre>
+
+                <h3>Pattern Matching (Python 3.10+)</h3>
+                <p>The match-case statement provides powerful pattern matching:</p>
+                <pre><code># Basic pattern matching
+def describe_number(n):
+    match n:
+        case 0:
+            return "zero"
+        case 1:
+            return "one"
+        case 2:
+            return "two"
+        case _:
+            return "other"
+
+print(describe_number(1))  # "one"
+
+# Pattern matching with conditions
+def categorize_age(age):
+    match age:
+        case n if n < 13:
+            return "child"
+        case n if 13 <= n < 20:
+            return "teenager"
+        case n if 20 <= n < 65:
+            return "adult"
+        case _:
+            return "senior"
+
+print(categorize_age(25))  # "adult"
+
+# Matching sequences
+def analyze_list(data):
+    match data:
+        case []:
+            return "Empty list"
+        case [x]:
+            return f"Single item: {x}"
+        case [x, y]:
+            return f"Two items: {x}, {y}"
+        case [x, *rest]:
+            return f"First: {x}, others: {rest}"
+        case _:
+            return "Complex list"
+
+print(analyze_list([1, 2, 3]))  # "First: 1, others: [2, 3]"</code></pre>
+
+                <h3>Loop Control Statements</h3>
+                <p>Control the execution of loops:</p>
+                <pre><code># break - exit the loop completely
+for i in range(10):
+    if i == 5:
+        print("Found 5, stopping...")
+        break
+    print(i)
+
+# continue - skip current iteration
+for i in range(10):
+    if i % 2 == 0:
+        continue  # Skip even numbers
+    print(f"Odd number: {i}")
+
+# else clause with loops
+for i in range(5):
+    print(i)
+else:
+    print("Loop completed normally")
+
+# Loop with break doesn't execute else
+for i in range(10):
+    if i == 3:
+        break
+    print(i)
+else:
+    print("This won't print")</code></pre>
+
+                <h3>Exception Handling</h3>
+                <p>Handle runtime errors gracefully:</p>
+                <pre><code># Basic try-except
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+
+# Multiple exception types
+try:
+    number = int(input("Enter a number: "))
+    result = 100 / number
+    print(f"Result: {result}")
+except ValueError:
+    print("Please enter a valid number")
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+# Catching all exceptions
+try:
+    # Risky code
+    risky_operation()
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+# finally block - always executes
+try:
+    file = open("example.txt", "r")
+    content = file.read()
+    print(content)
+except FileNotFoundError:
+    print("File not found")
+finally:
+    if 'file' in locals():
+        file.close()
+    print("Cleanup completed")
+
+# else block - executes if no exception
+try:
+    result = 10 / 2
+except ZeroDivisionError:
+    print("Division error")
+else:
+    print(f"Success: {result}")
+finally:
+    print("Always executes")</code></pre>
+
+                <h3>Raising Exceptions</h3>
+                <p>Create and raise custom exceptions:</p>
+                <pre><code>def validate_age(age):
+    if age < 0:
+        raise ValueError("Age cannot be negative")
+    if age > 150:
+        raise ValueError("Age cannot be greater than 150")
+    return age
+
+def divide_numbers(a, b):
+    if b == 0:
+        raise ZeroDivisionError("Division by zero is not allowed")
+    return a / b
+
+# Using custom exceptions
+class InsufficientFundsError(Exception):
+    def __init__(self, balance, amount):
+        self.balance = balance
+        self.amount = amount
+        super().__init__(f"Insufficient funds: balance ${balance}, needed ${amount}")
+
+def withdraw(balance, amount):
+    if amount > balance:
+        raise InsufficientFundsError(balance, amount)
+    return balance - amount
+
+# Testing exception handling
+try:
+    validate_age(-5)
+except ValueError as e:
+    print(f"Validation error: {e}")
+
+try:
+    withdraw(100, 150)
+except InsufficientFundsError as e:
+    print(f"Transaction error: {e}")</code></pre>
+
+                <h3>Context Managers</h3>
+                <p>Ensure proper resource management:</p>
+                <pre><code># Using with statement (automatic cleanup)
+with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)
+# File is automatically closed here
+
+# Custom context manager
+class Timer:
+    def __enter__(self):
+        import time
+        self.start = time.time()
+        print("Timer started")
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        import time
+        elapsed = time.time() - self.start
+        print(f"Timer ended after {elapsed:.2f} seconds")
+
+# Using the context manager
+with Timer() as t:
+    # Some time-consuming operation
+    total = sum(range(1000000))
+    print(f"Sum: {total}")
+
+# Context manager for database connections
+class DatabaseConnection:
+    def __init__(self, connection_string):
+        self.connection_string = connection_string
+        self.connection = None
+    
+    def __enter__(self):
+        # Simulate database connection
+        self.connection = f"Connected to {self.connection_string}"
+        print("Database connected")
+        return self.connection
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        # Simulate closing connection
+        print("Database connection closed")
+        self.connection = None
+
+with DatabaseConnection("localhost:5432/mydb") as conn:
+    print(f"Working with: {conn}")
+    # Perform database operations</code></pre>
+
+                <h3>Assertions</h3>
+                <p>Debugging aid for checking conditions:</p>
+                <pre><code>def calculate_average(scores):
+    assert len(scores) > 0, "Cannot calculate average of empty list"
+    return sum(scores) / len(scores)
+
+def validate_email(email):
+    assert "@" in email, "Invalid email format"
+    assert "." in email.split("@")[1], "Invalid email domain"
+    return True
+
+# Using assertions
+try:
+    avg = calculate_average([])
+except AssertionError as e:
+    print(f"Assertion failed: {e}")
+
+try:
+    validate_email("invalid-email")
+except AssertionError as e:
+    print(f"Validation failed: {e}")
+
+# Assertions can be disabled in production with -O flag
+# python -O script.py (optimizations enabled, assertions disabled)</code></pre>
+
+                <h3>Generator Expressions and Control Flow</h3>
+                <p>Efficient iteration with generators:</p>
+                <pre><code># Generator expression (lazy evaluation)
+squares = (x**2 for x in range(10))
+print(squares)  # <generator object>
+
+for square in squares:
+    print(square)
+    if square > 20:
+        break  # Can exit early
+
+# Generator function with control flow
+def fibonacci_generator(limit):
+    a, b = 0, 1
+    count = 0
+    while count < limit:
+        yield a
+        a, b = b, a + b
+        count += 1
+
+for num in fibonacci_generator(10):
+    print(num, end=" ")
+print()
+
+# Using send() for two-way communication
+def counter():
+    count = 0
+    while True:
+        increment = (yield count)
+        if increment is not None:
+            count += increment
+        else:
+            count += 1
+
+gen = counter()
+print(next(gen))  # 0
+print(next(gen))  # 1
+print(gen.send(5))  # 6 (added 5)
+print(next(gen))   # 7 (added 1)</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a robust input validation and processing system:</p>
+                <ul>
+                    <li>Implement comprehensive input validation with custom exceptions</li>
+                    <li>Create a menu-driven program with proper error handling</li>
+                    <li>Use context managers for resource management</li>
+                    <li>Implement retry logic for failed operations</li>
+                    <li>Add logging functionality with proper exception handling</li>
+                    <li>Create custom exceptions for different error scenarios</li>
+                    <li>Bonus: Add configuration file reading with validation</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>import json
+import logging
+from contextlib import contextmanager
+
+# Custom exceptions
+class ValidationError(Exception):
+    """Raised when input validation fails"""
+    pass
+
+class ConfigurationError(Exception):
+    """Raised when configuration is invalid"""
+    pass
+
+class ProcessingError(Exception):
+    """Raised when data processing fails"""
+    pass
+
+# Context manager for file operations
+@contextmanager
+def safe_file_operation(filename, mode='r'):
+    """Context manager for safe file operations"""
+    file = None
+    try:
+        file = open(filename, mode)
+        yield file
+    except IOError as e:
+        raise ProcessingError(f"File operation failed: {e}")
+    finally:
+        if file:
+            file.close()
+
+# Input validation functions
+def validate_integer(value, min_val=None, max_val=None, field_name="value"):
+    """Validate integer input with range checking"""
+    try:
+        num = int(value)
+        if min_val is not None and num < min_val:
+            raise ValidationError(f"{field_name} must be at least {min_val}")
+        if max_val is not None and num > max_val:
+            raise ValidationError(f"{field_name} must be at most {max_val}")
+        return num
+    except ValueError:
+        raise ValidationError(f"{field_name} must be a valid integer")
+
+def validate_string(value, min_length=1, max_length=None, field_name="value"):
+    """Validate string input"""
+    if not isinstance(value, str):
+        raise ValidationError(f"{field_name} must be a string")
+    
+    if len(value.strip()) < min_length:
+        raise ValidationError(f"{field_name} must be at least {min_length} characters")
+    
+    if max_length and len(value) > max_length:
+        raise ValidationError(f"{field_name} must be at most {max_length} characters")
+    
+    return value.strip()
+
+def validate_email(email):
+    """Basic email validation"""
+    if "@" not in email or "." not in email.split("@")[1]:
+        raise ValidationError("Invalid email format")
+    return email
+
+# Configuration manager
+class ConfigManager:
+    def __init__(self, config_file="config.json"):
+        self.config_file = config_file
+        self.config = {}
+        self.load_config()
+    
+    def load_config(self):
+        """Load configuration with error handling"""
+        try:
+            with safe_file_operation(self.config_file, 'r') as file:
+                self.config = json.load(file)
+                self.validate_config()
+        except FileNotFoundError:
+            # Create default config
+            self.config = {
+                "max_retries": 3,
+                "timeout": 30,
+                "debug": False
+            }
+            self.save_config()
+        except json.JSONDecodeError:
+            raise ConfigurationError("Invalid JSON in configuration file")
+    
+    def validate_config(self):
+        """Validate configuration values"""
+        required_keys = ["max_retries", "timeout", "debug"]
+        for key in required_keys:
+            if key not in self.config:
+                raise ConfigurationError(f"Missing required config key: {key}")
+        
+        if not isinstance(self.config["max_retries"], int) or self.config["max_retries"] < 0:
+            raise ConfigurationError("max_retries must be a non-negative integer")
+        
+        if not isinstance(self.config["timeout"], (int, float)) or self.config["timeout"] <= 0:
+            raise ConfigurationError("timeout must be a positive number")
+    
+    def save_config(self):
+        """Save configuration to file"""
+        with safe_file_operation(self.config_file, 'w') as file:
+            json.dump(self.config, file, indent=2)
+
+# Main application class
+class DataProcessor:
+    def __init__(self):
+        self.config = ConfigManager()
+        self.setup_logging()
+        self.data = []
+    
+    def setup_logging(self):
+        """Setup logging configuration"""
+        logging.basicConfig(
+            filename='processor.log',
+            level=logging.DEBUG if self.config.config.get('debug') else logging.INFO,
+            format='%(asctime)s - %(levelname)s - %(message)s'
+        )
+    
+    def get_user_input_with_retry(self, prompt, validator_func, max_retries=None):
+        """Get user input with retry logic"""
+        if max_retries is None:
+            max_retries = self.config.config["max_retries"]
+        
+        for attempt in range(max_retries):
+            try:
+                user_input = input(f"{prompt} (attempt {attempt + 1}/{max_retries}): ").strip()
+                return validator_func(user_input)
+            except ValidationError as e:
+                print(f"Error: {e}")
+                logging.warning(f"Validation failed: {e}")
+                if attempt == max_retries - 1:
+                    raise ProcessingError(f"Failed to get valid input after {max_retries} attempts")
+    
+    def add_person(self):
+        """Add a person to the data"""
+        try:
+            print("\nAdding new person:")
+            name = self.get_user_input_with_retry(
+                "Enter name", 
+                lambda x: validate_string(x, field_name="Name")
+            )
+            
+            age = self.get_user_input_with_retry(
+                "Enter age", 
+                lambda x: validate_integer(x, 0, 150, "Age")
+            )
+            
+            email = self.get_user_input_with_retry(
+                "Enter email", 
+                validate_email
+            )
+            
+            person = {
+                "name": name,
+                "age": age,
+                "email": email
+            }
+            
+            self.data.append(person)
+            logging.info(f"Added person: {name}")
+            print(f"Successfully added {name} to the database!")
+            
+        except ProcessingError as e:
+            print(f"Failed to add person: {e}")
+            logging.error(f"Failed to add person: {e}")
+    
+    def display_data(self):
+        """Display all stored data"""
+        if not self.data:
+            print("No data available.")
+            return
+        
+        print(f"\nStored Data ({len(self.data)} records):")
+        print("-" * 50)
+        for i, person in enumerate(self.data, 1):
+            print(f"{i}. Name: {person['name']}")
+            print(f"   Age: {person['age']}")
+            print(f"   Email: {person['email']}")
+            print()
+    
+    def save_data(self):
+        """Save data to file"""
+        try:
+            with safe_file_operation('data.json', 'w') as file:
+                json.dump(self.data, file, indent=2)
+            print("Data saved successfully!")
+            logging.info("Data saved to file")
+        except ProcessingError as e:
+            print(f"Failed to save data: {e}")
+            logging.error(f"Failed to save data: {e}")
+    
+    def load_data(self):
+        """Load data from file"""
+        try:
+            with safe_file_operation('data.json', 'r') as file:
+                self.data = json.load(file)
+            print("Data loaded successfully!")
+            logging.info("Data loaded from file")
+        except ProcessingError as e:
+            print(f"Failed to load data: {e}")
+            logging.error(f"Failed to load data: {e}")
+        except json.JSONDecodeError:
+            print("Invalid data file format.")
+            logging.error("Invalid JSON in data file")
+
+def main():
+    processor = DataProcessor()
+    
+    while True:
+        print("\n" + "="*40)
+        print("    DATA PROCESSOR")
+        print("="*40)
+        print("1. Add Person")
+        print("2. Display All Data")
+        print("3. Save Data")
+        print("4. Load Data")
+        print("5. Exit")
+        print("="*40)
+        
+        choice = input("Enter your choice (1-5): ").strip()
+        
+        try:
+            if choice == "1":
+                processor.add_person()
+                
+            elif choice == "2":
+                processor.display_data()
+                
+            elif choice == "3":
+                processor.save_data()
+                
+            elif choice == "4":
+                processor.load_data()
+                
+            elif choice == "5":
+                print("Thank you for using the Data Processor!")
+                break
+                
+            else:
+                print("Invalid choice. Please select 1-5.")
+                
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
+            logging.error(f"Unexpected error: {e}")
+        
+        input("\nPress Enter to continue...")
+
+if __name__ == "__main__":
+    main()</code></pre>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use specific exception types rather than catching all exceptions</li>
+                    <li>Always use context managers for resource management</li>
+                    <li>Provide meaningful error messages to users</li>
+                    <li>Log errors for debugging while showing user-friendly messages</li>
+                    <li>Validate input at the earliest possible point</li>
+                    <li>Use assertions for debugging, not for runtime error handling</li>
+                    <li>Keep try blocks as small as possible</li>
+                    <li>Don't suppress exceptions without good reason</li>
+                </ul>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Catching Exception instead of specific exceptions</li>
+                    <li>Not handling exceptions that should be handled</li>
+                    <li>Using bare except clauses</li>
+                    <li>Forgetting to close resources</li>
+                    <li>Masking programming errors with exception handling</li>
+                    <li>Not re-raising exceptions when appropriate</li>
+                    <li>Using exceptions for normal control flow</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. What does the finally block do in exception handling?</p>
+                <ul>
+                    <li>Executes only if an exception occurs</li>
+                    <li>Executes only if no exception occurs</li>
+                    <li>Always executes, regardless of exceptions</li>
+                    <li>Replaces the except block</li>
+                </ul>
+
+                <p>2. Which keyword is used to manually raise an exception?</p>
+                <ul>
+                    <li>throw</li>
+                    <li>raise</li>
+                    <li>except</li>
+                    <li>error</li>
+                </ul>
+
+                <p>3. What is a context manager?</p>
+                <ul>
+                    <li>A way to manage program context</li>
+                    <li>A tool for managing resources automatically</li>
+                    <li>A type of exception handler</li>
+                    <li>A debugging tool</li>
+                </ul>
+
+                <p>4. When should you use assertions?</p>
+                <ul>
+                    <li>For user input validation</li>
+                    <li>For debugging and testing conditions</li>
+                    <li>For handling runtime errors</li>
+                    <li>For all exception handling</li>
+                </ul>
+
+                <p>5. What happens when you use break in a loop?</p>
+                <ul>
+                    <li>Skips the current iteration</li>
+                    <li>Exits the loop immediately</li>
+                    <li>Restarts the loop</li>
+                    <li>Continues to the next iteration</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - C++ Functions</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+        <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions" class="active">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>C++ Functions</h2>
+                <p>Functions are the building blocks of C++ programs. They allow you to organize code into reusable, modular units that perform specific tasks. Understanding functions is essential for writing maintainable and efficient C++ code.</p>
+
+                <h3>What is a Function?</h3>
+                <p>A function is a named block of code that performs a specific task. Functions help:</p>
+                <ul>
+                    <li><strong>Modularity:</strong> Break programs into manageable pieces</li>
+                    <li><strong>Reusability:</strong> Use the same code multiple times</li>
+                    <li><strong>Readability:</strong> Make code easier to understand</li>
+                    <li><strong>Testing:</strong> Test individual components</li>
+                    <li><strong>Maintenance:</strong> Easier to modify and debug</li>
+                </ul>
+
+                <h3>Function Declaration and Definition</h3>
+                <p>Functions in C++ are declared and defined separately:</p>
+
+                <h4>Function Declaration (Prototype)</h4>
+                <pre><code>// Declaration (usually in header files)
+return_type function_name(parameter_list);
+
+// Examples:
+int add(int a, int b);
+void printMessage(std::string message);
+double calculateArea(double radius);</code></pre>
+
+                <h4>Function Definition</h4>
+                <pre><code>// Definition (implementation)
+return_type function_name(parameter_list) {
+    // Function body
+    // Statements...
+    return value;  // If return type is not void
+}
+
+// Example:
+int add(int a, int b) {
+    int sum = a + b;
+    return sum;
+}</code></pre>
+
+                <h3>Parameters and Arguments</h3>
+                <p>Parameters are variables declared in the function definition. Arguments are values passed to the function:</p>
+
+                <h4>Pass by Value</h4>
+                <pre><code>void increment(int x) {
+    x++;  // Changes local copy only
+    std::cout << "Inside function: " << x << std::endl;
+}
+
+int main() {
+    int num = 5;
+    increment(num);  // Pass copy of num
+    std::cout << "After function: " << num << std::endl;  // Still 5
+    return 0;
+}</code></pre>
+
+                <h4>Pass by Reference</h4>
+                <pre><code>void increment(int& x) {
+    x++;  // Changes original variable
+    std::cout << "Inside function: " << x << std::endl;
+}
+
+int main() {
+    int num = 5;
+    increment(num);  // Pass reference to num
+    std::cout << "After function: " << num << std::endl;  // Now 6
+    return 0;
+}</code></pre>
+
+                <h4>Pass by Pointer</h4>
+                <pre><code>void increment(int* ptr) {
+    (*ptr)++;  // Dereference and increment
+}
+
+int main() {
+    int num = 5;
+    increment(&num);  // Pass address of num
+    std::cout << "After function: " << num << std::endl;  // Now 6
+    return 0;
+}</code></pre>
+
+                <h3>Return Values</h3>
+                <p>Functions can return values using the return statement:</p>
+                <pre><code>// Function returning int
+int square(int x) {
+    return x * x;
+}
+
+// Function returning void (no return value)
+void printHello() {
+    std::cout << "Hello, World!" << std::endl;
+    // No return statement needed for void functions
+}
+
+// Multiple return statements
+bool isEven(int x) {
+    if (x % 2 == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}</code></pre>
+
+                <h3>Function Overloading</h3>
+                <p>Function overloading allows multiple functions with the same name but different parameters:</p>
+                <pre><code>// Overloaded functions
+int add(int a, int b) {
+    return a + b;
+}
+
+double add(double a, double b) {
+    return a + b;
+}
+
+int add(int a, int b, int c) {
+    return a + b + c;
+}
+
+int main() {
+    std::cout << add(2, 3) << std::endl;        // Calls int version
+    std::cout << add(2.5, 3.7) << std::endl;    // Calls double version
+    std::cout << add(1, 2, 3) << std::endl;     // Calls three-parameter version
+    return 0;
+}</code></pre>
+
+                <h3>Default Parameters</h3>
+                <p>Functions can have default values for parameters:</p>
+                <pre><code>void printMessage(std::string message, int count = 1) {
+    for (int i = 0; i < count; i++) {
+        std::cout << message << std::endl;
+    }
+}
+
+int main() {
+    printMessage("Hello");        // Uses default count = 1
+    printMessage("Hi", 3);        // Overrides default
+    return 0;
+}</code></pre>
+
+                <h3>Function Templates</h3>
+                <p>Templates allow functions to work with different data types:</p>
+                <pre><code>// Function template
+template &lt;typename T&gt;
+T maximum(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+// Template with multiple parameters
+template &lt;typename T, typename U&gt;
+void printPair(T first, U second) {
+    std::cout << first << ", " << second << std::endl;
+}
+
+int main() {
+    std::cout << maximum(5, 3) << std::endl;           // int
+    std::cout << maximum(5.5, 3.2) << std::endl;       // double
+    std::cout << maximum('z', 'a') << std::endl;        // char
+    
+    printPair(42, "hello");        // int and string
+    printPair(3.14, 'x');          // double and char
+    
+    return 0;
+}</code></pre>
+
+                <h3>Recursion</h3>
+                <p>Recursive functions call themselves:</p>
+                <pre><code>// Factorial using recursion
+int factorial(int n) {
+    if (n <= 1) {
+        return 1;  // Base case
+    } else {
+        return n * factorial(n - 1);  // Recursive call
+    }
+}
+
+// Fibonacci sequence
+int fibonacci(int n) {
+    if (n <= 1) {
+        return n;
+    } else {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+}
+
+int main() {
+    std::cout << "Factorial of 5: " << factorial(5) << std::endl;
+    std::cout << "Fibonacci 8: " << fibonacci(8) << std::endl;
+    return 0;
+}</code></pre>
+
+                <h3>Lambda Functions (C++11)</h3>
+                <p>Lambda functions are anonymous functions defined inline:</p>
+                <pre><code>#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+
+int main() {
+    std::vector&lt;int&gt; numbers = {3, 1, 4, 1, 5, 9, 2, 6};
+    
+    // Lambda for sorting in descending order
+    std::sort(numbers.begin(), numbers.end(), 
+              [](int a, int b) { return a > b; });
+    
+    // Lambda with capture
+    int threshold = 5;
+    auto count = std::count_if(numbers.begin(), numbers.end(),
+                              [threshold](int x) { return x > threshold; });
+    
+    std::cout << "Numbers greater than " << threshold << ": " << count << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Function Pointers</h3>
+                <p>Function pointers store addresses of functions:</p>
+                <pre><code>// Function pointer declaration
+int (*funcPtr)(int, int);
+
+// Assign function address
+funcPtr = &amp;add;  // or just funcPtr = add
+
+// Call through pointer
+int result = funcPtr(5, 3);
+
+// Function that takes function pointer
+void processNumbers(int a, int b, int (*operation)(int, int)) {
+    int result = operation(a, b);
+    std::cout << "Result: " << result << std::endl;
+}
+
+// Usage
+processNumbers(10, 5, add);        // Addition
+processNumbers(10, 5, subtract);   // Subtraction</code></pre>
+
+                <h3>Inline Functions</h3>
+                <p>Inline functions suggest to the compiler to insert code directly:</p>
+                <pre><code>// Inline function
+inline int square(int x) {
+    return x * x;
+}
+
+// Benefits: Faster execution for small functions
+// Drawbacks: Code bloat if overused</code></pre>
+
+                <h3>Function Best Practices</h3>
+                <ul>
+                    <li><strong>Single Responsibility:</strong> Each function should do one thing</li>
+                    <li><strong>Descriptive Names:</strong> Use clear, meaningful function names</li>
+                    <li><strong>Proper Parameters:</strong> Use const references for large objects</li>
+                    <li><strong>Documentation:</strong> Comment complex functions</li>
+                    <li><strong>Avoid Global Variables:</strong> Pass data through parameters</li>
+                    <li><strong>Limit Parameters:</strong> Keep parameter count reasonable</li>
+                </ul>
+
+                <h3>Example Program</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+// Function declarations
+double calculateAverage(const std::vector&lt;int&gt;& numbers);
+void printResults(const std::string& label, double value);
+int findMaximum(const std::vector&lt;int&gt;& numbers);
+
+// Function definitions
+double calculateAverage(const std::vector&lt;int&gt;& numbers) {
+    if (numbers.empty()) return 0.0;
+    
+    int sum = 0;
+    for (int num : numbers) {
+        sum += num;
+    }
+    return static_cast&lt;double&gt;(sum) / numbers.size();
+}
+
+void printResults(const std::string& label, double value) {
+    std::cout << label << ": " << value << std::endl;
+}
+
+int findMaximum(const std::vector&lt;int&gt;& numbers) {
+    if (numbers.empty()) return 0;
+    
+    int max = numbers[0];
+    for (size_t i = 1; i < numbers.size(); i++) {
+        if (numbers[i] > max) {
+            max = numbers[i];
+        }
+    }
+    return max;
+}
+
+int main() {
+    std::vector&lt;int&gt; scores = {85, 92, 78, 96, 88, 73, 91};
+    
+    double average = calculateAverage(scores);
+    int maximum = findMaximum(scores);
+    
+    printResults("Average Score", average);
+    printResults("Highest Score", maximum);
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a calculator program with functions:</p>
+                <ul>
+                    <li>Implement basic arithmetic operations as separate functions</li>
+                    <li>Add advanced operations (power, square root, trigonometric)</li>
+                    <li>Use function pointers for operation selection</li>
+                    <li>Implement input validation and error handling</li>
+                    <li>Add memory for storing previous results</li>
+                    <li>Bonus: Add support for mathematical expressions parsing</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. What is the main purpose of functions in C++?</p>
+                <ul>
+                    <li>To store data</li>
+                    <li>To organize and reuse code</li>
+                    <li>To define classes</li>
+                    <li>To handle exceptions</li>
+                </ul>
+
+                <p>2. What is function overloading?</p>
+                <ul>
+                    <li>Defining multiple functions with the same name</li>
+                    <li>Loading functions from external libraries</li>
+                    <li>Overriding base class functions</li>
+                    <li>Using functions recursively</li>
+                </ul>
+
+                <p>3. What does 'pass by reference' mean?</p>
+                <ul>
+                    <li>Passing a copy of the variable</li>
+                    <li>Passing the memory address of the variable</li>
+                    <li>Passing the variable's value only</li>
+                    <li>Passing a pointer to the variable</li>
+                </ul>
+
+                <p>4. What is a function template?</p>
+                <ul>
+                    <li>A function that calls other functions</li>
+                    <li>A blueprint for creating functions with different types</li>
+                    <li>A function that returns multiple values</li>
+                    <li>A function with default parameters</li>
+                </ul>
+
+                <p>5. What is recursion?</p>
+                <ul>
+                    <li>Calling a function multiple times in a loop</li>
+                    <li>A function that calls itself</li>
+                    <li>Using function pointers</li>
+                    <li>Defining inline functions</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

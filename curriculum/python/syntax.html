@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Syntax</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+            <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Syntax</h2>
+                <p>Python syntax refers to the rules that define how Python programs are written and interpreted. Python's syntax is designed to be clean, readable, and easy to learn, emphasizing code readability over complex syntax rules.</p>
+
+                <h3>Basic Structure</h3>
+                <p>Python programs are composed of statements, which are executed sequentially. Unlike many other languages, Python uses indentation to define code blocks instead of braces or keywords.</p>
+
+                <h3>Indentation</h3>
+                <p>Indentation is crucial in Python:</p>
+                <ul>
+                    <li>Used to define code blocks (functions, loops, conditionals)</li>
+                    <li>Typically 4 spaces per level (or a tab)</li>
+                    <li>Must be consistent throughout the program</li>
+                    <li>Incorrect indentation causes IndentationError</li>
+                </ul>
+                <pre><code># Correct indentation
+if True:
+    print("This is indented correctly")
+    if False:
+        print("Nested indentation")
+
+# Incorrect indentation (would cause error)
+# if True:
+# print("This will cause an IndentationError")</code></pre>
+
+                <h3>Statements and Lines</h3>
+                <ul>
+                    <li>Each statement typically occupies one line</li>
+                    <li>Statements end at the end of the line (no semicolon required)</li>
+                    <li>Long statements can be continued using backslash (\) or parentheses</li>
+                    <li>Multiple statements can be on one line using semicolons (not recommended)</li>
+                </ul>
+                <pre><code># Single line statements
+x = 5
+print("Hello")
+
+# Line continuation with backslash
+total = x + \
+        y + \
+        z
+
+# Line continuation with parentheses
+result = (x +
+          y +
+          z)
+
+# Multiple statements on one line (not recommended)
+x = 5; y = 10; print(x + y)</code></pre>
+
+                <h3>Comments</h3>
+                <p>Comments are used to explain code and are ignored by the interpreter:</p>
+                <ul>
+                    <li>Single-line comments start with #</li>
+                    <li>Multi-line comments use triple quotes (""" or ''')</li>
+                    <li>Comments should be clear and helpful</li>
+                </ul>
+                <pre><code># This is a single-line comment
+print("Hello")  # This comment is inline
+
+"""
+This is a multi-line comment
+that spans several lines
+"""
+print("World")
+
+'''
+Another way to write
+multi-line comments
+'''</code></pre>
+
+                <h3>Case Sensitivity</h3>
+                <p>Python is case-sensitive:</p>
+                <ul>
+                    <li>Variable names, function names, and keywords are case-sensitive</li>
+                    <li>print and Print are different identifiers</li>
+                    <li>True and true are different (True is a boolean, true is undefined)</li>
+                </ul>
+
+                <h3>Keywords</h3>
+                <p>Python has reserved keywords that cannot be used as identifiers:</p>
+                <pre><code>False      await      else       import     pass
+None       break      except     in         raise
+True       class      finally    is         return
+and        continue   for        lambda     try
+as         def        from       nonlocal   while
+assert     del        global     not        with
+async      elif       if         or         yield</code></pre>
+
+                <h3>Basic Program Structure</h3>
+                <p>A typical Python program includes:</p>
+                <ul>
+                    <li>Import statements at the top</li>
+                    <li>Function and class definitions</li>
+                    <li>Main execution code</li>
+                    <li>Proper indentation throughout</li>
+                </ul>
+                <pre><code># Import statements
+import math
+
+# Function definition
+def greet(name):
+    return f"Hello, {name}!"
+
+# Main execution
+if __name__ == "__main__":
+    message = greet("World")
+    print(message)</code></pre>
+
+                <h3>Common Syntax Errors</h3>
+                <ul>
+                    <li><strong>IndentationError:</strong> Inconsistent indentation</li>
+                    <li><strong>SyntaxError:</strong> Invalid Python syntax (missing colons, parentheses, etc.)</li>
+                    <li><strong>NameError:</strong> Using undefined variables</li>
+                    <li><strong>TypeError:</strong> Operations on incompatible types</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use 4 spaces for indentation (not tabs)</li>
+                    <li>Keep lines under 79 characters (PEP 8 guideline)</li>
+                    <li>Use meaningful variable and function names</li>
+                    <li>Add comments to explain complex logic</li>
+                    <li>Follow consistent naming conventions</li>
+                </ul>
+
+                <h3>Example Program</h3>
+                <pre><code># This program demonstrates basic Python syntax
+def calculate_area(length, width):
+    """
+    Calculate the area of a rectangle.
+    
+    Args:
+        length (float): The length of the rectangle
+        width (float): The width of the rectangle
+        
+    Returns:
+        float: The area of the rectangle
+    """
+    area = length * width
+    return area
+
+# Main program
+if __name__ == "__main__":
+    # Get user input
+    length = 5.0
+    width = 3.0
+    
+    # Calculate area
+    result = calculate_area(length, width)
+    
+    # Display result
+    print(f"The area of the rectangle is: {result}")</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a program that demonstrates proper Python syntax:</p>
+                <ul>
+                    <li>Include import statements</li>
+                    <li>Define at least one function with proper indentation</li>
+                    <li>Use comments to explain the code</li>
+                    <li>Include conditional statements and loops</li>
+                    <li>Handle user input and output</li>
+                    <li>Bonus: Include error handling</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. How does Python define code blocks?</p>
+                <ul>
+                    <li>Using curly braces {}</li>
+                    <li>Using square brackets []</li>
+                    <li>Using indentation</li>
+                    <li>Using semicolons ;</li>
+                </ul>
+
+                <p>2. Which of the following is a valid comment in Python?</p>
+                <ul>
+                    <li>// This is a comment</li>
+                    <li>/* This is a comment */</li>
+                    <li># This is a comment</li>
+                    <li><!-- This is a comment --></li>
+                </ul>
+
+                <p>3. What happens if you mix tabs and spaces for indentation?</p>
+                <ul>
+                    <li>Python automatically converts them</li>
+                    <li>It causes a TabError</li>
+                    <li>It's perfectly fine</li>
+                    <li>Only spaces are allowed</li>
+                </ul>
+
+                <p>4. Which is the correct way to continue a long line?</p>
+                <ul>
+                    <li>Using a backslash \ at the end</li>
+                    <li>Using an underscore _ at the end</li>
+                    <li>Using a plus + at the end</li>
+                    <li>Lines cannot be continued</li>
+                </ul>
+
+                <p>5. Is Python case-sensitive?</p>
+                <ul>
+                    <li>Yes, for all identifiers</li>
+                    <li>No, it's case-insensitive</li>
+                    <li>Only for keywords</li>
+                    <li>Only for variable names</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - C++ Structures</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+        <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures" class="active">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>C++ Structures</h2>
+                <p>Structures in C++ are user-defined data types that allow you to group related data items of different types together. They are fundamental to organizing complex data and are the foundation for object-oriented programming in C++.</p>
+
+                <h3>What is a Structure?</h3>
+                <p>A structure is a collection of variables (called members) that can be of different data types, grouped together under a single name. Structures help organize related data and make code more manageable.</p>
+
+                <h4>Why Use Structures?</h4>
+                <ul>
+                    <li><strong>Organization:</strong> Group related data together</li>
+                    <li><strong>Readability:</strong> Make code more self-documenting</li>
+                    <li><strong>Reusability:</strong> Define once, use multiple times</li>
+                    <li><strong>Modularity:</strong> Encapsulate related functionality</li>
+                    <li><strong>Type Safety:</strong> Prevent mixing incompatible data</li>
+                </ul>
+
+                <h3>Defining a Structure</h3>
+                <p>Use the struct keyword to define a structure:</p>
+                <pre><code>// Basic structure definition
+struct Person {
+    std::string name;
+    int age;
+    double height;
+    char gender;
+};
+
+// Structure with different data types
+struct Rectangle {
+    double length;
+    double width;
+};
+
+// Structure with arrays
+struct Student {
+    std::string name;
+    int grades[5];  // Array of 5 integers
+    double gpa;
+};</code></pre>
+
+                <h3>Declaring Structure Variables</h3>
+                <p>After defining a structure, you can create variables of that type:</p>
+                <pre><code>// Method 1: Declare after definition
+struct Person {
+    std::string name;
+    int age;
+};
+
+Person person1;  // Create a Person variable
+
+// Method 2: Declare at definition time
+struct Car {
+    std::string make;
+    std::string model;
+    int year;
+} myCar, yourCar;  // Declare variables here
+
+// Method 3: Using typedef (optional)
+typedef struct {
+    std::string title;
+    std::string author;
+    int pages;
+} Book;
+
+Book myBook;  // No need for 'struct' keyword</code></pre>
+
+                <h3>Initializing Structures</h3>
+                <pre><code>// Method 1: Initialize member by member
+Person person1;
+person1.name = "John Doe";
+person1.age = 30;
+
+// Method 2: Initialize with curly braces (C++11)
+Person person2 = {"Jane Smith", 25};
+
+// Method 3: Designated initializers (C++20)
+Person person3 = {
+    .name = "Bob Johnson",
+    .age = 35
+};
+
+// Method 4: Constructor-like initialization
+Person person4{"Alice Brown", 28};</code></pre>
+
+                <h3>Accessing Structure Members</h3>
+                <p>Use the dot operator (.) to access structure members:</p>
+                <pre><code>Person person;
+person.name = "John";
+person.age = 30;
+
+std::cout << "Name: " << person.name << std::endl;
+std::cout << "Age: " << person.age << std::endl;
+
+// Calculate something using members
+int yearsUntilRetirement = 65 - person.age;</code></pre>
+
+                <h3>Structures with Functions</h3>
+                <p>You can pass structures to functions and return them:</p>
+                <pre><code>struct Rectangle {
+    double length;
+    double width;
+};
+
+// Function that takes a structure as parameter
+double calculateArea(Rectangle rect) {
+    return rect.length * rect.width;
+}
+
+// Function that returns a structure
+Rectangle createRectangle(double l, double w) {
+    Rectangle rect;
+    rect.length = l;
+    rect.width = w;
+    return rect;
+}
+
+// Usage
+Rectangle myRect = createRectangle(5.0, 3.0);
+double area = calculateArea(myRect);
+std::cout << "Area: " << area << std::endl;</code></pre>
+
+                <h3>Nested Structures</h3>
+                <p>Structures can contain other structures as members:</p>
+                <pre><code>struct Address {
+    std::string street;
+    std::string city;
+    std::string state;
+    std::string zipCode;
+};
+
+struct Employee {
+    std::string name;
+    int id;
+    Address homeAddress;
+    double salary;
+};
+
+// Usage
+Employee emp;
+emp.name = "John Doe";
+emp.id = 12345;
+emp.homeAddress.street = "123 Main St";
+emp.homeAddress.city = "Anytown";
+emp.salary = 50000.0;
+
+// Accessing nested members
+std::cout << emp.homeAddress.city << std::endl;</code></pre>
+
+                <h3>Arrays of Structures</h3>
+                <pre><code>struct Student {
+    std::string name;
+    int id;
+    double gpa;
+};
+
+// Array of structures
+Student classRoster[30];
+
+// Initialize array elements
+classRoster[0] = {"Alice", 1001, 3.8};
+classRoster[1] = {"Bob", 1002, 3.2};
+
+// Loop through array
+for (int i = 0; i < 2; i++) {
+    std::cout << classRoster[i].name << ": " << classRoster[i].gpa << std::endl;
+}</code></pre>
+
+                <h3>Structures vs Classes</h3>
+                <p>In C++, structures and classes are very similar:</p>
+                <table>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Structures</th>
+                        <th>Classes</th>
+                    </tr>
+                    <tr>
+                        <td>Default access</td>
+                        <td>public</td>
+                        <td>private</td>
+                    </tr>
+                    <tr>
+                        <td>Keyword</td>
+                        <td>struct</td>
+                        <td>class</td>
+                    </tr>
+                    <tr>
+                        <td>Inheritance</td>
+                        <td>Supported</td>
+                        <td>Supported</td>
+                    </tr>
+                    <tr>
+                        <td>Member functions</td>
+                        <td>Allowed</td>
+                        <td>Allowed</td>
+                    </tr>
+                </table>
+
+                <h4>Converting struct to class</h4>
+                <pre><code>// This structure
+struct Point {
+    int x;
+    int y;
+};
+
+// Is equivalent to this class
+class Point {
+public:
+    int x;
+    int y;
+};</code></pre>
+
+                <h3>Structure Padding and Alignment</h3>
+                <p>C++ may add padding between structure members for memory alignment:</p>
+                <pre><code>struct Example {
+    char c;      // 1 byte
+    // 3 bytes padding
+    int i;       // 4 bytes
+    char d;      // 1 byte
+    // 3 bytes padding
+}; // Total: 12 bytes (not 6)</code></pre>
+
+                <h4>Controlling Alignment</h4>
+                <pre><code>// Pack structure to minimize size
+#pragma pack(1)
+struct PackedExample {
+    char c;
+    int i;
+    char d;
+}; // Total: 6 bytes
+#pragma pack()  // Reset to default</code></pre>
+
+                <h3>Example Program</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+struct Book {
+    std::string title;
+    std::string author;
+    int year;
+    double price;
+};
+
+struct Library {
+    std::string name;
+    std::vector&lt;Book&gt; books;
+};
+
+void addBook(Library& lib, Book book) {
+    lib.books.push_back(book);
+}
+
+void displayBook(const Book& book) {
+    std::cout << "Title: " << book.title << std::endl;
+    std::cout << "Author: " << book.author << std::endl;
+    std::cout << "Year: " << book.year << std::endl;
+    std::cout << "Price: $" << book.price << std::endl;
+    std::cout << "------------------------" << std::endl;
+}
+
+int main() {
+    Library myLibrary;
+    myLibrary.name = "City Library";
+    
+    // Add some books
+    addBook(myLibrary, {"1984", "George Orwell", 1949, 12.99});
+    addBook(myLibrary, {"To Kill a Mockingbird", "Harper Lee", 1960, 14.95});
+    addBook(myLibrary, {"The Great Gatsby", "F. Scott Fitzgerald", 1925, 10.50});
+    
+    std::cout << "Books in " << myLibrary.name << ":" << std::endl;
+    std::cout << "========================" << std::endl;
+    
+    for (const auto& book : myLibrary.books) {
+        displayBook(book);
+    }
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a student management system using structures:</p>
+                <ul>
+                    <li>Define a Student structure with name, ID, grades, and GPA</li>
+                    <li>Create functions to add students, calculate GPA, and display information</li>
+                    <li>Use an array or vector to store multiple students</li>
+                    <li>Implement search functionality by ID or name</li>
+                    <li>Add sorting by GPA or name</li>
+                    <li>Bonus: Add file I/O to save/load student data</li>
+                </ul>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Forgetting the struct keyword in C (not needed in C++)</li>
+                    <li>Not initializing structure members</li>
+                    <li>Using wrong member access operator</li>
+                    <li>Memory alignment issues</li>
+                    <li>Passing large structures by value instead of reference</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use meaningful names for structures and members</li>
+                    <li>Initialize structures when declaring them</li>
+                    <li>Pass structures by reference to functions to avoid copying</li>
+                    <li>Use const references for read-only parameters</li>
+                    <li>Consider memory layout when performance is critical</li>
+                    <li>Document the purpose of each structure</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. What keyword is used to define a structure in C++?</p>
+                <ul>
+                    <li>class</li>
+                    <li>struct</li>
+                    <li>typedef</li>
+                    <li>define</li>
+                </ul>
+
+                <p>2. How do you access a member of a structure variable?</p>
+                <ul>
+                    <li>Using the arrow operator (->)</li>
+                    <li>Using the dot operator (.)</li>
+                    <li>Using the scope operator (::)</li>
+                    <li>Using square brackets []</li>
+                </ul>
+
+                <p>3. What is the default access level for structure members?</p>
+                <ul>
+                    <li>private</li>
+                    <li>public</li>
+                    <li>protected</li>
+                    <li>internal</li>
+                </ul>
+
+                <p>4. Can structures contain other structures?</p>
+                <ul>
+                    <li>No, only basic data types</li>
+                    <li>Yes, nesting is allowed</li>
+                    <li>Only in C++11 and later</li>
+                    <li>Only if they are the same type</li>
+                </ul>
+
+                <p>5. What operator is used to access members of a structure pointer?</p>
+                <ul>
+                    <li>.</li>
+                    <li>-></li>
+                    <li>::</li>
+                    <li>&</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

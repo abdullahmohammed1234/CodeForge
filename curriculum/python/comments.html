@@ -1,0 +1,478 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Comments</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+          <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Comments</h2>
+                <p>Comments in Python are pieces of text that are ignored by the Python interpreter. They are used to explain code, make it more readable, and provide documentation. Good commenting practices are essential for writing maintainable and collaborative code.</p>
+
+                <h3>Why Use Comments?</h3>
+                <ul>
+                    <li>Explain what code does and why</li>
+                    <li>Make code easier to understand for others (and future you)</li>
+                    <li>Document function purposes, parameters, and return values</li>
+                    <li>Temporarily disable code during debugging</li>
+                    <li>Provide context for complex algorithms</li>
+                    <li>Mark TODO items and known issues</li>
+                </ul>
+
+                <h3>Single-Line Comments</h3>
+                <p>Single-line comments start with the # symbol and continue to the end of the line:</p>
+                <pre><code># This is a single-line comment
+print("Hello, World!")  # This comment is inline
+
+# Comments can be on their own line
+# or at the end of a line of code
+
+# Use comments to explain complex logic
+x = 42  # The answer to life, the universe, and everything
+
+# Comments are completely ignored by Python
+# print("This line won't execute")</code></pre>
+
+                <h3>Multi-Line Comments</h3>
+                <p>Python doesn't have a built-in multi-line comment syntax, but you can use multiple single-line comments or triple-quoted strings:</p>
+                <pre><code># Method 1: Multiple single-line comments
+# This is a multi-line comment
+# that spans several lines
+# using multiple # symbols
+
+# Method 2: Triple-quoted strings (not true comments, but often used as such)
+"""
+This is a triple-quoted string
+that can span multiple lines
+and is often used as a multi-line comment
+"""
+print("This will execute")
+
+# Method 3: Backslash continuation (not recommended for comments)
+# This is a comment that \
+# continues on the next line</code></pre>
+
+                <h3>Docstrings</h3>
+                <p>Docstrings are special comments used to document functions, classes, and modules:</p>
+                <pre><code>def calculate_area(length, width):
+    """
+    Calculate the area of a rectangle.
+    
+    Args:
+        length (float): The length of the rectangle
+        width (float): The width of the rectangle
+        
+    Returns:
+        float: The area of the rectangle
+        
+    Example:
+        >>> calculate_area(5, 3)
+        15
+    """
+    return length * width
+
+class Rectangle:
+    """
+    A class representing a rectangle.
+    
+    Attributes:
+        length (float): The length of the rectangle
+        width (float): The width of the rectangle
+    """
+    
+    def __init__(self, length, width):
+        """
+        Initialize a Rectangle object.
+        
+        Args:
+            length (float): The length of the rectangle
+            width (float): The width of the rectangle
+        """
+        self.length = length
+        self.width = width
+
+# Accessing docstrings
+print(calculate_area.__doc__)
+print(Rectangle.__doc__)
+print(Rectangle.__init__.__doc__)</code></pre>
+
+                <h3>Commenting Best Practices</h3>
+                <ul>
+                    <li>Write comments in clear, simple English</li>
+                    <li>Explain why, not just what (the code already shows what)</li>
+                    <li>Keep comments up to date with code changes</li>
+                    <li>Use consistent formatting and style</li>
+                    <li>Avoid obvious comments that don't add value</li>
+                    <li>Use docstrings for functions and classes</li>
+                    <li>Comment complex algorithms and business logic</li>
+                </ul>
+                <pre><code># Good comments
+# Calculate compound interest using the formula A = P(1 + r/n)^(nt)
+def compound_interest(principal, rate, time, compounds_per_year):
+    return principal * (1 + rate/compounds_per_year) ** (compounds_per_year * time)
+
+# Bad comments (obvious or redundant)
+x = 5  # Set x to 5
+print("Hello")  # Print Hello</code></pre>
+
+                <h3>Comment Styles and Conventions</h3>
+                <pre><code># Block comments for explaining sections of code
+# ============================================
+# This section handles user authentication
+# ============================================
+
+username = input("Enter username: ")
+password = input("Enter password: ")
+
+# Validate credentials
+if username == "admin" and password == "secret":
+    print("Login successful")
+else:
+    print("Login failed")
+
+# Inline comments for short explanations
+total = subtotal + tax  # Add tax to subtotal
+average = sum(scores) / len(scores)  # Calculate mean score
+
+# TODO comments for future work
+# TODO: Add password hashing
+# FIXME: Handle division by zero
+# NOTE: This algorithm assumes positive numbers only</code></pre>
+
+                <h3>Commenting Code Blocks</h3>
+                <pre><code>def process_data(data):
+    """
+    Process a list of numbers by filtering, sorting, and calculating statistics.
+    """
+    # Step 1: Filter out negative numbers
+    positive_numbers = [x for x in data if x >= 0]
+    
+    # Step 2: Sort the numbers in ascending order
+    sorted_numbers = sorted(positive_numbers)
+    
+    # Step 3: Calculate basic statistics
+    if sorted_numbers:
+        minimum = sorted_numbers[0]
+        maximum = sorted_numbers[-1]
+        # Use integer division for median calculation
+        median_index = len(sorted_numbers) // 2
+        median = sorted_numbers[median_index]
+        
+        return {
+            'min': minimum,
+            'max': maximum,
+            'median': median,
+            'count': len(sorted_numbers)
+        }
+    else:
+        return None
+
+# Example usage
+data = [3, -1, 7, 2, -5, 8, 4]
+result = process_data(data)
+print(result)  # {'min': 2, 'max': 8, 'median': 4, 'count': 6}</code></pre>
+
+                <h3>Commenting Conditional Logic</h3>
+                <pre><code>def get_discount_percentage(customer_type, purchase_amount):
+    """
+    Calculate discount percentage based on customer type and purchase amount.
+    """
+    discount = 0
+    
+    # Premium customers get base discount
+    if customer_type == "premium":
+        discount = 10
+    elif customer_type == "regular":
+        discount = 5
+    
+    # Additional discount for large purchases
+    if purchase_amount > 1000:
+        discount += 5  # Extra 5% for orders over $1000
+    elif purchase_amount > 500:
+        discount += 2  # Extra 2% for orders over $500
+    
+    # Cap discount at 20%
+    if discount > 20:
+        discount = 20
+    
+    return discount
+
+# Test the function
+print(get_discount_percentage("premium", 1200))  # 15
+print(get_discount_percentage("regular", 600))   # 7</code></pre>
+
+                <h3>Using Comments for Debugging</h3>
+                <pre><code>def complex_calculation(a, b, c):
+    """
+    Perform a complex calculation with intermediate debugging.
+    """
+    # Step 1: Initial calculation
+    result1 = a * b + c
+    # print(f"After step 1: {result1}")  # Uncomment for debugging
+    
+    # Step 2: Apply transformation
+    result2 = result1 ** 2
+    # print(f"After step 2: {result2}")  # Uncomment for debugging
+    
+    # Step 3: Final adjustment
+    final_result = result2 - (a + b + c)
+    # print(f"Final result: {final_result}")  # Uncomment for debugging
+    
+    return final_result
+
+# Temporarily disable code sections
+def test_function():
+    print("This runs")
+    # print("This is commented out")
+    # print("This too")
+    print("This runs again")</code></pre>
+
+                <h3>PEP 8 and Comment Style</h3>
+                <p>Follow Python's style guide (PEP 8) for comments:</p>
+                <ul>
+                    <li>Use complete sentences with proper capitalization</li>
+                    <li>End sentences with periods</li>
+                    <li>Keep line length under 79 characters</li>
+                    <li>Use spaces after # for inline comments</li>
+                    <li>Align inline comments consistently</li>
+                </ul>
+
+                <h3>Mini Project</h3>
+                <p>Create a well-commented program that manages a simple library system:</p>
+                <ul>
+                    <li>Create functions for adding books, checking out books, and returning books</li>
+                    <li>Use comprehensive docstrings for all functions</li>
+                    <li>Add inline comments explaining complex logic</li>
+                    <li>Include block comments for different sections of code</li>
+                    <li>Create a main function with comments explaining the program flow</li>
+                    <li>Bonus: Add input validation with helpful error messages</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>"""
+Simple Library Management System
+
+This program demonstrates good commenting practices by implementing
+a basic library system with books, checkouts, and returns.
+"""
+
+def add_book(library, title, author):
+    """
+    Add a new book to the library.
+    
+    Args:
+        library (dict): Dictionary containing library data
+        title (str): Title of the book
+        author (str): Author of the book
+        
+    Returns:
+        bool: True if book was added, False if it already exists
+    """
+    # Check if book already exists
+    for book in library['books']:
+        if book['title'].lower() == title.lower():
+            return False  # Book already exists
+    
+    # Create new book entry
+    new_book = {
+        'title': title,
+        'author': author,
+        'available': True,
+        'borrower': None
+    }
+    
+    library['books'].append(new_book)
+    return True
+
+def checkout_book(library, title, borrower):
+    """
+    Check out a book to a borrower.
+    
+    Args:
+        library (dict): Dictionary containing library data
+        title (str): Title of the book to check out
+        borrower (str): Name of the person borrowing the book
+        
+    Returns:
+        bool: True if checkout successful, False otherwise
+    """
+    # Find the book
+    for book in library['books']:
+        if book['title'].lower() == title.lower():
+            if book['available']:
+                # Book is available, check it out
+                book['available'] = False
+                book['borrower'] = borrower
+                return True
+            else:
+                return False  # Book is already checked out
+    
+    return False  # Book not found
+
+def return_book(library, title):
+    """
+    Return a checked out book.
+    
+    Args:
+        library (dict): Dictionary containing library data
+        title (str): Title of the book to return
+        
+    Returns:
+        bool: True if return successful, False otherwise
+    """
+    for book in library['books']:
+        if book['title'].lower() == title.lower():
+            if not book['available']:
+                # Book is checked out, return it
+                book['available'] = True
+                book['borrower'] = None
+                return True
+            else:
+                return False  # Book was not checked out
+    
+    return False  # Book not found
+
+def display_library(library):
+    """
+    Display all books in the library with their status.
+    """
+    print("\nLibrary Collection:")
+    print("-" * 50)
+    
+    for book in library['books']:
+        status = "Available" if book['available'] else f"Checked out by {book['borrower']}"
+        print(f"'{book['title']}' by {book['author']} - {status}")
+
+def main():
+    """
+    Main function demonstrating the library system.
+    """
+    # Initialize library
+    library = {'books': []}
+    
+    # Add some books
+    add_book(library, "Python Crash Course", "Eric Matthes")
+    add_book(library, "Clean Code", "Robert C. Martin")
+    add_book(library, "The Pragmatic Programmer", "Andrew Hunt")
+    
+    # Demonstrate checkout and return
+    display_library(library)
+    
+    checkout_book(library, "Clean Code", "Alice")
+    display_library(library)
+    
+    return_book(library, "Clean Code")
+    display_library(library)
+
+if __name__ == "__main__":
+    main()</code></pre>
+
+                <h3>Quiz</h3>
+                <p>1. What symbol is used to start a single-line comment in Python?</p>
+                <ul>
+                    <li>//</li>
+                    <li>/*</li>
+                    <li>#</li>
+                    <li>--</li>
+                </ul>
+
+                <p>2. Which of the following is NOT a valid way to create multi-line comments?</p>
+                <ul>
+                    <li>Multiple # symbols</li>
+                    <li>Triple-quoted strings</li>
+                    <li>/* ... */</li>
+                    <li>All are valid</li>
+                </ul>
+
+                <p>3. What are docstrings primarily used for?</p>
+                <ul>
+                    <li>To disable code</li>
+                    <li>To document functions and classes</li>
+                    <li>To perform calculations</li>
+                    <li>To import modules</li>
+                </ul>
+
+                <p>4. Which comment style is recommended for explaining complex algorithms?</p>
+                <ul>
+                    <li>Inline comments</li>
+                    <li>Block comments</li>
+                    <li>Docstrings</li>
+                    <li>No comments needed</li>
+                </ul>
+
+                <p>5. What should you do with comments when code changes?</p>
+                <ul>
+                    <li>Delete all comments</li>
+                    <li>Keep comments as they were</li>
+                    <li>Update comments to match the new code</li>
+                    <li>Add more comments</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

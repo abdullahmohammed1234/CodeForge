@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Functions</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+            <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Functions</h2>
+                <p>Functions are reusable blocks of code that perform specific tasks. They allow you to organize your code into logical units, avoid repetition, and make your programs more modular and maintainable. In Python, functions are first-class objects that can be passed around, stored in variables, and even defined inside other functions.</p>
+
+                <h3>Why Use Functions?</h3>
+                <p>Functions provide several benefits:</p>
+                <ul>
+                    <li><strong>Code Reusability:</strong> Write once, use many times</li>
+                    <li><strong>Modularity:</strong> Break complex problems into smaller, manageable pieces</li>
+                    <li><strong>Readability:</strong> Make code easier to understand and maintain</li>
+                    <li><strong>Testing:</strong> Test individual components separately</li>
+                    <li><strong>Abstraction:</strong> Hide implementation details</li>
+                    <li><strong>Collaboration:</strong> Different developers can work on different functions</li>
+                </ul>
+
+                <h3>Defining Functions</h3>
+                <p>The basic syntax for defining a function:</p>
+                <pre><code>def function_name(parameters):
+    """Optional docstring describing the function"""
+    # Function body
+    # Code to execute
+    return result  # Optional return statement</code></pre>
+                <p><strong>Key Components:</strong></p>
+                <ul>
+                    <li><code>def</code>: Keyword that defines a function</li>
+                    <li><code>function_name</code>: Identifier for the function (follows variable naming rules)</li>
+                    <li><code>parameters</code>: Optional input parameters</li>
+                    <li><code>docstring</code>: Optional documentation string</li>
+                    <li><code>return</code>: Optional statement to return a value</li>
+                </ul>
+
+                <h3>Simple Function Example</h3>
+                <pre><code>def greet():
+    """Print a simple greeting"""
+    print("Hello, World!")
+
+# Call the function
+greet()  # Output: Hello, World!</code></pre>
+
+                <h3>Functions with Parameters</h3>
+                <p>Parameters allow functions to accept input values:</p>
+                <pre><code>def greet_person(name):
+    """Greet a specific person"""
+    print(f"Hello, {name}!")
+
+def add_numbers(a, b):
+    """Add two numbers and return the result"""
+    return a + b
+
+# Using the functions
+greet_person("Alice")  # Output: Hello, Alice!
+result = add_numbers(5, 3)
+print(result)  # Output: 8</code></pre>
+
+                <h3>Default Parameters</h3>
+                <p>Parameters can have default values:</p>
+                <pre><code>def greet_with_time(name, time="morning"):
+    """Greet someone with a time of day"""
+    print(f"Good {time}, {name}!")
+
+greet_with_time("Alice")           # Good morning, Alice!
+greet_with_time("Bob", "afternoon") # Good afternoon, Bob!</code></pre>
+                <p><strong>Note:</strong> Default parameters must come after non-default parameters.</p>
+
+                <h3>Keyword Arguments</h3>
+                <p>You can call functions using parameter names:</p>
+                <pre><code>def create_profile(name, age, city):
+    """Create a user profile"""
+    return f"Name: {name}, Age: {age}, City: {city}"
+
+# Positional arguments
+profile1 = create_profile("Alice", 25, "New York")
+
+# Keyword arguments
+profile2 = create_profile(age=30, name="Bob", city="LA")
+
+# Mixed arguments
+profile3 = create_profile("Charlie", city="Chicago", age=35)
+
+print(profile1)
+print(profile2)
+print(profile3)</code></pre>
+
+                <h3>Return Values</h3>
+                <p>Functions can return values using the return statement:</p>
+                <pre><code>def calculate_area(length, width):
+    """Calculate the area of a rectangle"""
+    area = length * width
+    return area
+
+def is_even(number):
+    """Check if a number is even"""
+    return number % 2 == 0
+
+# Using return values
+rect_area = calculate_area(5, 3)
+print(f"Area: {rect_area}")  # Area: 15
+
+if is_even(4):
+    print("4 is even")  # This will print
+else:
+    print("4 is odd")</code></pre>
+                <p><strong>Note:</strong> If no return statement is provided, the function returns <code>None</code>.</p>
+
+                <h3>Multiple Return Values</h3>
+                <p>Functions can return multiple values as a tuple:</p>
+                <pre><code>def get_user_info():
+    """Get user information"""
+    name = "Alice"
+    age = 25
+    email = "alice@example.com"
+    return name, age, email
+
+# Unpacking multiple return values
+user_name, user_age, user_email = get_user_info()
+print(f"Name: {user_name}, Age: {user_age}, Email: {user_email}")
+
+# Or receive as a single tuple
+info = get_user_info()
+print(info)  # ('Alice', 25, 'alice@example.com')</code></pre>
+
+                <h3>Variable Scope</h3>
+                <p>Variables have different scopes:</p>
+                <pre><code>global_var = "I'm global"
+
+def demonstrate_scope():
+    local_var = "I'm local"
+    print(global_var)  # Can access global
+    print(local_var)   # Can access local
+
+demonstrate_scope()
+# print(local_var)  # Error: local_var not defined outside function
+
+def modify_global():
+    global global_var
+    global_var = "I've been modified"
+
+modify_global()
+print(global_var)  # Output: I've been modified</code></pre>
+
+                <h3>Lambda Functions</h3>
+                <p>Anonymous functions for simple operations:</p>
+                <pre><code># Regular function
+def square(x):
+    return x ** 2
+
+# Lambda equivalent
+square_lambda = lambda x: x ** 2
+
+print(square(5))        # 25
+print(square_lambda(5)) # 25
+
+# Lambda with multiple parameters
+add = lambda a, b: a + b
+print(add(3, 4))  # 7
+
+# Common use: sorting with key
+students = [("Alice", 85), ("Bob", 92), ("Charlie", 78)]
+students.sort(key=lambda student: student[1], reverse=True)
+print(students)  # Sorted by grade descending</code></pre>
+
+                <h3>Function Documentation</h3>
+                <p>Docstrings provide documentation for functions:</p>
+                <pre><code>def calculate_grade(score, total_points=100):
+    """
+    Calculate the percentage grade and letter grade.
+
+    Args:
+        score (float): The points earned
+        total_points (float): Total possible points (default 100)
+
+    Returns:
+        tuple: (percentage, letter_grade)
+    """
+    percentage = (score / total_points) * 100
+    
+    if percentage >= 90:
+        letter = "A"
+    elif percentage >= 80:
+        letter = "B"
+    elif percentage >= 70:
+        letter = "C"
+    elif percentage >= 60:
+        letter = "D"
+    else:
+        letter = "F"
+    
+    return percentage, letter
+
+# Access docstring
+print(calculate_grade.__doc__)
+
+# Use the function
+percent, grade = calculate_grade(85, 100)
+print(f"Grade: {percent:.1f}%, Letter: {grade}")</code></pre>
+
+                <h3>Recursive Functions</h3>
+                <p>Functions that call themselves:</p>
+                <pre><code>def factorial(n):
+    """Calculate factorial using recursion"""
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+def fibonacci(n):
+    """Generate nth Fibonacci number"""
+    if n <= 1:
+        return n
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+print(factorial(5))   # 120
+print(fibonacci(8))   # 21</code></pre>
+                <p><strong>Warning:</strong> Recursion can cause stack overflow for large inputs.</p>
+
+                <h3>Mini Project</h3>
+                <p>Create a comprehensive calculator application:</p>
+                <ul>
+                    <li>Implement basic arithmetic functions (add, subtract, multiply, divide)</li>
+                    <li>Create functions for advanced operations (power, square root, factorial)</li>
+                    <li>Include input validation and error handling</li>
+                    <li>Implement a calculator menu system</li>
+                    <li>Use functions to organize code and avoid repetition</li>
+                    <li>Bonus: Add memory functions and operation history</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>def add(a, b):
+    """Add two numbers"""
+    return a + b
+
+def subtract(a, b):
+    """Subtract b from a"""
+    return a - b
+
+def multiply(a, b):
+    """Multiply two numbers"""
+    return a * b
+
+def divide(a, b):
+    """Divide a by b"""
+    if b == 0:
+        raise ValueError("Cannot divide by zero")
+    return a / b
+
+def power(base, exponent):
+    """Calculate base raised to exponent"""
+    return base ** exponent
+
+def square_root(number):
+    """Calculate square root using Newton's method"""
+    if number < 0:
+        raise ValueError("Cannot calculate square root of negative number")
+    
+    guess = number / 2.0
+    for _ in range(10):  # 10 iterations for reasonable accuracy
+        guess = (guess + number / guess) / 2.0
+    return guess
+
+def factorial(n):
+    """Calculate factorial of n"""
+    if not isinstance(n, int) or n < 0:
+        raise ValueError("Factorial requires non-negative integer")
+    
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+def get_number(prompt):
+    """Get a valid number from user input"""
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+def display_menu():
+    """Display calculator menu"""
+    print("\n" + "="*30)
+    print("      CALCULATOR MENU")
+    print("="*30)
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Power")
+    print("6. Square Root")
+    print("7. Factorial")
+    print("8. Exit")
+    print("="*30)
+
+def main():
+    """Main calculator function"""
+    print("Welcome to the Python Calculator!")
+    
+    while True:
+        display_menu()
+        
+        try:
+            choice = input("Enter your choice (1-8): ").strip()
+            
+            if choice == "8":
+                print("Thank you for using the calculator!")
+                break
+            
+            elif choice in ["1", "2", "3", "4", "5"]:
+                # Two-operand operations
+                operations = {
+                    "1": ("Addition", add),
+                    "2": ("Subtraction", subtract),
+                    "3": ("Multiplication", multiply),
+                    "4": ("Division", divide),
+                    "5": ("Power", power)
+                }
+                
+                op_name, op_func = operations[choice]
+                print(f"\n{op_name}:")
+                a = get_number("Enter first number: ")
+                b = get_number("Enter second number: ")
+                
+                result = op_func(a, b)
+                print(f"Result: {result}")
+            
+            elif choice == "6":
+                # Square root
+                print("\nSquare Root:")
+                num = get_number("Enter a non-negative number: ")
+                result = square_root(num)
+                print(f"Square root of {num} is approximately {result:.6f}")
+            
+            elif choice == "7":
+                # Factorial
+                print("\nFactorial:")
+                num = int(get_number("Enter a non-negative integer: "))
+                result = factorial(num)
+                print(f"{num}! = {result}")
+            
+            else:
+                print("Invalid choice. Please select 1-8.")
+        
+        except ValueError as e:
+            print(f"Error: {e}")
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
+        
+        input("\nPress Enter to continue...")
+
+if __name__ == "__main__":
+    main()</code></pre>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Forgetting to call the function (missing parentheses)</li>
+                    <li>Not returning values when needed</li>
+                    <li>Using global variables unnecessarily</li>
+                    <li>Wrong parameter order when calling functions</li>
+                    <li>Mixing positional and keyword arguments incorrectly</li>
+                    <li>Infinite recursion without proper base case</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use descriptive function names</li>
+                    <li>Write docstrings for all functions</li>
+                    <li>Keep functions focused on single responsibilities</li>
+                    <li>Use default parameters appropriately</li>
+                    <li>Avoid global variables when possible</li>
+                    <li>Test functions independently</li>
+                    <li>Use type hints for better code clarity (Python 3.5+)</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. What keyword is used to define a function in Python?</p>
+                <ul>
+                    <li>function</li>
+                    <li>def</li>
+                    <li>func</li>
+                    <li>define</li>
+                </ul>
+
+                <p>2. What does a function return if there's no return statement?</p>
+                <ul>
+                    <li>0</li>
+                    <li>None</li>
+                    <li>False</li>
+                    <li>An empty string</li>
+                </ul>
+
+                <p>3. Which of these is a valid function definition?</p>
+                <ul>
+                    <li>def myFunction[]:</li>
+                    <li>def myFunction():</li>
+                    <li>def myFunction{}:</li>
+                    <li>def myFunction():</li>
+                </ul>
+
+                <p>4. What is a lambda function?</p>
+                <ul>
+                    <li>A function that runs on AWS Lambda</li>
+                    <li>An anonymous function</li>
+                    <li>A function with no parameters</li>
+                    <li>A recursive function</li>
+                </ul>
+
+                <p>5. When should you use default parameters?</p>
+                <ul>
+                    <li>When parameters are required</li>
+                    <li>When you want optional parameters</li>
+                    <li>When parameters should be global</li>
+                    <li>When you don't want to return anything</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

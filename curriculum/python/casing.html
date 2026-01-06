@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - String Casing and Naming</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+          <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>String Casing and Naming Conventions</h2>
+                <p>String casing refers to the capitalization style of text, and proper casing is essential for readable code and user-friendly output. Python provides powerful built-in methods for manipulating string case, and following consistent naming conventions is crucial for writing maintainable code. This section covers string casing operations and Python's naming conventions.</p>
+
+                <h3>Why Casing Matters</h3>
+                <p>Proper string casing and naming conventions provide:</p>
+                <ul>
+                    <li><strong>Readability:</strong> Code is easier to read and understand</li>
+                    <li><strong>Consistency:</strong> Uniform style across projects and teams</li>
+                    <li><strong>Maintainability:</strong> Easier to modify and debug code</li>
+                    <li><strong>Professionalism:</strong> Industry-standard code appearance</li>
+                    <li><strong>User Experience:</strong> Properly formatted text output</li>
+                    <li><strong>Collaboration:</strong> Easier for teams to work together</li>
+                </ul>
+
+                <h3>String Casing Methods</h3>
+                <p>Python's string class provides several methods for case manipulation:</p>
+                <pre><code>text = "Hello World! This is a SAMPLE text."
+
+# Convert to uppercase
+print(text.upper())  # "HELLO WORLD! THIS IS A SAMPLE TEXT."
+
+# Convert to lowercase
+print(text.lower())  # "hello world! this is a sample text."
+
+# Convert to title case (first letter of each word capitalized)
+print(text.title())  # "Hello World! This Is A Sample Text."
+
+# Capitalize first letter only
+print(text.capitalize())  # "Hello world! this is a sample text."
+
+# Swap case (upper becomes lower and vice versa)
+print(text.swapcase())  # "hELLO wORLD! tHIS IS A sample TEXT."
+
+# Check case
+print(text.isupper())   # False
+print(text.islower())   # False
+print(text.istitle())   # False
+print("HELLO".isupper())  # True
+print("hello".islower())  # True
+print("Hello World".istitle())  # True</code></pre>
+
+                <h3>Advanced Casing Operations</h3>
+                <pre><code>import string
+
+text = "hello world! PYTHON programming."
+
+# Case folding (more aggressive lowercase conversion)
+print(text.casefold())  # "hello world! python programming."
+
+# Check if string contains cased characters
+print(text.isalpha())   # False (contains punctuation)
+print("Hello".isalpha()) # True
+print("123".isalpha())   # False
+
+# Check alphanumeric
+print("Hello123".isalnum())  # True
+print("Hello 123".isalnum()) # False (space)
+
+# Custom casing functions
+def sentence_case(text):
+    """Convert text to sentence case"""
+    if not text:
+        return text
+    return text[0].upper() + text[1:].lower()
+
+def proper_case(text):
+    """Convert to proper case (names, titles)"""
+    return text.title()
+
+def camel_case(text):
+    """Convert to camelCase"""
+    words = text.lower().split()
+    if not words:
+        return ""
+    return words[0] + ''.join(word.capitalize() for word in words[1:])
+
+def pascal_case(text):
+    """Convert to PascalCase"""
+    words = text.lower().split()
+    return ''.join(word.capitalize() for word in words)
+
+def snake_case(text):
+    """Convert to snake_case"""
+    return '_'.join(text.lower().split())
+
+def kebab_case(text):
+    """Convert to kebab-case"""
+    return '-'.join(text.lower().split())
+
+# Test custom functions
+sample = "hello world python programming"
+print(sentence_case(sample))  # "Hello world python programming"
+print(camel_case(sample))     # "helloWorldPythonProgramming"
+print(pascal_case(sample))    # "HelloWorldPythonProgramming"
+print(snake_case(sample))     # "hello_world_python_programming"
+print(kebab_case(sample))     # "hello-world-python-programming"</code></pre>
+
+                <h3>Python Naming Conventions</h3>
+                <p>PEP 8 defines Python's official style guidelines:</p>
+                <table>
+                    <tr>
+                        <th>Identifier Type</th>
+                        <th>Convention</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>Variables</td>
+                        <td>snake_case</td>
+                        <td><code>user_name</code>, <code>total_count</code></td>
+                    </tr>
+                    <tr>
+                        <td>Functions</td>
+                        <td>snake_case</td>
+                        <td><code>calculate_total()</code>, <code>get_user_data()</code></td>
+                    </tr>
+                    <tr>
+                        <td>Classes</td>
+                        <td>PascalCase</td>
+                        <td><code>UserProfile</code>, <code>DataProcessor</code></td>
+                    </tr>
+                    <tr>
+                        <td>Constants</td>
+                        <td>UPPER_SNAKE_CASE</td>
+                        <td><code>MAX_SIZE</code>, <code>DEFAULT_TIMEOUT</code></td>
+                    </tr>
+                    <tr>
+                        <td>Modules</td>
+                        <td>snake_case</td>
+                        <td><code>data_utils.py</code>, <code>string_helpers.py</code></td>
+                    </tr>
+                    <tr>
+                        <td>Private attributes</td>
+                        <td>_single_underscore</td>
+                        <td><code>_internal_data</code>, <code>_helper_method()</code></td>
+                    </tr>
+                    <tr>
+                        <td>Protected attributes</td>
+                        <td>__double_underscore</td>
+                        <td><code>__private_attr</code>, <code>__private_method()</code></td>
+                    </tr>
+                </table>
+
+                <h3>Variable Naming Rules</h3>
+                <ul>
+                    <li>Can contain letters, digits, and underscores</li>
+                    <li>Must start with a letter or underscore (not a digit)</li>
+                    <li>Cannot be Python keywords</li>
+                    <li>Case-sensitive (<code>name</code> ≠ <code>Name</code>)</li>
+                    <li>No spaces allowed</li>
+                    <li>Should be descriptive and meaningful</li>
+                </ul>
+                <pre><code># Valid variable names
+user_name = "Alice"
+age = 25
+_total_score = 95
+PI = 3.14159
+my_variable = "test"
+
+# Invalid variable names (would cause errors)
+# 123name = "invalid"  # Starts with digit
+# class = "Python"     # Reserved keyword
+# user-name = "bob"    # Contains hyphen
+# my variable = "test" # Contains space
+
+# Python keywords (cannot use as variable names)
+import keyword
+print("Python keywords:")
+print(keyword.kwlist)</code></pre>
+
+                <h3>Good vs Bad Naming Examples</h3>
+                <pre><code># Bad naming (unclear, unprofessional)
+a = 25
+b = "John"
+c = calculate_something()
+x = get_data_from_server()
+
+# Good naming (descriptive, clear)
+user_age = 25
+user_name = "John"
+total_price = calculate_total_price()
+user_data = fetch_user_data()
+
+# Even better with type hints (Python 3.5+)
+from typing import List, Dict
+
+def process_user_data(users: List[Dict[str, str]]) -> Dict[str, int]:
+    """Process user data and return statistics"""
+    # Function implementation
+    pass
+
+# Constants
+MAX_CONNECTIONS = 100
+DEFAULT_TIMEOUT = 30
+API_BASE_URL = "https://api.example.com"</code></pre>
+
+                <h3>String Formatting with Case</h3>
+                <pre><code>name = "alice"
+age = 25
+city = "new york"
+
+# Old-style formatting with case conversion
+print("Name: %s, Age: %d" % (name.title(), age))
+print("City: %s" % city.title())
+
+# New-style formatting
+print("Name: {}, Age: {}".format(name.title(), age))
+print("City: {}".format(city.title()))
+
+# f-string formatting (Python 3.6+)
+print(f"Name: {name.title()}, Age: {age}")
+print(f"City: {city.title()}")
+
+# Advanced f-string with case operations
+user_input = "HELLO WORLD"
+print(f"Original: {user_input}")
+print(f"Lower: {user_input.lower()}")
+print(f"Title: {user_input.title()}")
+print(f"Capitalize: {user_input.capitalize()}")
+
+# Formatting with width and case
+names = ["alice", "bob", "charlie"]
+for name in names:
+    print(f"{name.title():>10}")  # Right-aligned, title case</code></pre>
+
+                <h3>Case Conversion in Real Applications</h3>
+                <pre><code># User input normalization
+def normalize_name(name):
+    """Normalize a name to title case"""
+    return name.strip().title()
+
+def normalize_email(email):
+    """Normalize email to lowercase"""
+    return email.strip().lower()
+
+# Data validation with case checking
+def is_valid_username(username):
+    """Check if username follows conventions"""
+    if not username:
+        return False
+    
+    # Should be lowercase, no spaces
+    normalized = username.lower().replace(" ", "")
+    return username == normalized and len(username) >= 3
+
+# Display formatting
+def format_book_title(title):
+    """Format book title properly"""
+    # Capitalize first letter of each word, but handle articles
+    words = title.lower().split()
+    formatted_words = []
+    
+    for i, word in enumerate(words):
+        # Don't capitalize articles unless they're first word
+        if i > 0 and word in ['a', 'an', 'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by']:
+            formatted_words.append(word)
+        else:
+            formatted_words.append(word.capitalize())
+    
+    return ' '.join(formatted_words)
+
+# Test the functions
+print(normalize_name("john DOE"))        # "John Doe"
+print(normalize_email("John.DOE@EXAMPLE.COM"))  # "john.doe@example.com"
+print(is_valid_username("john_doe"))      # True
+print(is_valid_username("John Doe"))      # False
+print(format_book_title("the great gatsby"))  # "The Great Gatsby"</code></pre>
+
+                <h3>Internationalization and Unicode</h3>
+                <pre><code># Unicode case conversion
+german_word = "straße"  # German eszett
+print(german_word.upper())   # "STRASSE"
+print(german_word.lower())   # "straße"
+
+# Turkish dotless i
+turkish_i = "ı"
+print(turkish_i.upper())     # "I"
+
+# Case conversion with different locales
+import locale
+
+# Set locale (may not work on all systems)
+try:
+    locale.setlocale(locale.LC_ALL, 'tr_TR.UTF-8')  # Turkish
+    print("Turkish locale set")
+except:
+    print("Turkish locale not available")
+
+# Case folding for case-insensitive comparisons
+text1 = "Hello"
+text2 = "HELLO"
+text3 = "hello"
+
+# Using casefold for better Unicode support
+print(text1.casefold() == text2.casefold())  # True
+print(text1.casefold() == text3.casefold())  # True
+
+# Traditional lower() comparison
+print(text1.lower() == text2.lower())  # True
+print(text1.lower() == text3.lower())  # True</code></pre>
+
+                <h3>Regular Expressions with Case</h3>
+                <pre><code>import re
+
+text = "Hello World! This is a TEST string with Python."
+
+# Case-sensitive search
+matches = re.findall(r"python", text, re.IGNORECASE)
+print(matches)  # ['Python']
+
+# Replace with case preservation
+def replace_case_preserve(text, old_word, new_word):
+    """Replace word while preserving case"""
+    def replace_match(match):
+        word = match.group()
+        if word.isupper():
+            return new_word.upper()
+        elif word.istitle():
+            return new_word.title()
+        else:
+            return new_word.lower()
+    
+    pattern = re.compile(re.escape(old_word), re.IGNORECASE)
+    return pattern.sub(replace_match, text)
+
+result = replace_case_preserve("I love PYTHON programming", "python", "JavaScript")
+print(result)  # "I love JAVASCRIPT programming"
+
+# Extract words with specific case patterns
+title_words = re.findall(r'\b[A-Z][a-z]+\b', text)
+print("Title case words:", title_words)  # ['Hello', 'World', 'This', 'Python']
+
+uppercase_words = re.findall(r'\b[A-Z]+\b', text)
+print("Uppercase words:", uppercase_words)  # ['TEST']</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a comprehensive text processing and formatting utility:</p>
+                <ul>
+                    <li>Implement various case conversion functions</li>
+                    <li>Create text analysis tools (word count, case distribution)</li>
+                    <li>Build a name/title formatter with proper capitalization rules</li>
+                    <li>Develop a code style checker for naming conventions</li>
+                    <li>Add text normalization and cleaning features</li>
+                    <li>Create a case conversion quiz or game</li>
+                    <li>Bonus: Add support for multiple languages and special characters</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>import re
+import string
+from collections import Counter, defaultdict
+
+class TextProcessor:
+    def __init__(self):
+        self.common_articles = {'a', 'an', 'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by'}
+        self.python_keywords = {
+            'False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await',
+            'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except',
+            'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is',
+            'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return',
+            'try', 'while', 'with', 'yield'
+        }
+    
+    def analyze_text_case(self, text):
+        """Analyze the case distribution in text"""
+        analysis = {
+            'total_chars': len(text),
+            'uppercase': sum(1 for c in text if c.isupper()),
+            'lowercase': sum(1 for c in text if c.islower()),
+            'title_case_words': 0,
+            'uppercase_words': 0,
+            'lowercase_words': 0,
+            'mixed_case_words': 0
+        }
+        
+        words = text.split()
+        for word in words:
+            if word.isupper():
+                analysis['uppercase_words'] += 1
+            elif word.islower():
+                analysis['lowercase_words'] += 1
+            elif word.istitle():
+                analysis['title_case_words'] += 1
+            elif any(c.isupper() for c in word) and any(c.islower() for c in word):
+                analysis['mixed_case_words'] += 1
+        
+        return analysis
+    
+    def format_book_title(self, title):
+        """Format a book title with proper capitalization"""
+        if not title:
+            return title
+        
+        words = title.lower().split()
+        formatted_words = []
+        
+        for i, word in enumerate(words):
+            # Always capitalize first and last word
+            if i == 0 or i == len(words) - 1:
+                formatted_words.append(word.capitalize())
+            # Don't capitalize common articles (except at start/end)
+            elif word in self.common_articles:
+                formatted_words.append(word)
+            # Capitalize other words
+            else:
+                formatted_words.append(word.capitalize())
+        
+        return ' '.join(formatted_words)
+    
+    def format_name(self, name):
+        """Format a person's name properly"""
+        if not name:
+            return name
+        
+        parts = name.strip().split()
+        formatted_parts = []
+        
+        for part in parts:
+            # Handle hyphenated names
+            if '-' in part:
+                subparts = part.split('-')
+                formatted_part = '-'.join(sub.capitalize() for sub in subparts)
+            else:
+                formatted_part = part.capitalize()
+            formatted_parts.append(formatted_part)
+        
+        return ' '.join(formatted_parts)
+    
+    def to_camel_case(self, text):
+        """Convert text to camelCase"""
+        words = re.findall(r'\b\w+\b', text.lower())
+        if not words:
+            return ""
+        return words[0] + ''.join(word.capitalize() for word in words[1:])
+    
+    def to_pascal_case(self, text):
+        """Convert text to PascalCase"""
+        words = re.findall(r'\b\w+\b', text.lower())
+        return ''.join(word.capitalize() for word in words)
+    
+    def to_snake_case(self, text):
+        """Convert text to snake_case"""
+        # Handle camelCase and PascalCase
+        text = re.sub(r'([a-z0-9])([A-Z])', r'\1_\2', text)
+        text = re.sub(r'([A-Z])([A-Z][a-z])', r'\1_\2', text)
+        return text.lower()
+    
+    def to_kebab_case(self, text):
+        """Convert text to kebab-case"""
+        return self.to_snake_case(text).replace('_', '-')
+    
+    def check_python_naming(self, identifier, identifier_type="variable"):
+        """Check if identifier follows Python naming conventions"""
+        issues = []
+        
+        # Basic rules
+        if not identifier:
+            issues.append("Identifier cannot be empty")
+            return issues
+        
+        if not re.match(r'^[a-zA-Z_]', identifier):
+            issues.append("Must start with letter or underscore")
+        
+        if not re.match(r'^[a-zA-Z0-9_]*$', identifier):
+            issues.append("Can only contain letters, digits, and underscores")
+        
+        if identifier in self.python_keywords:
+            issues.append(f"'{identifier}' is a Python keyword")
+        
+        # Type-specific checks
+        if identifier_type == "variable":
+            if '_' in identifier and not identifier.startswith('_'):
+                # Check snake_case
+                if not re.match(r'^[a-z][a-z0-9_]*$', identifier):
+                    issues.append("Variables should use snake_case")
+            elif any(c.isupper() for c in identifier):
+                issues.append("Variables should not use uppercase (use snake_case)")
+        
+        elif identifier_type == "function":
+            if '_' in identifier and not identifier.startswith('_'):
+                if not re.match(r'^[a-z][a-z0-9_]*$', identifier):
+                    issues.append("Functions should use snake_case")
+            elif any(c.isupper() for c in identifier):
+                issues.append("Functions should not use uppercase (use snake_case)")
+        
+        elif identifier_type == "class":
+            if not re.match(r'^[A-Z][a-zA-Z0-9]*$', identifier):
+                issues.append("Classes should use PascalCase")
+        
+        elif identifier_type == "constant":
+            if not re.match(r'^[A-Z][A-Z0-9_]*$', identifier):
+                issues.append("Constants should use UPPER_SNAKE_CASE")
+        
+        return issues
+    
+    def normalize_text(self, text, options=None):
+        """Normalize text with various options"""
+        if options is None:
+            options = {}
+        
+        # Default options
+        case = options.get('case', 'lower')  # 'lower', 'upper', 'title', 'sentence'
+        remove_punctuation = options.get('remove_punctuation', False)
+        remove_extra_spaces = options.get('remove_extra_spaces', True)
+        
+        # Apply transformations
+        if case == 'lower':
+            text = text.lower()
+        elif case == 'upper':
+            text = text.upper()
+        elif case == 'title':
+            text = text.title()
+        elif case == 'sentence':
+            text = text.capitalize()
+        
+        if remove_punctuation:
+            text = ''.join(c for c in text if c not in string.punctuation)
+        
+        if remove_extra_spaces:
+            text = ' '.join(text.split())
+        
+        return text.strip()
+
+def main():
+    processor = TextProcessor()
+    
+    while True:
+        print("\n" + "="*50)
+        print("      TEXT PROCESSING UTILITY")
+        print("="*50)
+        print("1. Analyze Text Case")
+        print("2. Format Book Title")
+        print("3. Format Name")
+        print("4. Convert Case Styles")
+        print("5. Check Python Naming")
+        print("6. Normalize Text")
+        print("7. Text Statistics")
+        print("8. Exit")
+        print("="*50)
+        
+        choice = input("Enter your choice (1-8): ").strip()
+        
+        try:
+            if choice == "1":
+                text = input("Enter text to analyze: ")
+                analysis = processor.analyze_text_case(text)
+                
+                print("\nCase Analysis:")
+                print(f"  Total characters: {analysis['total_chars']}")
+                print(f"  Uppercase letters: {analysis['uppercase']}")
+                print(f"  Lowercase letters: {analysis['lowercase']}")
+                print(f"  Title case words: {analysis['title_case_words']}")
+                print(f"  Uppercase words: {analysis['uppercase_words']}")
+                print(f"  Lowercase words: {analysis['lowercase_words']}")
+                print(f"  Mixed case words: {analysis['mixed_case_words']}")
+                
+            elif choice == "2":
+                title = input("Enter book title: ").strip()
+                formatted = processor.format_book_title(title)
+                print(f"Formatted title: '{formatted}'")
+                
+            elif choice == "3":
+                name = input("Enter name: ").strip()
+                formatted = processor.format_name(name)
+                print(f"Formatted name: '{formatted}'")
+                
+            elif choice == "4":
+                text = input("Enter text to convert: ").strip()
+                
+                print("\nCase Conversions:")
+                print(f"  Original: {text}")
+                print(f"  camelCase: {processor.to_camel_case(text)}")
+                print(f"  PascalCase: {processor.to_pascal_case(text)}")
+                print(f"  snake_case: {processor.to_snake_case(text)}")
+                print(f"  kebab-case: {processor.to_kebab_case(text)}")
+                
+            elif choice == "5":
+                identifier = input("Enter identifier: ").strip()
+                id_type = input("Type (variable/function/class/constant): ").strip().lower()
+                
+                if id_type not in ['variable', 'function', 'class', 'constant']:
+                    id_type = 'variable'
+                
+                issues = processor.check_python_naming(identifier, id_type)
+                
+                if issues:
+                    print(f"\nIssues with '{identifier}' as {id_type}:")
+                    for issue in issues:
+                        print(f"  - {issue}")
+                else:
+                    print(f"\n'{identifier}' follows Python {id_type} naming conventions!")
+                
+            elif choice == "6":
+                text = input("Enter text to normalize: ")
+                
+                print("\nNormalization Options:")
+                print("1. Lowercase")
+                print("2. Uppercase")
+                print("3. Title case")
+                print("4. Sentence case")
+                
+                case_choice = input("Choose case (1-4): ").strip()
+                case_map = {'1': 'lower', '2': 'upper', '3': 'title', '4': 'sentence'}
+                case = case_map.get(case_choice, 'lower')
+                
+                remove_punct = input("Remove punctuation? (y/n): ").strip().lower() == 'y'
+                
+                options = {
+                    'case': case,
+                    'remove_punctuation': remove_punct,
+                    'remove_extra_spaces': True
+                }
+                
+                normalized = processor.normalize_text(text, options)
+                print(f"\nNormalized text: '{normalized}'")
+                
+            elif choice == "7":
+                text = input("Enter text for statistics: ")
+                
+                # Basic statistics
+                words = text.split()
+                sentences = re.split(r'[.!?]+', text)
+                sentences = [s.strip() for s in sentences if s.strip()]
+                
+                print("
+Text Statistics:")
+                print(f"  Characters: {len(text)}")
+                print(f"  Words: {len(words)}")
+                print(f"  Sentences: {len(sentences)}")
+                
+                if words:
+                    avg_word_length = sum(len(word) for word in words) / len(words)
+                    print(f"  Average word length: {avg_word_length:.1f}")
+                
+                # Most common words (case-insensitive)
+                word_freq = Counter(word.lower() for word in re.findall(r'\b\w+\b', text))
+                if word_freq:
+                    most_common = word_freq.most_common(5)
+                    print(f"  Most common words: {', '.join(f'{word}({count})' for word, count in most_common)}")
+                
+            elif choice == "8":
+                print("Thank you for using the Text Processing Utility!")
+                break
+                
+            else:
+                print("Invalid choice. Please select 1-8.")
+                
+        except Exception as e:
+            print(f"An error occurred: {e}")
+        
+        input("\nPress Enter to continue...")
+
+if __name__ == "__main__":
+    main()</code></pre>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Follow PEP 8 naming conventions consistently</li>
+                    <li>Use descriptive variable and function names</li>
+                    <li>Be consistent with casing within a project</li>
+                    <li>Use title case for user-facing text</li>
+                    <li>Handle Unicode characters properly</li>
+                    <li>Consider internationalization when casing text</li>
+                    <li>Use case-insensitive comparisons when appropriate</li>
+                    <li>Document your naming conventions in projects</li>
+                </ul>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Mixing different naming conventions in the same codebase</li>
+                    <li>Not handling Unicode characters in case conversions</li>
+                    <li>Using case-sensitive string comparisons inappropriately</li>
+                    <li>Forgetting that string methods return new strings</li>
+                    <li>Not normalizing user input before processing</li>
+                    <li>Using reserved keywords as variable names</li>
+                    <li>Inconsistent casing in user interfaces</li>
+                    <li>Not considering locale-specific casing rules</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. Which method converts a string to title case?</p>
+                <ul>
+                    <li>upper()</li>
+                    <li>lower()</li>
+                    <li>title()</li>
+                    <li>capitalize()</li>
+                </ul>
+
+                <p>2. What is the correct naming convention for Python variables?</p>
+                <ul>
+                    <li>camelCase</li>
+                    <li>PascalCase</li>
+                    <li>snake_case</li>
+                    <li>kebab-case</li>
+                </ul>
+
+                <p>3. Which of these is a valid Python variable name?</p>
+                <ul>
+                    <li>123variable</li>
+                    <li>variable-name</li>
+                    <li>variable_name</li>
+                    <li>class</li>
+                </ul>
+
+                <p>4. What does the casefold() method do?</p>
+                <ul>
+                    <li>Converts to uppercase</li>
+                    <li>Converts to lowercase with Unicode support</li>
+                    <li>Creates a case-insensitive version</li>
+                    <li>Swaps case of each character</li>
+                </ul>
+
+                <p>5. Which naming convention should be used for Python classes?</p>
+                <ul>
+                    <li>snake_case</li>
+                    <li>camelCase</li>
+                    <li>PascalCase</li>
+                    <li>UPPER_SNAKE_CASE</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

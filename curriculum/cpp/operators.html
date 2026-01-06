@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - C++ Operators</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+        <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators" class="active">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>C++ Operators</h2>
+                <p>Operators in C++ are symbols that perform operations on variables and values. They are essential for performing calculations, making comparisons, and controlling program flow. Understanding operator precedence and associativity is crucial for writing correct expressions.</p>
+
+                <h3>Arithmetic Operators</h3>
+                <p>Arithmetic operators perform mathematical operations:</p>
+                <table>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                    </tr>
+                    <tr>
+                        <td>+</td>
+                        <td>Addition</td>
+                        <td>5 + 3</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>Subtraction</td>
+                        <td>5 - 3</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>*</td>
+                        <td>Multiplication</td>
+                        <td>5 * 3</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>/</td>
+                        <td>Division</td>
+                        <td>5 / 3</td>
+                        <td>1 (integer division)</td>
+                    </tr>
+                    <tr>
+                        <td>%</td>
+                        <td>Modulus (remainder)</td>
+                        <td>5 % 3</td>
+                        <td>2</td>
+                    </tr>
+                </table>
+
+                <h4>Arithmetic Operator Examples</h4>
+                <pre><code>#include <iostream>
+
+int main() {
+    int a = 10, b = 3;
+    
+    std::cout << "Addition: " << a + b << std::endl;       // 13
+    std::cout << "Subtraction: " << a - b << std::endl;    // 7
+    std::cout << "Multiplication: " << a * b << std::endl; // 30
+    std::cout << "Division: " << a / b << std::endl;       // 3 (integer)
+    std::cout << "Modulus: " << a % b << std::endl;       // 1
+    
+    // Floating-point division
+    double x = 10.0, y = 3.0;
+    std::cout << "Float division: " << x / y << std::endl; // 3.333...
+    
+    return 0;
+}</code></pre>
+
+                <h3>Assignment Operators</h3>
+                <p>Assignment operators assign values to variables:</p>
+                <table>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Example</th>
+                        <th>Equivalent to</th>
+                    </tr>
+                    <tr>
+                        <td>=</td>
+                        <td>x = 5</td>
+                        <td>x = 5</td>
+                    </tr>
+                    <tr>
+                        <td>+=</td>
+                        <td>x += 3</td>
+                        <td>x = x + 3</td>
+                    </tr>
+                    <tr>
+                        <td>-=</td>
+                        <td>x -= 3</td>
+                        <td>x = x - 3</td>
+                    </tr>
+                    <tr>
+                        <td>*=</td>
+                        <td>x *= 3</td>
+                        <td>x = x * 3</td>
+                    </tr>
+                    <tr>
+                        <td>/=</td>
+                        <td>x /= 3</td>
+                        <td>x = x / 3</td>
+                    </tr>
+                    <tr>
+                        <td>%=</td>
+                        <td>x %= 3</td>
+                        <td>x = x % 3</td>
+                    </tr>
+                </table>
+
+                <h4>Assignment Operator Examples</h4>
+                <pre><code>int x = 10;
+
+// Compound assignment
+x += 5;  // x = 15
+x -= 3;  // x = 12
+x *= 2;  // x = 24
+x /= 4;  // x = 6
+x %= 5;  // x = 1</code></pre>
+
+                <h3>Comparison (Relational) Operators</h3>
+                <p>Comparison operators compare two values and return true or false:</p>
+                <table>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                    </tr>
+                    <tr>
+                        <td>==</td>
+                        <td>Equal to</td>
+                        <td>5 == 3</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>!=</td>
+                        <td>Not equal to</td>
+                        <td>5 != 3</td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td><</td>
+                        <td>Less than</td>
+                        <td>5 < 3</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>></td>
+                        <td>Greater than</td>
+                        <td>5 > 3</td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td><=</td>
+                        <td>Less than or equal to</td>
+                        <td>5 <= 5</td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td>>=</td>
+                        <td>Greater than or equal to</td>
+                        <td>5 >= 3</td>
+                        <td>true</td>
+                    </tr>
+                </table>
+
+                <h4>Comparison Examples</h4>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int a = 5, b = 10;
+    
+    std::cout << std::boolalpha;  // Print bool as true/false
+    
+    std::cout << "a == b: " << (a == b) << std::endl;  // false
+    std::cout << "a != b: " << (a != b) << std::endl;  // true
+    std::cout << "a < b: " << (a < b) << std::endl;    // true
+    std::cout << "a > b: " << (a > b) << std::endl;    // false
+    std::cout << "a <= b: " << (a <= b) << std::endl;  // true
+    std::cout << "a >= b: " << (a >= b) << std::endl;  // false
+    
+    return 0;
+}</code></pre>
+
+                <h3>Logical Operators</h3>
+                <p>Logical operators combine boolean expressions:</p>
+                <table>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                    </tr>
+                    <tr>
+                        <td>&&</td>
+                        <td>Logical AND</td>
+                        <td>true && false</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>||</td>
+                        <td>Logical OR</td>
+                        <td>true || false</td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td>!</td>
+                        <td>Logical NOT</td>
+                        <td>!true</td>
+                        <td>false</td>
+                    </tr>
+                </table>
+
+                <h4>Logical Operator Examples</h4>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    bool a = true, b = false;
+    
+    std::cout << std::boolalpha;
+    
+    std::cout << "a && b: " << (a && b) << std::endl;  // false
+    std::cout << "a || b: " << (a || b) << std::endl;  // true
+    std::cout << "!a: " << (!a) << std::endl;        // false
+    std::cout << "!b: " << (!b) << std::endl;        // true
+    
+    // Short-circuit evaluation
+    int x = 5;
+    bool result = (x > 10) && (x++ > 0);  // x++ not executed
+    std::cout << "x after short-circuit: " << x << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Increment and Decrement Operators</h3>
+                <p>Increment (++) and decrement (--) operators modify variables by 1:</p>
+                <pre><code>int x = 5;
+
+// Post-increment: use value, then increment
+int y = x++;  // y = 5, x = 6
+
+// Pre-increment: increment, then use value
+int z = ++x;  // z = 7, x = 7
+
+// Post-decrement
+y = x--;      // y = 7, x = 6
+
+// Pre-decrement
+z = --x;      // z = 5, x = 5</code></pre>
+
+                <h3>Bitwise Operators</h3>
+                <p>Bitwise operators work on individual bits of integer values:</p>
+                <table>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>&</td>
+                        <td>Bitwise AND</td>
+                        <td>5 & 3 = 1</td>
+                    </tr>
+                    <tr>
+                        <td>|</td>
+                        <td>Bitwise OR</td>
+                        <td>5 | 3 = 7</td>
+                    </tr>
+                    <tr>
+                        <td>^</td>
+                        <td>Bitwise XOR</td>
+                        <td>5 ^ 3 = 6</td>
+                    </tr>
+                    <tr>
+                        <td>~</td>
+                        <td>Bitwise NOT</td>
+                        <td>~5 = -6</td>
+                    </tr>
+                    <tr>
+                        <td><<</td>
+                        <td>Left shift</td>
+                        <td>5 << 1 = 10</td>
+                    </tr>
+                    <tr>
+                        <td>>></td>
+                        <td>Right shift</td>
+                        <td>5 >> 1 = 2</td>
+                    </tr>
+                </table>
+
+                <h4>Bitwise Examples</h4>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int a = 5;  // Binary: 101
+    int b = 3;  // Binary: 011
+    
+    std::cout << "a & b: " << (a & b) << std::endl;   // 1 (001)
+    std::cout << "a | b: " << (a | b) << std::endl;   // 7 (111)
+    std::cout << "a ^ b: " << (a ^ b) << std::endl;   // 6 (110)
+    std::cout << "~a: " << (~a) << std::endl;         // Bitwise NOT
+    std::cout << "a << 1: " << (a << 1) << std::endl; // 10 (left shift)
+    std::cout << "a >> 1: " << (a >> 1) << std::endl; // 2 (right shift)
+    
+    return 0;
+}</code></pre>
+
+                <h3>Ternary Conditional Operator</h3>
+                <p>The ternary operator (? :) provides a shorthand for if-else:</p>
+                <pre><code>// Syntax: condition ? value_if_true : value_if_false
+
+int x = 10, y = 20;
+int max = (x > y) ? x : y;  // max = 20
+
+std::string result = (x % 2 == 0) ? "even" : "odd";
+
+// Nested ternary (use with caution)
+int grade = 85;
+std::string letter = (grade >= 90) ? "A" : 
+                    (grade >= 80) ? "B" : 
+                    (grade >= 70) ? "C" : "F";</code></pre>
+
+                <h3>Operator Precedence</h3>
+                <p>Operator precedence determines the order of evaluation in expressions:</p>
+                <ol>
+                    <li>Postfix increment/decrement: ++ --</li>
+                    <li>Unary operators: + - ! ~ ++ -- (pre)</li>
+                    <li>Multiplicative: * / %</li>
+                    <li>Additive: + -</li>
+                    <li>Shift: << >></li>
+                    <li>Relational: < <= > >=</li>
+                    <li>Equality: == !=</li>
+                    <li>Bitwise AND: &</li>
+                    <li>Bitwise XOR: ^</li>
+                    <li>Bitwise OR: |</li>
+                    <li>Logical AND: &&</li>
+                    <li>Logical OR: ||</li>
+                    <li>Ternary: ? :</li>
+                    <li>Assignment: = += -= *= /= %=</li>
+                    <li>Comma: ,</li>
+                </ol>
+
+                <h4>Precedence Examples</h4>
+                <pre><code>// Multiplication before addition
+int result = 2 + 3 * 4;  // 14, not 20
+
+// Parentheses override precedence
+int result2 = (2 + 3) * 4;  // 20
+
+// Logical operators have lower precedence than comparison
+bool result3 = x > 5 && y < 10;  // Correct
+// bool result4 = x > 5 && y < 10;  // Same as above</code></pre>
+
+                <h3>Example Program</h3>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int a, b;
+    std::cout << "Enter two numbers: ";
+    std::cin >> a >> b;
+    
+    // Arithmetic operations
+    std::cout << "Sum: " << a + b << std::endl;
+    std::cout << "Difference: " << a - b << std::endl;
+    std::cout << "Product: " << a * b << std::endl;
+    if (b != 0) {
+        std::cout << "Division: " << a / b << std::endl;
+        std::cout << "Remainder: " << a % b << std::endl;
+    }
+    
+    // Comparisons
+    std::cout << std::boolalpha;
+    std::cout << a << " > " << b << ": " << (a > b) << std::endl;
+    std::cout << a << " == " << b << ": " << (a == b) << std::endl;
+    
+    // Ternary operator
+    std::string comparison = (a > b) ? "greater than" : 
+                           (a < b) ? "less than" : "equal to";
+    std::cout << a << " is " << comparison << " " << b << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a calculator program using operators:</p>
+                <ul>
+                    <li>Implement basic arithmetic operations (+, -, *, /, %)</li>
+                    <li>Add comparison operations (>, <, ==, etc.)</li>
+                    <li>Include bitwise operations (&, |, ^, <<, >>)</li>
+                    <li>Use logical operators for input validation</li>
+                    <li>Implement increment/decrement operations</li>
+                    <li>Bonus: Add scientific operations using math functions</li>
+                </ul>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Confusing = (assignment) with == (comparison)</li>
+                    <li>Misunderstanding operator precedence</li>
+                    <li>Integer division when float division is needed</li>
+                    <li>Using bitwise operators on signed integers carelessly</li>
+                    <li>Forgetting parentheses in complex expressions</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use parentheses to clarify complex expressions</li>
+                    <li>Avoid overly complex expressions in one line</li>
+                    <li>Use compound assignment operators when appropriate</li>
+                    <li>Be careful with floating-point comparisons</li>
+                    <li>Use meaningful variable names to clarify operations</li>
+                    <li>Test edge cases (division by zero, overflow, etc.)</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. What is the result of 5 / 2 in integer division?</p>
+                <ul>
+                    <li>2.5</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>Error</li>
+                </ul>
+
+                <p>2. Which operator has the highest precedence?</p>
+                <ul>
+                    <li>+</li>
+                    <li>*</li>
+                    <li>()</li>
+                    <li>=</li>
+                </ul>
+
+                <p>3. What does the && operator do?</p>
+                <ul>
+                    <li>Bitwise AND</li>
+                    <li>Logical AND</li>
+                    <li>Assignment</li>
+                    <li>Comparison</li>
+                </ul>
+
+                <p>4. What is the difference between ++x and x++?</p>
+                <ul>
+                    <li>No difference</li>
+                    <li>++x increments first, x++ uses value first</li>
+                    <li>x++ increments first, ++x uses value first</li>
+                    <li>They are the same for integers</li>
+                </ul>
+
+                <p>5. Which operator is used for assignment?</p>
+                <ul>
+                    <li>==</li>
+                    <li>=</li>
+                    <li>===</li>
+                    <li><=</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

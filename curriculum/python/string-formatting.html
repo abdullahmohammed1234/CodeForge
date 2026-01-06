@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - String Formatting</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+            <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>String Formatting</h2>
+                <p>String formatting in Python allows you to create formatted strings by embedding values into templates. Python provides several methods for string formatting, each with different syntax and capabilities.</p>
+
+                <h3>Why String Formatting?</h3>
+                <ul>
+                    <li>Create readable output with embedded values</li>
+                    <li>Control number formatting (decimals, padding, etc.)</li>
+                    <li>Handle different data types automatically</li>
+                    <li>Improve code maintainability</li>
+                    <li>Internationalization support</li>
+                </ul>
+
+                <h3>Old Style Formatting (% Operator)</h3>
+                <pre><code># Basic formatting
+name = "Alice"
+age = 25
+print("My name is %s and I am %d years old." % (name, age))
+
+# Number formatting
+pi = 3.14159265359
+print("Pi to 2 decimal places: %.2f" % pi)
+print("Pi to 4 decimal places: %.4f" % pi)
+
+# Width and alignment
+print("Right aligned: %10s" % "hello")
+print("Left aligned: %-10s" % "hello")
+
+# Multiple values
+x, y, z = 1, 2, 3
+print("Values: %d, %d, %d" % (x, y, z))
+
+# Dictionary formatting
+person = {"name": "Bob", "age": 30}
+print("Name: %(name)s, Age: %(age)d" % person)</code></pre>
+
+                <h3>str.format() Method</h3>
+                <pre><code># Positional arguments
+print("My name is {} and I am {} years old.".format("Alice", 25))
+
+# Indexed arguments
+print("My name is {0} and I am {1} years old.".format("Alice", 25))
+print("I am {1} years old and my name is {0}.".format("Alice", 25))
+
+# Named arguments
+print("My name is {name} and I am {age} years old.".format(name="Alice", age=25))
+
+# Dictionary arguments
+person = {"name": "Bob", "age": 30}
+print("My name is {name} and I am {age} years old.".format(**person))
+
+# Number formatting
+pi = 3.14159265359
+print("Pi: {:.2f}".format(pi))
+print("Pi: {:.4f}".format(pi))
+
+# Width and alignment
+print("Right aligned: {:>10}".format("hello"))
+print("Left aligned: {:<10}".format("hello"))
+print("Centered: {:^10}".format("hello"))
+
+# Fill character
+print("Filled: {:*>10}".format("hello"))</code></pre>
+
+                <h3>f-Strings (Python 3.6+)</h3>
+                <p>f-strings provide the most readable and efficient string formatting:</p>
+                <pre><code>name = "Alice"
+age = 25
+
+# Basic f-string
+print(f"My name is {name} and I am {age} years old.")
+
+# Expressions in f-strings
+print(f"Next year I will be {age + 1} years old.")
+print(f"My name in uppercase: {name.upper()}")
+
+# Number formatting
+pi = 3.14159265359
+print(f"Pi to 2 decimal places: {pi:.2f}")
+print(f"Pi to 4 decimal places: {pi:.4f}")
+
+# Width and alignment
+print(f"Right aligned: {name:>10}")
+print(f"Left aligned: {name:<10}")
+print(f"Centered: {name:^10}")
+
+# Number formatting with commas
+large_number = 1234567
+print(f"Large number: {large_number:,}")
+
+# Binary, octal, hexadecimal
+num = 42
+print(f"Decimal: {num}")
+print(f"Binary: {num:b}")
+print(f"Octal: {num:o}")
+print(f"Hexadecimal: {num:x}")
+
+# Date formatting
+from datetime import datetime
+now = datetime.now()
+print(f"Current date: {now:%Y-%m-%d}")
+print(f"Current time: {now:%H:%M:%S}")</code></pre>
+
+                <h3>Advanced Formatting Options</h3>
+                <pre><code># Thousands separator
+number = 1234567.89
+print(f"With commas: {number:,.2f}")
+
+# Percentage
+ratio = 0.856
+print(f"Percentage: {ratio:.1%}")
+
+# Scientific notation
+small_number = 0.00001234
+print(f"Scientific: {small_number:.2e}")
+
+# Fixed width with sign
+values = [42, -17, 0]
+for val in values:
+    print(f"Value: {val:+5d}")
+
+# Zero padding
+for i in range(1, 6):
+    print(f"File {i:03d}.txt")</code></pre>
+
+                <h3>Formatting Objects</h3>
+                <pre><code>class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    def __str__(self):
+        return f"Person(name='{self.name}', age={self.age})"
+    
+    def __repr__(self):
+        return f"Person('{self.name}', {self.age})"
+
+person = Person("Alice", 25)
+print(f"Person: {person}")
+print(f"Representation: {person!r}")
+
+# Custom formatting
+class Temperature:
+    def __init__(self, celsius):
+        self.celsius = celsius
+    
+    def __format__(self, format_spec):
+        if format_spec == "F":
+            return f"{self.celsius * 9/5 + 32:.1f}°F"
+        elif format_spec == "K":
+            return f"{self.celsius + 273.15:.1f}K"
+        else:
+            return f"{self.celsius:.1f}°C"
+
+temp = Temperature(20)
+print(f"Temperature: {temp}")
+print(f"Fahrenheit: {temp:F}")
+print(f"Kelvin: {temp:K}")</code></pre>
+
+                <h3>String Formatting Best Practices</h3>
+                <ul>
+                    <li>Use f-strings for Python 3.6+ (most readable and efficient)</li>
+                    <li>Use .format() for complex formatting or older Python versions</li>
+                    <li>Avoid % formatting for new code</li>
+                    <li>Be consistent within a project</li>
+                    <li>Use descriptive variable names in format strings</li>
+                    <li>Consider internationalization when designing format strings</li>
+                </ul>
+
+                <h3>Mini Project</h3>
+                <p>Create a report generator using string formatting:</p>
+                <ul>
+                    <li>Create a list of student records with names, grades, and attendance</li>
+                    <li>Format a report showing individual student statistics</li>
+                    <li>Calculate and display class averages</li>
+                    <li>Use different formatting techniques (f-strings, .format(), %)</li>
+                    <li>Include proper alignment and number formatting</li>
+                    <li>Bonus: Add grade letter conversion (A, B, C, etc.)</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>def calculate_grade_letter(score):
+    """Convert numeric score to letter grade."""
+    if score >= 90:
+        return 'A'
+    elif score >= 80:
+        return 'B'
+    elif score >= 70:
+        return 'C'
+    elif score >= 60:
+        return 'D'
+    else:
+        return 'F'
+
+def generate_student_report(students):
+    """Generate formatted report for students."""
+    print("=" * 60)
+    print(f"{'Student Report':^60}")
+    print("=" * 60)
+    print(f"{'Name':<20} {'Grade':<8} {'Letter':<8} {'Attendance':<12}")
+    print("-" * 60)
+    
+    total_score = 0
+    total_attendance = 0
+    
+    for student in students:
+        name, score, attendance = student
+        grade_letter = calculate_grade_letter(score)
+        
+        # Using f-strings for formatting
+        print(f"{name:<20} {score:<8.1f} {grade_letter:<8} {attendance:<12.1f}%")
+        
+        total_score += score
+        total_attendance += attendance
+    
+    print("-" * 60)
+    
+    avg_score = total_score / len(students)
+    avg_attendance = total_attendance / len(students)
+    
+    # Using .format() method
+    print("Class Average: {:.1f} ({})".format(avg_score, calculate_grade_letter(avg_score)))
+    print("Average Attendance: {:.1f}%".format(avg_attendance))
+
+# Sample data
+students = [
+    ("Alice Johnson", 95.5, 98.5),
+    ("Bob Smith", 87.2, 92.1),
+    ("Charlie Brown", 78.9, 85.3),
+    ("Diana Prince", 91.7, 96.8),
+    ("Eve Wilson", 83.4, 89.2)
+]
+
+generate_student_report(students)</code></pre>
+
+                <h3>Quiz</h3>
+                <p>1. Which string formatting method is most recommended for Python 3.6+?</p>
+                <ul>
+                    <li>% operator</li>
+                    <li>str.format() method</li>
+                    <li>f-strings</li>
+                    <li>string concatenation</li>
+                </ul>
+
+                <p>2. What does {:.2f} do in string formatting?</p>
+                <ul>
+                    <li>Formats as integer</li>
+                    <li>Formats as float with 2 decimal places</li>
+                    <li>Adds 2 zeros before the number</li>
+                    <li>Creates a list with 2 elements</li>
+                </ul>
+
+                <p>3. How do you right-align text in a field of width 10?</p>
+                <ul>
+                    <li>{:10}</li>
+                    <li>{:<10}</li>
+                    <li>{:>10}</li>
+                    <li>{:^10}</li>
+                </ul>
+
+                <p>4. What is the output of f"{42:,}"?</p>
+                <ul>
+                    <li>42</li>
+                    <li>42.0</li>
+                    <li>42,000</li>
+                    <li>42,0</li>
+                </ul>
+
+                <p>5. Which formatting method allows using variable names directly?</p>
+                <ul>
+                    <li>% operator</li>
+                    <li>str.format() with positional arguments</li>
+                    <li>f-strings</li>
+                    <li>All of the above</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

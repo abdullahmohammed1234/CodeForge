@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - C++ File Handling</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+        <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling" class="active">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>C++ File Handling</h2>
+                <p>File handling in C++ allows programs to read from and write to files on disk. This is essential for data persistence, configuration management, and processing large amounts of data. C++ provides stream-based I/O classes for efficient file operations.</p>
+
+                <h3>File Streams</h3>
+                <p>C++ uses stream classes for file I/O operations:</p>
+
+                <h4>Stream Classes</h4>
+                <table>
+                    <tr>
+                        <th>Class</th>
+                        <th>Purpose</th>
+                        <th>Header</th>
+                    </tr>
+                    <tr>
+                        <td>ifstream</td>
+                        <td>Input from files</td>
+                        <td>&lt;fstream&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>ofstream</td>
+                        <td>Output to files</td>
+                        <td>&lt;fstream&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>fstream</td>
+                        <td>Both input and output</td>
+                        <td>&lt;fstream&gt;</td>
+                    </tr>
+                </table>
+
+                <h3>Opening and Closing Files</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+
+int main() {
+    // Method 1: Open in constructor
+    std::ofstream outputFile("example.txt");
+    
+    // Method 2: Open with open() method
+    std::ifstream inputFile;
+    inputFile.open("data.txt");
+    
+    // Check if file opened successfully
+    if (!outputFile) {
+        std::cerr << "Error opening output file!" << std::endl;
+        return 1;
+    }
+    
+    if (!inputFile.is_open()) {
+        std::cerr << "Error opening input file!" << std::endl;
+        return 1;
+    }
+    
+    // Files are automatically closed when objects go out of scope
+    // Or explicitly close them
+    outputFile.close();
+    inputFile.close();
+    
+    return 0;
+}</code></pre>
+
+                <h3>File Modes</h3>
+                <p>File modes specify how the file should be opened:</p>
+                <table>
+                    <tr>
+                        <th>Mode</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>ios::in</td>
+                        <td>Open for reading (default for ifstream)</td>
+                    </tr>
+                    <tr>
+                        <td>ios::out</td>
+                        <td>Open for writing (default for ofstream)</td>
+                    </tr>
+                    <tr>
+                        <td>ios::app</td>
+                        <td>Append to end of file</td>
+                    </tr>
+                    <tr>
+                        <td>ios::trunc</td>
+                        <td>Truncate file to zero length</td>
+                    </tr>
+                    <tr>
+                        <td>ios::binary</td>
+                        <td>Open in binary mode</td>
+                    </tr>
+                </table>
+
+                <h4>Using File Modes</h4>
+                <pre><code>// Open for writing (creates or truncates)
+std::ofstream file1("output.txt");
+
+// Open for appending
+std::ofstream file2("log.txt", std::ios::app);
+
+// Open for reading and writing
+std::fstream file3("data.txt", std::ios::in | std::ios::out);
+
+// Open binary file for reading
+std::ifstream binaryFile("image.jpg", std::ios::binary);</code></pre>
+
+                <h3>Writing to Files</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::ofstream file("output.txt");
+    
+    if (file.is_open()) {
+        // Write strings
+        file << "Hello, World!" << std::endl;
+        file << "This is a test file." << std::endl;
+        
+        // Write numbers
+        int age = 25;
+        double height = 5.9;
+        file << "Age: " << age << std::endl;
+        file << "Height: " << height << std::endl;
+        
+        // Write formatted data
+        file << std::fixed << std::setprecision(2);
+        file << "Formatted number: " << 3.14159 << std::endl;
+        
+        file.close();
+        std::cout << "Data written to file successfully!" << std::endl;
+    } else {
+        std::cerr << "Unable to open file for writing!" << std::endl;
+    }
+    
+    return 0;
+}</code></pre>
+
+                <h3>Reading from Files</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::ifstream file("input.txt");
+    
+    if (file.is_open()) {
+        std::string line;
+        
+        // Method 1: Read line by line
+        while (std::getline(file, line)) {
+            std::cout << "Read: " << line << std::endl;
+        }
+        
+        // Reset file pointer to beginning
+        file.clear();  // Clear any error flags
+        file.seekg(0); // Move to beginning
+        
+        // Method 2: Read word by word
+        std::string word;
+        while (file >> word) {
+            std::cout << "Word: " << word << std::endl;
+        }
+        
+        // Method 3: Read entire file at once
+        file.clear();
+        file.seekg(0);
+        std::string content((std::istreambuf_iterator<char>(file)),
+                           std::istreambuf_iterator<char>());
+        std::cout << "Full content:\n" << content << std::endl;
+        
+        file.close();
+    } else {
+        std::cerr << "Unable to open file for reading!" << std::endl;
+    }
+    
+    return 0;
+}</code></pre>
+
+                <h3>Reading Different Data Types</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::ifstream file("data.txt");
+    
+    if (file.is_open()) {
+        std::string name;
+        int age;
+        double salary;
+        
+        // Read mixed data types
+        while (file >> name >> age >> salary) {
+            std::cout << "Name: " << name << std::endl;
+            std::cout << "Age: " << age << std::endl;
+            std::cout << "Salary: $" << salary << std::endl;
+            std::cout << "---" << std::endl;
+        }
+        
+        file.close();
+    }
+    
+    return 0;
+}</code></pre>
+
+                <h3>Binary File Operations</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+struct Person {
+    char name[50];
+    int age;
+    double salary;
+};
+
+int main() {
+    // Writing binary data
+    std::ofstream outFile("person.dat", std::ios::binary);
+    
+    Person person = {"John Doe", 30, 50000.0};
+    outFile.write(reinterpret_cast&lt;char*&gt;(&person), sizeof(Person));
+    outFile.close();
+    
+    // Reading binary data
+    std::ifstream inFile("person.dat", std::ios::binary);
+    
+    Person readPerson;
+    inFile.read(reinterpret_cast&lt;char*&gt;(&readPerson), sizeof(Person));
+    
+    std::cout << "Name: " << readPerson.name << std::endl;
+    std::cout << "Age: " << readPerson.age << std::endl;
+    std::cout << "Salary: $" << readPerson.salary << std::endl;
+    
+    inFile.close();
+    
+    return 0;
+}</code></pre>
+
+                <h3>File Positioning</h3>
+                <p>Control read/write position in files:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+int main() {
+    std::fstream file("random.txt", std::ios::in | std::ios::out | std::ios::trunc);
+    
+    // Write some data
+    file << "Hello World! This is a test file.";
+    
+    // Move to position 6 (after "Hello ")
+    file.seekp(6);
+    file << "Beautiful ";
+    
+    // Move to beginning for reading
+    file.seekg(0);
+    
+    std::string content;
+    std::getline(file, content);
+    std::cout << "Modified content: " << content << std::endl;
+    
+    // Get current positions
+    std::cout << "Read position: " << file.tellg() << std::endl;
+    std::cout << "Write position: " << file.tellp() << std::endl;
+    
+    file.close();
+    
+    return 0;
+}</code></pre>
+
+                <h3>Error Handling</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+void processFile(const std::string& filename) {
+    std::ifstream file(filename);
+    
+    if (!file) {
+        std::cerr << "Error: Cannot open file '" << filename << "'" << std::endl;
+        return;
+    }
+    
+    if (file.fail()) {
+        std::cerr << "File operation failed!" << std::endl;
+        return;
+    }
+    
+    // Check for end of file
+    std::string line;
+    while (!file.eof()) {
+        if (std::getline(file, line)) {
+            std::cout << line << std::endl;
+        }
+        
+        if (file.bad()) {
+            std::cerr << "Fatal error occurred!" << std::endl;
+            break;
+        }
+    }
+    
+    if (file.is_open()) {
+        file.close();
+    }
+}</code></pre>
+
+                <h3>File System Operations</h3>
+                <p>C++17 provides filesystem library:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;filesystem&gt;  // C++17
+
+namespace fs = std::filesystem;
+
+int main() {
+    // Check if file exists
+    if (fs::exists("example.txt")) {
+        std::cout << "File exists" << std::endl;
+    }
+    
+    // Get file size
+    if (fs::exists("example.txt")) {
+        auto size = fs::file_size("example.txt");
+        std::cout << "File size: " << size << " bytes" << std::endl;
+    }
+    
+    // Create directory
+    fs::create_directory("data");
+    
+    // List files in current directory
+    for (const auto& entry : fs::directory_iterator(".")) {
+        std::cout << entry.path() << std::endl;
+    }
+    
+    return 0;
+}</code></pre>
+
+                <h3>Example Program</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+struct Student {
+    std::string name;
+    int id;
+    double gpa;
+};
+
+void saveStudents(const std::vector&lt;Student&gt;& students, const std::string& filename) {
+    std::ofstream file(filename);
+    
+    if (!file) {
+        std::cerr << "Error opening file for writing!" << std::endl;
+        return;
+    }
+    
+    for (const auto& student : students) {
+        file << student.name << "," << student.id << "," << student.gpa << std::endl;
+    }
+    
+    file.close();
+    std::cout << "Students saved to " << filename << std::endl;
+}
+
+std::vector&lt;Student&gt; loadStudents(const std::string& filename) {
+    std::vector&lt;Student&gt; students;
+    std::ifstream file(filename);
+    
+    if (!file) {
+        std::cerr << "Error opening file for reading!" << std::endl;
+        return students;
+    }
+    
+    std::string line;
+    while (std::getline(file, line)) {
+        size_t pos1 = line.find(',');
+        size_t pos2 = line.find(',', pos1 + 1);
+        
+        if (pos1 != std::string::npos && pos2 != std::string::npos) {
+            Student student;
+            student.name = line.substr(0, pos1);
+            student.id = std::stoi(line.substr(pos1 + 1, pos2 - pos1 - 1));
+            student.gpa = std::stod(line.substr(pos2 + 1));
+            students.push_back(student);
+        }
+    }
+    
+    file.close();
+    return students;
+}
+
+void displayStudents(const std::vector&lt;Student&gt;& students) {
+    std::cout << "Student Records:" << std::endl;
+    std::cout << "===============" << std::endl;
+    
+    for (const auto& student : students) {
+        std::cout << "Name: " << student.name << std::endl;
+        std::cout << "ID: " << student.id << std::endl;
+        std::cout << "GPA: " << student.gpa << std::endl;
+        std::cout << "---" << std::endl;
+    }
+}
+
+int main() {
+    std::vector&lt;Student&gt; students = {
+        {"Alice Johnson", 1001, 3.8},
+        {"Bob Smith", 1002, 3.2},
+        {"Charlie Brown", 1003, 3.9}
+    };
+    
+    // Save to file
+    saveStudents(students, "students.txt");
+    
+    // Load from file
+    auto loadedStudents = loadStudents("students.txt");
+    
+    // Display loaded data
+    displayStudents(loadedStudents);
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a simple text editor with file operations:</p>
+                <ul>
+                    <li>Implement functions to create, open, and save text files</li>
+                    <li>Add search and replace functionality</li>
+                    <li>Implement line numbering and word counting</li>
+                    <li>Add undo/redo functionality using file operations</li>
+                    <li>Create a menu-driven interface</li>
+                    <li>Bonus: Add encryption/decryption for saved files</li>
+                </ul>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Forgetting to check if file opened successfully</li>
+                    <li>Not closing files (though RAII handles this)</li>
+                    <li>Mixing binary and text mode operations</li>
+                    <li>Not handling file I/O errors</li>
+                    <li>Using wrong file modes</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Always check file open status</li>
+                    <li>Use RAII for automatic file closing</li>
+                    <li>Handle errors gracefully</li>
+                    <li>Use appropriate file modes</li>
+                    <li>Validate file operations</li>
+                    <li>Use binary mode for non-text data</li>
+                    <li>Consider file encoding for text files</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. Which class is used for reading from files?</p>
+                <ul>
+                    <li>ofstream</li>
+                    <li>ifstream</li>
+                    <li>fstream</li>
+                    <li>iostream</li>
+                </ul>
+
+                <p>2. What does ios::app mode do?</p>
+                <ul>
+                    <li>Opens file for reading</li>
+                    <li>Appends to end of file</li>
+                    <li>Truncates the file</li>
+                    <li>Opens in binary mode</li>
+                </ul>
+
+                <p>3. Which operator is used for writing to files?</p>
+                <ul>
+                    <li>>></li>
+                    <li><<</li>
+                    <li>></li>
+                    <li><</li>
+                </ul>
+
+                <p>4. What does getline() do?</p>
+                <ul>
+                    <li>Reads a single character</li>
+                    <li>Reads a line including spaces</li>
+                    <li>Reads formatted input</li>
+                    <li>Finds line breaks</li>
+                </ul>
+
+                <p>5. When should you use binary mode?</p>
+                <ul>
+                    <li>For text files only</li>
+                    <li>For non-text data like images</li>
+                    <li>For small files</li>
+                    <li>Never, text mode is better</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

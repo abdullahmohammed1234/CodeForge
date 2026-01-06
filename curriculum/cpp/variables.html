@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - C++ Variables</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+       <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables" class="active">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>C++ Variables</h2>
+                <p>Variables in C++ are named storage locations that hold data values. They allow you to store, retrieve, and manipulate data throughout your program. Understanding variables is fundamental to programming in C++.</p>
+
+                <h3>What is a Variable?</h3>
+                <p>A variable is a container for storing data values. In C++, you must declare a variable before you can use it, specifying its data type and name. Variables can hold different types of data such as numbers, text, or boolean values.</p>
+
+                <h3>Variable Declaration</h3>
+                <p>In C++, variables must be declared before use. The declaration tells the compiler the variable's name and data type.</p>
+                <pre><code>// Variable declaration syntax:
+// data_type variable_name;
+
+// Examples:
+int age;
+double salary;
+char grade;
+std::string name;</code></pre>
+
+                <h3>Variable Initialization</h3>
+                <p>You can initialize a variable at the time of declaration or later in the program.</p>
+                <pre><code>// Declaration and initialization together:
+int age = 25;
+double pi = 3.14159;
+char letter = 'A';
+std::string greeting = "Hello";
+
+// Declaration first, initialization later:
+int score;
+score = 100;</code></pre>
+
+                <h3>Variable Naming Rules</h3>
+                <ul>
+                    <li>Variable names can contain letters, digits, and underscores</li>
+                    <li>Variable names must begin with a letter or underscore</li>
+                    <li>Variable names are case-sensitive (age and Age are different)</li>
+                    <li>Cannot use C++ keywords as variable names</li>
+                    <li>Use meaningful names that describe the variable's purpose</li>
+                </ul>
+                <pre><code>// Valid variable names:
+int user_age;
+double _temperature;
+std::string firstName;
+char grade_A;
+
+// Invalid variable names:
+// int 123abc;     // Starts with digit
+// int my-age;     // Contains hyphen
+// int int;        // Reserved keyword</code></pre>
+
+                <h3>Data Types</h3>
+                <p>C++ has several built-in data types for different kinds of data:</p>
+                <ul>
+                    <li><strong>int:</strong> Integer numbers (whole numbers)</li>
+                    <li><strong>double/float:</strong> Floating-point numbers (decimals)</li>
+                    <li><strong>char:</strong> Single characters</li>
+                    <li><strong>bool:</strong> Boolean values (true/false)</li>
+                    <li><strong>std::string:</strong> Text strings</li>
+                </ul>
+
+                <h3>Variable Scope</h3>
+                <p>The scope of a variable determines where it can be accessed in the program:</p>
+                <ul>
+                    <li><strong>Local variables:</strong> Declared inside functions, accessible only within that function</li>
+                    <li><strong>Global variables:</strong> Declared outside functions, accessible throughout the program</li>
+                    <li><strong>Block scope:</strong> Variables declared inside blocks (like loops or if statements)</li>
+                </ul>
+                <pre><code>#include &lt;iostream&gt;
+
+int global_var = 10; // Global variable
+
+int main() {
+    int local_var = 20; // Local variable
+    
+    if (true) {
+        int block_var = 30; // Block scope variable
+        std::cout << block_var << std::endl;
+    }
+    
+    // block_var is not accessible here
+    std::cout << local_var << std::endl;
+    std::cout << global_var << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Constants</h3>
+                <p>Constants are variables whose values cannot be changed after initialization. Use the const keyword:</p>
+                <pre><code>const double PI = 3.14159;
+const int MAX_USERS = 100;
+const std::string COMPANY_NAME = "CodeForge";
+
+// PI = 3.14; // Error: cannot modify constant</code></pre>
+
+                <h3>Example Program</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    // Variable declarations
+    std::string name;
+    int age;
+    double height;
+    char grade;
+    bool is_student;
+    
+    // Variable assignments
+    name = "Alice";
+    age = 20;
+    height = 5.6;
+    grade = 'A';
+    is_student = true;
+    
+    // Display variables
+    std::cout << "Name: " << name << std::endl;
+    std::cout << "Age: " << age << std::endl;
+    std::cout << "Height: " << height << " feet" << std::endl;
+    std::cout << "Grade: " << grade << std::endl;
+    std::cout << "Is student: " << (is_student ? "Yes" : "No") << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a C++ program that demonstrates variable usage:</p>
+                <ul>
+                    <li>Declare variables of different data types</li>
+                    <li>Initialize some variables at declaration and others later</li>
+                    <li>Perform basic operations with variables</li>
+                    <li>Display variable values using cout</li>
+                    <li>Bonus: Create a simple calculator that uses variables for input and results</li>
+                </ul>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Using variables before declaring them</li>
+                    <li>Mixing up data types (assigning string to int)</li>
+                    <li>Forgetting to initialize variables (may contain garbage values)</li>
+                    <li>Using reserved keywords as variable names</li>
+                    <li>Scope issues (trying to access variables outside their scope)</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. Which of the following is a valid variable declaration in C++?</p>
+                <ul>
+                    <li>int 1number;</li>
+                    <li>int number1;</li>
+                    <li>int my-number;</li>
+                    <li>int int;</li>
+                </ul>
+
+                <p>2. What is the correct way to declare and initialize an integer variable?</p>
+                <ul>
+                    <li>int x = 5;</li>
+                    <li>x int = 5;</li>
+                    <li>int x: 5;</li>
+                    <li>integer x = 5;</li>
+                </ul>
+
+                <p>3. Which data type would you use to store a person's age?</p>
+                <ul>
+                    <li>double</li>
+                    <li>char</li>
+                    <li>int</li>
+                    <li>bool</li>
+                </ul>
+
+                <p>4. What happens if you try to use a variable before declaring it?</p>
+                <ul>
+                    <li>The program runs with default values</li>
+                    <li>You get a compilation error</li>
+                    <li>The variable is automatically declared</li>
+                    <li>Nothing happens</li>
+                </ul>
+
+                <p>5. Which keyword is used to declare a constant in C++?</p>
+                <ul>
+                    <li>constant</li>
+                    <li>const</li>
+                    <li>final</li>
+                    <li>static</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

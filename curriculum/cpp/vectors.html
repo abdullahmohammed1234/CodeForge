@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - C++ Vectors</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+        <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors" class="active">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>C++ Vectors</h2>
+                <p>Vectors are dynamic arrays that can grow and shrink in size automatically. They are part of the C++ Standard Template Library (STL) and provide a safer, more convenient alternative to traditional C-style arrays. Vectors manage their own memory and offer many useful operations.</p>
+
+                <h3>What is a Vector?</h3>
+                <p>A vector is a sequence container that encapsulates dynamic size arrays. Key features:</p>
+                <ul>
+                    <li><strong>Dynamic sizing:</strong> Automatically resizes as elements are added/removed</li>
+                    <li><strong>Contiguous memory:</strong> Elements stored in contiguous memory locations</li>
+                    <li><strong>Random access:</strong> Constant time access to any element</li>
+                    <li><strong>Bounds checking:</strong> Optional bounds checking with at() method</li>
+                    <li><strong>Memory management:</strong> Automatic memory allocation/deallocation</li>
+                </ul>
+
+                <h4>Vectors vs Arrays</h4>
+                <table>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Vector</th>
+                        <th>Array</th>
+                    </tr>
+                    <tr>
+                        <td>Size</td>
+                        <td>Dynamic</td>
+                        <td>Fixed</td>
+                    </tr>
+                    <tr>
+                        <td>Memory</td>
+                        <td>Managed automatically</td>
+                        <td>Manual management</td>
+                    </tr>
+                    <tr>
+                        <td>Methods</td>
+                        <td>Many built-in methods</td>
+                        <td>No built-in methods</td>
+                    </tr>
+                    <tr>
+                        <td>Safety</td>
+                        <td>Bounds checking available</td>
+                        <td>No bounds checking</td>
+                    </tr>
+                </table>
+
+                <h3>Including Vectors</h3>
+                <pre><code>#include &lt;vector&gt;  // Required header
+
+// Using namespace to avoid std:: prefix
+using namespace std;
+
+// Or use std::vector throughout</code></pre>
+
+                <h3>Vector Declaration and Initialization</h3>
+                <pre><code>// Empty vector
+vector&lt;int&gt; numbers;
+
+// Vector with size
+vector&lt;double&gt; values(10);  // 10 elements, default initialized
+
+// Vector with size and initial value
+vector&lt;char&gt; letters(5, 'a');  // 5 elements, all 'a'
+
+// Initialize with list (C++11)
+vector&lt;int&gt; primes = {2, 3, 5, 7, 11};
+
+// Copy constructor
+vector&lt;int&gt; copy = numbers;
+
+// Different data types
+vector&lt;string&gt; names;
+vector&lt;bool&gt; flags;
+vector&lt;vector&lt;int&gt;&gt; matrix;  // Vector of vectors</code></pre>
+
+                <h3>Element Access</h3>
+                <pre><code>vector&lt;int&gt; numbers = {10, 20, 30, 40, 50};
+
+// Method 1: Subscript operator [] (no bounds checking)
+int first = numbers[0];      // 10
+int third = numbers[2];      // 30
+
+// Method 2: at() method (bounds checking)
+int second = numbers.at(1);  // 20
+// numbers.at(10);  // Throws out_of_range exception
+
+// Method 3: front() and back()
+int front = numbers.front(); // 10
+int back = numbers.back();   // 50
+
+// Method 4: data() - get raw pointer
+int* ptr = numbers.data();   // Pointer to first element</code></pre>
+
+                <h3>Adding Elements</h3>
+                <pre><code>vector<int> numbers;
+
+// push_back() - add to end
+numbers.push_back(10);  // [10]
+numbers.push_back(20);  // [10, 20]
+numbers.push_back(30);  // [10, 20, 30]
+
+// insert() - insert at position
+numbers.insert(numbers.begin() + 1, 15);  // [10, 15, 20, 30]
+
+// emplace_back() - construct in place (more efficient)
+struct Point {
+    int x, y;
+    Point(int a, int b) : x(a), y(b) {}
+};
+
+vector&lt;Point&gt; points;
+points.emplace_back(1, 2);  // Constructs Point directly
+points.push_back(Point(3, 4));  // Creates temporary object</code></pre>
+
+                <h3>Removing Elements</h3>
+                <pre><code>vector&lt;int&gt; numbers = {10, 20, 30, 40, 50};
+
+// pop_back() - remove from end
+numbers.pop_back();  // [10, 20, 30, 40]
+
+// erase() - remove at position
+numbers.erase(numbers.begin() + 1);  // [10, 30, 40]
+
+// erase() - remove range
+numbers.erase(numbers.begin(), numbers.begin() + 2);  // [40]
+
+// clear() - remove all elements
+numbers.clear();  // []
+
+// resize() - change size
+numbers.resize(10);  // Resize to 10 elements (default initialized)
+numbers.resize(5, 99);  // Resize to 5 elements, new elements = 99</code></pre>
+
+                <h3>Size and Capacity</h3>
+                <pre><code>vector&lt;int&gt; numbers;
+
+// Size operations
+numbers.size();      // Current number of elements
+numbers.empty();     // true if size == 0
+numbers.max_size();  // Maximum possible size
+
+// Capacity operations
+numbers.capacity();  // Current allocated capacity
+numbers.reserve(100);  // Reserve space for 100 elements
+numbers.shrink_to_fit();  // Reduce capacity to fit size
+
+// Example
+vector&lt;int&gt; vec;
+cout << "Size: " << vec.size() << ", Capacity: " << vec.capacity() << endl;
+
+vec.push_back(1);
+cout << "Size: " << vec.size() << ", Capacity: " << vec.capacity() << endl;
+
+vec.reserve(10);
+cout << "Size: " << vec.size() << ", Capacity: " << vec.capacity() << endl;</code></pre>
+
+                <h3>Iterators</h3>
+                <p>Iterators provide a way to traverse vector elements:</p>
+                <pre><code>vector&lt;int&gt; numbers = {10, 20, 30, 40, 50};
+
+// Iterator types
+vector&lt;int&gt;::iterator it;        // Read/write iterator
+vector&lt;int&gt;::const_iterator cit; // Read-only iterator
+// Basic iteration
+for (auto it = numbers.begin(); it != numbers.end(); ++it) {
+    cout << *it << " ";
+}
+
+// Range-based for loop (C++11)
+for (int num : numbers) {
+    cout << num << " ";
+}
+
+// Reverse iteration
+for (auto it = numbers.rbegin(); it != numbers.rend(); ++it) {
+    cout << *it << " ";
+}</code></pre>
+
+                <h3>Vector Operations</h3>
+                <pre><code>vector&lt;int&gt; vec1 = {1, 2, 3};
+vector&lt;int&gt; vec2 = {4, 5, 6};
+
+// Assignment
+vector&lt;int&gt; vec3 = vec1;  // Copy assignment
+// Swap
+vec1.swap(vec2);  // vec1 = {4, 5, 6}, vec2 = {1, 2, 3}
+
+// Comparison
+if (vec1 == vec2) { /* equal */ }
+if (vec1 < vec2) { /* lexicographical comparison */ }
+
+// Fill with value
+vector&lt;int&gt; filled(5, 42);  // [42, 42, 42, 42, 42]
+
+// Assign new content
+vec1.assign(3, 100);  // [100, 100, 100]
+vec2.assign(vec1.begin(), vec1.end());  // Copy from iterators</code></pre>
+
+                <h3>Multidimensional Vectors</h3>
+                <pre><code>// 2D vector
+vector&lt;vector&lt;int&gt;&gt; matrix;
+
+// Initialize 3x4 matrix with 0s
+vector&lt;vector&lt;int&gt;&gt; matrix2(3, vector&lt;int&gt;(4, 0));
+
+// Initialize with different values
+vector&lt;vector&lt;int&gt;&gt; matrix3 = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+
+// Access elements
+matrix3[1][2] = 99;  // Change 6 to 99
+
+// Add row
+matrix3.push_back({10, 11, 12});
+
+// Iterate through 2D vector
+for (const auto& row : matrix3) {
+    for (int val : row) {
+        cout << val << " ";
+    }
+    cout << endl;
+}</code></pre>
+
+                <h3>Vector Algorithms</h3>
+                <p>The &lt;algorithm&gt; header provides useful algorithms for vectors:</p>
+                <pre><code>#include &lt;algorithm&gt;
+
+vector&lt;int&gt; numbers = {3, 1, 4, 1, 5, 9, 2, 6};
+
+// Sort
+sort(numbers.begin(), numbers.end());  // Ascending
+sort(numbers.rbegin(), numbers.rend());  // Descending
+
+// Find
+auto it = find(numbers.begin(), numbers.end(), 5);
+if (it != numbers.end()) {
+    cout << "Found 5 at position: " << (it - numbers.begin()) << endl;
+}
+
+// Count
+int count = count_if(numbers.begin(), numbers.end(), 
+                    [](int x) { return x > 3; });
+cout << "Numbers > 3: " << count << endl;
+
+// Transform
+vector&lt;int&gt; squares;
+transform(numbers.begin(), numbers.end(), back_inserter(squares),
+         [](int x) { return x * x; });
+
+// Min/Max
+int min_val = *min_element(numbers.begin(), numbers.end());
+int max_val = *max_element(numbers.begin(), numbers.end());
+
+// Shuffle (requires &lt;random&gt;)
+random_shuffle(numbers.begin(), numbers.end());</code></pre>
+
+                <h3>Custom Comparators</h3>
+                <pre><code>struct Person {
+    string name;
+    int age;
+    
+    Person(string n, int a) : name(n), age(a) {}
+};
+
+// Sort by age
+bool compareByAge(const Person& a, const Person& b) {
+    return a.age < b.age;
+}
+
+vector&lt;Person&gt; people = {
+    {"Alice", 25},
+    {"Bob", 30},
+    {"Charlie", 20}
+};
+
+sort(people.begin(), people.end(), compareByAge);
+
+// Lambda comparator
+sort(people.begin(), people.end(), 
+     [](const Person& a, const Person& b) {
+         return a.name < b.name;
+     });</code></pre>
+
+                <h3>Example Program</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;numeric&gt;  // for accumulate
+
+using namespace std;
+
+class StudentManager {
+private:
+    vector&lt;string&gt; names;
+    vector&lt;int&gt; grades;
+    
+public:
+    void addStudent(const string& name, int grade) {
+        names.push_back(name);
+        grades.push_back(grade);
+    }
+    
+    void displayStudents() {
+        cout << "Student Records:" << endl;
+        cout << "===============" << endl;
+        
+        for (size_t i = 0; i < names.size(); ++i) {
+            cout << names[i] << ": " << grades[i] << endl;
+        }
+    }
+    
+    double getAverageGrade() {
+        if (grades.empty()) return 0.0;
+        return accumulate(grades.begin(), grades.end(), 0.0) / grades.size();
+    }
+    
+    void sortByGrade() {
+        // Create index vector for sorting
+        vector&lt;size_t&gt; indices(grades.size());
+        iota(indices.begin(), indices.end(), 0);
+        
+        // Sort indices based on grades
+        sort(indices.begin(), indices.end(),
+             [this](size_t a, size_t b) {
+                 return grades[a] > grades[b];  // Descending
+             });
+        
+        // Reorder both vectors
+        vector&lt;string&gt; sorted_names;
+        vector&lt;int&gt; sorted_grades;
+        
+        for (size_t idx : indices) {
+            sorted_names.push_back(names[idx]);
+            sorted_grades.push_back(grades[idx]);
+        }
+        
+        names = move(sorted_names);
+        grades = move(sorted_grades);
+    }
+
+    vector&lt;string&gt; getStudentsAboveGrade(int threshold) {
+        vector&lt;string&gt; result;
+        for (size_t i = 0; i < grades.size(); ++i) {
+            if (grades[i] >= threshold) {
+                result.push_back(names[i]);
+            }
+        }
+        return result;
+    }
+};
+
+int main() {
+    StudentManager manager;
+    
+    // Add students
+    manager.addStudent("Alice", 95);
+    manager.addStudent("Bob", 87);
+    manager.addStudent("Charlie", 92);
+    manager.addStudent("Diana", 78);
+    
+    cout << "Original order:" << endl;
+    manager.displayStudents();
+    
+    cout << "\nAverage grade: " << manager.getAverageGrade() << endl;
+    
+    cout << "\nSorted by grade (descending):" << endl;
+    manager.sortByGrade();
+    manager.displayStudents();
+    
+    cout << "\nStudents with grade >= 90:" << endl;
+    auto highPerformers = manager.getStudentsAboveGrade(90);
+    for (const auto& name : highPerformers) {
+        cout << name << endl;
+    }
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a dynamic contact list application:</p>
+                <ul>
+                    <li>Implement a Contact struct with name, phone, email</li>
+                    <li>Use vector to store contacts</li>
+                    <li>Add functions to add, remove, search, and display contacts</li>
+                    <li>Implement sorting by name or phone number</li>
+                    <li>Add file I/O to save/load contacts</li>
+                    <li>Bonus: Add search functionality with partial matching</li>
+                </ul>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Accessing elements out of bounds with [] operator</li>
+                    <li>Forgetting that vector indices start at 0</li>
+                    <li>Not checking if vector is empty before operations</li>
+                    <li>Using wrong iterator types</li>
+                    <li>Inefficient insertions/removals in middle of large vectors</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use range-based for loops when possible</li>
+                    <li>Reserve capacity when you know the approximate size</li>
+                    <li>Use const references for large objects in parameters</li>
+                    <li>Prefer emplace_back() over push_back() for complex objects</li>
+                    <li>Use algorithms from <algorithm> instead of manual loops</li>
+                    <li>Consider std::array for fixed-size sequences</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. What header file is needed for vectors?</p>
+                <ul>
+                    <li>&lt;vector&gt;</li>
+                    <li>&lt;array&gt;</li>
+                    <li>&lt;list&gt;</li>
+                    <li>&lt;deque&gt;</li>
+                </ul>
+
+                <p>2. Which method adds an element to the end of a vector?</p>
+                <ul>
+                    <li>push_front()</li>
+                    <li>push_back()</li>
+                    <li>add_end()</li>
+                    <li>insert_last()</li>
+                </ul>
+
+                <p>3. What does the capacity() method return?</p>
+                <ul>
+                    <li>Current number of elements</li>
+                    <li>Maximum possible size</li>
+                    <li>Allocated memory size</li>
+                    <li>Memory used by elements</li>
+                </ul>
+
+                <p>4. Which method provides bounds checking?</p>
+                <ul>
+                    <li>operator[]</li>
+                    <li>at()</li>
+                    <li>front()</li>
+                    <li>back()</li>
+                </ul>
+
+                <p>5. What does emplace_back() do?</p>
+                <ul>
+                    <li>Copies an object to the end</li>
+                    <li>Moves an object to the end</li>
+                    <li>Constructs an object in place at the end</li>
+                    <li>Replaces the last element</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

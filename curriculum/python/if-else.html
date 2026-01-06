@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - If Else Statements</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+           <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>If Else Statements</h2>
+                <p>If-else statements are fundamental to programming logic, allowing your code to make decisions and execute different blocks of code based on conditions. In Python, these conditional statements use boolean expressions to determine which path your program should take. Mastering if-else statements is crucial for creating dynamic and responsive programs.</p>
+
+                <h3>What are Conditional Statements?</h3>
+                <p>Conditional statements allow your program to:</p>
+                <ul>
+                    <li>Execute code only when certain conditions are met</li>
+                    <li>Choose between different actions based on input or data</li>
+                    <li>Handle different scenarios gracefully</li>
+                    <li>Create interactive programs that respond to user input</li>
+                    <li>Implement business logic and decision-making processes</li>
+                </ul>
+
+                <h3>The if Statement</h3>
+                <p>The basic if statement executes code only if a condition is true:</p>
+                <pre><code>age = 18
+
+if age >= 18:
+    print("You are an adult!")
+    print("You can vote and drive.")
+
+print("This always executes")</code></pre>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>The condition must evaluate to True or False</li>
+                    <li>Code inside the if block must be indented</li>
+                    <li>Python uses colon (:) after the condition</li>
+                    <li>Statements after the if block execute regardless</li>
+                </ul>
+
+                <h3>The if-else Statement</h3>
+                <p>The if-else statement provides two paths of execution:</p>
+                <pre><code>temperature = 25
+
+if temperature > 30:
+    print("It's hot outside!")
+    print("Stay hydrated.")
+else:
+    print("The weather is pleasant.")
+    print("Enjoy your day!")
+
+print("Weather check complete.")</code></pre>
+
+                <h3>The elif Statement</h3>
+                <p>elif (else if) allows multiple conditions to be checked:</p>
+                <pre><code>score = 85
+
+if score >= 90:
+    grade = "A"
+    print("Excellent work!")
+elif score >= 80:
+    grade = "B"
+    print("Good job!")
+elif score >= 70:
+    grade = "C"
+    print("Satisfactory.")
+elif score >= 60:
+    grade = "D"
+    print("Needs improvement.")
+else:
+    grade = "F"
+    print("Failed.")
+
+print(f"Your grade is: {grade}")</code></pre>
+                <p><strong>Note:</strong> Only the first true condition executes.</p>
+
+                <h3>Comparison Operators</h3>
+                <p>Common comparison operators used in conditions:</p>
+                <pre><code>x = 10
+y = 20
+
+print(x == y)   # Equal to: False
+print(x != y)   # Not equal to: True
+print(x < y)    # Less than: True
+print(x > y)    # Greater than: False
+print(x <= y)   # Less than or equal to: True
+print(x >= y)   # Greater than or equal to: False</code></pre>
+
+                <h3>Logical Operators</h3>
+                <p>Combine multiple conditions:</p>
+                <pre><code>age = 25
+has_license = True
+
+# AND: Both conditions must be true
+if age >= 18 and has_license:
+    print("You can drive legally.")
+
+# OR: At least one condition must be true
+if age < 18 or not has_license:
+    print("You cannot drive.")
+
+# NOT: Negates the condition
+if not has_license:
+    print("You need a license to drive.")</code></pre>
+
+                <h3>Nested if Statements</h3>
+                <p>If statements can be nested inside other if statements:</p>
+                <pre><code>age = 20
+has_id = True
+
+if age >= 18:
+    if has_id:
+        print("You can enter the club.")
+        print("Have a great time!")
+    else:
+        print("You need ID to enter.")
+else:
+    print("You must be 18 or older.")</code></pre>
+
+                <h3>Truthy and Falsy Values</h3>
+                <p>Python considers these values falsy:</p>
+                <ul>
+                    <li>False</li>
+                    <li>None</li>
+                    <li>0 (zero)</li>
+                    <li>Empty collections: [], (), {}, ""</li>
+                </ul>
+                <p>All other values are truthy:</p>
+                <pre><code># Examples of truthy/falsy
+if 0:
+    print("This won't print")
+else:
+    print("0 is falsy")
+
+if "hello":
+    print("Non-empty string is truthy")
+
+if []:
+    print("This won't print")
+else:
+    print("Empty list is falsy")</code></pre>
+
+                <h3>Ternary Operator</h3>
+                <p>A compact way to write simple if-else statements:</p>
+                <pre><code># Traditional if-else
+age = 20
+status = ""
+if age >= 18:
+    status = "Adult"
+else:
+    status = "Minor"
+
+# Ternary operator
+status = "Adult" if age >= 18 else "Minor"
+
+print(f"Status: {status}")
+
+# Can be used in expressions
+message = f"You are {'an adult' if age >= 18 else 'a minor'}."</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a comprehensive grading system program:</p>
+                <ul>
+                    <li>Accept a numerical score from the user</li>
+                    <li>Use if-elif-else to determine the letter grade</li>
+                    <li>Include plus/minus grades for more precision</li>
+                    <li>Provide encouraging messages based on performance</li>
+                    <li>Handle invalid input (scores outside 0-100)</li>
+                    <li>Bonus: Calculate GPA or provide study recommendations</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>def get_grade(score):
+    """Convert numerical score to letter grade"""
+    if score >= 97:
+        return "A+"
+    elif score >= 93:
+        return "A"
+    elif score >= 90:
+        return "A-"
+    elif score >= 87:
+        return "B+"
+    elif score >= 83:
+        return "B"
+    elif score >= 80:
+        return "B-"
+    elif score >= 77:
+        return "C+"
+    elif score >= 73:
+        return "C"
+    elif score >= 70:
+        return "C-"
+    elif score >= 67:
+        return "D+"
+    elif score >= 63:
+        return "D"
+    elif score >= 60:
+        return "D-"
+    else:
+        return "F"
+
+def get_message(grade):
+    """Provide feedback based on grade"""
+    if grade.startswith("A"):
+        return "Excellent work! Keep it up!"
+    elif grade.startswith("B"):
+        return "Good job! Room for improvement."
+    elif grade.startswith("C"):
+        return "Satisfactory. Consider extra study."
+    elif grade.startswith("D"):
+        return "Needs improvement. Seek help if needed."
+    else:
+        return "Failed. Don't give up - try again!"
+
+# Main program
+try:
+    score = float(input("Enter your score (0-100): "))
+    
+    if 0 <= score <= 100:
+        grade = get_grade(score)
+        message = get_message(grade)
+        
+        print(f"Score: {score}")
+        print(f"Grade: {grade}")
+        print(f"Feedback: {message}")
+    else:
+        print("Invalid score. Please enter a number between 0 and 100.")
+        
+except ValueError:
+    print("Invalid input. Please enter a numerical score.")</code></pre>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Forgetting colons after conditions</li>
+                    <li>Incorrect indentation (Python is indentation-sensitive)</li>
+                    <li>Using assignment (=) instead of comparison (==)</li>
+                    <li>Missing else clause when needed</li>
+                    <li>Overusing nested if statements (consider elif)</li>
+                    <li>Not handling edge cases</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Keep conditions simple and readable</li>
+                    <li>Use elif for mutually exclusive conditions</li>
+                    <li>Avoid deep nesting when possible</li>
+                    <li>Use descriptive variable names</li>
+                    <li>Comment complex conditions</li>
+                    <li>Test boundary conditions</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. What happens if the condition in an if statement is false?</p>
+                <ul>
+                    <li>The program crashes</li>
+                    <li>The code inside the if block is skipped</li>
+                    <li>The else block always executes</li>
+                    <li>Nothing happens</li>
+                </ul>
+
+                <p>2. Which operator is used for comparison in Python?</p>
+                <ul>
+                    <li>=</li>
+                    <li>==</li>
+                    <li>===</li>
+                    <li>equals</li>
+                </ul>
+
+                <p>3. What does elif stand for?</p>
+                <ul>
+                    <li>else if</li>
+                    <li>elif is</li>
+                    <li>else loop</li>
+                    <li>end if</li>
+                </ul>
+
+                <p>4. Which of these values is considered falsy in Python?</p>
+                <ul>
+                    <li>1</li>
+                    <li>"hello"</li>
+                    <li>[]</li>
+                    <li>True</li>
+                </ul>
+
+                <p>5. What is the correct syntax for an if-else statement?</p>
+                <ul>
+                    <li>if condition { code } else { code }</li>
+                    <li>if condition: code else: code</li>
+                    <li>if (condition) code else code</li>
+                    <li>if condition code else code</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

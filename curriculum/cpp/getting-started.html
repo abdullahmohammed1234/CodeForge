@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - C++ Getting Started</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+        <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started" class="active">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>C++ Getting Started</h2>
+                <p>Welcome to your C++ programming journey! This guide will help you set up your development environment and write your first C++ program. C++ is a compiled language, so you'll need to install a compiler and learn the compilation process.</p>
+
+                <h3>Prerequisites</h3>
+                <p>Before starting with C++, you should have:</p>
+                <ul>
+                    <li>A computer running Windows, macOS, or Linux</li>
+                    <li>Basic understanding of programming concepts</li>
+                    <li>Familiarity with using a command line/terminal</li>
+                    <li>A text editor or Integrated Development Environment (IDE)</li>
+                </ul>
+
+                <h3>Step 1: Install a C++ Compiler</h3>
+                <p>C++ code needs to be compiled before it can run. Here are the most common compilers:</p>
+
+                <h4>Windows</h4>
+                <ul>
+                    <li><strong>Visual Studio Community:</strong> Free IDE with built-in compiler</li>
+                    <li><strong>MinGW:</strong> GCC compiler for Windows</li>
+                    <li><strong>MSYS2:</strong> Unix-like environment with GCC</li>
+                </ul>
+
+                <h4>macOS</h4>
+                <ul>
+                    <li><strong>Xcode:</strong> Apple's IDE (install Command Line Tools)</li>
+                    <li><strong>Homebrew + GCC:</strong> Alternative compiler installation</li>
+                </ul>
+
+                <h4>Linux</h4>
+                <ul>
+                    <li><strong>GCC:</strong> Usually pre-installed or available via package manager</li>
+                    <li><strong>Clang:</strong> Alternative compiler from LLVM project</li>
+                </ul>
+
+                <h3>Step 2: Choose an IDE or Text Editor</h3>
+                <p>While you can write C++ code in any text editor, an IDE provides helpful features:</p>
+                <ul>
+                    <li><strong>Visual Studio Code:</strong> Free, lightweight, with C++ extensions</li>
+                    <li><strong>Visual Studio:</strong> Full-featured IDE for Windows</li>
+                    <li><strong>CLion:</strong> Cross-platform IDE from JetBrains</li>
+                    <li><strong>Code::Blocks:</strong> Free, open-source IDE</li>
+                    <li><strong>Eclipse CDT:</strong> Eclipse with C++ support</li>
+                </ul>
+
+                <h3>Step 3: Verify Your Installation</h3>
+                <p>After installation, verify your compiler works:</p>
+                <pre><code>// Windows (Command Prompt)
+g++ --version
+
+// macOS/Linux (Terminal)
+g++ --version</code></pre>
+                <p>You should see version information if the compiler is installed correctly.</p>
+
+                <h3>Your First C++ Program</h3>
+                <p>Let's create the traditional "Hello, World!" program:</p>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+}</code></pre>
+
+                <h3>Understanding the Code</h3>
+                <ul>
+                    <li><code>#include &lt;iostream&gt;</code>: Includes the input/output stream library</li>
+                    <li><code>int main()</code>: The main function where program execution begins</li>
+                    <li><code>std::cout</code>: Standard output stream (console output)</li>
+                    <li><code><<</code>: Output operator</li>
+                    <li><code>std::endl</code>: End line (adds newline and flushes output)</li>
+                    <li><code>return 0</code>: Indicates successful program execution</li>
+                </ul>
+
+                <h3>Compiling and Running Your Program</h3>
+
+                <h4>Using Command Line</h4>
+                <pre><code>// 1. Create a file called hello.cpp
+// 2. Copy the code above into the file
+// 3. Compile the program
+g++ hello.cpp -o hello
+
+// 4. Run the executable
+./hello  // On Linux/macOS
+hello.exe  // On Windows</code></pre>
+
+                <h4>Using an IDE</h4>
+                <p>Most IDEs have built-in compilation and run commands:</p>
+                <ul>
+                    <li>Create a new C++ project or file</li>
+                    <li>Paste the code</li>
+                    <li>Use the "Build" or "Compile" menu option</li>
+                    <li>Use "Run" or "Execute" to run the program</li>
+                </ul>
+
+                <h3>Common Compilation Errors</h3>
+                <ul>
+                    <li><strong>Missing semicolon:</strong> Every statement must end with ;</li>
+                    <li><strong>Missing header:</strong> Include necessary headers like &lt;iostream&gt;</li>
+                    <li><strong>Case sensitivity:</strong> C++ is case-sensitive</li>
+                    <li><strong>Missing main function:</strong> Every program needs a main() function</li>
+                    <li><strong>Wrong file extension:</strong> Use .cpp for C++ source files</li>
+                </ul>
+
+                <h3>C++ File Structure</h3>
+                <p>A typical C++ program consists of:</p>
+                <ul>
+                    <li><strong>Header files:</strong> Declarations and function prototypes</li>
+                    <li><strong>Source files:</strong> Implementation of functions</li>
+                    <li><strong>Main function:</strong> Entry point of the program</li>
+                    <li><strong>Libraries:</strong> Pre-compiled code for common functionality</li>
+                </ul>
+
+                <h3>Basic Program Template</h3>
+                <pre><code>// Include necessary headers
+#include &lt;iostream&gt;
+#include &lt;string&gt;  // For string operations
+
+// Using namespace to avoid std:: prefix
+using namespace std;
+
+// Main function
+int main() {
+    // Your code here
+    cout << "Welcome to C++!" << endl;
+    
+    // Variable declaration and usage
+    string name;
+    cout << "Enter your name: ";
+    getline(cin, name);
+    
+    cout << "Hello, " << name << "!" << endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a simple interactive C++ program:</p>
+                <ul>
+                    <li>Include necessary headers</li>
+                    <li>Use cout for output and cin for input</li>
+                    <li>Declare variables to store user input</li>
+                    <li>Compile and run the program</li>
+                    <li>Bonus: Add basic calculations or string manipulation</li>
+                </ul>
+
+                <h3>Next Steps</h3>
+                <p>Now that you have your environment set up:</p>
+                <ul>
+                    <li>Learn about variables and data types</li>
+                    <li>Study control structures (if-else, loops)</li>
+                    <li>Understand functions and modular programming</li>
+                    <li>Explore the Standard Template Library (STL)</li>
+                    <li>Practice with small projects</li>
+                </ul>
+
+                <h3>Troubleshooting</h3>
+                <ul>
+                    <li><strong>Compiler not found:</strong> Check your PATH environment variable</li>
+                    <li><strong>Permission denied:</strong> Make sure you have write permissions</li>
+                    <li><strong>Linker errors:</strong> Check for missing libraries or incorrect linking</li>
+                    <li><strong>Runtime errors:</strong> Use debugging tools to identify issues</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. What is the entry point function for C++ programs?</p>
+                <ul>
+                    <li>start()</li>
+                    <li>main()</li>
+                    <li>begin()</li>
+                    <li>run()</li>
+                </ul>
+
+                <p>2. Which header file is needed for input/output operations?</p>
+                <ul>
+                    <li>&lt;string&gt;</li>
+                    <li>&lt;iostream&gt;</li>
+                    <li>&lt;cmath&gt;</li>
+                    <li>&lt;vector&gt;</li>
+                </ul>
+
+                <p>3. What does the g++ command do?</p>
+                <ul>
+                    <li>Runs the program</li>
+                    <li>Compiles C++ code</li>
+                    <li>Creates a new file</li>
+                    <li>Opens an IDE</li>
+                </ul>
+
+                <p>4. Which of the following is the correct way to output text in C++?</p>
+                <ul>
+                    <li>print("Hello")</li>
+                    <li>cout << "Hello"</li>
+                    <li>echo "Hello"</li>
+                    <li>printf("Hello")</li>
+                </ul>
+
+                <p>5. What should be the return type of the main() function?</p>
+                <ul>
+                    <li>void</li>
+                    <li>string</li>
+                    <li>int</li>
+                    <li>char</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

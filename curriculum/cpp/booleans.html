@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Booleans</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+        <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Booleans</h2>
+                <p>Boolean values in C++ represent truth values and are fundamental to decision-making in programs. C++ provides a dedicated bool data type that can hold only two values: true and false. Boolean expressions are used extensively in conditional statements, loops, and logical operations.</p>
+
+                <h3>The bool Data Type</h3>
+                <p>In C++, bool is a built-in data type that represents boolean values:</p>
+                <ul>
+                    <li><strong>true:</strong> Represents a logically true condition</li>
+                    <li><strong>false:</strong> Represents a logically false condition</li>
+                    <li>Internally stored as integers (true = 1, false = 0)</li>
+                    <li>Size is typically 1 byte</li>
+                </ul>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    bool is_ready = true;
+    bool is_finished = false;
+    
+    std::cout << "is_ready: " << is_ready << std::endl;     // 1
+    std::cout << "is_finished: " << is_finished << std::endl; // 0
+    
+    // Using std::boolalpha to print true/false instead of 1/0
+    std::cout << std::boolalpha;
+    std::cout << "is_ready: " << is_ready << std::endl;     // true
+    std::cout << "is_finished: " << is_finished << std::endl; // false
+    
+    return 0;
+}</code></pre>
+
+                <h3>Boolean Literals and Keywords</h3>
+                <p>C++ uses the keywords true and false as boolean literals:</p>
+                <pre><code>// Boolean literals
+bool flag1 = true;
+bool flag2 = false;
+
+// Boolean expressions evaluate to true or false
+bool result1 = (5 > 3);    // true
+bool result2 = (10 < 5);   // false
+bool result3 = (7 == 7);   // true
+bool result4 = (8 != 8);   // false</code></pre>
+
+                <h3>Comparison Operators</h3>
+                <p>Comparison operators return boolean values:</p>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int a = 10, b = 20;
+    
+    std::cout << std::boolalpha;
+    std::cout << "a == b: " << (a == b) << std::endl;  // false
+    std::cout << "a != b: " << (a != b) << std::endl;  // true
+    std::cout << "a < b: " << (a < b) << std::endl;    // true
+    std::cout << "a > b: " << (a > b) << std::endl;    // false
+    std::cout << "a <= b: " << (a <= b) << std::endl;  // true
+    std::cout << "a >= b: " << (a >= b) << std::endl;  // false
+    
+    return 0;
+}</code></pre>
+
+                <h3>Logical Operators</h3>
+                <p>Logical operators combine boolean expressions:</p>
+                <ul>
+                    <li><strong>&& (AND):</strong> True if both operands are true</li>
+                    <li><strong>|| (OR):</strong> True if at least one operand is true</li>
+                    <li><strong>! (NOT):</strong> Negates the operand</li>
+                </ul>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    bool x = true, y = false;
+    
+    std::cout << std::boolalpha;
+    std::cout << "x && y: " << (x && y) << std::endl;  // false
+    std::cout << "x || y: " << (x || y) << std::endl;  // true
+    std::cout << "!x: " << (!x) << std::endl;          // false
+    std::cout << "!y: " << (!y) << std::endl;          // true
+    
+    // Short-circuit evaluation
+    bool result = (x && y) || (x || y);  // true
+    std::cout << "Complex expression: " << result << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Boolean Conversion</h3>
+                <p>Non-boolean values can be converted to boolean:</p>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout << std::boolalpha;
+    
+    // Numeric to boolean conversion
+    int num1 = 0, num2 = 5;
+    double decimal = 0.0;
+    
+    std::cout << "bool(0): " << bool(num1) << std::endl;        // false
+    std::cout << "bool(5): " << bool(num2) << std::endl;        // true
+    std::cout << "bool(0.0): " << bool(decimal) << std::endl;   // false
+    
+    // Pointer to boolean conversion
+    int* ptr1 = nullptr;
+    int* ptr2 = new int(42);
+    
+    std::cout << "bool(nullptr): " << bool(ptr1) << std::endl;  // false
+    std::cout << "bool(valid_ptr): " << bool(ptr2) << std::endl; // true
+    
+    delete ptr2;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Conditional Statements</h3>
+                <p>Boolean expressions control program flow:</p>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int age = 25;
+    bool has_license = true;
+    
+    // if statement
+    if (age >= 18 && has_license) {
+        std::cout << "You can drive!" << std::endl;
+    } else {
+        std::cout << "You cannot drive." << std::endl;
+    }
+    
+    // Ternary operator
+    std::string status = (age >= 18) ? "Adult" : "Minor";
+    std::cout << "Status: " << status << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Boolean in Loops</h3>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    bool continue_loop = true;
+    int counter = 0;
+    
+    while (continue_loop) {
+        std::cout << "Iteration: " << counter << std::endl;
+        counter++;
+        
+        if (counter >= 5) {
+            continue_loop = false;  // Exit condition
+        }
+    }
+    
+    std::cout << "Loop finished!" << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Boolean Functions</h3>
+                <p>Functions can return boolean values:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+bool is_even(int number) {
+    return number % 2 == 0;
+}
+
+bool is_valid_age(int age) {
+    return age >= 0 && age <= 150;
+}
+
+bool contains_substring(const std::string& text, const std::string& substring) {
+    return text.find(substring) != std::string::npos;
+}
+
+int main() {
+    std::cout << std::boolalpha;
+    
+    std::cout << "is_even(4): " << is_even(4) << std::endl;
+    std::cout << "is_even(7): " << is_even(7) << std::endl;
+    std::cout << "is_valid_age(25): " << is_valid_age(25) << std::endl;
+    std::cout << "is_valid_age(-5): " << is_valid_age(-5) << std::endl;
+    
+    std::string text = "Hello, World!";
+    std::cout << "contains 'World': " << contains_substring(text, "World") << std::endl;
+    std::cout << "contains 'Python': " << contains_substring(text, "Python") << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Common Boolean Pitfalls</h3>
+                <ul>
+                    <li>Assignment (=) vs comparison (==)</li>
+                    <li>Logical operators vs bitwise operators (& vs &&, | vs ||)</li>
+                    <li>Floating-point comparisons</li>
+                    <li>Null pointer checks</li>
+                </ul>
+                <pre><code>// Common mistakes
+int x = 5;
+
+// Wrong: assignment in condition
+// if (x = 10) { ... }  // Always true, assigns 10 to x
+
+// Correct: comparison
+if (x == 10) { /* ... */ }
+
+// Wrong: bitwise AND instead of logical AND
+// if (x > 0 & y > 0) { ... }  // Bitwise operation
+
+// Correct: logical AND
+if (x > 0 && y > 0) { /* ... */ }</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a program that validates user input using boolean functions:</p>
+                <ul>
+                    <li>Create boolean functions to validate different types of input</li>
+                    <li>Implement email validation, password strength checking, and number range validation</li>
+                    <li>Use boolean logic to combine multiple validation conditions</li>
+                    <li>Provide clear feedback to the user about validation results</li>
+                    <li>Bonus: Create a user registration system with multiple validation steps</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;cctype&gt;
+
+bool is_valid_email(const std::string& email) {
+    // Basic email validation
+    size_t at_pos = email.find('@');
+    size_t dot_pos = email.find('.', at_pos);
+    
+    return at_pos != std::string::npos &&
+           dot_pos != std::string::npos &&
+           at_pos > 0 &&
+           dot_pos > at_pos + 1;
+}
+
+bool is_strong_password(const std::string& password) {
+    bool has_upper = false, has_lower = false, has_digit = false;
+    int length = password.length();
+    
+    if (length < 8) return false;
+    
+    for (char c : password) {
+        if (std::isupper(c)) has_upper = true;
+        else if (std::islower(c)) has_lower = true;
+        else if (std::isdigit(c)) has_digit = true;
+    }
+    
+    return has_upper && has_lower && has_digit;
+}
+
+bool is_in_range(int value, int min_val, int max_val) {
+    return value >= min_val && value <= max_val;
+}
+
+int main() {
+    std::string email, password;
+    int age;
+    
+    std::cout << "User Validation System" << std::endl;
+    
+    // Email validation
+    do {
+        std::cout << "Enter email: ";
+        std::getline(std::cin, email);
+    } while (!is_valid_email(email));
+    
+    // Password validation
+    do {
+        std::cout << "Enter password (min 8 chars, upper+lower+digit): ";
+        std::getline(std::cin, password);
+    } while (!is_strong_password(password));
+    
+    // Age validation
+    do {
+        std::cout << "Enter age (18-100): ";
+        std::cin >> age;
+    } while (!is_in_range(age, 18, 100));
+    
+    std::cout << "All validations passed! Registration successful." << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Quiz</h3>
+                <p>1. What are the two possible values for a bool variable in C++?</p>
+                <ul>
+                    <li>0 and 1</li>
+                    <li>true and false</li>
+                    <li>yes and no</li>
+                    <li>on and off</li>
+                </ul>
+
+                <p>2. What does the && operator do?</p>
+                <ul>
+                    <li>Logical OR</li>
+                    <li>Logical AND</li>
+                    <li>Bitwise AND</li>
+                    <li>Assignment</li>
+                </ul>
+
+                <p>3. What is the result of !true?</p>
+                <ul>
+                    <li>true</li>
+                    <li>false</li>
+                    <li>0</li>
+                    <li>1</li>
+                </ul>
+
+                <p>4. Which of these expressions evaluates to false?</p>
+                <ul>
+                    <li>5 > 3</li>
+                    <li>10 == 10</li>
+                    <li>bool(1)</li>
+                    <li>bool(nullptr)</li>
+                </ul>
+
+                <p>5. What does std::boolalpha do?</p>
+                <ul>
+                    <li>Converts numbers to boolean</li>
+                    <li>Prints true/false instead of 1/0</li>
+                    <li>Creates boolean variables</li>
+                    <li>Evaluates boolean expressions</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

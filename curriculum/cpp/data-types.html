@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - C++ Data Types</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="cpp">
+    <header>
+       <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+        <p>Your gateway to programming mastery</p>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>C++</h3>
+                <ul>
+                    <li data-topic="cpp-intro">Introduction to C++</li>
+                    <li data-topic="cpp-getting-started">Getting Started</li>
+                    <li data-topic="cpp-syntax">Syntax</li>
+                    <li data-topic="cpp-comments">Comments</li>
+                    <li data-topic="cpp-variables">Variables</li>
+                    <li data-topic="cpp-data-types" class="active">Data Types</li>
+                    <li data-topic="cpp-numbers">Numbers</li>
+                    <li data-topic="cpp-strings">Strings</li>
+                    <li data-topic="cpp-booleans">Booleans</li>
+                    <li data-topic="cpp-operators">Operators</li>
+                    <li data-topic="cpp-arrays">Arrays</li>
+                    <li data-topic="cpp-vectors">Vectors</li>
+                    <li data-topic="cpp-structures">Structures</li>
+                    <li data-topic="cpp-pointers">Pointers</li>
+                    <li data-topic="cpp-memory">Memory</li>
+                    <li data-topic="cpp-functions">Functions</li>
+                    <li data-topic="cpp-classes-objects">Classes/Objects</li>
+                    <li data-topic="cpp-inheritance">Inheritance</li>
+                    <li data-topic="cpp-polymorphism">Polymorphism</li>
+                    <li data-topic="cpp-file-handling">File Handling</li>
+                    <li data-topic="cpp-casting">Casting</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>C++ Data Types</h2>
+                <p>Data types in C++ specify the type of data that a variable can hold. They determine the size, range, and operations that can be performed on the data. C++ provides fundamental data types and allows creation of user-defined types.</p>
+
+                <h3>Fundamental Data Types</h3>
+                <p>C++ has several built-in data types that are part of the language:</p>
+
+                <h4>Integer Types</h4>
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Size</th>
+                        <th>Range</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>int</td>
+                        <td>4 bytes</td>
+                        <td>-2,147,483,648 to 2,147,483,647</td>
+                        <td>Basic integer type</td>
+                    </tr>
+                    <tr>
+                        <td>short</td>
+                        <td>2 bytes</td>
+                        <td>-32,768 to 32,767</td>
+                        <td>Short integer</td>
+                    </tr>
+                    <tr>
+                        <td>long</td>
+                        <td>4-8 bytes</td>
+                        <td>-2,147,483,648 to 2,147,483,647 (or larger)</td>
+                        <td>Long integer</td>
+                    </tr>
+                    <tr>
+                        <td>long long</td>
+                        <td>8 bytes</td>
+                        <td>-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</td>
+                        <td>Very long integer</td>
+                    </tr>
+                </table>
+
+                <h4>Floating-Point Types</h4>
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Size</th>
+                        <th>Precision</th>
+                        <th>Range</th>
+                    </tr>
+                    <tr>
+                        <td>float</td>
+                        <td>4 bytes</td>
+                        <td>6-7 decimal digits</td>
+                        <td>±3.4e±38</td>
+                    </tr>
+                    <tr>
+                        <td>double</td>
+                        <td>8 bytes</td>
+                        <td>15 decimal digits</td>
+                        <td>±1.7e±308</td>
+                    </tr>
+                    <tr>
+                        <td>long double</td>
+                        <td>8-16 bytes</td>
+                        <td>18-19 decimal digits</td>
+                        <td>±1.1e±4932</td>
+                    </tr>
+                </table>
+
+                <h4>Character Types</h4>
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Size</th>
+                        <th>Range</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>char</td>
+                        <td>1 byte</td>
+                        <td>-128 to 127 or 0 to 255</td>
+                        <td>Single character</td>
+                    </tr>
+                    <tr>
+                        <td>wchar_t</td>
+                        <td>2-4 bytes</td>
+                        <td>Larger character set</td>
+                        <td>Wide character</td>
+                    </tr>
+                </table>
+
+                <h4>Boolean Type</h4>
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Size</th>
+                        <th>Values</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>bool</td>
+                        <td>1 byte</td>
+                        <td>true, false</td>
+                        <td>Boolean values</td>
+                    </tr>
+                </table>
+
+                <h3>Type Modifiers</h3>
+                <p>Type modifiers can be used with fundamental types to modify their properties:</p>
+                <ul>
+                    <li><strong>signed:</strong> Allows negative values (default for int)</li>
+                    <li><strong>unsigned:</strong> Only positive values, doubles the range</li>
+                    <li><strong>short:</strong> Reduces size</li>
+                    <li><strong>long:</strong> Increases size</li>
+                </ul>
+                <pre><code>// Examples:
+signed int x;      // Same as int x
+unsigned int y;    // Only positive values
+short int z;       // Same as short z
+long int w;        // Same as long w
+unsigned long long big_num;</code></pre>
+
+                <h3>Void Type</h3>
+                <p>The void type represents the absence of type. It's used for:</p>
+                <ul>
+                    <li>Functions that don't return a value</li>
+                    <li>Generic pointers</li>
+                    <li>Function parameters (rare)</li>
+                </ul>
+                <pre><code>void myFunction() {
+    // Function that doesn't return anything
+}
+
+void* generic_ptr;  // Can point to any type</code></pre>
+
+                <h3>Sizeof Operator</h3>
+                <p>The sizeof operator returns the size of a data type or variable in bytes:</p>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout << "Size of int: " << sizeof(int) << " bytes" << std::endl;
+    std::cout << "Size of double: " << sizeof(double) << " bytes" << std::endl;
+    std::cout << "Size of char: " << sizeof(char) << " bytes" << std::endl;
+    
+    int x;
+    std::cout << "Size of variable x: " << sizeof(x) << " bytes" << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Type Aliases</h3>
+                <p>You can create aliases for existing types using typedef or using:</p>
+                <pre><code>// Using typedef
+typedef unsigned long ulong;
+typedef int integer;
+
+// Using 'using' (C++11)
+using ullong = unsigned long long;
+using byte = unsigned char;
+
+// Usage
+ulong big_number;
+integer count;
+ullong very_big;
+byte data;</code></pre>
+
+                <h3>Auto Type Deduction</h3>
+                <p>C++11 introduced auto keyword for automatic type deduction:</p>
+                <pre><code>auto x = 5;        // int
+auto y = 3.14;     // double
+auto z = 'A';      // char
+auto flag = true;  // bool
+
+// Useful with complex types
+std::vector&lt;int&gt; numbers = {1, 2, 3, 4, 5};
+auto it = numbers.begin();  // Iterator type</code></pre>
+
+                <h3>User-Defined Types</h3>
+                <p>C++ allows creation of custom data types:</p>
+                <ul>
+                    <li><strong>Structures (struct):</strong> Group related data</li>
+                    <li><strong>Classes:</strong> Object-oriented programming</li>
+                    <li><strong>Unions:</strong> Share memory between variables</li>
+                    <li><strong>Enumerations (enum):</strong> Named constants</li>
+                </ul>
+
+                <h4>Structures</h4>
+                <pre><code>struct Person {
+    std::string name;
+    int age;
+    double height;
+};
+
+// Usage
+Person john;
+john.name = "John";
+john.age = 30;
+john.height = 5.9;</code></pre>
+
+                <h4>Enumerations</h4>
+                <pre><code>enum Color { RED, GREEN, BLUE };
+enum Status { ACTIVE = 1, INACTIVE = 0, PENDING = 2 };
+
+// Usage
+Color my_color = RED;
+Status user_status = ACTIVE;</code></pre>
+
+                <h3>Type Conversion</h3>
+                <p>C++ supports implicit and explicit type conversion:</p>
+
+                <h4>Implicit Conversion</h4>
+                <pre><code>int x = 5;
+double y = x;  // int to double (safe)
+
+char c = 'A';
+int ascii = c;  // char to int (ASCII value)</code></pre>
+
+                <h4>Explicit Conversion (Casting)</h4>
+                <pre><code>double pi = 3.14159;
+int approx = (int)pi;  // C-style cast
+
+// C++ style casts
+int value = static_cast&lt;int&gt;(pi);
+int* ptr = reinterpret_cast&lt;int*&gt;(some_void_ptr);</code></pre>
+
+                <h3>Example Program</h3>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;iomanip&gt;  // For setprecision
+
+int main() {
+    // Different data types
+    int integer_num = 42;
+    double float_num = 3.14159;
+    char character = 'C';
+    bool boolean = true;
+    std::string text = "Hello";
+    
+    // Display sizes
+    std::cout << "Sizes in bytes:" << std::endl;
+    std::cout << "int: " << sizeof(int) << std::endl;
+    std::cout << "double: " << sizeof(double) << std::endl;
+    std::cout << "char: " << sizeof(char) << std::endl;
+    std::cout << "bool: " << sizeof(bool) << std::endl;
+    
+    // Display values
+    std::cout << "\nValues:" << std::endl;
+    std::cout << "Integer: " << integer_num << std::endl;
+    std::cout << "Float: " << std::fixed << std::setprecision(2) << float_num << std::endl;
+    std::cout << "Character: " << character << std::endl;
+    std::cout << "Boolean: " << (boolean ? "true" : "false") << std::endl;
+    std::cout << "String: " << text << std::endl;
+    
+    return 0;
+}</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a C++ program that demonstrates different data types:</p>
+                <ul>
+                    <li>Declare variables of all fundamental data types</li>
+                    <li>Use sizeof to display memory usage</li>
+                    <li>Perform type conversions</li>
+                    <li>Create a simple structure</li>
+                    <li>Use auto type deduction</li>
+                    <li>Bonus: Create an enumeration for days of the week</li>
+                </ul>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Overflow: Assigning values outside type range</li>
+                    <li>Precision loss: Converting float to int</li>
+                    <li>Uninitialized variables: May contain garbage values</li>
+                    <li>Type mismatches in operations</li>
+                    <li>Wrong size assumptions: Sizes vary by platform</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Choose appropriate data types for your needs</li>
+                    <li>Use unsigned types when negative values aren't needed</li>
+                    <li>Initialize variables to avoid undefined behavior</li>
+                    <li>Use meaningful type aliases for complex types</li>
+                    <li>Consider memory usage in resource-constrained environments</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. Which data type has the largest range for integer values?</p>
+                <ul>
+                    <li>int</li>
+                    <li>long</li>
+                    <li>long long</li>
+                    <li>short</li>
+                </ul>
+
+                <p>2. What is the size of a bool in C++?</p>
+                <ul>
+                    <li>1 bit</li>
+                    <li>1 byte</li>
+                    <li>4 bytes</li>
+                    <li>Depends on compiler</li>
+                </ul>
+
+                <p>3. Which keyword is used for automatic type deduction?</p>
+                <ul>
+                    <li>var</li>
+                    <li>auto</li>
+                    <li>typeof</li>
+                    <li>let</li>
+                </ul>
+
+                <p>4. What does the sizeof operator return?</p>
+                <ul>
+                    <li>Memory address</li>
+                    <li>Size in bits</li>
+                    <li>Size in bytes</li>
+                    <li>Type name</li>
+                </ul>
+
+                <p>5. Which of these is a user-defined data type?</p>
+                <ul>
+                    <li>int</li>
+                    <li>double</li>
+                    <li>struct</li>
+                    <li>char</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

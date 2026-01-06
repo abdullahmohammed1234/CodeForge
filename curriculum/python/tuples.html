@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Tuples</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+            <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Tuples</h2>
+                <p>Tuples in Python are immutable sequences of objects. They are similar to lists but cannot be modified after creation. Tuples are useful for storing related data that shouldn't be changed, and they can be used as dictionary keys.</p>
+
+                <h3>What are Tuples?</h3>
+                <ul>
+                    <li>Immutable sequences of objects</li>
+                    <li>Ordered collections (maintain insertion order)</li>
+                    <li>Can contain elements of different types</li>
+                    <li>Defined using parentheses () or comma separation</li>
+                    <li>Faster than lists for iteration</li>
+                    <li>Can be used as dictionary keys (unlike lists)</li>
+                    <li>Support indexing and slicing</li>
+                </ul>
+
+                <h3>Creating Tuples</h3>
+                <pre><code># Empty tuple
+empty_tuple = ()
+
+# Single element tuple (note the comma)
+single_tuple = (42,)
+single_tuple2 = 42,  # Also valid
+
+# Multiple elements
+numbers = (1, 2, 3, 4, 5)
+fruits = ("apple", "banana", "cherry")
+mixed = (1, "hello", 3.14, True)
+
+# Nested tuples
+nested = ((1, 2), (3, 4), (5, 6))
+
+# Tuple from other iterables
+list_to_tuple = tuple([1, 2, 3, 4])
+string_to_tuple = tuple("hello")  # ('h', 'e', 'l', 'l', 'o')
+
+print(numbers)      # (1, 2, 3, 4, 5)
+print(fruits)       # ('apple', 'banana', 'cherry')
+print(mixed)        # (1, 'hello', 3.14, True)
+print(string_to_tuple)  # ('h', 'e', 'l', 'l', 'o')</code></pre>
+
+                <h3>Accessing Tuple Elements</h3>
+                <pre><code>fruits = ("apple", "banana", "cherry", "orange", "grape")
+
+# Indexing (zero-based)
+print(fruits[0])    # 'apple'
+print(fruits[2])    # 'cherry'
+print(fruits[-1])   # 'grape' (last element)
+print(fruits[-2])   # 'orange' (second to last)
+
+# Slicing
+print(fruits[1:4])  # ('banana', 'cherry', 'orange')
+print(fruits[:3])   # ('apple', 'banana', 'cherry')
+print(fruits[2:])   # ('cherry', 'orange', 'grape')
+print(fruits[::2])  # ('apple', 'cherry', 'grape') - every other element
+
+# Length
+print(len(fruits))  # 5</code></pre>
+
+                <h3>Tuple Immutability</h3>
+                <pre><code>numbers = (1, 2, 3, 4, 5)
+
+# This will cause an error
+# numbers[0] = 10  # TypeError: 'tuple' object does not support item assignment
+
+# But you can create new tuples
+new_numbers = numbers[:2] + (10,) + numbers[3:]
+print(new_numbers)  # (1, 2, 10, 4, 5)
+
+# If tuple contains mutable objects, they can be modified
+mutable_tuple = ([1, 2], [3, 4])
+mutable_tuple[0].append(99)
+print(mutable_tuple)  # ([1, 2, 99], [3, 4])</code></pre>
+
+                <h3>Tuple Operations</h3>
+                <pre><code>tuple1 = (1, 2, 3)
+tuple2 = (4, 5, 6)
+
+# Concatenation
+combined = tuple1 + tuple2
+print(combined)  # (1, 2, 3, 4, 5, 6)
+
+# Repetition
+repeated = tuple1 * 3
+print(repeated)  # (1, 2, 3, 1, 2, 3, 1, 2, 3)
+
+# Membership testing
+print(2 in tuple1)      # True
+print(6 in tuple1)      # False
+
+# Counting occurrences
+numbers = (1, 2, 2, 3, 2, 4)
+print(numbers.count(2))  # 3
+
+# Finding index
+print(numbers.index(3))  # 3
+# print(numbers.index(5))  # ValueError: 5 is not in tuple</code></pre>
+
+                <h3>Tuple Unpacking</h3>
+                <pre><code># Basic unpacking
+point = (3, 4)
+x, y = point
+print(f"x = {x}, y = {y}")  # x = 3, y = 4
+
+# Unpacking with extended iterable unpacking (Python 3)
+numbers = (1, 2, 3, 4, 5)
+first, *middle, last = numbers
+print(first)   # 1
+print(middle)  # [2, 3, 4]
+print(last)    # 5
+
+# Swapping values
+a, b = 5, 10
+a, b = b, a
+print(f"a = {a}, b = {b}")  # a = 10, b = 5
+
+# Ignoring values
+name, _, age, _ = ("Alice", "female", 25, "engineer")
+print(f"{name} is {age} years old")  # Alice is 25 years old</code></pre>
+
+                <h3>Tuple Methods</h3>
+                <pre><code>numbers = (1, 2, 3, 2, 4, 2, 5)
+
+# count() - count occurrences of a value
+print(numbers.count(2))  # 3
+
+# index() - find first occurrence of a value
+print(numbers.index(4))  # 4
+print(numbers.index(2))  # 1 (first occurrence)
+
+# len() - get length
+print(len(numbers))  # 7
+
+# max() and min()
+print(max(numbers))  # 5
+print(min(numbers))  # 1
+
+# sum()
+print(sum(numbers))  # 19</code></pre>
+
+                <h3>Tuples vs Lists</h3>
+                <table>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Tuples</th>
+                        <th>Lists</th>
+                    </tr>
+                    <tr>
+                        <td>Mutability</td>
+                        <td>Immutable</td>
+                        <td>Mutable</td>
+                    </tr>
+                    <tr>
+                        <td>Syntax</td>
+                        <td>()</td>
+                        <td>[]</td>
+                    </tr>
+                    <tr>
+                        <td>Performance</td>
+                        <td>Faster</td>
+                        <td>Slower</td>
+                    </tr>
+                    <tr>
+                        <td>Memory usage</td>
+                        <td>Less</td>
+                        <td>More</td>
+                    </tr>
+                    <tr>
+                        <td>Methods</td>
+                        <td>Fewer (2)</td>
+                        <td>Many</td>
+                    </tr>
+                    <tr>
+                        <td>Use as dict keys</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                    </tr>
+                </table>
+
+                <h3>When to Use Tuples</h3>
+                <ul>
+                    <li>Storing related data that shouldn't change</li>
+                    <li>Using as dictionary keys</li>
+                    <li>Returning multiple values from functions</li>
+                    <li>String formatting with % operator</li>
+                    <li>Performance-critical code</li>
+                    <li>Ensuring data integrity</li>
+                </ul>
+
+                <h3>Mini Project</h3>
+                <p>Create a student record system using tuples:</p>
+                <ul>
+                    <li>Store student information as tuples (name, age, grades)</li>
+                    <li>Create a list of student tuples</li>
+                    <li>Implement functions to find top students, calculate averages</li>
+                    <li>Sort students by different criteria</li>
+                    <li>Display formatted student reports</li>
+                    <li>Bonus: Add search functionality by name or grade range</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>def calculate_average(grades):
+    """Calculate average of grades."""
+    return sum(grades) / len(grades) if grades else 0
+
+def find_top_student(students):
+    """Find student with highest average grade."""
+    top_student = max(students, key=lambda s: calculate_average(s[2]))
+    return top_student
+
+def display_student(student):
+    """Display formatted student information."""
+    name, age, grades = student
+    avg = calculate_average(grades)
+    print(f"Name: {name}, Age: {age}, Grades: {grades}, Average: {avg:.2f}")
+
+# Sample data
+students = [
+    ("Alice", 20, (85, 90, 88)),
+    ("Bob", 19, (78, 82, 85)),
+    ("Charlie", 21, (92, 89, 94)),
+    ("Diana", 20, (88, 91, 87))
+]
+
+print("All students:")
+for student in students:
+    display_student(student)
+
+print("\nTop student:")
+top = find_top_student(students)
+display_student(top)
+
+# Sort by average grade
+sorted_students = sorted(students, key=lambda s: calculate_average(s[2]), reverse=True)
+print("\nStudents sorted by average grade:")
+for student in sorted_students:
+    display_student(student)</code></pre>
+
+                <h3>Quiz</h3>
+                <p>1. What is the main difference between tuples and lists?</p>
+                <ul>
+                    <li>Tuples use different syntax</li>
+                    <li>Tuples are immutable</li>
+                    <li>Tuples are faster</li>
+                    <li>Tuples can store different data types</li>
+                </ul>
+
+                <p>2. How do you create a single-element tuple?</p>
+                <ul>
+                    <li>(42)</li>
+                    <li>(42,)</li>
+                    <li>42,</li>
+                    <li>Both b and c</li>
+                </ul>
+
+                <p>3. Which of these can be used as dictionary keys?</p>
+                <ul>
+                    <li>Lists</li>
+                    <li>Tuples</li>
+                    <li>Sets</li>
+                    <li>Dictionaries</li>
+                </ul>
+
+                <p>4. What does tuple unpacking allow you to do?</p>
+                <ul>
+                    <li>Modify tuple elements</li>
+                    <li>Assign tuple elements to multiple variables</li>
+                    <li>Convert tuple to list</li>
+                    <li>Sort tuple elements</li>
+                </ul>
+
+                <p>5. Which method finds the index of an element in a tuple?</p>
+                <ul>
+                    <li>find()</li>
+                    <li>index()</li>
+                    <li>search()</li>
+                    <li>locate()</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+

@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForge - Classes and Objects</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body class="python">
+    <header>
+        <div class="header-left">
+           <h1><a href="/index.html"><img src="../../assets/images/logo.png" alt="CodeForge Logo" class="logo-img"> CodeForge</a></h1>
+            <p>Your gateway to programming mastery</p>
+        </div>
+        <div class="header-right">
+            <div class="path-buttons">
+                <a href="../../python-path.html" class="path-btn python-btn">Python</a>
+                <a href="../../cpp-path.html" class="path-btn cpp-btn">C++</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Curriculum</h2>
+            <div class="curriculum-section">
+                <h3>Python</h3>
+                <ul>
+                    <li data-topic="python-intro">Introduction to Python</li>
+                    <li data-topic="python-getting-started">Getting Started</li>
+                    <li data-topic="python-syntax">Syntax</li>
+                    <li data-topic="python-comments">Comments</li>
+                    <li data-topic="python-variables">Variables</li>
+                    <li data-topic="python-data-types">Data Types</li>
+                    <li data-topic="python-numbers">Numbers</li>
+                    <li data-topic="python-strings">Strings</li>
+                    <li data-topic="python-booleans">Booleans</li>
+                    <li data-topic="python-operators">Operators</li>
+                    <li data-topic="python-if-else">If Else</li>
+                    <li data-topic="python-for-loops">For Loops</li>
+                    <li data-topic="python-while-loops">While Loops</li>
+                    <li data-topic="python-lists">Lists</li>
+                    <li data-topic="python-tuples">Tuples</li>
+                    <li data-topic="python-sets">Sets</li>
+                    <li data-topic="python-dictionaries">Dictionaries</li>
+                    <li data-topic="python-functions">Functions</li>
+                    <li data-topic="python-modules">Modules</li>
+                    <li data-topic="python-classes-objects">Classes/Objects</li>
+                    <li data-topic="python-file-handling">File Handling</li>
+                    <li data-topic="python-user-input">User Input</li>
+                    <li data-topic="python-string-formatting">String Formatting</li>
+                    <li data-topic="python-math">Math</li>
+                    <li data-topic="python-dates">Dates</li>
+                    <li data-topic="python-casing">Casing</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content">
+            <div id="description">
+                <h2>Classes and Objects</h2>
+                <p>Object-oriented programming (OOP) is a programming paradigm that organizes code around objects and classes. In Python, everything is an object, and classes provide a blueprint for creating objects with specific attributes and behaviors. Understanding classes and objects is fundamental to writing maintainable, reusable, and scalable Python code.</p>
+
+                <h3>What are Classes and Objects?</h3>
+                <p>Classes and objects provide:</p>
+                <ul>
+                    <li><strong>Encapsulation:</strong> Bundling data and methods together</li>
+                    <li><strong>Abstraction:</strong> Hiding complex implementation details</li>
+                    <li><strong>Inheritance:</strong> Creating new classes from existing ones</li>
+                    <li><strong>Polymorphism:</strong> Using the same interface for different types</li>
+                    <li><strong>Modularity:</strong> Organizing code into reusable components</li>
+                    <li><strong>Code Reusability:</strong> Creating templates for similar objects</li>
+                </ul>
+
+                <h3>Defining Classes</h3>
+                <p>The basic syntax for defining a class:</p>
+                <pre><code>class ClassName:
+    """Optional class documentation"""
+    
+    # Class attribute (shared by all instances)
+    class_attribute = "shared value"
+    
+    def __init__(self, parameter1, parameter2):
+        """Constructor - initializes object attributes"""
+        self.parameter1 = parameter1
+        self.parameter2 = parameter2
+    
+    def method_name(self):
+        """Instance method"""
+        return f"Method called on {self.parameter1}"
+
+# Creating objects (instances)
+obj1 = ClassName("value1", "value2")
+obj2 = ClassName("value3", "value4")
+
+print(obj1.method_name())  # "Method called on value1"
+print(obj2.method_name())  # "Method called on value3"</code></pre>
+
+                <h3>The self Parameter</h3>
+                <p>Understanding the self parameter:</p>
+                <pre><code>class Person:
+    def __init__(self, name, age):
+        self.name = name  # Instance attribute
+        self.age = age    # Instance attribute
+    
+    def introduce(self):
+        return f"Hi, I'm {self.name} and I'm {self.age} years old"
+    
+    def have_birthday(self):
+        self.age += 1
+        return f"Happy birthday! Now I'm {self.age}"
+
+# Creating instances
+person1 = Person("Alice", 25)
+person2 = Person("Bob", 30)
+
+print(person1.introduce())  # "Hi, I'm Alice and I'm 25 years old"
+print(person2.introduce())  # "Hi, I'm Bob and I'm 30 years old"
+
+person1.have_birthday()
+print(person1.introduce())  # "Hi, I'm Alice and I'm 26 years old"</code></pre>
+
+                <h3>Class Attributes vs Instance Attributes</h3>
+                <pre><code>class Car:
+    # Class attributes (shared by all instances)
+    wheels = 4
+    manufacturer = "Generic"
+    
+    def __init__(self, model, color):
+        # Instance attributes (unique to each instance)
+        self.model = model
+        self.color = color
+        self.mileage = 0
+    
+    def drive(self, miles):
+        self.mileage += miles
+        return f"Drove {miles} miles, total mileage: {self.mileage}"
+
+# All cars share these attributes
+print(Car.wheels)        # 4
+print(Car.manufacturer)  # "Generic"
+
+# But have unique instance attributes
+car1 = Car("Sedan", "Blue")
+car2 = Car("SUV", "Red")
+
+print(car1.model)  # "Sedan"
+print(car2.model)  # "SUV"
+
+car1.drive(100)
+print(car1.mileage)  # 100
+print(car2.mileage)  # 0</code></pre>
+
+                <h3>Methods</h3>
+                <p>Different types of methods in classes:</p>
+                <pre><code>class Calculator:
+    def __init__(self):
+        self.history = []
+    
+    def add(self, a, b):
+        """Regular instance method"""
+        result = a + b
+        self.history.append(f"{a} + {b} = {result}")
+        return result
+    
+    @classmethod
+    def create_from_string(cls, expression):
+        """Class method - can create instances"""
+        # Parse "2+3" and create calculator
+        return cls()
+    
+    @staticmethod
+    def is_valid_number(value):
+        """Static method - doesn't need instance or class"""
+        try:
+            float(value)
+            return True
+        except ValueError:
+            return False
+    
+    def get_history(self):
+        """Instance method"""
+        return self.history
+
+# Using different method types
+calc = Calculator()
+result = calc.add(5, 3)  # Instance method
+print(result)  # 8
+
+is_valid = Calculator.is_valid_number("3.14")  # Static method
+print(is_valid)  # True
+
+calc_from_string = Calculator.create_from_string("2+3")  # Class method
+print(type(calc_from_string))  # <class '__main__.Calculator'></code></pre>
+
+                <h3>Properties</h3>
+                <p>Using properties for controlled attribute access:</p>
+                <pre><code>class Temperature:
+    def __init__(self, celsius=0):
+        self._celsius = celsius
+    
+    @property
+    def celsius(self):
+        """Getter for celsius"""
+        return self._celsius
+    
+    @celsius.setter
+    def celsius(self, value):
+        """Setter for celsius with validation"""
+        if value < -273.15:
+            raise ValueError("Temperature cannot be below absolute zero")
+        self._celsius = value
+    
+    @property
+    def fahrenheit(self):
+        """Computed property for fahrenheit"""
+        return (self._celsius * 9/5) + 32
+    
+    @fahrenheit.setter
+    def fahrenheit(self, value):
+        """Setter that converts fahrenheit to celsius"""
+        self._celsius = (value - 32) * 5/9
+
+# Using properties
+temp = Temperature(20)
+print(temp.celsius)     # 20
+print(temp.fahrenheit)  # 68.0
+
+temp.fahrenheit = 100
+print(temp.celsius)     # 37.777...
+print(temp.fahrenheit)  # 100.0</code></pre>
+
+                <h3>Inheritance</h3>
+                <p>Creating subclasses that inherit from parent classes:</p>
+                <pre><code>class Animal:
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species
+    
+    def make_sound(self):
+        return "Some generic animal sound"
+    
+    def describe(self):
+        return f"I'm {self.name}, a {self.species}"
+
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name, "dog")  # Call parent constructor
+        self.breed = breed
+    
+    def make_sound(self):
+        return "Woof!"
+    
+    def fetch(self, item):
+        return f"{self.name} fetched the {item}!"
+
+class Cat(Animal):
+    def __init__(self, name, color):
+        super().__init__(name, "cat")
+        self.color = color
+    
+    def make_sound(self):
+        return "Meow!"
+    
+    def scratch(self):
+        return f"{self.name} scratched!"
+
+# Using inheritance
+dog = Dog("Buddy", "Golden Retriever")
+cat = Cat("Whiskers", "Black")
+
+print(dog.describe())     # "I'm Buddy, a dog"
+print(dog.make_sound())   # "Woof!"
+print(dog.fetch("ball"))  # "Buddy fetched the ball!"
+
+print(cat.describe())     # "I'm Whiskers, a cat"
+print(cat.make_sound())   # "Meow!"
+print(cat.scratch())      # "Whiskers scratched!"</code></pre>
+
+                <h3>Multiple Inheritance</h3>
+                <p>Inheriting from multiple parent classes:</p>
+                <pre><code>class Flyable:
+    def fly(self):
+        return "Flying through the air!"
+
+class Swimmable:
+    def swim(self):
+        return "Swimming in the water!"
+
+class Duck(Flyable, Swimmable):
+    def __init__(self, name):
+        self.name = name
+    
+    def quack(self):
+        return "Quack!"
+
+# Duck inherits from both Flyable and Swimmable
+duck = Duck("Donald")
+print(duck.quack())   # "Quack!"
+print(duck.fly())     # "Flying through the air!"
+print(duck.swim())    # "Swimming in the water!"
+
+# Check method resolution order
+print(Duck.__mro__)   # (<class '__main__.Duck'>, <class '__main__.Flyable'>, <class '__main__.Swimmable'>, <class 'object'>)</code></pre>
+
+                <h3>Polymorphism</h3>
+                <p>Using the same interface for different types:</p>
+                <pre><code>class Shape:
+    def area(self):
+        pass
+    
+    def perimeter(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+    
+    def area(self):
+        return self.width * self.height
+    
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    
+    def area(self):
+        return 3.14159 * self.radius ** 2
+    
+    def perimeter(self):
+        return 2 * 3.14159 * self.radius
+
+# Polymorphism in action
+shapes = [Rectangle(4, 5), Circle(3), Rectangle(2, 3)]
+
+for shape in shapes:
+    print(f"Area: {shape.area():.2f}, Perimeter: {shape.perimeter():.2f}")
+
+# Function that works with any shape
+def print_shape_info(shape):
+    print(f"Shape type: {type(shape).__name__}")
+    print(f"Area: {shape.area()}")
+    print(f"Perimeter: {shape.perimeter()}")
+
+print_shape_info(Rectangle(6, 8))
+print_shape_info(Circle(5))</code></pre>
+
+                <h3>Special Methods (Dunder Methods)</h3>
+                <p>Magic methods that customize object behavior:</p>
+                <pre><code>class Book:
+    def __init__(self, title, author, pages):
+        self.title = title
+        self.author = author
+        self.pages = pages
+    
+    def __str__(self):
+        """String representation for users"""
+        return f"'{self.title}' by {self.author}"
+    
+    def __repr__(self):
+        """Detailed representation for developers"""
+        return f"Book(title='{self.title}', author='{self.author}', pages={self.pages})"
+    
+    def __len__(self):
+        """Length of the book (pages)"""
+        return self.pages
+    
+    def __add__(self, other):
+        """Combine two books into a collection"""
+        if isinstance(other, Book):
+            return BookCollection([self, other])
+        return NotImplemented
+    
+    def __eq__(self, other):
+        """Check if two books are equal"""
+        if isinstance(other, Book):
+            return (self.title == other.title and 
+                   self.author == other.author)
+        return False
+
+class BookCollection:
+    def __init__(self, books):
+        self.books = books
+    
+    def __len__(self):
+        return len(self.books)
+    
+    def __getitem__(self, index):
+        return self.books[index]
+
+# Using special methods
+book1 = Book("1984", "George Orwell", 328)
+book2 = Book("1984", "George Orwell", 328)
+book3 = Book("Brave New World", "Aldous Huxley", 288)
+
+print(str(book1))      # "'1984' by George Orwell"
+print(repr(book1))     # "Book(title='1984', author='George Orwell', pages=328)"
+print(len(book1))      # 328
+
+print(book1 == book2)  # True
+print(book1 == book3)  # False
+
+collection = book1 + book3
+print(len(collection))  # 2
+print(collection[0])    # Book object</code></pre>
+
+                <h3>Class and Static Methods</h3>
+                <pre><code>class MathUtils:
+    PI = 3.14159
+    
+    @staticmethod
+    def is_prime(n):
+        """Check if a number is prime (doesn't need instance)"""
+        if n < 2:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+    
+    @classmethod
+    def from_degrees(cls, degrees):
+        """Create instance from degrees (alternative constructor)"""
+        radians = degrees * cls.PI / 180
+        return cls(radians)
+    
+    def __init__(self, radians):
+        self.radians = radians
+    
+    def to_degrees(self):
+        return self.radians * 180 / MathUtils.PI
+
+# Using static and class methods
+print(MathUtils.is_prime(17))  # True
+print(MathUtils.is_prime(18))  # False
+
+angle = MathUtils.from_degrees(90)
+print(angle.radians)     # 1.570795...
+print(angle.to_degrees()) # 90.0</code></pre>
+
+                <h3>Mini Project</h3>
+                <p>Create a comprehensive library management system using OOP:</p>
+                <ul>
+                    <li>Design classes for Book, Author, Library, and Member</li>
+                    <li>Implement inheritance for different types of books/media</li>
+                    <li>Use encapsulation to protect sensitive data</li>
+                    <li>Implement methods for borrowing, returning, and searching</li>
+                    <li>Add validation and error handling</li>
+                    <li>Create a command-line interface for the system</li>
+                    <li>Bonus: Add file persistence and advanced search features</li>
+                </ul>
+                <p>Here's a starting template:</p>
+                <pre><code>from datetime import datetime, timedelta
+import json
+
+class Book:
+    def __init__(self, title, author, isbn, pages=0):
+        self.title = title
+        self.author = author
+        self.isbn = isbn
+        self.pages = pages
+        self.is_available = True
+        self.borrower = None
+        self.due_date = None
+    
+    def __str__(self):
+        status = "Available" if self.is_available else f"Borrowed by {self.borrower}"
+        return f"'{self.title}' by {self.author} - {status}"
+    
+    def borrow(self, member_name, loan_period_days=14):
+        if not self.is_available:
+            raise ValueError(f"Book '{self.title}' is already borrowed")
+        
+        self.is_available = False
+        self.borrower = member_name
+        self.due_date = datetime.now() + timedelta(days=loan_period_days)
+    
+    def return_book(self):
+        if self.is_available:
+            raise ValueError(f"Book '{self.title}' is not borrowed")
+        
+        self.is_available = True
+        self.borrower = None
+        self.due_date = None
+    
+    def is_overdue(self):
+        if self.due_date and datetime.now() > self.due_date:
+            return True
+        return False
+
+class Author:
+    def __init__(self, name, birth_year=None, nationality=None):
+        self.name = name
+        self.birth_year = birth_year
+        self.nationality = nationality
+        self.books = []
+    
+    def add_book(self, book):
+        if isinstance(book, Book):
+            self.books.append(book)
+    
+    def get_books(self):
+        return self.books
+    
+    def __str__(self):
+        info = self.name
+        if self.birth_year:
+            info += f" ({self.birth_year}"
+            if self.nationality:
+                info += f", {self.nationality}"
+            info += ")"
+        return info
+
+class Member:
+    def __init__(self, name, member_id, email=None):
+        self.name = name
+        self.member_id = member_id
+        self.email = email
+        self.borrowed_books = []
+        self.join_date = datetime.now()
+    
+    def borrow_book(self, book):
+        if len(self.borrowed_books) >= 5:  # Max 5 books
+            raise ValueError(f"Member {self.name} has reached the borrowing limit")
+        
+        book.borrow(self.name)
+        self.borrowed_books.append(book)
+    
+    def return_book(self, book):
+        if book not in self.borrowed_books:
+            raise ValueError(f"Book '{book.title}' is not borrowed by {self.name}")
+        
+        book.return_book()
+        self.borrowed_books.remove(book)
+    
+    def get_borrowed_books(self):
+        return self.borrowed_books
+    
+    def __str__(self):
+        return f"{self.name} (ID: {self.member_id})"
+
+class Library:
+    def __init__(self, name):
+        self.name = name
+        self.books = []
+        self.members = []
+        self.authors = {}
+    
+    def add_book(self, book):
+        self.books.append(book)
+        
+        # Track author
+        if book.author not in self.authors:
+            self.authors[book.author] = Author(book.author)
+        self.authors[book.author].add_book(book)
+    
+    def add_member(self, member):
+        # Check for duplicate member IDs
+        for existing_member in self.members:
+            if existing_member.member_id == member.member_id:
+                raise ValueError(f"Member ID {member.member_id} already exists")
+        
+        self.members.append(member)
+    
+    def find_book(self, title=None, author=None, isbn=None):
+        results = []
+        for book in self.books:
+            if ((title and title.lower() in book.title.lower()) or
+                (author and author.lower() in book.author.lower()) or
+                (isbn and isbn == book.isbn)):
+                results.append(book)
+        return results
+    
+    def find_member(self, member_id):
+        for member in self.members:
+            if member.member_id == member_id:
+                return member
+        return None
+    
+    def get_available_books(self):
+        return [book for book in self.books if book.is_available]
+    
+    def get_overdue_books(self):
+        return [book for book in self.books if book.is_overdue()]
+    
+    def generate_report(self):
+        report = {
+            "total_books": len(self.books),
+            "available_books": len(self.get_available_books()),
+            "total_members": len(self.members),
+            "overdue_books": len(self.get_overdue_books()),
+            "authors": len(self.authors)
+        }
+        return report
+
+def save_library_data(library, filename="library_data.json"):
+    """Save library data to file"""
+    data = {
+        "name": library.name,
+        "books": [
+            {
+                "title": book.title,
+                "author": book.author,
+                "isbn": book.isbn,
+                "pages": book.pages,
+                "is_available": book.is_available,
+                "borrower": book.borrower,
+                "due_date": book.due_date.isoformat() if book.due_date else None
+            }
+            for book in library.books
+        ],
+        "members": [
+            {
+                "name": member.name,
+                "member_id": member.member_id,
+                "email": member.email,
+                "join_date": member.join_date.isoformat(),
+                "borrowed_books": [book.isbn for book in member.borrowed_books]
+            }
+            for member in library.members
+        ]
+    }
+    
+    with open(filename, 'w') as file:
+        json.dump(data, file, indent=2)
+
+def load_library_data(filename="library_data.json"):
+    """Load library data from file"""
+    try:
+        with open(filename, 'r') as file:
+            data = json.load(file)
+        
+        library = Library(data["name"])
+        
+        # Load books
+        for book_data in data["books"]:
+            book = Book(
+                book_data["title"],
+                book_data["author"],
+                book_data["isbn"],
+                book_data["pages"]
+            )
+            book.is_available = book_data["is_available"]
+            book.borrower = book_data["borrower"]
+            if book_data["due_date"]:
+                book.due_date = datetime.fromisoformat(book_data["due_date"])
+            library.add_book(book)
+        
+        # Load members
+        for member_data in data["members"]:
+            member = Member(
+                member_data["name"],
+                member_data["member_id"],
+                member_data["email"]
+            )
+            member.join_date = datetime.fromisoformat(member_data["join_date"])
+            
+            # Restore borrowed books
+            for isbn in member_data["borrowed_books"]:
+                for book in library.books:
+                    if book.isbn == isbn:
+                        member.borrowed_books.append(book)
+                        break
+            
+            library.add_member(member)
+        
+        return library
+    except FileNotFoundError:
+        return Library("Default Library")
+
+def main():
+    library = load_library_data()
+    
+    while True:
+        print("\n" + "="*50)
+        print(f"    {library.name.upper()} MANAGEMENT SYSTEM")
+        print("="*50)
+        print("1. Add Book")
+        print("2. Add Member")
+        print("3. Borrow Book")
+        print("4. Return Book")
+        print("5. Search Books")
+        print("6. View Available Books")
+        print("7. View Member Details")
+        print("8. Generate Report")
+        print("9. Save Data")
+        print("10. Exit")
+        print("="*50)
+        
+        choice = input("Enter your choice (1-10): ").strip()
+        
+        try:
+            if choice == "1":
+                title = input("Book title: ").strip()
+                author = input("Author: ").strip()
+                isbn = input("ISBN: ").strip()
+                pages = int(input("Pages (optional): ") or 0)
+                
+                book = Book(title, author, isbn, pages)
+                library.add_book(book)
+                print(f"Added book: {book}")
+                
+            elif choice == "2":
+                name = input("Member name: ").strip()
+                member_id = input("Member ID: ").strip()
+                email = input("Email (optional): ").strip() or None
+                
+                member = Member(name, member_id, email)
+                library.add_member(member)
+                print(f"Added member: {member}")
+                
+            elif choice == "3":
+                member_id = input("Member ID: ").strip()
+                member = library.find_member(member_id)
+                
+                if not member:
+                    print("Member not found.")
+                    continue
+                
+                print("Available books:")
+                available_books = library.get_available_books()
+                if not available_books:
+                    print("No books available.")
+                    continue
+                
+                for i, book in enumerate(available_books, 1):
+                    print(f"{i}. {book}")
+                
+                try:
+                    book_choice = int(input("Select book number: ")) - 1
+                    selected_book = available_books[book_choice]
+                    member.borrow_book(selected_book)
+                    print(f"{member.name} borrowed '{selected_book.title}'")
+                except (ValueError, IndexError):
+                    print("Invalid selection.")
+                    
+            elif choice == "4":
+                member_id = input("Member ID: ").strip()
+                member = library.find_member(member_id)
+                
+                if not member:
+                    print("Member not found.")
+                    continue
+                
+                if not member.borrowed_books:
+                    print("Member has no borrowed books.")
+                    continue
+                
+                print("Borrowed books:")
+                for i, book in enumerate(member.borrowed_books, 1):
+                    status = "OVERDUE" if book.is_overdue() else "OK"
+                    print(f"{i}. {book} - {status}")
+                
+                try:
+                    book_choice = int(input("Select book number to return: ")) - 1
+                    selected_book = member.borrowed_books[book_choice]
+                    member.return_book(selected_book)
+                    print(f"Returned '{selected_book.title}'")
+                except (ValueError, IndexError):
+                    print("Invalid selection.")
+                    
+            elif choice == "5":
+                search_term = input("Search term (title, author, or ISBN): ").strip()
+                results = library.find_book(title=search_term, author=search_term, isbn=search_term)
+                
+                if results:
+                    print(f"Found {len(results)} book(s):")
+                    for book in results:
+                        print(f"  {book}")
+                else:
+                    print("No books found.")
+                    
+            elif choice == "6":
+                available = library.get_available_books()
+                if available:
+                    print("Available books:")
+                    for book in available:
+                        print(f"  {book}")
+                else:
+                    print("No books available.")
+                    
+            elif choice == "7":
+                member_id = input("Member ID: ").strip()
+                member = library.find_member(member_id)
+                
+                if member:
+                    print(f"Member: {member}")
+                    print(f"Joined: {member.join_date.strftime('%Y-%m-%d')}")
+                    print(f"Borrowed books: {len(member.borrowed_books)}")
+                    
+                    if member.borrowed_books:
+                        print("Current loans:")
+                        for book in member.borrowed_books:
+                            due = book.due_date.strftime('%Y-%m-%d') if book.due_date else "N/A"
+                            status = "OVERDUE" if book.is_overdue() else "OK"
+                            print(f"  '{book.title}' - Due: {due} ({status})")
+                else:
+                    print("Member not found.")
+                    
+            elif choice == "8":
+                report = library.generate_report()
+                print("\nLibrary Report:")
+                print(f"  Total Books: {report['total_books']}")
+                print(f"  Available Books: {report['available_books']}")
+                print(f"  Total Members: {report['total_members']}")
+                print(f"  Overdue Books: {report['overdue_books']}")
+                print(f"  Authors: {report['authors']}")
+                
+                overdue = library.get_overdue_books()
+                if overdue:
+                    print("\nOverdue books:")
+                    for book in overdue:
+                        print(f"  {book} - Due: {book.due_date.strftime('%Y-%m-%d')}")
+                        
+            elif choice == "9":
+                save_library_data(library)
+                print("Data saved successfully!")
+                
+            elif choice == "10":
+                save_library_data(library)
+                print("Thank you for using the Library Management System!")
+                break
+                
+            else:
+                print("Invalid choice. Please select 1-10.")
+                
+        except ValueError as e:
+            print(f"Invalid input: {e}")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+        
+        input("\nPress Enter to continue...")
+
+if __name__ == "__main__":
+    main()</code></pre>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Use meaningful class and method names</li>
+                    <li>Keep classes focused on single responsibilities</li>
+                    <li>Use properties for controlled attribute access</li>
+                    <li>Document classes and methods with docstrings</li>
+                    <li>Use inheritance appropriately (favor composition over inheritance)</li>
+                    <li>Implement proper encapsulation with private attributes</li>
+                    <li>Use class methods and static methods when appropriate</li>
+                    <li>Follow naming conventions (CamelCase for classes)</li>
+                </ul>
+
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Forgetting self parameter in instance methods</li>
+                    <li>Using class attributes when instance attributes are needed</li>
+                    <li>Not calling parent class constructors in inheritance</li>
+                    <li>Overusing inheritance instead of composition</li>
+                    <li>Not implementing proper encapsulation</li>
+                    <li>Mixing different concerns in the same class</li>
+                    <li>Not handling method overriding correctly</li>
+                    <li>Creating circular dependencies between classes</li>
+                </ul>
+
+                <h3>Quiz</h3>
+                <p>1. What is the purpose of the __init__ method?</p>
+                <ul>
+                    <li>To create a class</li>
+                    <li>To initialize object attributes</li>
+                    <li>To define class methods</li>
+                    <li>To create instances</li>
+                </ul>
+
+                <p>2. What does self refer to in a class method?</p>
+                <ul>
+                    <li>The class itself</li>
+                    <li>The current instance</li>
+                    <li>The parent class</li>
+                    <li>The method name</li>
+                </ul>
+
+                <p>3. Which method is called when you print an object?</p>
+                <ul>
+                    <li>__init__</li>
+                    <li>__str__</li>
+                    <li>__repr__</li>
+                    <li>__len__</li>
+                </ul>
+
+                <p>4. What is inheritance in OOP?</p>
+                <ul>
+                    <li>Creating multiple instances of a class</li>
+                    <li>Creating a new class from an existing class</li>
+                    <li>Combining two classes into one</li>
+                    <li>Converting a class to an object</li>
+                </ul>
+
+                <p>5. What is polymorphism?</p>
+                <ul>
+                    <li>Having multiple classes</li>
+                    <li>Using the same interface for different types</li>
+                    <li>Creating private methods</li>
+                    <li>Using class attributes</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 CodeForge. All rights reserved.</p>
+    </footer>
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
+
+
+
+
+
